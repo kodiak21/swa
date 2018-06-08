@@ -6,6 +6,7 @@ public enum CredentialType {
 	//neu
 	
 	//hi
+	//neuster Kommentar
 }
 
 //Kein Gott 1234
