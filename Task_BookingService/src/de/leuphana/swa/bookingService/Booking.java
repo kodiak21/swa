@@ -4,7 +4,7 @@ public class Booking {
 	private String header;
 	private String body;
 	private String footer;
-	//ÜBERFLÜSSIGER KOMMENTAR
+
 	public String getHeader() {
 		return header;
 	}
