@@ -8,9 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import de.leuphana.swa.personService.LegalPerson;
-import de.leuphana.swa.personService.NaturalPerson;
 import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
 
 class isNameCorrect {
 

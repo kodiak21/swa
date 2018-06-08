@@ -1,7 +1,5 @@
 package mvc;
 
-import de.leuphana.swa.personService.Person;
-
 public class NaturalCommand implements Command {
 
 	private User theUser;
