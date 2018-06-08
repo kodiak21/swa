@@ -6,4 +6,4 @@ public enum CredentialType {
 	//neu
 }
 
-//Kein Gott 1234
+//Kein Gott 123
