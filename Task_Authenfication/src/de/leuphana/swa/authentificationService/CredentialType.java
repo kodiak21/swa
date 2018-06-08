@@ -6,5 +6,4 @@ public enum CredentialType {
 	//neu
 }
 
-//Kein Gott 123
-//Wusel Dusel
+//Kein Gott 1234
