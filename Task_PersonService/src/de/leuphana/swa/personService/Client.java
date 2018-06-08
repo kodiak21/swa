@@ -1,7 +1,5 @@
 package de.leuphana.swa.personService;
 
-import java.io.Console;
-
 public class Client {
 	
 	//PersonService nach Method Factory Pattern

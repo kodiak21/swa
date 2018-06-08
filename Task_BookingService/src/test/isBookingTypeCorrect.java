@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import de.leuphana.swa.bookingService.Booking;
 import de.leuphana.swa.bookingService.BookingBuilder;
 import de.leuphana.swa.bookingService.BookingType;
-import de.leuphana.swa.bookingService.Client;
 
 class isBookingTypeCorrect {
 

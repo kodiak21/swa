@@ -1,7 +1,5 @@
 package de.leuphana.swa.organisationService;
 
-import java.util.Iterator;
-
 public class UserIndividual implements User{
 
 	private int userId;
