@@ -1,12 +1,15 @@
 package de.leuphana.swa.authentificationService;
 
-public class EyeScan implements AuthenficationMethod {
+public class EyeScanStrategy implements AuthenficationMethod {
 
+	private boolean isAuthenficated;
+	
 	String text = "Idenfified by EyeScan";
 	
 	@Override
-	public void authenficateSubject() {
+	public boolean authenficateSubject() {
 		System.out.println(text);
+		return isAuthenficated;
 	}
 
 	public String toString() {

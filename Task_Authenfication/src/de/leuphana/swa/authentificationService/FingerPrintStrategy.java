@@ -1,13 +1,16 @@
 package de.leuphana.swa.authentificationService;
 
-public class FingerPrint implements AuthenficationMethod {
+public class FingerPrintStrategy implements AuthenficationMethod {
 
+	private boolean isAuthenficated = true;
+	
 	String text = "Idenfified by Fingerprint";
 
 	@Override
-	public void authenficateSubject() {
+	public boolean authenficateSubject() {
 
 		System.out.println(text);
+		return isAuthenficated;
 
 	}
 	

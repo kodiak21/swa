@@ -16,15 +16,15 @@ public class AuthentificationMethodFactory {
 	}
 
 	private static AuthenficationMethod createEyeScan() {
-		return new EyeScan();
+		return new EyeScanStrategy();
 	}
 
 	private static AuthenficationMethod createFingerPrint() {
-		return new FingerPrint();
+		return new FingerPrintStrategy();
 	}
 
 	private static AuthenficationMethod createUserName() {
-		return new UserName();
+		return new UserNameStrategy();
 	}
 	
 }
