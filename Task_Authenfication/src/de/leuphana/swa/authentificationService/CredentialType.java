@@ -15,3 +15,8 @@ public enum CredentialType {
 //Wusel Dusel
 //Ich mag kein GitHub
 //ich auch nicht
+<<<<<<< HEAD
+=======
+//Neuer branch1
+//Ich bin da
+>>>>>>> branch 'master' of https://github.com/kodiak21/swa.git
