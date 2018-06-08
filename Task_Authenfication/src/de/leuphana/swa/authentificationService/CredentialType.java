@@ -4,4 +4,6 @@ public enum CredentialType {
 	USERNAME, FINGERPRINT, EYESCAN;
 	// Ach gott
 	//neu
+	
+	//hi
 }
