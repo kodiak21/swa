@@ -8,6 +8,7 @@ public enum CredentialType {
 	//hi
 	//neuster Kommentar
 	//hallo123
+	//Hello Friends
 }
 
 //Kein Gott 1234
