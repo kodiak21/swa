@@ -10,6 +10,7 @@ public class Client {
 		
 		AuthenficationMethod text = AuthentificationMethodFactory.getAuthenticationMethod(credentialType);
 
-		System.out.println(text);
+		if(credentialType == CredentialType.EYESCAN || credentialType == CredentialType.FINGERPRINT)
+			System.out.println(text);
 	}
 }
