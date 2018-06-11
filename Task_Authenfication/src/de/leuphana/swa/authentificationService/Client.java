@@ -6,7 +6,7 @@ public class Client {
 	
 	public static void main(String[] args ) {
 		
-		CredentialType credentialType = CredentialType.USERNAME;
+		CredentialType credentialType = CredentialType.FINGERPRINT;
 		
 		AuthenficationMethod text = AuthentificationMethodFactory.getAuthenticationMethod(credentialType);
 
