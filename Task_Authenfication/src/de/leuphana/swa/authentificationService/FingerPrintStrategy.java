@@ -4,12 +4,11 @@ public class FingerPrintStrategy implements AuthenficationMethod {
 	
 	String text = "Idenfified by Fingerprint";
 
-	public boolean authenficateSubject(boolean isAuthenficated){
+	public boolean authenficateSubject(){
+		boolean isAuthenficated = true;
+		System.out.print(text);
 		return isAuthenficated;
 	}
 	
-	public String toString() {
-		return text.toString();	
-	}
 
 }
