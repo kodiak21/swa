@@ -6,10 +6,11 @@ public class Client {
 	
 	public static void main(String[] args ) {
 		
-		CredentialType credentialType = CredentialType.USERNAME;
+		CredentialType credentialType = CredentialType.FINGERPRINT;
 		
 		AuthenficationMethod text = AuthentificationMethodFactory.getAuthenticationMethod(credentialType);
 
-		System.out.println(text);
+		if(credentialType == CredentialType.EYESCAN || credentialType == CredentialType.FINGERPRINT)
+			System.out.println(text);
 	}
 }
