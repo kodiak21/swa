@@ -24,6 +24,7 @@ public class UserNameStrategy implements AuthenficationMethod{
     			System.out.println(text);
     			isAuthenficated = true;
     		} else {
+    			System.out.println("Wrong password entered!");
     			authenficateSubject();
     			}
         }
