@@ -2,43 +2,76 @@ package de.leuphana.swa.statisticService;
 
 public class BookingVisitor implements Visitor {
 
-	private int countPayPal;
-	private int countGoogleWallet;
-	private int countMoneyWallet;
+	private int countPayPalGerman;
+	private int countGoogleWalletGerman;
+	private int countMoneyWalletGerman;
+	
+	private int countPayPalEnglish;
+	private int countGoogleWalletEnglish;
+	private int countMoneyWalletEnglish;
 
-	public int visit(Booking booking, PaymentType paymentType) {
-		
-		switch(paymentType) {
-		case PAYPAL:
-			countPayPal += 1;
-			return getCountPayPal();
-		case GOOGLEWALLET:
-			countGoogleWallet +=1;
-			return getCountGoogleWallet();
-		case MONEYWALLET:
-			countMoneyWallet +=1;
-			return getCountMoneyWallet();
-		default:
-			break;
+	public int visit(Booking booking, BookingType bookingType, PaymentType paymentType) {
+
+		if (bookingType == BookingType.GERMAN) {
+			switch (paymentType) {
+			case PAYPAL:
+				countPayPalGerman += 1;
+				return getCountPayPalGerman();
+			case GOOGLEWALLET:
+				countGoogleWalletGerman += 1;
+				return getCountGoogleWalletGerman();
+			case MONEYWALLET:
+				countMoneyWalletGerman += 1;
+				return getCountMoneyWalletGerman();
+			default:
+				break;
+			}
+		}else if(bookingType == BookingType.ENGLISH) {
+			switch (paymentType) {
+			case PAYPAL:
+				countPayPalEnglish += 1;
+				return getCountPayPalEnglish();
+			case GOOGLEWALLET:
+				countGoogleWalletEnglish += 1;
+				return getCountGoogleWalletEnglish();
+			case MONEYWALLET:
+				countMoneyWalletEnglish += 1;
+				return getCountMoneyWalletEnglish();
+			default:
+				break;
+			}
 		}
 		
-		int total = countPayPal + countGoogleWallet + countMoneyWallet;
-		
+		int total = countPayPalGerman + countGoogleWalletGerman 
+				+ countMoneyWalletGerman + countPayPalEnglish + countGoogleWalletEnglish 
+				+ countMoneyWalletEnglish;
+
 		return total;
-		
+
+	}
+
+	public int getCountPayPalGerman() {
+		return countPayPalGerman;
+	}
+
+	public int getCountGoogleWalletGerman() {
+		return countGoogleWalletGerman;
+	}
+
+	public int getCountMoneyWalletGerman() {
+		return countMoneyWalletGerman;
 	}
 	
-	public int getCountPayPal() {
-		return countPayPal;
+	public int getCountPayPalEnglish() {
+		return countPayPalEnglish;
 	}
 
-	public int getCountGoogleWallet() {
-		return countGoogleWallet;
+	public int getCountGoogleWalletEnglish() {
+		return countGoogleWalletEnglish;
 	}
 
-	public int getCountMoneyWallet() {
-		return countMoneyWallet;
+	public int getCountMoneyWalletEnglish() {
+		return countMoneyWalletEnglish;
 	}
-
 
 }
