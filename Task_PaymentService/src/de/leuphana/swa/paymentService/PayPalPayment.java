@@ -1,29 +1,16 @@
 package de.leuphana.swa.paymentService;
 
+import de.leuphana.swa.authentificationService.CredentialType;
+
 public class PayPalPayment extends Payment {
 
-	@Override
-	void authenficateUser(CredentialType credentialType) {
-		System.out.print("User is identified ");
-		
-		try {
-		switch(credentialType) {
-		case USERNAME:
-			System.out.print("via Username\n");
-			break;
-		case FINGERPRINT:
-			System.out.print("via fingerprint\n");
-			break;
-		case EYESCAN:
-			System.out.print("via eyescan\n");
-			break;
-		default:
-			break;
-		}}catch(Exception e) {
-			e.getMessage();
-		}
+
+	public PayPalPayment(Account senderAccount, Account receiverAccount, float currencyAmount,
+			CredentialType credentialType) {
+		super(senderAccount, receiverAccount, currencyAmount, credentialType);
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	void transferMoney(Account sender, Account receiver, float amount) {
 		System.out.println("PayPal is choosen !");
