@@ -1,5 +1,7 @@
 package de.leuphana.swa.statisticService;
 
+import de.leuphana.swa.bookingService.BookingType;
+
 public class Booking implements Visitable {
 
 	@Override
