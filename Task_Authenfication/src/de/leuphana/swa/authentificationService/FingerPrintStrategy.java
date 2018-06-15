@@ -6,7 +6,7 @@ public class FingerPrintStrategy implements AuthenficationMethod {
 
 	public boolean authenficateSubject(){
 		boolean isAuthenficated = true;
-		System.out.print(text);
+		System.out.println(text);
 		return isAuthenficated;
 	}
 	

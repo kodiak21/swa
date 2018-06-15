@@ -1,25 +1,54 @@
 package de.leuphana.swa.paymentService;
 
+import de.leuphana.swa.authentificationService.AuthenficationMethod;
+import de.leuphana.swa.authentificationService.AuthentificationMethodFactory;
+import de.leuphana.swa.authentificationService.Subject;
+import de.leuphana.swa.authentificationService.CredentialType;
+
 public abstract class Payment {
 	
-	private float amount;
-	private Account sender;
-	private Account receiver;
-
-	abstract void authenficateUser(CredentialType credentialType);
-	abstract void transferMoney(Account sender, Account receiver, float amount);
-	abstract void confirmPayment();
+	Account senderAccount;
+	Account receiverAccount;
+	float currencyAmount;
+	CredentialType credentialType;
 	
-	public final void payAmount(Account sender, Account receiver, float amount, CredentialType credentialType) {
+	public Payment(Account senderAccount, Account receiverAccount, float currencyAmount, CredentialType credentialType){
+		this.senderAccount = senderAccount;
+		this.receiverAccount = receiverAccount;
+		this.currencyAmount = currencyAmount;
+		this.credentialType = credentialType;
+	}
+	
+	private boolean authentificateUser(CredentialType credentialType, Account senderAccount) {
+		boolean authentificatet;
+		Subject subject;
 		
-		//authenficate User
-		authenficateUser(credentialType);
+		//TODO muss noch variabel gestaltet werden, Einbindung von Authentification Subject bzw PersonService-PErson
+		subject = Subject.NATURALPERSON;
 		
-		//transfer money
-		transferMoney(sender, receiver, amount);
+		AuthenficationMethod authenficationMethod = AuthentificationMethodFactory.getAuthenticationMethod(credentialType, subject);
+		authentificatet = authenficationMethod.authenficateSubject();
 		
-		//confirm payment
-		confirmPayment();
+		return authentificatet;
+	};
+	abstract void transferMoney(Account sender, Account receiver, float amount);
+	private void confirmPayment() {
+		System.out.println("transaction completed !");
+	}
+	
+	public final void payAmount() {
 		
+			//authenficate User
+		if (authentificateUser(credentialType, senderAccount)) {
+		
+			//transfer money
+			transferMoney(senderAccount, receiverAccount, currencyAmount);
+			
+			//confirm payment
+			confirmPayment();
+			
+		} else {
+			System.out.println("transaction failed, user not authentificated!");
+		}
 	}
 }
