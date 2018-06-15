@@ -4,57 +4,44 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class UserGroup implements User {
+public class UserGroup extends User {
+
 
 	List<User> users = new ArrayList<User>();
-
-	private String userName;
-
-	private int userGroupId;
-
-	public UserGroup(int userGroupId, String userName) {
-		this.userName = userName;
-		this.userGroupId = userGroupId;
+	
+	protected UserGroup(String userName, int userId) {
+		super(userName, userId);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void add(User user) {
-		users.add(user);
-	}
-
-	@Override
-	public void remove(User user) {
-		users.remove(user);
-	}
-
-	@Override
-	public String getName() {
-		return userName;
-	}
-
-	@Override
-	public void print() {
+	void printUserInformation() {
 		System.out.println("-------------");
-		System.out.print("Name= " + getName());
-		System.out.println("-------------");
+		System.out.println("Groupname= " + getName());
+		System.out.println("Gruppengröße= " + countUser());
+		System.out.println("");
 
 		Iterator<User> userIterator = users.iterator();
 		while (userIterator.hasNext()) {
 			User user = userIterator.next();
-			user.print();
-		}
-
-	}
-
-	@Override
-	public void add(UserGroup usergroup) {}
-
-	@Override
-	public void remove(UserGroup usergroup) {}
-
-	@Override
-	public int getUserGroupId() {
-		return userGroupId;	
+			user.printUserInformation();
+		}	
 	}
 	
+	@Override
+	int countUser() {
+		int count = 1;
+		for (User user: users) {
+			count += user.countUser();
+		}
+		return count;
+	}
+	
+	public void add(User user) {
+		this.users.add(user);
+	}
+	
+	public void remove(User user) {
+			this.users.remove(user);
+	}
 }
