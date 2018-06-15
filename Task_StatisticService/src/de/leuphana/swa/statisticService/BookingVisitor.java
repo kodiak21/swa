@@ -1,79 +1,123 @@
 package de.leuphana.swa.statisticService;
 
-import de.leuphana.swa.bookingService.BookingType;
+import java.util.List;
 
-public class BookingVisitor implements Visitor {
+public class BookingVisitor extends Visitor {
 
-	private int countPayPalGerman;
-	private int countGoogleWalletGerman;
-	private int countMoneyWalletGerman;
+	int payAmountTotal;
+	String currency;
+	PaymentType paymentType;
+	int bookingCount;
+	int payAmountTotalDollar;
 	
-	private int countPayPalEnglish;
-	private int countGoogleWalletEnglish;
-	private int countMoneyWalletEnglish;
-
-	public int visit(Booking booking, BookingType bookingType, PaymentType paymentType) {
-
-		if (bookingType == BookingType.GERMAN) {
-			switch (paymentType) {
-			case PAYPAL:
-				countPayPalGerman += 1;
-				return getCountPayPalGerman();
-			case GOOGLEWALLET:
-				countGoogleWalletGerman += 1;
-				return getCountGoogleWalletGerman();
-			case MONEYWALLET:
-				countMoneyWalletGerman += 1;
-				return getCountMoneyWalletGerman();
-			default:
-				break;
-			}
-		}else if(bookingType == BookingType.ENGLISH) {
-			switch (paymentType) {
-			case PAYPAL:
-				countPayPalEnglish += 1;
-				return getCountPayPalEnglish();
-			case GOOGLEWALLET:
-				countGoogleWalletEnglish += 1;
-				return getCountGoogleWalletEnglish();
-			case MONEYWALLET:
-				countMoneyWalletEnglish += 1;
-				return getCountMoneyWalletEnglish();
-			default:
-				break;
+	public BookingVisitor() {
+		this.bookingCount = 0;
+		this.payAmountTotal = 0;
+		this.currency ="";
+		this.paymentType = null;
+		this.payAmountTotalDollar = 0;
+	}
+	
+	public void getGermanBookingsPaidByPayPal (List<Booking> bookings) {
+		this.paymentType = PaymentType.PAYPAL;
+		for(Booking booking : bookings) {
+			if (booking.paymentType == PaymentType.PAYPAL && booking instanceof GermanBooking) {
+				booking.accept(this);
 			}
 		}
-		
-		int total = countPayPalGerman + countGoogleWalletGerman 
-				+ countMoneyWalletGerman + countPayPalEnglish + countGoogleWalletEnglish 
-				+ countMoneyWalletEnglish;
-
-		return total;
-
+		System.out.println("Es gab " + bookingCount + " Deutsche PayPal-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		this.bookingCount = 0;
+		this.payAmountTotal = 0;
+		this.currency ="";
+		this.paymentType = null;
 	}
-
-	public int getCountPayPalGerman() {
-		return countPayPalGerman;
+	public void getGermanBookingsPaidByGoogleWallet (List<Booking> bookings) {
+		this.paymentType = PaymentType.GOOGLEWALLET;
+		for(Booking booking : bookings) {
+			if (booking.paymentType == PaymentType.GOOGLEWALLET && booking instanceof GermanBooking) {
+				booking.accept(this);
+			}
+		}
+		System.out.println("Es gab " + bookingCount + " Deutsche GoogleWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		this.bookingCount = 0;
+		this.payAmountTotal = 0;
+		this.currency ="";
+		this.paymentType = null;
 	}
-
-	public int getCountGoogleWalletGerman() {
-		return countGoogleWalletGerman;
+	public void getGermanBookingsPaidByMoneyWallet (List<Booking> bookings) {
+		this.paymentType = PaymentType.MONEYWALLET;
+		for(Booking booking : bookings) {
+			if (booking.paymentType == PaymentType.MONEYWALLET && booking instanceof GermanBooking) {
+				booking.accept(this);
+			}
+		}
+		System.out.println("Es gab " + bookingCount + " Deutsche MoneyWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		this.bookingCount = 0;
+		this.payAmountTotal = 0;
+		this.currency ="";
+		this.paymentType = null;
 	}
-
-	public int getCountMoneyWalletGerman() {
-		return countMoneyWalletGerman;
+	public void getEnglishBookingsPaidByPayPal (List<Booking> bookings) {
+		this.paymentType = PaymentType.PAYPAL;
+		for(Booking booking : bookings) {
+			if (booking.paymentType == PaymentType.PAYPAL && booking instanceof GermanBooking) {
+				booking.accept(this);
+			}
+		}
+		System.out.println("Es gab " + bookingCount + " Englische PayPal-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		System.out.println("Das sind " + payAmountTotal + "Euro");
+		this.bookingCount = 0;
+		this.payAmountTotal = 0;
+		this.currency ="";
+		this.paymentType = null;
+		this.payAmountTotalDollar = 0;
+	}
+	public void getEnglishBookingsPaidByGoogleWallet (List<Booking> bookings) {
+		this.paymentType = PaymentType.GOOGLEWALLET;
+		for(Booking booking : bookings) {
+			if (booking.paymentType == PaymentType.GOOGLEWALLET && booking instanceof GermanBooking) {
+				booking.accept(this);
+			}
+		}
+		System.out.println("Es gab " + bookingCount + " Englische GoogleWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		System.out.println("Das sind " + payAmountTotal + "Euro");
+		this.bookingCount = 0;
+		this.payAmountTotal = 0;
+		this.currency ="";
+		this.paymentType = null;
+		this.payAmountTotalDollar = 0;
+	}
+	public void getEnglishBookingsPaidByMoneyWallet (List<Booking> bookings) {
+		this.paymentType = PaymentType.MONEYWALLET;
+		for(Booking booking : bookings) {
+			if (booking.paymentType == PaymentType.MONEYWALLET && booking instanceof GermanBooking) {
+				booking.accept(this);
+			}
+		}
+		System.out.println("Es gab " + bookingCount + " Englische MoneyWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		System.out.println("Das sind " + payAmountTotal + "Euro");
+		this.bookingCount = 0;
+		this.payAmountTotal = 0;
+		this.currency ="";
+		this.paymentType = null;
+		this.payAmountTotalDollar = 0;
 	}
 	
-	public int getCountPayPalEnglish() {
-		return countPayPalEnglish;
+	
+	public void visit(EnglishBooking eb) {
+		this.currency = eb.currency;
+		this.payAmountTotalDollar += eb.payAmount;
+		bookingCount++;
+		this.payAmountTotal += eb.payAmount*eb.ratio;
+	}
+	
+	public void visit(GermanBooking gb) {
+		this.currency = gb.currency;
+		this.payAmountTotal += gb.payAmount;
+
+		bookingCount++;
 	}
 
-	public int getCountGoogleWalletEnglish() {
-		return countGoogleWalletEnglish;
-	}
-
-	public int getCountMoneyWalletEnglish() {
-		return countMoneyWalletEnglish;
-	}
+		
 
 }

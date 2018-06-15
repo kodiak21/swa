@@ -13,7 +13,7 @@ public class Client {
 		PaymentType paymentType = PaymentType.PAYPAL;
 		BookingType bookingType = BookingType.GERMAN;
 		
-		Booking booking = new Booking();
+		EnglishBooking booking = new EnglishBooking();
 		
 		int total = visitor.visit(booking, bookingType, paymentType);
 		
