@@ -6,10 +6,13 @@ public class Client {
 	
 	public static void main(String[] args ) {
 
+		Subject subject;
+		subject = Subject.NATURALPERSON;
+		
 		CredentialType credentialType;
 		credentialType = CredentialType.USERNAME;
 
-		AuthenficationMethod authenficationMethod = AuthentificationMethodFactory.getAuthenticationMethod(credentialType);
+		AuthenficationMethod authenficationMethod = AuthentificationMethodFactory.getAuthenticationMethod(credentialType, subject);
 
 		authenficationMethod.authenficateSubject();
 	}

@@ -2,16 +2,20 @@ package de.leuphana.swa.authentificationService;
 
 public class AuthentificationMethodFactory {
 
-	public static AuthenficationMethod getAuthenticationMethod(CredentialType credentialType) {
-		switch (credentialType) {
-		case USERNAME:
+	public static AuthenficationMethod getAuthenticationMethod(CredentialType credentialType, Subject subject) {
+		if (subject == Subject.NATURALPERSON) {
+			switch (credentialType) {
+			case USERNAME:
+				return createUserName();
+			case FINGERPRINT:
+				return createFingerPrint();
+			case EYESCAN:
+				return createEyeScan();
+			default:
+				return null;
+			}
+		} else {
 			return createUserName();
-		case FINGERPRINT:
-			return createFingerPrint();
-		case EYESCAN:
-			return createEyeScan();
-		default:
-			return null;
 		}
 	}
 
