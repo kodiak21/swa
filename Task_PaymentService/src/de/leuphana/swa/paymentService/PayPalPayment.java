@@ -34,12 +34,6 @@ public class PayPalPayment extends Payment {
 		
 	}
 
-	@Override
-	void confirmPayment() {
-		System.out.println("transaction completed !");
-
-	}
-
 	
 	
 	
