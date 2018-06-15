@@ -16,7 +16,7 @@ public class LegalPerson extends Person {
 
 	@Override
 	public String getPersonType(PersonType personType) {
-		return "legal person";
+		return personType.toString();
 		
 	}
 

@@ -18,7 +18,7 @@ public class NaturalPerson extends Person {
 
 	@Override
 	public String getPersonType(PersonType personType) {
-		return "natural person";
+		return personType.toString();
 		
 	}
 
