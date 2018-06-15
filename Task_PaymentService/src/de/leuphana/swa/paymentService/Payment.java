@@ -7,7 +7,19 @@ import de.leuphana.swa.authentificationService.CredentialType;
 
 public abstract class Payment {
 	
-	private boolean authenficateUser(CredentialType credentialType, Account senderAccount) {
+	Account senderAccount;
+	Account receiverAccount;
+	float currencyAmount;
+	CredentialType credentialType;
+	
+	public Payment(Account senderAccount, Account receiverAccount, float currencyAmount, CredentialType credentialType){
+		this.senderAccount = senderAccount;
+		this.receiverAccount = receiverAccount;
+		this.currencyAmount = currencyAmount;
+		this.credentialType = credentialType;
+	}
+	
+	private boolean authentificateUser(CredentialType credentialType, Account senderAccount) {
 		boolean authentificatet;
 		Subject subject;
 		
@@ -24,16 +36,19 @@ public abstract class Payment {
 		System.out.println("transaction completed !");
 	}
 	
-	public final void payAmount(Account senderAccount, Account receiverAccount, float amount, CredentialType credentialType) {
+	public final void payAmount() {
 		
-		//authenficate User
-		authenficateUser(credentialType, senderAccount);
+			//authenficate User
+		if (authentificateUser(credentialType, senderAccount)) {
 		
-		//transfer money
-		transferMoney(senderAccount, receiverAccount, amount);
-		
-		//confirm payment
-		confirmPayment();
-		
+			//transfer money
+			transferMoney(senderAccount, receiverAccount, currencyAmount);
+			
+			//confirm payment
+			confirmPayment();
+			
+		} else {
+			System.out.println("transaction failed, user not authentificated!");
+		}
 	}
 }
