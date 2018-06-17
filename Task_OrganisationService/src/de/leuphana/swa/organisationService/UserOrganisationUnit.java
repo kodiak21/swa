@@ -29,7 +29,7 @@ public class UserOrganisationUnit extends User {
 	
 	@Override
 	int countUser() {
-		int count = 1;
+		int count = 0;
 		for (User user: users) {
 			count += user.countUser();
 		}

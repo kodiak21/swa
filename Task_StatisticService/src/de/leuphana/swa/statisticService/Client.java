@@ -1,53 +1,47 @@
 package de.leuphana.swa.statisticService;
 
-import de.leuphana.swa.bookingService.BookingType;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
 
-	public static void createStatistics() {
-		
-		//StatisticsService nach Visitor Pattern
-		
-		BookingVisitor visitor = new BookingVisitor();
-		
-		PaymentType paymentType = PaymentType.PAYPAL;
-		BookingType bookingType = BookingType.GERMAN;
-		
-		EnglishBooking booking = new EnglishBooking();
-		
-		int total = visitor.visit(booking, bookingType, paymentType);
-		
-		if(bookingType == BookingType.GERMAN) {
-			int countPayPalGerman = visitor.getCountPayPalGerman();
-			int countGoogleWalletGerman = visitor.getCountGoogleWalletGerman();
-			int countMoneyWalletGerman = visitor.getCountMoneyWalletGerman();
-			
-			System.out.println("Bezahlung GermanBooking mit PayPal: " + countPayPalGerman );
-			System.out.println("Bezahlung GermanBooking mit GoogleWallet: " + countGoogleWalletGerman);
-			System.out.println("Bezahlung GermanBooking mit MoneyWallet: " + countMoneyWalletGerman);
-			
-			System.out.println("Gesamtzahl Buchungen: " + total);
-			
-		}else if(bookingType == BookingType.ENGLISH){
-			
-			int countPayPalEnglish = visitor.getCountPayPalEnglish();
-			int countGoogleWalletEnglish = visitor.getCountGoogleWalletEnglish();
-			int countMoneyWalletEnglish = visitor.getCountMoneyWalletEnglish();
-			
-			System.out.println("Payment EnglishBooking by PayPal: " + countPayPalEnglish );
-			System.out.println("Payment EnglishBooking by GoogleWallet: " + countGoogleWalletEnglish);
-			System.out.println("Payment EnglishBooking by MoneyWallet: " + countMoneyWalletEnglish);
-			
-			System.out.println("Total Bookings: " + total);
-		}
-		
-	}
-	
 	public static void main(String[] args) {
 		
-		createStatistics();
+		Booking b1 = new EnglishBooking(100, PaymentType.PAYPAL);	
+		Booking b2 = new EnglishBooking(150, PaymentType.PAYPAL);	
+		Booking b3 = new EnglishBooking(200, PaymentType.MONEYWALLET);	
+		Booking b4 = new EnglishBooking(250, PaymentType.MONEYWALLET);	
+		Booking b5 = new EnglishBooking(100, PaymentType.MONEYWALLET);	
+		Booking b6 = new EnglishBooking(100, PaymentType.GOOGLEWALLET);	
+		Booking b7 = new EnglishBooking(100, PaymentType.GOOGLEWALLET);
 		
+		Booking b8 = new GermanBooking(100, PaymentType.PAYPAL);
+		Booking b9 = new GermanBooking(100, PaymentType.PAYPAL);
+		Booking b10 = new GermanBooking(100, PaymentType.MONEYWALLET);
+		Booking b11 = new GermanBooking(100, PaymentType.GOOGLEWALLET);
+		Booking b12 = new GermanBooking(100, PaymentType.GOOGLEWALLET);
 		
+		List<Booking> bookings = new ArrayList<Booking>();
+		bookings.add(b1);
+		bookings.add(b2);
+		bookings.add(b3);
+		bookings.add(b4);
+		bookings.add(b5);
+		bookings.add(b6);
+		bookings.add(b7);
+		bookings.add(b8);
+		bookings.add(b9);
+		bookings.add(b10);
+		bookings.add(b11);
+		bookings.add(b12);
+		
+		BookingVisitor bv = new BookingVisitor();
+		bv.getEnglishBookingsPaidByGoogleWallet(bookings);
+		bv.getEnglishBookingsPaidByMoneyWallet(bookings);
+		bv.getEnglishBookingsPaidByPayPal(bookings);
+		bv.getGermanBookingsPaidByGoogleWallet(bookings);
+		bv.getGermanBookingsPaidByMoneyWallet(bookings);
+		bv.getGermanBookingsPaidByPayPal(bookings);
 		
 	}
 

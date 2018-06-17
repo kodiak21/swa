@@ -60,11 +60,11 @@ public class BookingVisitor extends Visitor {
 	public void getEnglishBookingsPaidByPayPal (List<Booking> bookings) {
 		this.paymentType = PaymentType.PAYPAL;
 		for(Booking booking : bookings) {
-			if (booking.paymentType == PaymentType.PAYPAL && booking instanceof GermanBooking) {
+			if (booking.paymentType == PaymentType.PAYPAL && booking instanceof EnglishBooking) {
 				booking.accept(this);
 			}
 		}
-		System.out.println("Es gab " + bookingCount + " Englische PayPal-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		System.out.println("Es gab " + bookingCount + " Englische PayPal-Buchungen im Gesamtwert von " + this.payAmountTotalDollar + this.currency );
 		System.out.println("Das sind " + payAmountTotal + "Euro");
 		this.bookingCount = 0;
 		this.payAmountTotal = 0;
@@ -75,11 +75,11 @@ public class BookingVisitor extends Visitor {
 	public void getEnglishBookingsPaidByGoogleWallet (List<Booking> bookings) {
 		this.paymentType = PaymentType.GOOGLEWALLET;
 		for(Booking booking : bookings) {
-			if (booking.paymentType == PaymentType.GOOGLEWALLET && booking instanceof GermanBooking) {
+			if (booking.paymentType == PaymentType.GOOGLEWALLET && booking instanceof EnglishBooking) {
 				booking.accept(this);
 			}
 		}
-		System.out.println("Es gab " + bookingCount + " Englische GoogleWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		System.out.println("Es gab " + bookingCount + " Englische GoogleWallet-Buchungen im Gesamtwert von " + this.payAmountTotalDollar + this.currency );
 		System.out.println("Das sind " + payAmountTotal + "Euro");
 		this.bookingCount = 0;
 		this.payAmountTotal = 0;
@@ -90,11 +90,11 @@ public class BookingVisitor extends Visitor {
 	public void getEnglishBookingsPaidByMoneyWallet (List<Booking> bookings) {
 		this.paymentType = PaymentType.MONEYWALLET;
 		for(Booking booking : bookings) {
-			if (booking.paymentType == PaymentType.MONEYWALLET && booking instanceof GermanBooking) {
+			if (booking.paymentType == PaymentType.MONEYWALLET && booking instanceof EnglishBooking) {
 				booking.accept(this);
 			}
 		}
-		System.out.println("Es gab " + bookingCount + " Englische MoneyWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
+		System.out.println("Es gab " + bookingCount + " Englische MoneyWallet-Buchungen im Gesamtwert von " + this.payAmountTotalDollar + this.currency );
 		System.out.println("Das sind " + payAmountTotal + "Euro");
 		this.bookingCount = 0;
 		this.payAmountTotal = 0;
