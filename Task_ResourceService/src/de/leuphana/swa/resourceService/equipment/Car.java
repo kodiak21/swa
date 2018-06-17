@@ -10,7 +10,7 @@ public class Car implements Resource {
 
 	@Override
 	public void getSelectedResource() {
-		System.out.println(" Car is ordered !");	
+		System.out.println("Ordered: Car");	
 	}
 
 }

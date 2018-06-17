@@ -4,6 +4,8 @@ import de.leuphana.swa.resourceService.resource.Resource;
 
 public class SetTopBox extends Equipment {
 
+	
+	
 	public SetTopBox(Resource resource) {
 		super(resource);
 	}
