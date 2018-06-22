@@ -17,9 +17,6 @@ public class BookingBuilderEnglish implements BookingBuilder{
 	@Override
 	public Booking build() {
 		Booking returnedBooking = this.booking;
-		setHeader();
-		setBody("nothing");
-		setFooter(0);
 		return returnedBooking;
 	}
 
