@@ -1,6 +1,4 @@
-package de.leuphana.swa.resourceService.equipment;
-
-import de.leuphana.swa.resourceService.resource.Resource;
+package de.leuphana.swa.resourceService.resource;
 
 public class Car implements Resource {
 

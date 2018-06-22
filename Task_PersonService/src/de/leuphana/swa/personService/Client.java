@@ -9,10 +9,19 @@ public class Client {
 		String name = "John Moeller";		
 		PersonType personType = PersonType.LEGALPERSON;		
 		
+		
+		//Controllpatter
+		//CreatePerson (PersonType, String name);
 		UserFactory userfactory = new UserFactory();
 		Person p = userfactory.createPerson(personType,name);
 		
-		System.out.println(p.getPersonType(personType));		
+
+		//return person;
+		//DeletePerson(Person p);
+		// p = null;
+		
+		//PrintPerson();
+		System.out.println(p.getPersonType());		
 		System.out.println("name of person " + p.getName());
 	}
 }

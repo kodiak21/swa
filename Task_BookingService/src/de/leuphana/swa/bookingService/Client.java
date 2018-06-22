@@ -4,6 +4,7 @@ public class Client {
 
 	public static void main(String[] args) {
 		
+		//createBooking(Rescource car);
 		BookingBuilderGerman builderG = new BookingBuilderGerman();
 		BookingBuilderEnglish builderE = new BookingBuilderEnglish();
 		
@@ -20,6 +21,8 @@ public class Client {
 									.build();
 		Booking bookingG2 = builderG.build();
 		Booking bookingE2 = builderE.build();
+		
+		//printBooking(Booking booking);
 		System.out.println(bookingG);
 		System.out.println("");
 		System.out.println(bookingE);
@@ -27,6 +30,9 @@ public class Client {
 		System.out.println(bookingG2);
 		System.out.println("");
 		System.out.println(bookingE2);
+		
+		//deleteBooking(Booking booking);
+		//booking = null;
 	}
 
 }

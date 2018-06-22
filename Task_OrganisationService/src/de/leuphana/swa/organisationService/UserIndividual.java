@@ -1,9 +1,11 @@
 package de.leuphana.swa.organisationService;
 
+import de.leuphana.swa.personService.Person;
+
 public class UserIndividual extends User{
 	
-	protected UserIndividual(String userName, int userId) {
-		super(userName, userId);
+	protected UserIndividual(Person person) {
+		super(person);
 		// TODO Auto-generated constructor stub
 	}
 

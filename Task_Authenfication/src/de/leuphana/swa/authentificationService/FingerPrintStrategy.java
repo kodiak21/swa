@@ -1,6 +1,6 @@
 package de.leuphana.swa.authentificationService;
 
-public class FingerPrintStrategy implements AuthenficationMethod {
+public class FingerPrintStrategy implements AuthenficationStrategy {
 	
 	String text = "Idenfified by Fingerprint";
 

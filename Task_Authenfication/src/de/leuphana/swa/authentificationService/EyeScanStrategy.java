@@ -1,6 +1,6 @@
 package de.leuphana.swa.authentificationService;
 
-public class EyeScanStrategy implements AuthenficationMethod {
+public class EyeScanStrategy implements AuthenficationStrategy {
 	
 	String text = "Idenfified by EyeScan";
 	
@@ -9,5 +9,4 @@ public class EyeScanStrategy implements AuthenficationMethod {
 		System.out.println(text);
 		return isAuthenficated;
 	}
-
 }

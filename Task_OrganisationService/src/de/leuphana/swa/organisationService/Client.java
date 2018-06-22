@@ -1,31 +1,47 @@
 package de.leuphana.swa.organisationService;
 
+import de.leuphana.swa.personService.Person;
+import de.leuphana.swa.personService.PersonType;
+import de.leuphana.swa.personService.UserFactory;
+
 public class Client {
 
 	//OrganisationService nach Composite Pattern
 	
 	public static void main(String[] args) {
-		UserIndividual usr1 = new UserIndividual("John",1);
-		UserIndividual usr2 = new UserIndividual("David",2);
-		UserIndividual usr3 = new UserIndividual("Max",3);
-		UserIndividual usr4 = new UserIndividual("Susi",4);
-		UserIndividual usr5 = new UserIndividual("Anja",5);
-		UserIndividual usr6 = new UserIndividual("John",6);
 		
-		UserGroup usergroup1 = new UserGroup("IT", 10);
-		UserGroup usergroup2 = new UserGroup("Software",20);
+		String name = "John Moeller";		
+		PersonType personType = PersonType.LEGALPERSON;		
+
+		UserFactory userfactory = new UserFactory();
+		Person person1 = userfactory.createPerson(personType,name);
+		Person person2 = userfactory.createPerson(personType,name);
+		Person person3 = userfactory.createPerson(personType,name);
+		
+		
+		
+		//createUser(Person person);
+		//if NATURALPERSON
+		UserIndividual usr1 = new UserIndividual(person1);
+
+		
+		//if LEGALPERSON
+		UserGroup usergroup1 = new UserGroup(person2);
 		usergroup1.add(usr1);
-		usergroup1.add(usr2);
-		usergroup2.add(usr3);
-		usergroup2.add(usr4);
-		usergroup2.add(usr5);
-		usergroup2.add(usr6);
 		
-		UserOrganisationUnit org1 = new UserOrganisationUnit("KI", 100);
+		UserOrganisationUnit org1 = new UserOrganisationUnit(person3);
 		org1.add(usergroup1);
-		org1.add(usergroup2);
 		
+		//deleteUser(User user);
+		//this.user = null;
+		//TODO
+		
+		
+		//printUser()
 		org1.printUserInformation();
+		System.out.println(org1.getUserId());
+		System.out.println(usergroup1.getUserId());
+		System.out.println(usr1.getUserId());
 	}
 
 }

@@ -1,8 +1,10 @@
 package de.leuphana.swa.paymentService;
 
-import de.leuphana.swa.authentificationService.AuthenficationMethod;
-import de.leuphana.swa.authentificationService.AuthentificationMethodFactory;
-import de.leuphana.swa.authentificationService.Subject;
+import de.leuphana.swa.authentificationService.AuthenficationStrategy;
+import de.leuphana.swa.authentificationService.AuthentificationStrategyFactory;
+import de.leuphana.swa.personService.Person;
+import de.leuphana.swa.personService.PersonType;
+import de.leuphana.swa.personService.UserFactory;
 import de.leuphana.swa.authentificationService.CredentialType;
 
 public abstract class Payment {
@@ -21,12 +23,12 @@ public abstract class Payment {
 	
 	private boolean authentificateUser(CredentialType credentialType, Account senderAccount) {
 		boolean authentificatet;
-		Subject subject;
 		
 		//TODO muss noch variabel gestaltet werden, Einbindung von Authentification Subject bzw PersonService-PErson
-		subject = Subject.NATURALPERSON;
+		UserFactory userfactory = new UserFactory();
+		Person person = userfactory.createPerson(PersonType.NATURALPERSON,"Hans");
 		
-		AuthenficationMethod authenficationMethod = AuthentificationMethodFactory.getAuthenticationMethod(credentialType, subject);
+		AuthenficationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
 		authentificatet = authenficationMethod.authenficateSubject();
 		
 		return authentificatet;

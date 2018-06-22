@@ -3,7 +3,7 @@ package de.leuphana.swa.authentificationService;
 
 
 
-public interface AuthenficationMethod {
+public interface AuthenficationStrategy {
 	
 	public boolean authenficateSubject();
 }

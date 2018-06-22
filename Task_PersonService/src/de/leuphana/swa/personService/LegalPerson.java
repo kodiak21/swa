@@ -3,10 +3,9 @@ package de.leuphana.swa.personService;
 public class LegalPerson extends Person {
 
 	
-	private String name;
-
 	public LegalPerson(String name) {
 		this.name = name;
+		this.personType = PersonType.LEGALPERSON;
 	}
 	
 	@Override
@@ -15,8 +14,8 @@ public class LegalPerson extends Person {
 	}
 
 	@Override
-	public String getPersonType(PersonType personType) {
-		return personType.toString();
+	public PersonType getPersonType() {
+		return this.personType;
 		
 	}
 

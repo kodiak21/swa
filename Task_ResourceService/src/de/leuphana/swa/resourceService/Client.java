@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import de.leuphana.swa.resourceService.equipment.Car;
 import de.leuphana.swa.resourceService.equipment.ChildSeat;
-import de.leuphana.swa.resourceService.equipment.SetTopBox;
+import de.leuphana.swa.resourceService.equipment.TopBox;
+import de.leuphana.swa.resourceService.resource.Car;
 import de.leuphana.swa.resourceService.resource.Resource;
 
 public class Client {
@@ -68,7 +68,7 @@ public class Client {
 
 				//Hinzufuegen Dachgepaecktaeger zu Auto
 				
-				resource = new SetTopBox(resource);
+				resource = new TopBox(resource);
 
 				//Abfrage Kindersitze
 				
@@ -140,7 +140,7 @@ public class Client {
 
 								int anz = Integer.parseInt(br.readLine());
 
-								resource = new SetTopBox(new Car());
+								resource = new TopBox(new Car());
 
 								for (int count = 1; count <= anz; count++) {
 									resource = new ChildSeat(resource);
@@ -221,7 +221,7 @@ public class Client {
 					Integer in = Integer.parseInt(br.readLine());
 					if (in == 1) {
 
-						resource = new SetTopBox(new Car());
+						resource = new TopBox(new Car());
 
 						System.out.println("Should Number of Childseats be changed ?(" + max + " at the moment");
 						System.out.println("1: Yes");
@@ -235,7 +235,7 @@ public class Client {
 							int anz = Integer.parseInt(br.readLine());
 							
 							if(in==1) {
-								resource = new SetTopBox(new Car());
+								resource = new TopBox(new Car());
 								for (int count = 1; count <= anz; count++) {
 									resource = new ChildSeat(resource);
 								}
@@ -265,7 +265,7 @@ public class Client {
 							int anz = Integer.parseInt(br.readLine());
 
 							if(in==1) {
-								resource = new SetTopBox(new Car());
+								resource = new TopBox(new Car());
 								for (int count = 1; count <= anz; count++) {
 									resource = new ChildSeat(resource);
 								}

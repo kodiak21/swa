@@ -2,11 +2,11 @@ package de.leuphana.swa.resourceService.equipment;
 
 import de.leuphana.swa.resourceService.resource.Resource;
 
-public class SetTopBox extends Equipment {
+public class TopBox extends Equipment {
 
 	
 	
-	public SetTopBox(Resource resource) {
+	public TopBox(Resource resource) {
 		super(resource);
 	}
 

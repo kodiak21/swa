@@ -1,19 +1,33 @@
 package de.leuphana.swa.authentificationService;
 
+import de.leuphana.swa.personService.Person;
+import de.leuphana.swa.personService.PersonType;
+import de.leuphana.swa.personService.UserFactory;
+
 public class Client {
 
 	//Authenfication nach Strategy Pattern
 	
 	public static void main(String[] args ) {
 
-		Subject subject;
-		subject = Subject.NATURALPERSON;
+		String name = "John Moeller";		
+		PersonType personType = PersonType.LEGALPERSON;	
+		UserFactory userfactory = new UserFactory();
+		Person person = userfactory.createPerson(personType,name);
 		
 		CredentialType credentialType;
 		credentialType = CredentialType.USERNAME;
 
-		AuthenficationMethod authenficationMethod = AuthentificationMethodFactory.getAuthenticationMethod(credentialType, subject);
 
+		//Ab hier beginnt Controller
+		//createAuthentification (credentialType, person)
+		AuthenficationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
+
+		//printAuthentification(authenficationMethod);
 		authenficationMethod.authenficateSubject();
+		//reutrn boolean;
+		
+		//deleteAuthetification(authenficationMethod);
+		//authenficationMethod = null;
 	}
 }

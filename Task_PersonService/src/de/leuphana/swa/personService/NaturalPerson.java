@@ -2,11 +2,9 @@ package de.leuphana.swa.personService;
 
 public class NaturalPerson extends Person {
 
-	private String name;
-
-
 	public NaturalPerson(String name) {
 		this.name = name;
+		this.personType = PersonType.NATURALPERSON;
 	}
 	
 	
@@ -17,8 +15,8 @@ public class NaturalPerson extends Person {
 
 
 	@Override
-	public String getPersonType(PersonType personType) {
-		return personType.toString();
+	public PersonType getPersonType (){
+		return this.personType;
 		
 	}
 

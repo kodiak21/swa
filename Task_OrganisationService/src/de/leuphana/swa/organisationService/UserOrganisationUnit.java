@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import de.leuphana.swa.personService.Person;
+
 public class UserOrganisationUnit extends User {
 
 	List<User> users = new ArrayList<User>();
 	
-	protected UserOrganisationUnit(String userName, int userId) {
-		super(userName, userId);
+	protected UserOrganisationUnit(Person person) {
+		super(person);
 		// TODO Auto-generated constructor stub
 	}
 

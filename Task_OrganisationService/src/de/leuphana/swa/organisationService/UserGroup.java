@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import de.leuphana.swa.personService.Person;
+
 public class UserGroup extends User {
 
 
 	List<User> users = new ArrayList<User>();
 	
-	protected UserGroup(String userName, int userId) {
-		super(userName, userId);
+	protected UserGroup(Person person) {
+		super(person);
 		// TODO Auto-generated constructor stub
 	}
 

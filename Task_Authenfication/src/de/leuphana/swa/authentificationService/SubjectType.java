@@ -1,5 +1,5 @@
 package de.leuphana.swa.authentificationService;
 
-public enum Subject {
+public enum SubjectType {
 	NATURALPERSON, SOFTWARESYSTEM
 }
