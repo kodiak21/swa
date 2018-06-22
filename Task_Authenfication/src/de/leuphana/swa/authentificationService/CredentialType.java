@@ -1,9 +1,5 @@
 package de.leuphana.swa.authentificationService;
 
 public enum CredentialType {
-	USERNAME, FINGERPRINT, EYESCAN;
-	// Ach gott
-	//neu
+	USERNAME, FINGERPRINT, EYESCAN
 }
-
-//Kein Gott 12345678

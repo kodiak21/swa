@@ -1,23 +1,27 @@
 package de.leuphana.swa.personService;
 
-import java.io.Console;
-
 public class Client {
 	
 	//PersonService nach Method Factory Pattern
 	
 	public static void main(String[] args) {
 		
-		String name = "John Moeller";
+		String name = "John Moeller";		
+		PersonType personType = PersonType.LEGALPERSON;		
 		
-		PersonType personType = PersonType.LEGALPERSON;
 		
+		//Controllpatter
+		//CreatePerson (PersonType, String name);
 		UserFactory userfactory = new UserFactory();
-		
 		Person p = userfactory.createPerson(personType,name);
 		
-		System.out.println(p.getPersonType(personType));
+
+		//return person;
+		//DeletePerson(Person p);
+		// p = null;
 		
+		//PrintPerson();
+		System.out.println(p.getPersonType());		
 		System.out.println("name of person " + p.getName());
 	}
 }

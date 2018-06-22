@@ -1,37 +1,40 @@
 package de.leuphana.swa.bookingService;
 
 public class Booking {
-	private String header;
-	private String body;
-	private String footer;
+	private BookingHeader header;
+	private BookingBody body;
+	private BookingFooter footer;
+	
+//Liste implementieren für Statistics
+//static List<Booking> bookingsDone = new ArrayList<>();
 
-	public String getHeader() {
+	public BookingHeader getHeader() {
 		return header;
 	}
 	
-	public void setHeader(String header) {
+	public void setHeader(BookingHeader header) {
 		this.header = header;
 	}
 
-	public String getBody() {
+	public BookingBody getBody() {
 		return body;
 	}
 
-	public void setBody(String body) {
+	public void setBody(BookingBody body) {
 		this.body = body;
 	}
 
-	public String getFooter() {
+	public BookingFooter getFooter() {
 		return footer;
 	}
 
-	public void setFooter(String footer) {
+	public void setFooter(BookingFooter footer) {
 		this.footer = footer;
 	}
 	
 	@Override
     public String toString() {
-        return "Booking:\n" + header + "\n" + body + "\n" + footer; 
+        return "Booking:\n" + header.printHeader() + "\n" + body.printBody() + "\n" + footer.printFooter(); 
     }
 	
 	

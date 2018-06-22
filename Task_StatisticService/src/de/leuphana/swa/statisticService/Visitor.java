@@ -1,7 +1,8 @@
 package de.leuphana.swa.statisticService;
 
-public interface Visitor {
+abstract class Visitor {
 
-	public int visit(Booking booking, PaymentType paymentType);
+	abstract void visit(EnglishBooking eb);
+	abstract void visit(GermanBooking gb);
 	
 }

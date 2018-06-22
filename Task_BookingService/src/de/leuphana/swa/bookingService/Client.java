@@ -2,29 +2,37 @@ package de.leuphana.swa.bookingService;
 
 public class Client {
 
-	//BookingService nach Builder Pattern
-	
-	private BookingBuilder builder;
-
-	public Client(final BookingBuilder builder) {
-		this.builder = builder;
-	}
-
-	public Booking construct() {
-        return builder.setHeader(BookingType.ENGLISH)
-                      .setBody(BookingType.ENGLISH)
-                      .setFooter(BookingType.ENGLISH)
-                      .build();
-    }
-
-	
 	public static void main(String[] args) {
 		
-		final BookingBuilder builder = new BookingBuilder();
-
-        final Client bookingBuilder = new Client(builder);
-
-        System.out.println(bookingBuilder.construct());
+		//createBooking(Rescource car);
+		BookingBuilderGerman builderG = new BookingBuilderGerman();
+		BookingBuilderEnglish builderE = new BookingBuilderEnglish();
+		
+		String car = "Mercedes";
+		int cost = 1000;
+		
+		Booking bookingG = builderG	.setHeader()
+									.setBody(car)
+									.setFooter(cost)
+									.build();
+		Booking bookingE = builderE	.setHeader()
+									.setBody(car)
+									.setFooter(cost)
+									.build();
+		Booking bookingG2 = builderG.build();
+		Booking bookingE2 = builderE.build();
+		
+		//printBooking(Booking booking);
+		System.out.println(bookingG);
+		System.out.println("");
+		System.out.println(bookingE);
+		System.out.println("");
+		System.out.println(bookingG2);
+		System.out.println("");
+		System.out.println(bookingE2);
+		
+		//deleteBooking(Booking booking);
+		//booking = null;
 	}
 
 }

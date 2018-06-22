@@ -1,15 +1,28 @@
 package de.leuphana.swa.organisationService;
 
-public interface User {
+import de.leuphana.swa.personService.Person;
+
+abstract class User {
 	
-	public void add(User user);
-	public void remove(User user);
+	static int nextUserId = 1;
+	int userId;
+	Person person;
 	
-	public void add(UserGroup usergroup);
-	public void remove(UserGroup usergroup);
+	abstract void printUserInformation();
+	abstract int countUser();
 	
-	public int getUserGroupId();
+	protected User(Person person) {
+		this.userId = nextUserId++;
+		this.person = person;
+	}
 	
-	public String getName();
-	public void print();
+	public String getName() {
+		return person.getName();
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+
 }
