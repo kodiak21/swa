@@ -1,14 +1,20 @@
 package de.leuphana.swa.resourceService.resource;
 
 public class Car implements Resource {
+	
+	private double carPrice;
 
+	@Override
+	public void setPrice(double price) {
+		carPrice = price;
+	}
+	
 	public double getPrice() {
-		return 400.0;
+		return carPrice;
 	}
 
 	@Override
 	public void getSelectedResource() {
 		System.out.println("Ordered: Car");	
 	}
-
 }
