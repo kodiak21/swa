@@ -1,4 +1,4 @@
-package de.leuphana.swa.resourceService;
+package de.leuphana.swa.resourceService.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;

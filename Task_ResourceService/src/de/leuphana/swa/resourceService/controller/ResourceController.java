@@ -1,9 +1,10 @@
-package de.leuphana.swa.resourceService;
+package de.leuphana.swa.resourceService.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import de.leuphana.swa.resourceService.view.ResourceView;
 import de.leuphana.swa.resourceService.equipment.ChildSeat;
 import de.leuphana.swa.resourceService.equipment.TopBox;
 import de.leuphana.swa.resourceService.resource.Car;
