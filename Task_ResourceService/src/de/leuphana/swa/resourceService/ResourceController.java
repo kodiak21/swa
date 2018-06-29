@@ -8,7 +8,6 @@ import de.leuphana.swa.resourceService.equipment.ChildSeat;
 import de.leuphana.swa.resourceService.equipment.TopBox;
 import de.leuphana.swa.resourceService.resource.Car;
 import de.leuphana.swa.resourceService.resource.Resource;
-import de.leuphana.swa.resourceService.resourceView.ResourceView;
 
 public class ResourceController {
 
