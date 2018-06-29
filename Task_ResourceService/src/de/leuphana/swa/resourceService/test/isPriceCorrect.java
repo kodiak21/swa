@@ -1,4 +1,4 @@
-package de.leuphana.swa.resourceService;
+package de.leuphana.swa.resourceService.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
