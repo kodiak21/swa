@@ -8,293 +8,124 @@ import de.leuphana.swa.resourceService.equipment.ChildSeat;
 import de.leuphana.swa.resourceService.equipment.TopBox;
 import de.leuphana.swa.resourceService.resource.Car;
 import de.leuphana.swa.resourceService.resource.Resource;
+import de.leuphana.swa.resourceService.resourceView.ResourceView;
 
-public class Client {
+public class ResourceController {
 
 	// ResourceService nach Decorator Pattern
 
+	private static ResourceView resourceView = new ResourceView();
+	private static String carBrand;
+
 	public static void main(String[] args) throws IOException {
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+		// Festsetzen Preise
+		
 		Resource resource = new Car();
+		resource.setPrice(400);
 
-		System.out.println("Prices:");
-		System.out.println("Car: 400");
-		System.out.println("additional TopBox: 120");
-		System.out.println("additional ChildSeat: 50");
+		TopBox topbox = new TopBox(resource);
+		topbox.setPrice(resource.getPrice() + 120);
 
-		System.out.println("Do you want to order a car ?");
-		System.out.println("1: yes");
-		System.out.println("2: no");
-
-		int i = Integer.parseInt(br.readLine());
-
-		//Bestellung Auto
+		ChildSeat childseat = new ChildSeat(resource);
+		childseat.setPrice(resource.getPrice() + 50);
 		
-		switch (i) {
-		case 1:
-			break;
-		case 2:
-			System.out.println("No car ordered !");
-			return;
-		default:
-			break;
-		}
+		resourceView.printMenu(resource, topbox, childseat);
 		
-		//Bestellung Dachgepaecktraeger
+		int i = resourceView.askCarOrder();
 
-		System.out.println("Top Box needed ?");
-		System.out.println("1: yes");
-		System.out.println("2: no");
+		// Bestellung Auto
 
-		i = Integer.parseInt(br.readLine());
-
-		switch (i) {
-		case 1:
-
-			System.out.println("How many TopBoxes needed ?");
-			int j = Integer.parseInt(br.readLine());
-
-			//Begrenzung Dachgepaecktraeger auf 1 pro Auto
+		if (i == 1) {
 			
-			while (j != 1) {
-				System.out.println("Only 1 TopBox for a car allowed!");
-				System.out.println("How many TopBoxes needed ?");
-				j = Integer.parseInt(br.readLine());
-			}
+			// Abfrage Automarke
+			
+			String name = resourceView.askCarBrand();
+			
+			// Bestellung Dachgepaecktraeger
+
+			int j = resourceView.askTopBoxOrder();
 
 			if (j == 1) {
 
-				//Hinzufuegen Dachgepaecktaeger zu Auto
-				
-				resource = new TopBox(resource);
+				// Abfrage Kindersitze
 
-				//Abfrage Kindersitze
-				
-				System.out.println("ChildSeat(s) needed ?");
-				System.out.println("1: yes");
-				System.out.println("2: no");
+				int k = resourceView.askChildSeatOrder();
 
-				int k = Integer.parseInt(br.readLine());
-
-				switch (k) {
-				case 1:
+				if (k == 1) {
 					
-					//Anzahl Kindersitze
-					
-					System.out.println("How many ChildSeat(s) are needed ?");
-					int max = Integer.parseInt(br.readLine());
+					int max = resourceView.askNumberChildSeat();
+
+					double childSeatTotal = 0;
+
+					childseat = new ChildSeat(resource);
+
+					childseat.setPrice(50);
 
 					for (int count = 1; count <= max; count++) {
-						resource = new ChildSeat(resource);
+						childSeatTotal += childseat.getPrice();
 					}
 
-					//Ausdruck Order
-					
-					System.out.println("Your Order: ");
-					resource.getSelectedResource();
-					System.out.println("Total Costs: " + resource.getPrice() + " Euro ");
+					childseat.setPrice(childSeatTotal);
 
-					//Abfrage ob Order korrekt ist
-					
-					System.out.println("Is Order correct?");
-					System.out.println("1: Yes");
-					System.out.println("2: No");
+					resourceView.printOrder(resource, topbox, childseat, max, name);
+				} else if (k == 2) {
 
-					Integer input = Integer.parseInt(br.readLine());
-					
-					
-					if (input == 2) {
-					
-						//Soll Dachgepaecktraeger entfernt werden aus Order
-						
-						System.out.println("Should TopBox be removed ?");
-						System.out.println("1: Yes");
-						System.out.println("2: No");
+					childseat = null;
 
-						Integer in = Integer.parseInt(br.readLine());
-						
-						//Zusammenbau Auto nur mit Kindersitzen
-						
-						if (in == 1) {
+					int max = 0;
 
-							resource = new Car();
-
-							for (int count = 1; count <= max; count++) {
-								resource = new ChildSeat(resource);
-							}
-
-						} else if (in == 2) {
-							
-							//Abfrage Anzahl Kindersitze
-							
-							System.out.println("Should Number of Childseats be changed ?(" + max + " at the moment");
-							System.out.println("1: Yes");
-							System.out.println("2: No");
-
-							input = Integer.parseInt(br.readLine());
-
-							if (input == 1) {
-								System.out.println("How many ChildSeats ");
-
-								int anz = Integer.parseInt(br.readLine());
-
-								resource = new TopBox(new Car());
-
-								for (int count = 1; count <= anz; count++) {
-									resource = new ChildSeat(resource);
-								}
-
-							}
-
-						}
-						
-					}else if(i==1) {
-						
-						
-						
-						
-					}
-
-					break;
-				case 2:
-					
-					
-					
-					break;
-				default:
-					break;
+					resourceView.printOrder(resource, topbox, childseat, max, name);
 				}
 
-				System.out.println("Your Order: ");
-				resource.getSelectedResource();
-				System.out.println("Total Costs: " + resource.getPrice() + " Euro ");
-				System.out.println("Order will be send to Booking Service");
-				break;
+			} else if (j == 2) {
+
+				topbox = null;
+
+				int k = resourceView.askChildSeatOrder();
+
+				if (k == 1) {
+					int max = resourceView.askNumberChildSeat();
+
+					double childSeatTotal = 0;
+
+					childseat = new ChildSeat(resource);
+
+					childseat.setPrice(50);
+
+					for (int count = 1; count <= max; count++) {
+						childSeatTotal += childseat.getPrice();
+					}
+
+					childseat.setPrice(childSeatTotal);
+
+					resourceView.printOrder(resource, topbox, childseat, max, name);
+				} else if (k == 2) {
+
+					topbox = null;
+
+					childseat = null;
+
+					int max = 0;
+
+					resourceView.printOrder(resource, topbox, childseat, max, name);
+				}
 
 			}
-			break;
-		case 2:
+		} else {
+
+			resource = null;
+
+			topbox = null;
+
+			childseat = null;
+
+			int max = 0;
 			
-			//Auto ohne Dachgepaecktraeger
-			
-			resource = new Car();
+			String name = null;
 
-			//Abfrage Kindersitze
-			
-			System.out.println("ChildSeat(s) needed ?");
-			System.out.println("1: yes");
-			System.out.println("2: no");
+			resourceView.printOrder(resource, topbox, childseat, max, name);
 
-			int k = Integer.parseInt(br.readLine());
-
-			switch (k) {
-			case 1:
-				System.out.println("How many ChildSeat(s) are needed ?");
-				int max = Integer.parseInt(br.readLine());
-
-				for (int count = 1; count <= max; count++) {
-					resource = new ChildSeat(resource);
-				}
-
-				System.out.println("Your Order: ");
-				resource.getSelectedResource();
-				System.out.println("Total Costs: " + resource.getPrice() + " Euro ");
-
-				//ist Order korrekt
-				
-				System.out.println("Is Order correct?");
-				System.out.println("1: Yes");
-				System.out.println("2: No");
-
-				Integer input = Integer.parseInt(br.readLine());
-
-				if (input == 2) {
-					
-					//Hinzufuegen Dachgepaecktraeger
-					
-					System.out.println("Should TopBox be added ?");
-					System.out.println("1: Yes");
-					System.out.println("2: No");
-
-					Integer in = Integer.parseInt(br.readLine());
-					if (in == 1) {
-
-						resource = new TopBox(new Car());
-
-						System.out.println("Should Number of Childseats be changed ?(" + max + " at the moment");
-						System.out.println("1: Yes");
-						System.out.println("2: No");
-
-						input = Integer.parseInt(br.readLine());
-
-						if (input == 1) {
-							System.out.println("How many ChildSeats ");
-
-							int anz = Integer.parseInt(br.readLine());
-							
-							if(in==1) {
-								resource = new TopBox(new Car());
-								for (int count = 1; count <= anz; count++) {
-									resource = new ChildSeat(resource);
-								}
-							}else {
-								resource = new Car();
-								for (int count = 1; count <= anz; count++) {
-									resource = new ChildSeat(resource);
-								}
-							}
-
-						}
-
-						System.out.println("Total Costs: " + resource.getPrice() + " Euro ");
-					} else if (in == 2) {
-						
-						//Aenderung der Kindersitzanzahl 
-						
-						System.out.println("Should Number of Childseats be changed ?(" + max + " at the moment");
-						System.out.println("1: Yes");
-						System.out.println("2: No");
-
-						input = Integer.parseInt(br.readLine());
-
-						if (input == 1) {
-							System.out.println("How many ChildSeats ");
-
-							int anz = Integer.parseInt(br.readLine());
-
-							if(in==1) {
-								resource = new TopBox(new Car());
-								for (int count = 1; count <= anz; count++) {
-									resource = new ChildSeat(resource);
-								}
-							}else {
-								resource = new Car();
-								for (int count = 1; count <= anz; count++) {
-									resource = new ChildSeat(resource);
-								}
-							}
-							
-						}
-
-					}
-				}
-
-				break;
-			case 2:
-				break;
-			default:
-				break;
-			}
-
-			System.out.println("Your Order: ");
-			resource.getSelectedResource();
-			System.out.println("Total Costs: " + resource.getPrice() + " Euro ");
-
-			break;
-		default:
-			break;
 		}
 
 	}

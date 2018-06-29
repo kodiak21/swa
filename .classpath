@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="Task_PersonService/src"/>
 	<classpathentry kind="src" path="Task_ResourceService/src"/>
 	<classpathentry kind="src" path="Task_StatisticService/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="Task_Authenfication/bin"/>
 </classpath>
