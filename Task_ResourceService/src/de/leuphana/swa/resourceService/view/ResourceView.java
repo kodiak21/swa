@@ -12,12 +12,6 @@ public class ResourceView {
 
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	private int j;
-
-	private int i;
-
-	private String carBrand;
-
 	public void printMenu(Resource resource, TopBox topbox, ChildSeat childseat) {
 		System.out.println("Prices:");
 		System.out.println("Car: " + resource.getPrice());
