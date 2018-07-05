@@ -1,8 +1,6 @@
 package de.leuphana.swa.resourceService.controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import de.leuphana.swa.resourceService.view.ResourceView;
 import de.leuphana.swa.resourceService.equipment.ChildSeat;
@@ -15,7 +13,6 @@ public class ResourceController {
 	// ResourceService nach Decorator Pattern
 
 	private static ResourceView resourceView = new ResourceView();
-	private static String carBrand;
 
 	public static void main(String[] args) throws IOException {
 
