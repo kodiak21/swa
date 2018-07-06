@@ -17,20 +17,24 @@ public class PrintOrderCommand implements ResourceCommand {
 	private ChildSeat childseat;
 	private int max;
 	private String name;
-	
 
-	public PrintOrderCommand(final ResourceView resourceView, Resource resource, TopBox topbox, ChildSeat childSeat, int max, String name) {
+	private double childSeatPrice;
+
+	public PrintOrderCommand(final ResourceView resourceView, Resource resource, TopBox topbox, ChildSeat childSeat, double childSeatPrice, int max, String name) {
 		this.resourceView = resourceView;
 		this.resource = resource;
 		this.topbox = topbox;
 		this.childseat = childSeat;
+		
+		this.childSeatPrice = childSeatPrice;
+ 		
 		this.max = max;
 		this.name = name;
 	}
 	
 	@Override
 	public void voidExecute() throws IllegalArgumentException, IOException {
-		resourceView.printOrder(resource, topbox, childseat, max, name);
+		resourceView.printOrder(resource, topbox, childseat, childSeatPrice, max, name);
 
 	}
 

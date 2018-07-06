@@ -12,11 +12,11 @@ public class ResourceView {
 
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public void printMenu(Resource resource, TopBox topbox, ChildSeat childseat) {
+	public void printMenu(Resource resource, TopBox topbox, ChildSeat childseat, double resourcePrice, double topboxPrice, double childSeatPrice) {
 		System.out.println("Prices:");
-		System.out.println("Car: " + resource.getPrice());
-		System.out.println("additional TopBox: " + (topbox.getPrice() - resource.getPrice()));
-		System.out.println("additional ChildSeat: " + (childseat.getPrice() - resource.getPrice()));
+		System.out.println("Car: " + resourcePrice);
+		System.out.println("additional TopBox: " + topboxPrice);
+		System.out.println("additional ChildSeat: " + childSeatPrice);
 	}
 
 	public int askCarOrder() throws IllegalArgumentException, IOException {
@@ -134,7 +134,7 @@ public class ResourceView {
 		return max;
 	}
 
-	public void printOrder(Resource resource, TopBox topbox, ChildSeat childSeat, int max, String name) {
+	public void printOrder(Resource resource, TopBox topbox, ChildSeat childSeat, double childSeatPrice, int max, String name) {
 		if (resource != null && topbox != null && childSeat != null) {
 
 			System.out.println("Your Order:");
@@ -144,7 +144,7 @@ public class ResourceView {
 			topbox.getSelectedResource();
 			System.out.print(max);
 			childSeat.getSelectedResource();
-			System.out.println("Cost: " + (topbox.getPrice() + childSeat.getPrice()));
+			System.out.println("Cost: " + (resource.getPrice() + topbox.getPrice() + childSeatPrice));
 
 		} else if (resource != null && topbox == null && childSeat != null) {
 
@@ -154,7 +154,7 @@ public class ResourceView {
 			System.out.print(max);
 			childSeat.getSelectedResource();
 
-			System.out.println("Cost: " + (resource.getPrice() + childSeat.getPrice()));
+			System.out.println("Cost: " + (resource.getPrice() + childSeatPrice));
 		} else if (resource != null && topbox != null && childSeat == null) {
 
 			System.out.println("Your Order:");
@@ -163,7 +163,7 @@ public class ResourceView {
 			System.out.print(1);
 			topbox.getSelectedResource();
 
-			System.out.println("Cost: " + topbox.getPrice());
+			System.out.println("Cost: " + (resource.getPrice() + topbox.getPrice()));
 		} else if (resource != null && topbox == null && childSeat == null) {
 			System.out.println("Your Order:");
 			resource.getSelectedResource();
@@ -175,5 +175,10 @@ public class ResourceView {
 		}
 	}
 
+	public void setResourcePrice(Resource resource, TopBox topbox, ChildSeat childseat, double resourcePrice, double topBoxPrice, double childSeatPrice) {
+		resource.setPrice(resourcePrice);
+		topbox.setPrice(topBoxPrice);
+		childseat.setPrice(childSeatPrice);
+	}
 
 }
