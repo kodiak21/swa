@@ -8,20 +8,19 @@ import de.leuphana.swa.resourceService.equipment.TopBox;
 import de.leuphana.swa.resourceService.resource.Resource;
 import de.leuphana.swa.resourceService.view.ResourceView;
 
-public class PrintMenuCommand implements ResourceCommand {
+public class SetPriceCommand implements ResourceCommand {
 
 	private ResourceView resourceView;
-
 	private Resource resource;
 	private TopBox topbox;
 	private ChildSeat childseat;
-
+	private double resourcePrice;
 	private double topBoxPrice;
 	private double childSeatPrice;
-	private double resourcePrice;
 
-	public PrintMenuCommand(final ResourceView resourceView, Resource resource, TopBox topbox, ChildSeat childSeat, double resourcePrice, double topBoxPrice, double childSeatPrice) {
+	public SetPriceCommand(final ResourceView resourceView, Resource resource, TopBox topbox, ChildSeat childSeat, double resourcePrice, double topBoxPrice, double childSeatPrice) {
 		this.resourceView = resourceView;
+		
 		this.resource = resource;
 		this.topbox = topbox;
 		this.childseat = childSeat;
@@ -30,19 +29,21 @@ public class PrintMenuCommand implements ResourceCommand {
 		this.topBoxPrice = topBoxPrice;
 		this.childSeatPrice = childSeatPrice;
 	}
-
+	
 	@Override
-	public void voidExecute() {
-		resourceView.printMenu(resource, topbox, childseat, resourcePrice, topBoxPrice, childSeatPrice);
+	public void voidExecute() throws IllegalArgumentException, IOException {
+		resourceView.setResourcePrice(resource, topbox, childseat, resourcePrice, topBoxPrice, childSeatPrice);
 	}
 
 	@Override
-	public int intExecute() {
+	public int intExecute() throws IllegalArgumentException, IOException {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public String stringExecute() throws IllegalArgumentException, IOException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

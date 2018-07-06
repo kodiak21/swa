@@ -18,6 +18,10 @@ public class ResourceController {
 
 		// Festsetzen Preise
 		
+		double resourcePrice = 400;
+		double topBoxPrice = 120;
+		double childSeatPrice = 50;
+		
 		Resource resource = new Car();
 		resource.setPrice(400);
 
@@ -27,7 +31,7 @@ public class ResourceController {
 		ChildSeat childseat = new ChildSeat(resource);
 		childseat.setPrice(resource.getPrice() + 50);
 		
-		resourceView.printMenu(resource, topbox, childseat);
+		resourceView.printMenu(resource, topbox, childseat, resourcePrice, topBoxPrice, childSeatPrice);
 		
 		int i = resourceView.askCarOrder();
 
@@ -65,14 +69,14 @@ public class ResourceController {
 
 					childseat.setPrice(childSeatTotal);
 
-					resourceView.printOrder(resource, topbox, childseat, max, name);
+					resourceView.printOrder(resource, topbox, childseat, childSeatTotal, max, name);
 				} else if (k == 2) {
 
 					childseat = null;
 
 					int max = 0;
 
-					resourceView.printOrder(resource, topbox, childseat, max, name);
+					resourceView.printOrder(resource, topbox, childseat, 0, max, name);
 				}
 
 			} else if (j == 2) {
@@ -96,7 +100,7 @@ public class ResourceController {
 
 					childseat.setPrice(childSeatTotal);
 
-					resourceView.printOrder(resource, topbox, childseat, max, name);
+					resourceView.printOrder(resource, topbox, childseat, 0, max, name);
 				} else if (k == 2) {
 
 					topbox = null;
@@ -105,7 +109,7 @@ public class ResourceController {
 
 					int max = 0;
 
-					resourceView.printOrder(resource, topbox, childseat, max, name);
+					resourceView.printOrder(resource, topbox, childseat, 0, max, name);
 				}
 
 			}
@@ -121,7 +125,7 @@ public class ResourceController {
 			
 			String name = null;
 
-			resourceView.printOrder(resource, topbox, childseat, max, name);
+			resourceView.printOrder(resource, topbox, childseat, 0, max, name);
 
 		}
 

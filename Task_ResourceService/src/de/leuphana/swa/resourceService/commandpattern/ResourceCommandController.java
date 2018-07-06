@@ -9,6 +9,8 @@ import de.leuphana.swa.resourceService.commandpattern.realisations.AskNumberChil
 import de.leuphana.swa.resourceService.commandpattern.realisations.AskTopBoxOrderCommand;
 import de.leuphana.swa.resourceService.commandpattern.realisations.PrintMenuCommand;
 import de.leuphana.swa.resourceService.commandpattern.realisations.PrintOrderCommand;
+import de.leuphana.swa.resourceService.commandpattern.realisations.SetPriceCommand;
+
 import de.leuphana.swa.resourceService.equipment.ChildSeat;
 import de.leuphana.swa.resourceService.equipment.TopBox;
 import de.leuphana.swa.resourceService.resource.Car;
@@ -19,32 +21,37 @@ public class ResourceCommandController {
 
 	// Controller mit Command Pattern
 
+	static double resourcePrice = 500;
+	static double topBoxPrice = 120;
+	static double childSeatPrice = 50;
+
 	public static void main(final String[] args) throws IllegalArgumentException, IOException {
 
-		Resource resource = new Car();
-		resource.setPrice(400);
-
-		TopBox topbox = new TopBox(resource);
-		topbox.setPrice(resource.getPrice() + 120);
-
-		ChildSeat childSeat = new ChildSeat(resource);
-		childSeat.setPrice(resource.getPrice() + 50);	
-		
 		final ResourceView rv = new ResourceView();
+
+		final OrderResource or = new OrderResource();
+
+		Resource resource = new Car();
+		TopBox topbox = new TopBox(resource);
+		ChildSeat childSeat = new ChildSeat(resource);
 		
+		final ResourceCommand setPrice = new SetPriceCommand(rv, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
+
+		or.storeAndVoidExecute(setPrice);
+
 		int max = 0;
 		String name = null;
+		
+		double childSeatTotal = 0;
 
-		final ResourceCommand printMenu = new PrintMenuCommand(rv, resource, topbox, childSeat);
+		final ResourceCommand printMenu = new PrintMenuCommand(rv, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 		final ResourceCommand askCarOrder = new AskCarOrderCommand(rv);
 		final ResourceCommand askCarBrand = new AskCarBrandCommand(rv);
 		final ResourceCommand askTopBoxOrder = new AskTopBoxOrderCommand(rv);
 		final ResourceCommand askChildSeatOrder = new AskChildSeatOrderCommand(rv);
 		final ResourceCommand askNumberChildSeat = new AskNumberChildSeatCommand(rv);
-		
-		ResourceCommand printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, max, name);
-		
-		final OrderResource or = new OrderResource();
+
+		ResourceCommand printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
 
 		or.storeAndVoidExecute(printMenu);
 
@@ -56,39 +63,31 @@ public class ResourceCommandController {
 			int j = or.storeAndIntExecute(askTopBoxOrder);
 
 			if (j == 1) {
-				
+
 				int k = or.storeAndIntExecute(askChildSeatOrder);
-				
+
 				if (k == 1) {
-					
+
 					max = or.storeAndIntExecute(askNumberChildSeat);
-
-					double childSeatTotal = 0;
-
+					
 					childSeat = new ChildSeat(resource);
 
-					childSeat.setPrice(50);
-
 					for (int count = 1; count <= max; count++) {
-						childSeatTotal += childSeat.getPrice();
+						childSeatTotal += childSeatPrice;
 					}
+					
+					childSeatPrice = childSeatTotal;
+					
+					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
 
-					childSeat.setPrice(childSeatTotal);
-					
-					System.out.println(name);
-					
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, max, name);
-					
 					or.storeAndVoidExecute(printOrder);
-					
+
 				} else if (k == 2) {
 
 					childSeat = null;
 
-					max = 0;
-					
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, max, name);
-					
+					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+
 					or.storeAndVoidExecute(printOrder);
 				}
 			} else if (j == 2) {
@@ -98,48 +97,38 @@ public class ResourceCommandController {
 
 				if (k == 1) {
 					max = or.storeAndIntExecute(askNumberChildSeat);
-
-					double childSeatTotal = 0;
-
+					
 					childSeat = new ChildSeat(resource);
 
-					childSeat.setPrice(50);
-
 					for (int count = 1; count <= max; count++) {
-						childSeatTotal += childSeat.getPrice();
+						childSeatTotal += childSeatPrice;
 					}
+					
+					childSeatPrice = childSeatTotal;
+					
+					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
 
-					childSeat.setPrice(childSeatTotal);
-					
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, max, name);
-					
 					or.storeAndVoidExecute(printOrder);
 
 				} else if (k == 2) {
 
 					childSeat = null;
 
-					max = 0;
-					
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, max, name);
-					
+					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+
 					or.storeAndVoidExecute(printOrder);
 				}
 
 			}
 
-		} else if(i==2){
+		} else if (i == 2) {
 			resource = null;
 
 			topbox = null;
 
 			childSeat = null;
 
-			max = 0;
-
-			name = null;
-			
-			printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, max, name);
+			printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
 
 			or.storeAndVoidExecute(printOrder);
 		}
