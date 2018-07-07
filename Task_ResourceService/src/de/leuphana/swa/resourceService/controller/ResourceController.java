@@ -23,13 +23,13 @@ public class ResourceController {
 		double childSeatPrice = 50;
 		
 		Resource resource = new Car();
-		resource.setPrice(400);
+		resource.setPrice(resourcePrice);
 
 		TopBox topbox = new TopBox(resource);
-		topbox.setPrice(resource.getPrice() + 120);
+		topbox.setPrice(topBoxPrice);
 
 		ChildSeat childseat = new ChildSeat(resource);
-		childseat.setPrice(resource.getPrice() + 50);
+		childseat.setPrice(childSeatPrice);
 		
 		resourceView.printMenu(resource, topbox, childseat, resourcePrice, topBoxPrice, childSeatPrice);
 		
