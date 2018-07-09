@@ -4,22 +4,27 @@ import de.leuphana.swa.resourceService.resource.Resource;
 
 public class TopBox extends Equipment {
 
-	
+	private double topBoxPrice;
 	
 	public TopBox(Resource resource) {
 		super(resource);
 	}
 
 	public double getPrice() {
-		return resource.getPrice() + 120.0;
+		return topBoxPrice;
 	}
 
 	@Override
 	public void getSelectedResource() {
-		resource.getSelectedResource();
 
 		System.out.println(" additional TopBox is ordered !");
 		
 	}
-	
+
+	@Override
+	public void setPrice(double price) {
+		topBoxPrice = price;
+		
+	}
+
 }

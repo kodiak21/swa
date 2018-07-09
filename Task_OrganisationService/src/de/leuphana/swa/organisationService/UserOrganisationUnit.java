@@ -10,16 +10,16 @@ public class UserOrganisationUnit extends User {
 
 	List<User> users = new ArrayList<User>();
 	
-	protected UserOrganisationUnit(Person person) {
+	public UserOrganisationUnit(Person person) {
 		super(person);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	void printUserInformation() {
+	public void printUserInformation() {
 		System.out.println("-------------");
 		System.out.println("Organisationsname= " + getName());
-		System.out.println("Organisationsgröße= " + countUser());
+		System.out.println("Organisationsgroesse= " + countUser());
 		System.out.println("-------------");
 
 		Iterator<User> userIterator = users.iterator();
@@ -45,4 +45,5 @@ public class UserOrganisationUnit extends User {
 	public void remove(User user) {
 			this.users.remove(user);
 	}
+
 }

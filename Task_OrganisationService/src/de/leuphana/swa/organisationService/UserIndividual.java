@@ -4,7 +4,7 @@ import de.leuphana.swa.personService.Person;
 
 public class UserIndividual extends User{
 	
-	protected UserIndividual(Person person) {
+	public UserIndividual(Person person) {
 		super(person);
 		// TODO Auto-generated constructor stub
 	}
