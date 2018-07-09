@@ -79,6 +79,7 @@ public class ResourceView {
 	}
 
 	// Begrenzung auf einen Dachgepächträger pro Auto
+	// TODO geh�rt in den Controller, nicht view
 
 	public void askNumberTopBox() throws IOException {
 		System.out.println("How many TopBoxes needed ?");
