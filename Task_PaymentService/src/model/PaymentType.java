@@ -1,4 +1,4 @@
-package de.leuphana.swa.paymentService;
+package model;
 
 public enum PaymentType {
 	PAYPAL, GOOGLEWALLET, MONEYWALLET;

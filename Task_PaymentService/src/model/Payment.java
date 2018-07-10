@@ -1,4 +1,4 @@
-package de.leuphana.swa.paymentService;
+package model;
 
 import de.leuphana.swa.authentificationService.AuthenficationStrategy;
 import de.leuphana.swa.authentificationService.AuthentificationStrategyFactory;
@@ -13,12 +13,14 @@ public abstract class Payment {
 	Account receiverAccount;
 	float currencyAmount;
 	CredentialType credentialType;
+	PaymentType paymentType;
 	
-	public Payment(Account senderAccount, Account receiverAccount, float currencyAmount, CredentialType credentialType){
+	public Payment(Account senderAccount, Account receiverAccount, float currencyAmount, CredentialType credentialType, PaymentType paymentType){
 		this.senderAccount = senderAccount;
 		this.receiverAccount = receiverAccount;
 		this.currencyAmount = currencyAmount;
 		this.credentialType = credentialType;
+		this.paymentType = paymentType;
 	}
 	
 	private boolean authentificateUser(CredentialType credentialType, Account senderAccount) {
@@ -35,7 +37,7 @@ public abstract class Payment {
 	};
 	abstract void transferMoney(Account sender, Account receiver, float amount);
 	private void confirmPayment() {
-		System.out.println("transaction completed !");
+		System.out.println("ÄNDERN: transaction completed !");
 	}
 	
 	public final void payAmount() {
@@ -50,7 +52,48 @@ public abstract class Payment {
 			confirmPayment();
 			
 		} else {
-			System.out.println("transaction failed, user not authentificated!");
+			System.out.println("ÄNDERN: transaction failed, user not authentificated!");
 		}
 	}
+
+	public Account getSenderAccount() {
+		return senderAccount;
+	}
+
+	public void setSenderAccount(Account senderAccount) {
+		this.senderAccount = senderAccount;
+	}
+
+	public Account getReceiverAccount() {
+		return receiverAccount;
+	}
+
+	public void setReceiverAccount(Account receiverAccount) {
+		this.receiverAccount = receiverAccount;
+	}
+
+	public float getCurrencyAmount() {
+		return currencyAmount;
+	}
+
+	public void setCurrencyAmount(float currencyAmount) {
+		this.currencyAmount = currencyAmount;
+	}
+
+	public CredentialType getCredentialType() {
+		return credentialType;
+	}
+
+	public void setCredentialType(CredentialType credentialType) {
+		this.credentialType = credentialType;
+	}
+
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
+	}
+	
 }

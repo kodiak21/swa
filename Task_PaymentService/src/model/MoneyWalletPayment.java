@@ -1,4 +1,4 @@
-package de.leuphana.swa.paymentService;
+package model;
 
 import de.leuphana.swa.authentificationService.CredentialType;
 
@@ -6,8 +6,8 @@ public class MoneyWalletPayment extends Payment {
 
 
 	public MoneyWalletPayment(Account senderAccount, Account receiverAccount, float currencyAmount,
-			CredentialType credentialType) {
-		super(senderAccount, receiverAccount, currencyAmount, credentialType);
+			CredentialType credentialType, PaymentType paymentType) {
+		super(senderAccount, receiverAccount, currencyAmount, credentialType, paymentType);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -19,6 +19,14 @@ public class MoneyWalletPayment extends Payment {
 				+ " to "
 				+ receiver.getAccountNumber());
 		
+	}
+
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
 	}
 
 }

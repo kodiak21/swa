@@ -1,4 +1,4 @@
-package de.leuphana.swa.paymentService;
+package model;
 
 public class Account {
 	
@@ -8,6 +8,7 @@ public class Account {
 	
 	public Account(int accountNumber) {
 		this.accountNumber= accountNumber;
+		this.amount= 0;
 	}
 
 

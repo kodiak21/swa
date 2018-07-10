@@ -27,48 +27,48 @@ public class ResourceCommandController {
 
 	public static void main(final String[] args) throws IllegalArgumentException, IOException {
 
-		final ResourceView rv = new ResourceView();
+		final ResourceView rescourceView = new ResourceView();
 
-		final OrderResource or = new OrderResource();
+		final OrderResource orderRescource = new OrderResource();
 
 		Resource resource = new Car();
 		TopBox topbox = new TopBox(resource);
 		ChildSeat childSeat = new ChildSeat(resource);
 		
-		final ResourceCommand setPrice = new SetPriceCommand(rv, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
+		final ResourceCommand setPrice = new SetPriceCommand(rescourceView, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 
-		or.storeAndVoidExecute(setPrice);
+		orderRescource.storeAndVoidExecute(setPrice);
 
 		int max = 0;
 		String name = null;
 		
 		double childSeatTotal = 0;
 
-		final ResourceCommand printMenu = new PrintMenuCommand(rv, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
-		final ResourceCommand askCarOrder = new AskCarOrderCommand(rv);
-		final ResourceCommand askCarBrand = new AskCarBrandCommand(rv);
-		final ResourceCommand askTopBoxOrder = new AskTopBoxOrderCommand(rv);
-		final ResourceCommand askChildSeatOrder = new AskChildSeatOrderCommand(rv);
-		final ResourceCommand askNumberChildSeat = new AskNumberChildSeatCommand(rv);
+		final ResourceCommand printMenu = new PrintMenuCommand(rescourceView, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
+		final ResourceCommand askCarOrder = new AskCarOrderCommand(rescourceView);
+		final ResourceCommand askCarBrand = new AskCarBrandCommand(rescourceView);
+		final ResourceCommand askTopBoxOrder = new AskTopBoxOrderCommand(rescourceView);
+		final ResourceCommand askChildSeatOrder = new AskChildSeatOrderCommand(rescourceView);
+		final ResourceCommand askNumberChildSeat = new AskNumberChildSeatCommand(rescourceView);
 
-		ResourceCommand printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+		ResourceCommand printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
 
-		or.storeAndVoidExecute(printMenu);
+		orderRescource.storeAndVoidExecute(printMenu);
 
-		int i = or.storeAndIntExecute(askCarOrder);
+		int i = orderRescource.storeAndIntExecute(askCarOrder);
 
 		if (i == 1) {
-			name = or.storeAndStringExecute(askCarBrand);
+			name = orderRescource.storeAndStringExecute(askCarBrand);
 
-			int j = or.storeAndIntExecute(askTopBoxOrder);
+			int j = orderRescource.storeAndIntExecute(askTopBoxOrder);
 
 			if (j == 1) {
 
-				int k = or.storeAndIntExecute(askChildSeatOrder);
+				int k = orderRescource.storeAndIntExecute(askChildSeatOrder);
 
 				if (k == 1) {
 
-					max = or.storeAndIntExecute(askNumberChildSeat);
+					max = orderRescource.storeAndIntExecute(askNumberChildSeat);
 					
 					childSeat = new ChildSeat(resource);
 
@@ -78,25 +78,25 @@ public class ResourceCommandController {
 					
 					childSeatPrice = childSeatTotal;
 					
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
 
-					or.storeAndVoidExecute(printOrder);
+					orderRescource.storeAndVoidExecute(printOrder);
 
 				} else if (k == 2) {
 
 					childSeat = null;
 
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
 
-					or.storeAndVoidExecute(printOrder);
+					orderRescource.storeAndVoidExecute(printOrder);
 				}
 			} else if (j == 2) {
 				topbox = null;
 
-				int k = or.storeAndIntExecute(askChildSeatOrder);
+				int k = orderRescource.storeAndIntExecute(askChildSeatOrder);
 
 				if (k == 1) {
-					max = or.storeAndIntExecute(askNumberChildSeat);
+					max = orderRescource.storeAndIntExecute(askNumberChildSeat);
 					
 					childSeat = new ChildSeat(resource);
 
@@ -106,17 +106,17 @@ public class ResourceCommandController {
 					
 					childSeatPrice = childSeatTotal;
 					
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
 
-					or.storeAndVoidExecute(printOrder);
+					orderRescource.storeAndVoidExecute(printOrder);
 
 				} else if (k == 2) {
 
 					childSeat = null;
 
-					printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
 
-					or.storeAndVoidExecute(printOrder);
+					orderRescource.storeAndVoidExecute(printOrder);
 				}
 
 			}
@@ -128,9 +128,9 @@ public class ResourceCommandController {
 
 			childSeat = null;
 
-			printOrder = new PrintOrderCommand(rv, resource, topbox, childSeat, childSeatPrice, max, name);
+			printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
 
-			or.storeAndVoidExecute(printOrder);
+			orderRescource.storeAndVoidExecute(printOrder);
 		}
 
 	}
