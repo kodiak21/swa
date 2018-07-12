@@ -1,4 +1,4 @@
-package de.leuphana.swa.bookingService;
+package model;
 
 abstract class BookingHeader {
 	abstract String printHeader ();

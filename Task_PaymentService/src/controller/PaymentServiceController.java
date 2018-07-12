@@ -1,6 +1,7 @@
 package controller;
 
 import model.Account;
+import model.Payment;
 import model.PaymentService;
 
 public class PaymentServiceController {
@@ -8,7 +9,7 @@ public class PaymentServiceController {
 	PaymentService paymentService = new PaymentService();
 	PaymentServiceAction action;
 	
-	public PaymentService paymentCommand () {
+	public Payment paymentCommand () {
 		
 		//Hard coded
 		float currencyAmount = 500;
@@ -24,7 +25,9 @@ public class PaymentServiceController {
 		action = new DeletePaymentAction();
 		paymentService = action.action(paymentService);
 
-		return paymentService;
+		
+		
+		return paymentService.getPayment();
 	};
 
 

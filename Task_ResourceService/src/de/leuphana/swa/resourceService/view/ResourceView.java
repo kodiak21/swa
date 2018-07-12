@@ -176,7 +176,7 @@ public class ResourceView {
 		}
 	}
 
-	public void setResourcePrice(Resource resource, TopBox topbox, ChildSeat childseat, double resourcePrice, double topBoxPrice, double childSeatPrice) {
+	public void setResourcePrice(Resource resource, TopBox topbox, ChildSeat childseat, float resourcePrice, float topBoxPrice, float childSeatPrice) {
 		resource.setPrice(resourcePrice);
 		topbox.setPrice(topBoxPrice);
 		childseat.setPrice(childSeatPrice);

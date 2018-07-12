@@ -18,9 +18,9 @@ public class ResourceController {
 
 		// Festsetzen Preise
 		
-		double resourcePrice = 400;
-		double topBoxPrice = 120;
-		double childSeatPrice = 50;
+		float resourcePrice = 400;
+		float topBoxPrice = 120;
+		float childSeatPrice = 50;
 		
 		Resource resource = new Car();
 		resource.setPrice(resourcePrice);
@@ -57,7 +57,7 @@ public class ResourceController {
 					
 					int max = resourceView.askNumberChildSeat();
 
-					double childSeatTotal = 0;
+					float childSeatTotal = 0;
 
 					childseat = new ChildSeat(resource);
 
@@ -88,7 +88,7 @@ public class ResourceController {
 				if (k == 1) {
 					int max = resourceView.askNumberChildSeat();
 
-					double childSeatTotal = 0;
+					float childSeatTotal = 0;
 
 					childseat = new ChildSeat(resource);
 

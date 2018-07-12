@@ -2,7 +2,7 @@ package de.leuphana.swa.resourceService.resource;
 
 public interface Resource {
 	
-	public double getPrice();
-	public void setPrice(double price);
+	public float getPrice();
+	public void setPrice(float price);
 	public void getSelectedResource();
 }

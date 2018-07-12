@@ -2,14 +2,14 @@ package de.leuphana.swa.resourceService.resource;
 
 public class Car implements Resource {
 	
-	private double carPrice;
+	private float carPrice;
 
 	@Override
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		carPrice = price;
 	}
 	
-	public double getPrice() {
+	public float getPrice() {
 		return carPrice;
 	}
 
@@ -17,4 +17,13 @@ public class Car implements Resource {
 	public void getSelectedResource() {
 		System.out.println("Ordered: Car");	
 	}
+
+	public double getCarPrice() {
+		return carPrice;
+	}
+
+	public void setCarPrice(float carPrice) {
+		this.carPrice = carPrice;
+	}
+	
 }

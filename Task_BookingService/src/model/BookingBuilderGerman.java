@@ -1,4 +1,6 @@
-package de.leuphana.swa.bookingService;
+package model;
+
+import de.leuphana.swa.resourceService.resource.Resource;
 
 public class BookingBuilderGerman implements BookingBuilder{
 
@@ -9,8 +11,8 @@ public class BookingBuilderGerman implements BookingBuilder{
 	
 	public BookingBuilderGerman() {
 		booking = new Booking();
-		setHeader();
-		setBody("nichts");
+		setHeader("");
+		setBody(null);
 		setFooter(0);
     }
 
@@ -21,21 +23,21 @@ public class BookingBuilderGerman implements BookingBuilder{
 	}
 
 	@Override
-	public BookingBuilder setHeader() {
-			header = new BookingHeaderGerman();
+	public BookingBuilder setHeader(String name) {
+			header = new BookingHeaderGerman(name);
 			booking.setHeader(header);
 			return this;
 	}
 
 	@Override
-	public BookingBuilder setBody(String car) {
+	public BookingBuilder setBody(Resource car) {
 			body = new BookingBodyGerman(car);
 			booking.setBody(body);
 			return this;
 	}
 
 	@Override
-	public BookingBuilder setFooter(int cost) {
+	public BookingBuilder setFooter(float cost) {
 			footer = new BookingFooterGerman(cost);
 			booking.setFooter(footer);
 			return this;

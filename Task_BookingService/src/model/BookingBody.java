@@ -1,4 +1,4 @@
-package de.leuphana.swa.bookingService;
+package model;
 
 abstract class BookingBody {
 	abstract String printBody ();

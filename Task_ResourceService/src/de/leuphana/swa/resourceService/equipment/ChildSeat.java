@@ -4,13 +4,13 @@ import de.leuphana.swa.resourceService.resource.Resource;
 
 public class ChildSeat extends Equipment {
 
-	private double childSeatPrice;
+	private float childSeatPrice;
 	
 	public ChildSeat(Resource resource) {
 		super(resource);
 	}
 
-	public double getPrice() {
+	public float getPrice() {
 		return childSeatPrice;
 	}
 
@@ -21,7 +21,7 @@ public class ChildSeat extends Equipment {
 	}
 
 	@Override
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		childSeatPrice = price;
 		
 	}

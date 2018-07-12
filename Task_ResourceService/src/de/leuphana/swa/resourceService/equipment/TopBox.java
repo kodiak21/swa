@@ -4,13 +4,13 @@ import de.leuphana.swa.resourceService.resource.Resource;
 
 public class TopBox extends Equipment {
 
-	private double topBoxPrice;
+	private float topBoxPrice;
 	
 	public TopBox(Resource resource) {
 		super(resource);
 	}
 
-	public double getPrice() {
+	public float getPrice() {
 		return topBoxPrice;
 	}
 
@@ -22,7 +22,7 @@ public class TopBox extends Equipment {
 	}
 
 	@Override
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		topBoxPrice = price;
 		
 	}

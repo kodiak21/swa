@@ -1,6 +1,7 @@
 package controller;
 
 import model.Account;
+import model.BookingService;
 import model.PaymentService;
 
 public class CreatePaymentAction implements PaymentServiceAction {
@@ -11,6 +12,10 @@ public class CreatePaymentAction implements PaymentServiceAction {
 	
 	public CreatePaymentAction(float currencyAmount, Account senderAccount) {
 		this.currencyAmount = currencyAmount;
+		this.senderAccount = senderAccount;
+	}
+	public CreatePaymentAction(BookingService bookingService, Account senderAccount) {
+		this.currencyAmount = bookingService.getCost();
 		this.senderAccount = senderAccount;
 	}
 	

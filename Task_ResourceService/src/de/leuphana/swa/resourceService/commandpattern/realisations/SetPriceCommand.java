@@ -14,11 +14,11 @@ public class SetPriceCommand implements ResourceCommand {
 	private Resource resource;
 	private TopBox topbox;
 	private ChildSeat childseat;
-	private double resourcePrice;
-	private double topBoxPrice;
-	private double childSeatPrice;
+	private float resourcePrice;
+	private float topBoxPrice;
+	private float childSeatPrice;
 
-	public SetPriceCommand(final ResourceView resourceView, Resource resource, TopBox topbox, ChildSeat childSeat, double resourcePrice, double topBoxPrice, double childSeatPrice) {
+	public SetPriceCommand(final ResourceView resourceView, Resource resource, TopBox topbox, ChildSeat childSeat, float resourcePrice, float topBoxPrice, float childSeatPrice) {
 		this.resourceView = resourceView;
 		
 		this.resource = resource;

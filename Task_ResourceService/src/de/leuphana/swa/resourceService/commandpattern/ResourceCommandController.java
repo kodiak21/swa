@@ -21,9 +21,9 @@ public class ResourceCommandController {
 
 	// Controller mit Command Pattern
 
-	static double resourcePrice = 500;
-	static double topBoxPrice = 120;
-	static double childSeatPrice = 50;
+	static float resourcePrice = 500;
+	static float topBoxPrice = 120;
+	static float childSeatPrice = 50;
 
 	public static void main(final String[] args) throws IllegalArgumentException, IOException {
 
@@ -42,7 +42,7 @@ public class ResourceCommandController {
 		int max = 0;
 		String name = null;
 		
-		double childSeatTotal = 0;
+		float childSeatTotal = 0;
 
 		final ResourceCommand printMenu = new PrintMenuCommand(rescourceView, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 		final ResourceCommand askCarOrder = new AskCarOrderCommand(rescourceView);

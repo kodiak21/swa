@@ -1,14 +1,14 @@
-package de.leuphana.swa.bookingService;
+package model;
 
 public class BookingFooterGerman extends BookingFooter {
 	
-	int cost;
+	float cost;
 		
-	public BookingFooterGerman(int cost) {
+	public BookingFooterGerman(float cost) {
 		this.cost = cost;
 	}
 	
 	public String printFooter () {
-		return "Total costs are: "+cost;
+		return cost+" Euro";
 	}
 }
