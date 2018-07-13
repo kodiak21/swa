@@ -19,7 +19,7 @@ public class UserGroup extends User {
 	void printUserInformation() {
 		System.out.println("-------------");
 		System.out.println("Groupname= " + getName());
-		System.out.println("Gruppengroesse= " + countUser());
+		System.out.println("Groupsize= " + countUser());
 		System.out.println("");
 
 		Iterator<User> userIterator = users.iterator();

@@ -14,7 +14,7 @@ public class QuestionLanguageView{
 		System.out.println("Aus welchem Land bist du?");
 		System.out.println("Where are you from?");
 		System.out.println("1: GER");
-		System.out.println("2: UK");
+		System.out.println("2: USA");
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
@@ -25,7 +25,7 @@ public class QuestionLanguageView{
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungültig");
+			System.out.println("Deine Eingabe war ungueltig");
 			return showView();
 		}
 	}

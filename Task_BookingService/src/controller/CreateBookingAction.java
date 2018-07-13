@@ -11,7 +11,7 @@ public class CreateBookingAction implements BookingServiceAction{
 	LanguageType language;
 	
 	public CreateBookingAction(Car car) {
-		this.car=car;
+		this.car = car;
 	}
 	
 	@Override

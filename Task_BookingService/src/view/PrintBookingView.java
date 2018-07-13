@@ -27,9 +27,9 @@ public class PrintBookingView {
 			
 			System.out.println("");
 			System.out.println(header.printHeader()+",");
-			System.out.println("danke, dass Sie sich für eines unserer Autos entschieden haben.");
-			System.out.println("Wir hoffen sie genießen den "+body.printBody());
-			System.out.println("Er wird Sie nur "+footer.printFooter()+" im Monat kosten");
+			System.out.println("danke, dass Sie sich fuer eines unserer Autos entschieden haben.");
+			System.out.println("Wir hoffen sie geniessen den "+body.printBody());
+			System.out.println("Er wird Sie nur "+footer.printFooter()+" im Monat kosten.");
 			System.out.println("");
 	}
 	public void showViewEng(BookingService bookingService) {

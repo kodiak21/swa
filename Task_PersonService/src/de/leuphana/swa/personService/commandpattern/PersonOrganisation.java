@@ -51,7 +51,7 @@ public class PersonOrganisation {
 	
 	public PersonType askPersonType(final PersonalCommand cmd) throws IOException {
 		this.history.add(cmd); // optional
-		PersonType pType = cmd.askPersonType();
-		return pType;
+		PersonType personType = cmd.askPersonType();
+		return personType;
 	}
 }

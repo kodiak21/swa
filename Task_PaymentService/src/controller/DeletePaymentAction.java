@@ -20,8 +20,8 @@ public class DeletePaymentAction implements PaymentServiceAction {
 			paymentService.deletePayment(); 
 			break;
 		case 3:	
-			PaymentServiceController psc = new PaymentServiceController();
-			paymentService.setPayment(psc.paymentCommand().getPayment());
+			PaymentServiceController paymentServiceController = new PaymentServiceController();
+			paymentService.setPayment(paymentServiceController.paymentCommand().getPayment());
 			break;
 		default: break;
 		}

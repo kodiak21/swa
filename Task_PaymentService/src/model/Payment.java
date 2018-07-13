@@ -24,20 +24,20 @@ public abstract class Payment {
 	}
 	
 	private boolean authentificateUser(CredentialType credentialType, Account senderAccount) {
-		boolean authentificatet;
+		boolean authentificated;
 		
 		//TODO muss noch variabel gestaltet werden, Einbindung von Authentification Subject bzw PersonService-PErson
 		UserFactory userfactory = new UserFactory();
 		Person person = userfactory.createPerson(PersonType.NATURALPERSON,"Hans");
 		
 		AuthenficationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
-		authentificatet = authenficationMethod.authenficateSubject();
+		authentificated = authenficationMethod.authenficateSubject();
 		
-		return authentificatet;
+		return authentificated;
 	};
 	abstract void transferMoney(Account sender, Account receiver, float amount);
 	private void confirmPayment() {
-		System.out.println("ÄNDERN: transaction completed !");
+		System.out.println("ï¿½NDERN: transaction completed !");
 	}
 	
 	public final void payAmount() {
@@ -52,7 +52,7 @@ public abstract class Payment {
 			confirmPayment();
 			
 		} else {
-			System.out.println("ÄNDERN: transaction failed, user not authentificated!");
+			System.out.println("ï¿½NDERN: transaction failed, user not authentificated!");
 		}
 	}
 
