@@ -1,8 +1,8 @@
 package de.leuphana.swa.authentificationService;
 
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
-import de.leuphana.swa.personService.UserFactory;
+import model.Person;
+import model.PersonType;
+import model.UserFactory;
 
 public class Client {
 

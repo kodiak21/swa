@@ -1,7 +1,7 @@
 package de.leuphana.swa.authentificationService;
 
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
+import model.Person;
+import model.PersonType;
 
 public class AuthentificationStrategyFactory {
 

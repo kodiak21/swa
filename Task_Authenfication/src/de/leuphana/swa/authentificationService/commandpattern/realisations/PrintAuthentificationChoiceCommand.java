@@ -5,8 +5,8 @@ import java.io.IOException;
 import de.leuphana.swa.authentificationService.AuthenficationStrategy;
 import de.leuphana.swa.authentificationService.commandpattern.AuthentificationCommand;
 import de.leuphana.swa.authentificationService.view.AuthenficationView;
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
+import model.Person;
+import model.PersonType;
 
 public class PrintAuthentificationChoiceCommand implements AuthentificationCommand {
 

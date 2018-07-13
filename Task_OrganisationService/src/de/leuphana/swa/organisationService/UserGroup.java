@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import de.leuphana.swa.personService.Person;
+import model.Person;
 
 public class UserGroup extends User {
 

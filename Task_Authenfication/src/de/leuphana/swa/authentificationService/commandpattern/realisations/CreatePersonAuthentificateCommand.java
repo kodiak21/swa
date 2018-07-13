@@ -5,9 +5,9 @@ import java.io.IOException;
 import de.leuphana.swa.authentificationService.AuthenficationStrategy;
 import de.leuphana.swa.authentificationService.commandpattern.AuthentificationCommand;
 import de.leuphana.swa.authentificationService.view.AuthenficationView;
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
-import de.leuphana.swa.personService.UserFactory;
+import model.Person;
+import model.PersonType;
+import model.UserFactory;
 
 public class CreatePersonAuthentificateCommand implements AuthentificationCommand {
 

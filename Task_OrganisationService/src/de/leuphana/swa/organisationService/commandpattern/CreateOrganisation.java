@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.leuphana.swa.organisationService.commandpattern.realisations.DeleteGroupFromOrganisationCommand;
-import de.leuphana.swa.personService.Person;
+import model.Person;
 
 public class CreateOrganisation {
 	private List<OrganisationCommand> history = new ArrayList<OrganisationCommand>();

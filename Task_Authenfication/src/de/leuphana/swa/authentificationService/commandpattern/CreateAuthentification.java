@@ -6,8 +6,8 @@ import java.util.List;
 
 import de.leuphana.swa.authentificationService.AuthenficationStrategy;
 import de.leuphana.swa.organisationService.commandpattern.realisations.CreatePersonCommand;
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
+import model.Person;
+import model.PersonType;
 
 public class CreateAuthentification {
 	private List<AuthentificationCommand> history = new ArrayList<AuthentificationCommand>();

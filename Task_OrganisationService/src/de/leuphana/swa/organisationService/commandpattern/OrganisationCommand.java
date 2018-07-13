@@ -2,7 +2,7 @@ package de.leuphana.swa.organisationService.commandpattern;
 
 import java.io.IOException;
 
-import de.leuphana.swa.personService.Person;
+import model.Person;
 
 public interface OrganisationCommand {
 	Person createPerson();

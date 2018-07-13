@@ -17,9 +17,9 @@ import de.leuphana.swa.organisationService.commandpattern.realisations.DeletePer
 import de.leuphana.swa.organisationService.commandpattern.realisations.DeleteUserFromUsergroupCommand;
 import de.leuphana.swa.organisationService.commandpattern.realisations.PrintUserInformationCommand;
 import de.leuphana.swa.organisationService.view.OrganisationView;
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
-import de.leuphana.swa.personService.UserFactory;
+import model.Person;
+import model.PersonType;
+import model.UserFactory;
 
 public class OrganisationCommandController {
 

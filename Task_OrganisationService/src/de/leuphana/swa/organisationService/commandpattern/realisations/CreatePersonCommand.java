@@ -3,9 +3,9 @@ package de.leuphana.swa.organisationService.commandpattern.realisations;
 import java.io.IOException;
 
 import de.leuphana.swa.organisationService.commandpattern.OrganisationCommand;
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
-import de.leuphana.swa.personService.UserFactory;
+import model.Person;
+import model.PersonType;
+import model.UserFactory;
 
 public class CreatePersonCommand implements OrganisationCommand {
 

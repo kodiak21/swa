@@ -11,10 +11,10 @@ import de.leuphana.swa.personService.commandpattern.realisations.CreatePersonCom
 import de.leuphana.swa.personService.commandpattern.realisations.DeletePersonCommand;
 import de.leuphana.swa.personService.commandpattern.realisations.PrintPersonInformationCommand;
 import de.leuphana.swa.personService.view.PersonalView;
+import model.Person;
+import model.PersonType;
+import model.UserFactory;
 import de.leuphana.swa.organisationService.commandpattern.realisations.PrintUserInformationCommand;
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
-import de.leuphana.swa.personService.UserFactory;
 
 public class PersonalCommandController {
 	public static void main(final String[] args) throws IllegalArgumentException, IOException {

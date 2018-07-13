@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
+import model.Person;
+import model.PersonType;
 
 public class PersonOrganisation {
 	private List<PersonalCommand> history = new ArrayList<PersonalCommand>();

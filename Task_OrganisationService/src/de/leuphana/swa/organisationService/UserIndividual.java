@@ -1,6 +1,6 @@
 package de.leuphana.swa.organisationService;
 
-import de.leuphana.swa.personService.Person;
+import model.Person;
 
 public class UserIndividual extends User{
 	

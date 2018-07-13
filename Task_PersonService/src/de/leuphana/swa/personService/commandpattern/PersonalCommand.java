@@ -2,8 +2,8 @@ package de.leuphana.swa.personService.commandpattern;
 
 import java.io.IOException;
 
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
+import model.Person;
+import model.PersonType;
 
 public interface PersonalCommand {
 	

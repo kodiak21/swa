@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import de.leuphana.swa.organisationService.UserOrganisationUnit;
 import de.leuphana.swa.organisationService.commandpattern.OrganisationCommand;
-import de.leuphana.swa.personService.Person;
+import model.Person;
 
 public class PrintUserInformationCommand implements OrganisationCommand {
 

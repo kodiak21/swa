@@ -1,4 +1,4 @@
-package de.leuphana.swa.personService;
+package model;
 
 public class LegalPerson extends Person {
 

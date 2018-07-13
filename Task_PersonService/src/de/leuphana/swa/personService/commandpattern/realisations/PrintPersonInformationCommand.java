@@ -2,10 +2,10 @@ package de.leuphana.swa.personService.commandpattern.realisations;
 
 import java.io.IOException;
 
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
 import de.leuphana.swa.personService.commandpattern.PersonalCommand;
 import de.leuphana.swa.personService.view.PersonalView;
+import model.Person;
+import model.PersonType;
 
 public class PrintPersonInformationCommand implements PersonalCommand {
 

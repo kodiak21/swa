@@ -1,4 +1,4 @@
-package de.leuphana.swa.personService;
+package model;
 
 public abstract class Person {
 	

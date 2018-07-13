@@ -2,10 +2,10 @@ package de.leuphana.swa.personService.commandpattern.realisations;
 
 import java.io.IOException;
 
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
-import de.leuphana.swa.personService.UserFactory;
 import de.leuphana.swa.personService.commandpattern.PersonalCommand;
+import model.Person;
+import model.PersonType;
+import model.UserFactory;
 
 public class CreatePersonCommand implements PersonalCommand {
 

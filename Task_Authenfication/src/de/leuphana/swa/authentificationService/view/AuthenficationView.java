@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import de.leuphana.swa.authentificationService.AuthenficationStrategy;
-import de.leuphana.swa.personService.PersonType;
+import model.PersonType;
 
 public class AuthenficationView {
 

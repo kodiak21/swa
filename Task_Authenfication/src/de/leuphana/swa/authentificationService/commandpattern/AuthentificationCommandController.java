@@ -10,9 +10,9 @@ import de.leuphana.swa.authentificationService.commandpattern.realisations.Creat
 import de.leuphana.swa.authentificationService.commandpattern.realisations.PrintAuthenficationStrategyCommand;
 import de.leuphana.swa.authentificationService.commandpattern.realisations.PrintAuthentificationChoiceCommand;
 import de.leuphana.swa.authentificationService.view.AuthenficationView;
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
-import de.leuphana.swa.personService.UserFactory;
+import model.Person;
+import model.PersonType;
+import model.UserFactory;
 
 public class AuthentificationCommandController {
 	public static void main(final String[] args) throws IllegalArgumentException, IOException {

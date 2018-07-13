@@ -1,4 +1,4 @@
-package de.leuphana.swa.personService;
+package model;
 
 public enum PersonType {
 	NATURALPERSON, LEGALPERSON;

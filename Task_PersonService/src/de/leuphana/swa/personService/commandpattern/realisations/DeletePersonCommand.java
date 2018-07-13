@@ -2,9 +2,9 @@ package de.leuphana.swa.personService.commandpattern.realisations;
 
 import java.io.IOException;
 
-import de.leuphana.swa.personService.Person;
-import de.leuphana.swa.personService.PersonType;
 import de.leuphana.swa.personService.commandpattern.PersonalCommand;
+import model.Person;
+import model.PersonType;
 
 public class DeletePersonCommand implements PersonalCommand {
 
