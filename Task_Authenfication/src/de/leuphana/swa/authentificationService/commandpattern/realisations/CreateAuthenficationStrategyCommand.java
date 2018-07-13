@@ -2,10 +2,10 @@ package de.leuphana.swa.authentificationService.commandpattern.realisations;
 
 import java.io.IOException;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
-import de.leuphana.swa.authentificationService.AuthentificationStrategyFactory;
-import de.leuphana.swa.authentificationService.CredentialType;
 import de.leuphana.swa.authentificationService.commandpattern.AuthentificationCommand;
+import model.AuthentificationStrategy;
+import model.AuthentificationStrategyFactory;
+import model.CredentialType;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
@@ -35,8 +35,8 @@ public class CreateAuthenficationStrategyCommand implements AuthentificationComm
 	}
 
 	@Override
-	public AuthenficationStrategy createStrategy() {
-		AuthenficationStrategy authMethod = authFactory.getAuthenticationMethod(credType, person);
+	public AuthentificationStrategy createStrategy() {
+		AuthentificationStrategy authMethod = authFactory.getAuthenticationMethod(credType, person);
 		return authMethod;
 	}
 

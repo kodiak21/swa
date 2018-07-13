@@ -1,8 +1,5 @@
 package model;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
-import de.leuphana.swa.authentificationService.AuthentificationStrategyFactory;
-import de.leuphana.swa.authentificationService.CredentialType;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
@@ -30,7 +27,7 @@ public abstract class Payment {
 		UserFactory userfactory = new UserFactory();
 		Person person = userfactory.createPerson(PersonType.NATURALPERSON,"Hans");
 		
-		AuthenficationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
+		AuthentificationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
 		authentificated = authenficationMethod.authenficateSubject();
 		
 		return authentificated;

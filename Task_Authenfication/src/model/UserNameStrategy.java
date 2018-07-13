@@ -1,9 +1,9 @@
-package de.leuphana.swa.authentificationService;
+package model;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class UserNameStrategy implements AuthenficationStrategy{
+public class UserNameStrategy implements AuthentificationStrategy{
 	
 	String text = "Idenfified by Username";
 	

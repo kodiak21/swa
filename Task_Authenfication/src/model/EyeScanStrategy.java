@@ -1,6 +1,6 @@
-package de.leuphana.swa.authentificationService;
+package model;
 
-public class EyeScanStrategy implements AuthenficationStrategy {
+public class EyeScanStrategy implements AuthentificationStrategy {
 	
 //	String text = "Idenfified by EyeScan";
 	
