@@ -1,11 +1,10 @@
 package controller;
 
 import de.leuphana.swa.resourceService.resource.Car;
-import model.Booking;
 import model.BookingService;
 
 public class BookingServiceController {
-	public Booking bookingCommand() {
+	public BookingService bookingCommand() {
 		
 		BookingService bookingService = new BookingService();
 		
@@ -23,7 +22,7 @@ public class BookingServiceController {
 		DeleteBookingAction deleteBookingAction = new DeleteBookingAction();
 		bookingService = deleteBookingAction.action(bookingService);
 		
-		return bookingService.getBooking();
+		return bookingService;
 	}
 
 }

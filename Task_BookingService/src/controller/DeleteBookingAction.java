@@ -27,7 +27,7 @@ public class DeleteBookingAction implements BookingServiceAction {
 			break;
 		case 3:	
 			BookingServiceController bsc = new BookingServiceController();
-			bookingService.setBooking(bsc.bookingCommand());
+			bookingService.setBooking(bsc.bookingCommand().getBooking());
 			break;
 		default: break;
 		}
