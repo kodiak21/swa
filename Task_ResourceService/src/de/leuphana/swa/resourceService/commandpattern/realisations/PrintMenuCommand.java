@@ -13,18 +13,18 @@ public class PrintMenuCommand implements ResourceCommand {
 	private ResourceView resourceView;
 
 	private Resource resource;
-	private TopBox topbox;
-	private ChildSeat childseat;
+	private TopBox topBox;
+	private ChildSeat childSeat;
 
 	private double topBoxPrice;
 	private double childSeatPrice;
 	private double resourcePrice;
 
-	public PrintMenuCommand(final ResourceView resourceView, Resource resource, TopBox topbox, ChildSeat childSeat, double resourcePrice, double topBoxPrice, double childSeatPrice) {
+	public PrintMenuCommand(final ResourceView resourceView, Resource resource, TopBox topBox, ChildSeat childSeat, double resourcePrice, double topBoxPrice, double childSeatPrice) {
 		this.resourceView = resourceView;
 		this.resource = resource;
-		this.topbox = topbox;
-		this.childseat = childSeat;
+		this.topBox = topBox;
+		this.childSeat = childSeat;
 		
 		this.resourcePrice = resourcePrice;
 		this.topBoxPrice = topBoxPrice;
@@ -33,7 +33,7 @@ public class PrintMenuCommand implements ResourceCommand {
 
 	@Override
 	public void voidExecute() {
-		resourceView.printMenu(resource, topbox, childseat, resourcePrice, topBoxPrice, childSeatPrice);
+		resourceView.printMenu(resource, topBox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 	}
 
 	@Override

@@ -24,48 +24,48 @@ public class PersonalCommandController {
 		
 		final UserFactory userFactory = new UserFactory();
 		
-		final PersonOrganisation pOrg = new PersonOrganisation();
+		final PersonOrganisation personOrganisation = new PersonOrganisation();
 		
-		final PersonalView pView = new PersonalView();
+		final PersonalView personalView = new PersonalView();
 		
-		final AskNameCommand askName = new AskNameCommand(pView);
+		final AskNameCommand askName = new AskNameCommand(personalView);
 		
-		final AskPersonTypeCommand askType = new AskPersonTypeCommand(pView);
+		final AskPersonTypeCommand askType = new AskPersonTypeCommand(personalView);
 		
 		
 		
-		String name = pOrg.askName(askName);
+		String name = personOrganisation.askName(askName);
 		
-		PersonType personType = pOrg.askPersonType(askType);
+		PersonType personType = personOrganisation.askPersonType(askType);
 		
-		final AskHandlingPersonCommand askHandling = new AskHandlingPersonCommand(pView, name);
+		final AskHandlingPersonCommand askHandling = new AskHandlingPersonCommand(personalView, name);
 		
-		int i = pOrg.askDeletePerson(askHandling);
+		int i = personOrganisation.askDeletePerson(askHandling);
 		
 		CreatePersonCommand createPerson = new CreatePersonCommand(userFactory, personType, name);
 		DeletePersonCommand deletePerson = new DeletePersonCommand();
 		
-		final ConfirmCreatePersonCommand confirmCreate = new ConfirmCreatePersonCommand(pView, name);
+		final ConfirmCreatePersonCommand confirmCreate = new ConfirmCreatePersonCommand(personalView, name);
 		
-		final ConfirmDeletePersonCommand confirmDelete = new ConfirmDeletePersonCommand(pView, name);
+		final ConfirmDeletePersonCommand confirmDelete = new ConfirmDeletePersonCommand(personalView, name);
 		
 		
 		Person p = null;
 		
 		switch(i) {
 		case 1:
-			pOrg.createPerson(createPerson);
-			pOrg.confirmCreatePerson(confirmCreate);
+			personOrganisation.createPerson(createPerson);
+			personOrganisation.confirmCreatePerson(confirmCreate);
 			break;
 		case 2:
-			p = pOrg.deletePerson(deletePerson);
-			pOrg.confirmDeletePerson(confirmDelete);
+			p = personOrganisation.deletePerson(deletePerson);
+			personOrganisation.confirmDeletePerson(confirmDelete);
 			break;
 		case 3:
-			p = pOrg.createPerson(createPerson);
-			pOrg.confirmCreatePerson(confirmCreate);
-			PrintPersonInformationCommand printInfo = new PrintPersonInformationCommand(pView, p);
-			pOrg.printInfoPerson(printInfo);
+			p = personOrganisation.createPerson(createPerson);
+			personOrganisation.confirmCreatePerson(confirmCreate);
+			PrintPersonInformationCommand printInfo = new PrintPersonInformationCommand(personalView, p);
+			personOrganisation.printInfoPerson(printInfo);
 		}
 	
 		

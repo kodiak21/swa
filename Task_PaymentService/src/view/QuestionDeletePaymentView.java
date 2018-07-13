@@ -11,9 +11,9 @@ public class QuestionDeletePaymentView {
 		String answer = null;
 		
 		System.out.println("Bist du mit deinen Angaben zufrieden?");
-		System.out.println("1: Angaben stimmen überein");
+		System.out.println("1: Angaben stimmen ueberein");
 		System.out.println("2: Angaben verwerfen");
-		System.out.println("3: Angaben ändern");
+		System.out.println("3: Angaben aendern");
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
@@ -22,11 +22,11 @@ public class QuestionDeletePaymentView {
 		}
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if ( answer.equals("2")){
-				System.out.println("Deine Zahlungsangaben werden gelöscht.");
+				System.out.println("Deine Zahlungsangaben werden geloescht.");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungültig");
+			System.out.println("Deine Eingabe war ungueltig");
 			return showView();
 		}
 	}

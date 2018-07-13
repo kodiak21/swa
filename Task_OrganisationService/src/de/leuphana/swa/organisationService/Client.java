@@ -13,10 +13,10 @@ public class Client {
 		String name = "John Moeller";		
 		PersonType personType = PersonType.LEGALPERSON;		
 
-		UserFactory userfactory = new UserFactory();
-		Person person1 = userfactory.createPerson(personType,name);
-		Person person2 = userfactory.createPerson(personType,name);
-		Person person3 = userfactory.createPerson(personType,name);
+		UserFactory userFactory = new UserFactory();
+		Person person1 = userFactory.createPerson(personType,name);
+		Person person2 = userFactory.createPerson(personType,name);
+		Person person3 = userFactory.createPerson(personType,name);
 		
 		
 		
@@ -26,11 +26,11 @@ public class Client {
 
 		
 		//if LEGALPERSON
-		UserGroup usergroup1 = new UserGroup(person2);
-		usergroup1.add(usr1);
+		UserGroup userGroup1 = new UserGroup(person2);
+		userGroup1.add(usr1);
 		
 		UserOrganisationUnit org1 = new UserOrganisationUnit(person3);
-		org1.add(usergroup1);
+		org1.add(userGroup1);
 		
 		//deleteUser(User user);
 		//this.user = null;
@@ -40,7 +40,7 @@ public class Client {
 		//printUser()
 		org1.printUserInformation();
 		System.out.println(org1.getUserId());
-		System.out.println(usergroup1.getUserId());
+		System.out.println(userGroup1.getUserId());
 		System.out.println(usr1.getUserId());
 	}
 

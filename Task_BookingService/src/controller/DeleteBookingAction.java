@@ -9,7 +9,7 @@ public class DeleteBookingAction implements BookingServiceAction {
 	@Override
 	public BookingService action(BookingService bookingService) {
 		
-		int answer=0;
+		int answer = 0;
 		
 		QuestionDeleteBookingView view = new QuestionDeleteBookingView();
 		if(bookingService.getLanguage()==LanguageType.GERMAN) {

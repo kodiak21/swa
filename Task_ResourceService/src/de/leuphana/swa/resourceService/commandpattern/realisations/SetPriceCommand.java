@@ -12,8 +12,8 @@ public class SetPriceCommand implements ResourceCommand {
 
 	private ResourceView resourceView;
 	private Resource resource;
-	private TopBox topbox;
-	private ChildSeat childseat;
+	private TopBox topBox;
+	private ChildSeat childSeat;
 	private float resourcePrice;
 	private float topBoxPrice;
 	private float childSeatPrice;
@@ -22,8 +22,8 @@ public class SetPriceCommand implements ResourceCommand {
 		this.resourceView = resourceView;
 		
 		this.resource = resource;
-		this.topbox = topbox;
-		this.childseat = childSeat;
+		this.topBox = topbox;
+		this.childSeat = childSeat;
 		
 		this.resourcePrice = resourcePrice;
 		this.topBoxPrice = topBoxPrice;
@@ -32,7 +32,7 @@ public class SetPriceCommand implements ResourceCommand {
 	
 	@Override
 	public void voidExecute() throws IllegalArgumentException, IOException {
-		resourceView.setResourcePrice(resource, topbox, childseat, resourcePrice, topBoxPrice, childSeatPrice);
+		resourceView.setResourcePrice(resource, topBox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 	}
 
 	@Override

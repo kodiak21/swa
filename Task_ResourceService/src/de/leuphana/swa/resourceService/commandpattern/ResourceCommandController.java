@@ -32,10 +32,10 @@ public class ResourceCommandController {
 		final OrderResource orderRescource = new OrderResource();
 
 		Resource resource = new Car();
-		TopBox topbox = new TopBox(resource);
+		TopBox topBox = new TopBox(resource);
 		ChildSeat childSeat = new ChildSeat(resource);
 		
-		final ResourceCommand setPrice = new SetPriceCommand(rescourceView, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
+		final ResourceCommand setPrice = new SetPriceCommand(rescourceView, resource, topBox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 
 		orderRescource.storeAndVoidExecute(setPrice);
 
@@ -44,14 +44,14 @@ public class ResourceCommandController {
 		
 		float childSeatTotal = 0;
 
-		final ResourceCommand printMenu = new PrintMenuCommand(rescourceView, resource, topbox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
+		final ResourceCommand printMenu = new PrintMenuCommand(rescourceView, resource, topBox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 		final ResourceCommand askCarOrder = new AskCarOrderCommand(rescourceView);
 		final ResourceCommand askCarBrand = new AskCarBrandCommand(rescourceView);
 		final ResourceCommand askTopBoxOrder = new AskTopBoxOrderCommand(rescourceView);
 		final ResourceCommand askChildSeatOrder = new AskChildSeatOrderCommand(rescourceView);
 		final ResourceCommand askNumberChildSeat = new AskNumberChildSeatCommand(rescourceView);
 
-		ResourceCommand printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
+		ResourceCommand printOrder = new PrintOrderCommand(rescourceView, resource, topBox, childSeat, childSeatPrice, max, name);
 
 		orderRescource.storeAndVoidExecute(printMenu);
 
@@ -78,7 +78,7 @@ public class ResourceCommandController {
 					
 					childSeatPrice = childSeatTotal;
 					
-					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topBox, childSeat, childSeatPrice, max, name);
 
 					orderRescource.storeAndVoidExecute(printOrder);
 
@@ -86,12 +86,12 @@ public class ResourceCommandController {
 
 					childSeat = null;
 
-					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topBox, childSeat, childSeatPrice, max, name);
 
 					orderRescource.storeAndVoidExecute(printOrder);
 				}
 			} else if (j == 2) {
-				topbox = null;
+				topBox = null;
 
 				int k = orderRescource.storeAndIntExecute(askChildSeatOrder);
 
@@ -106,7 +106,7 @@ public class ResourceCommandController {
 					
 					childSeatPrice = childSeatTotal;
 					
-					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topBox, childSeat, childSeatPrice, max, name);
 
 					orderRescource.storeAndVoidExecute(printOrder);
 
@@ -114,7 +114,7 @@ public class ResourceCommandController {
 
 					childSeat = null;
 
-					printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
+					printOrder = new PrintOrderCommand(rescourceView, resource, topBox, childSeat, childSeatPrice, max, name);
 
 					orderRescource.storeAndVoidExecute(printOrder);
 				}
@@ -124,11 +124,11 @@ public class ResourceCommandController {
 		} else if (i == 2) {
 			resource = null;
 
-			topbox = null;
+			topBox = null;
 
 			childSeat = null;
 
-			printOrder = new PrintOrderCommand(rescourceView, resource, topbox, childSeat, childSeatPrice, max, name);
+			printOrder = new PrintOrderCommand(rescourceView, resource, topBox, childSeat, childSeatPrice, max, name);
 
 			orderRescource.storeAndVoidExecute(printOrder);
 		}

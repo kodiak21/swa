@@ -8,8 +8,8 @@ class PaymentServiceTest {
 
 	@Test
 	void test() {
-		PaymentServiceController psc = new PaymentServiceController();
-		psc.paymentCommand();
+		PaymentServiceController paymentServiceController = new PaymentServiceController();
+		paymentServiceController.paymentCommand();
 	}
 
 }

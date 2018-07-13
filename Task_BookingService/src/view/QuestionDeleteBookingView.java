@@ -10,15 +10,15 @@ public class QuestionDeleteBookingView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Stimmen diese Angaben mit Ihren überein?");
-		System.out.println("1: Angaben stimmen überein");
+		System.out.println("Stimmen diese Angaben mit Ihren ueberein?");
+		System.out.println("1: Angaben stimmen ueberein");
 		System.out.println("2: Angaben wieder verwerfen");
-		System.out.println("3: Angaben ändern");
+		System.out.println("3: Angaben aendern");
 
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("Deine Eingabe war ungültig");
+			e = new IOException("Deine Eingabe war ungueltig");
 			e.getMessage();
 		}
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
@@ -27,7 +27,7 @@ public class QuestionDeleteBookingView {
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungültig");
+			System.out.println("Deine Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}

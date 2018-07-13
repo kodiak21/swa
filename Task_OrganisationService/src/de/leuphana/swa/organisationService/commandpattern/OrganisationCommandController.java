@@ -32,21 +32,21 @@ public class OrganisationCommandController {
 		
 		final UserFactory userFactory = new UserFactory();
 		
-		final CreateOrganisation co = new CreateOrganisation();
+		final CreateOrganisation createOrganisation = new CreateOrganisation();
 		
-		final OrganisationView ov = new OrganisationView();
+		final OrganisationView organisationView = new OrganisationView();
 		
 		final CreatePersonCommand createPerson = new CreatePersonCommand(userFactory, personType, name);
 		
-		Person p1 = co.createPerson(createPerson);
-		Person p2 = co.createPerson(createPerson);
-		Person p3 = co.createPerson(createPerson);
+		Person p1 = createOrganisation.createPerson(createPerson);
+		Person p2 = createOrganisation.createPerson(createPerson);
+		Person p3 = createOrganisation.createPerson(createPerson);
 		
 		final DeletePersonCommand deletePerson = new DeletePersonCommand(p1);
 		
-		p3 = co.deletePerson(deletePerson);
+		p3 = createOrganisation.deletePerson(deletePerson);
 		
-		p3 = co.createPerson(createPerson);
+		p3 = createOrganisation.createPerson(createPerson);
 		
 		if(personType == PersonType.NATURALPERSON) {
 			UserIndividual usr1 = new UserIndividual(p1);
@@ -60,11 +60,11 @@ public class OrganisationCommandController {
 			
 			final DeleteUserFromUsergroupCommand removeUser = new DeleteUserFromUsergroupCommand(usergroup1, usr1);
 			
-			co.addUserToGroup(addUser);
+			createOrganisation.addUserToGroup(addUser);
 			
-			co.deleteUserFromGroup(removeUser);
+			createOrganisation.deleteUserFromGroup(removeUser);
 			
-			co.addUserToGroup(addUser);
+			createOrganisation.addUserToGroup(addUser);
 			
 			UserOrganisationUnit org1 = new UserOrganisationUnit(p3);
 			
@@ -72,15 +72,15 @@ public class OrganisationCommandController {
 			
 			final DeleteGroupFromOrganisationCommand removeGroup = new DeleteGroupFromOrganisationCommand(org1, usergroup1);
 			
-			co.addGroupToOrganisation(addGroup);
+			createOrganisation.addGroupToOrganisation(addGroup);
 			
-			co.deleteGroupFromOrganisation(removeGroup);
+			createOrganisation.deleteGroupFromOrganisation(removeGroup);
 			
-			co.addGroupToOrganisation(addGroup);
+			createOrganisation.addGroupToOrganisation(addGroup);
 			
 			final PrintUserInformationCommand printInfo = new PrintUserInformationCommand(org1);
 			
-			co.printUserInformation(printInfo);
+			createOrganisation.printUserInformation(printInfo);
 			
 //			final AskOrgUnitNameCommand askUnit = new AskOrgUnitNameCommand(ov);
 //			co.askOrgUnitName(askUnit);
