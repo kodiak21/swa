@@ -2,9 +2,9 @@ package de.leuphana.swa.organisationService.commandpattern.realisations;
 
 import java.io.IOException;
 
-import de.leuphana.swa.organisationService.UserOrganisationUnit;
 import de.leuphana.swa.organisationService.commandpattern.OrganisationCommand;
 import model.Person;
+import model.UserOrganisationUnit;
 
 public class PrintUserInformationCommand implements OrganisationCommand {
 

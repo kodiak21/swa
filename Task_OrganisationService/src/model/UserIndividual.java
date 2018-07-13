@@ -1,4 +1,4 @@
-package de.leuphana.swa.organisationService;
+package model;
 
 import model.Person;
 

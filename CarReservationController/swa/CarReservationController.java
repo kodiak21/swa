@@ -8,7 +8,6 @@ import controller.BookingServiceController;
 import controller.PaymentServiceController;
 import controller.PersonServiceController;
 import de.leuphana.swa.authentificationService.commandpattern.AuthentificationCommandController;
-import de.leuphana.swa.organisationService.User;
 import de.leuphana.swa.organisationService.commandpattern.OrganisationCommandController;
 import de.leuphana.swa.resourceService.commandpattern.ResourceCommandController;
 import de.leuphana.swa.resourceService.resource.Resource;
@@ -16,6 +15,7 @@ import model.BookingService;
 import model.LanguageType;
 import model.PaymentService;
 import model.PersonService;
+import model.User;
 
 public class CarReservationController {
 	public void action() {

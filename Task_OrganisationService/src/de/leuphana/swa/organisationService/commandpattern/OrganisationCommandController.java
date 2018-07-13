@@ -2,10 +2,6 @@ package de.leuphana.swa.organisationService.commandpattern;
 
 import java.io.IOException;
 
-import de.leuphana.swa.organisationService.UserGroup;
-import de.leuphana.swa.organisationService.UserIndividual;
-import de.leuphana.swa.organisationService.UserOrganisationUnit;
-
 import de.leuphana.swa.organisationService.commandpattern.CreateOrganisation;
 import de.leuphana.swa.organisationService.commandpattern.realisations.AddGroupToOrganisationCommand;
 import de.leuphana.swa.organisationService.commandpattern.realisations.AddUserToUsergroupCommand;
@@ -20,6 +16,9 @@ import de.leuphana.swa.organisationService.view.OrganisationView;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
+import model.UserGroup;
+import model.UserIndividual;
+import model.UserOrganisationUnit;
 
 public class OrganisationCommandController {
 

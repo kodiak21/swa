@@ -1,4 +1,4 @@
-package de.leuphana.swa.organisationService;
+package model;
 
 import model.LanguageType;
 import model.Person;
@@ -19,8 +19,6 @@ public class Client {
 		Person person1 = userFactory.createPerson(personType,name, language);
 		Person person2 = userFactory.createPerson(personType,name, language);
 		Person person3 = userFactory.createPerson(personType,name, language);
-		
-		
 		
 		//createUser(Person person);
 		//if NATURALPERSON
