@@ -13,6 +13,7 @@ public class PaymentServiceController {
 		
 		//Hard coded
 		float currencyAmount = 500;
+		
 		Account senderAccount = new Account(2);
 		senderAccount.setAmount(0);
 				

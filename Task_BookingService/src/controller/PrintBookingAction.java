@@ -1,7 +1,7 @@
 package controller;
 
 import model.BookingService;
-import model.Languages;
+import model.LanguageType;
 import view.PrintBookingView;
 
 public class PrintBookingAction implements BookingServiceAction {
@@ -12,13 +12,13 @@ public class PrintBookingAction implements BookingServiceAction {
 	public BookingService action(BookingService bookingService) {
 		printBookingView = new PrintBookingView();
 		if (bookingService.getBooking()==null) {
-			if(bookingService.getLanguage()==Languages.GERMAN) {
+			if(bookingService.getLanguage()==LanguageType.GERMAN) {
 				printBookingView.showViewGerDel(bookingService);
 			}else {
 				printBookingView.showViewEngDel(bookingService);
 			}
 		} else {
-			if(bookingService.getLanguage()==Languages.GERMAN) {
+			if(bookingService.getLanguage()==LanguageType.GERMAN) {
 				printBookingView.showViewGer(bookingService);
 			}else {
 				printBookingView.showViewEng(bookingService);

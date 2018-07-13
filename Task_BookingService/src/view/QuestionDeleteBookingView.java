@@ -14,11 +14,12 @@ public class QuestionDeleteBookingView {
 		System.out.println("1: Angaben stimmen überein");
 		System.out.println("2: Angaben wieder verwerfen");
 		System.out.println("3: Angaben ändern");
+
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e = new IOException("Deine Eingabe war ungültig");
+			e.getMessage();
 		}
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if ( answer.equals("2")){

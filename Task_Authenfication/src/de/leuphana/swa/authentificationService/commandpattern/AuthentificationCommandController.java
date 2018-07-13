@@ -23,7 +23,7 @@ public class AuthentificationCommandController {
 		final AuthentificationStrategyFactory strategyFactory = new AuthentificationStrategyFactory();
 
 		final CreateAuthentification ca = new CreateAuthentification();
-
+		
 		final AuthenficationView av = new AuthenficationView();
 
 		final CreatePersonAuthentificateCommand createPerson = new CreatePersonAuthentificateCommand(userfactory,

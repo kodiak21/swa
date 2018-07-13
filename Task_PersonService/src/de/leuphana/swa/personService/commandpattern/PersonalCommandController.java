@@ -24,7 +24,7 @@ public class PersonalCommandController {
 		
 		final UserFactory userFactory = new UserFactory();
 		
-		final PersonOrganisation porg = new PersonOrganisation();
+		final PersonOrganisation pOrg = new PersonOrganisation();
 		
 		final PersonalView pView = new PersonalView();
 		
@@ -34,13 +34,13 @@ public class PersonalCommandController {
 		
 		
 		
-		String name = porg.askName(askName);
+		String name = pOrg.askName(askName);
 		
-		PersonType personType = porg.askPersonType(askType);
+		PersonType personType = pOrg.askPersonType(askType);
 		
 		final AskHandlingPersonCommand askHandling = new AskHandlingPersonCommand(pView, name);
 		
-		int i = porg.askDeletePerson(askHandling);
+		int i = pOrg.askDeletePerson(askHandling);
 		
 		CreatePersonCommand createPerson = new CreatePersonCommand(userFactory, personType, name);
 		DeletePersonCommand deletePerson = new DeletePersonCommand();
@@ -54,18 +54,18 @@ public class PersonalCommandController {
 		
 		switch(i) {
 		case 1:
-			porg.createPerson(createPerson);
-			porg.confirmCreatePerson(confirmCreate);
+			pOrg.createPerson(createPerson);
+			pOrg.confirmCreatePerson(confirmCreate);
 			break;
 		case 2:
-			p = porg.deletePerson(deletePerson);
-			porg.confirmDeletePerson(confirmDelete);
+			p = pOrg.deletePerson(deletePerson);
+			pOrg.confirmDeletePerson(confirmDelete);
 			break;
 		case 3:
-			p = porg.createPerson(createPerson);
-			porg.confirmCreatePerson(confirmCreate);
+			p = pOrg.createPerson(createPerson);
+			pOrg.confirmCreatePerson(confirmCreate);
 			PrintPersonInformationCommand printInfo = new PrintPersonInformationCommand(pView, p);
-			porg.printInfoPerson(printInfo);
+			pOrg.printInfoPerson(printInfo);
 		}
 	
 		

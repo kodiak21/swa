@@ -5,18 +5,18 @@ import de.leuphana.swa.resourceService.resource.Resource;
 public class BookingService {
 	
 	float cost;
-	Languages language;
+	LanguageType language;
 	Booking booking;
 	
 	//TODO Hard Coded
 	String name = "Mustermann";
 	
-	public void createBooking(Resource car, Languages language){
+	public void createBooking(Resource car, LanguageType language){
 
 		this.cost = car.getPrice();
 		this.language = language;
 		
-		if (language == Languages.GERMAN) {
+		if (language == LanguageType.GERMAN) {
 			BookingBuilderGerman builderG = new BookingBuilderGerman();
 			booking = builderG	.setHeader(name)
 								.setBody(car)
@@ -47,11 +47,11 @@ public class BookingService {
 		this.cost = cost;
 	}
 
-	public Languages getLanguage() {
+	public LanguageType getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(Languages language) {
+	public void setLanguage(LanguageType language) {
 		this.language = language;
 	}
 

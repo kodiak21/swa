@@ -1,7 +1,7 @@
 package controller;
 
 import model.BookingService;
-import model.Languages;
+import model.LanguageType;
 import view.QuestionDeleteBookingView;
 
 public class DeleteBookingAction implements BookingServiceAction {
@@ -12,7 +12,7 @@ public class DeleteBookingAction implements BookingServiceAction {
 		int answer=0;
 		
 		QuestionDeleteBookingView view = new QuestionDeleteBookingView();
-		if(bookingService.getLanguage()==Languages.GERMAN) {
+		if(bookingService.getLanguage()==LanguageType.GERMAN) {
 			answer = view.showViewGer();
 		} else {
 			answer = view.showViewEng();
