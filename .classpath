@@ -10,5 +10,6 @@
 	<classpathentry kind="src" path="Task_StatisticService/src"/>
 	<classpathentry kind="src" path="CarReservationController"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="Task_Authenfication/bin"/>
 </classpath>
