@@ -1,5 +1,6 @@
 package de.leuphana.swa.organisationService;
 
+import model.LanguageType;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
@@ -12,11 +13,12 @@ public class Client {
 		
 		String name = "John Moeller";		
 		PersonType personType = PersonType.LEGALPERSON;		
+		LanguageType language = LanguageType.GERMAN;
 
 		UserFactory userFactory = new UserFactory();
-		Person person1 = userFactory.createPerson(personType,name);
-		Person person2 = userFactory.createPerson(personType,name);
-		Person person3 = userFactory.createPerson(personType,name);
+		Person person1 = userFactory.createPerson(personType,name, language);
+		Person person2 = userFactory.createPerson(personType,name, language);
+		Person person3 = userFactory.createPerson(personType,name, language);
 		
 		
 		

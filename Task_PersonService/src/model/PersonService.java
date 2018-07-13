@@ -6,9 +6,9 @@ public class PersonService {
 	PersonType personType;
 	Person person;
 		
-	public void createPerson (PersonType personType, String name) {
+	public void createPerson (PersonType personType, String name, LanguageType language) {
 		UserFactory userfactory = new UserFactory();
-		this.person = userfactory.createPerson(personType,name);
+		this.person = userfactory.createPerson(personType,name, language);
 	}
 	
 	public void deletePerson() {

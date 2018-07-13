@@ -2,22 +2,10 @@ package model;
 
 public class NaturalPerson extends Person {
 
-	public NaturalPerson(String name) {
+	public NaturalPerson(String name, LanguageType language) {
+		this.language = language;
 		this.name = name;
 		this.personType = PersonType.NATURALPERSON;
-	}
-	
-	
-	@Override
-	public String getName() {
-		return name;
-	}
-
-
-	@Override
-	public PersonType getPersonType (){
-		return this.personType;
-		
 	}
 
 }

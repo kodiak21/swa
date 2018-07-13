@@ -1,5 +1,6 @@
 package controller;
 
+import model.LanguageType;
 import model.Person;
 import model.PersonService;
 import views.PrintPersonView;
@@ -9,10 +10,19 @@ public class PrintPersonAction implements PersonServiceAction {
 	@Override
 	public PersonService action(PersonService personService) {
 		Person person;
-		person = personService.getPerson();
+		PrintPersonView printPersonView;
+		LanguageType language;
 		
-		PrintPersonView printPersonView = new PrintPersonView();
-		printPersonView.showView(person);
+		person = personService.getPerson();
+		printPersonView = new PrintPersonView();
+		language = person.getLanguage();
+		
+		if (language == LanguageType.GERMAN) {
+			printPersonView.showViewGer(person);
+		} else {
+			printPersonView.showViewEng(person);
+		}
+		
 		return personService;
 	}
 

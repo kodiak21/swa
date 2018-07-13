@@ -4,18 +4,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import controller.BookingServiceController;
 import controller.PaymentServiceController;
-import de.leuphana.swa.organisationService.commandpattern.OrganisationCommandController;
-import de.leuphana.swa.personService.commandpattern.PersonalCommandController;
+import controller.PersonServiceController;
 import de.leuphana.swa.authentificationService.commandpattern.AuthentificationCommandController;
-import de.leuphana.swa.organisationService.*;
+import de.leuphana.swa.organisationService.User;
+import de.leuphana.swa.organisationService.commandpattern.OrganisationCommandController;
 import de.leuphana.swa.resourceService.commandpattern.ResourceCommandController;
 import de.leuphana.swa.resourceService.resource.Resource;
 import model.BookingService;
+import model.LanguageType;
 import model.PaymentService;
-import model.Person;
+import model.PersonService;
 
 public class CarReservationController {
 	public void action() {
@@ -23,79 +23,74 @@ public class CarReservationController {
 		String[] args = null;
 		
 		
-		Person person;
+		PersonService personService = new PersonService();
 		User user;
 		List<User> users = new ArrayList<User>();
 		Resource car;
 		boolean authentificated;
 		BookingService bookingService;
 		PaymentService paymentService;
+		LanguageType language;
 		
 //Person erstellen		
-		try {
-			PersonalCommandController.main(args);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PersonServiceController personServiceController = new PersonServiceController();
+		personService = personServiceController.personCommand();
 //Hier müsste ein PersonService übergeben werden (Sprache inklusive)
 		
 		
-//Organisation erstellen (Vielleicht nur als Admin verfügbar, Organisationstruktur vorher Hard coden???)
-
-		try {
-			OrganisationCommandController.main(args);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//Hier müsste eine List<User> übergeben werden
-		
-		
-//Person und Organisation verknüpfen
-		//Müsste schon bei organisation passieren.
-//Hier müsste ein User übergeben werden
-		
-		
-//resource erstellen
-		try {
-			ResourceCommandController.main(args);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//resource müsste übergeben werden (Preis, Bestandteile)
-
-		
-//Authentification erstellen <-bekommt User
-		try {
-			AuthentificationCommandController.main(args);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//Authentification wird übergeben
-
-		
-//Authentification durchführen <-bekommt Authentification, User
-//Übergibt boolean;
+////Organisation erstellen (Vielleicht nur als Admin verfügbar, Organisationstruktur vorher Hard coden???)
+//
+//		try {
+//			OrganisationCommandController.main(args);
+//		} catch (IllegalArgumentException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+////Hier müsste eine List<User> übergeben werden
+//		
+//		
+////Person und Organisation verknüpfen
+//		//Müsste schon bei organisation passieren.
+////Hier müsste ein User übergeben werden
+//		
+//		
+////resource erstellen
+//		try {
+//			ResourceCommandController.main(args);
+//		} catch (IllegalArgumentException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+////resource müsste übergeben werden (Preis, Bestandteile)
+//
+//		
+////Authentification erstellen <-bekommt User
+//		try {
+//			AuthentificationCommandController.main(args);
+//		} catch (IllegalArgumentException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+////Authentification wird übergeben
+//
+//		
+////Authentification durchführen <-bekommt Authentification, User
+////Übergibt boolean;
 
 		
 //Booking erstellen <- Bekommt Resource, User
+		language = personService.getPerson().getLanguage();
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingService = bookingServiceController.bookingCommand();
+		bookingService = bookingServiceController.bookingCommand(language);
 //Übergibt Booking;
 		
 //Payment durchführen <. bekommt Booking

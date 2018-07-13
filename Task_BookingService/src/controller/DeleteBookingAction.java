@@ -10,9 +10,12 @@ public class DeleteBookingAction implements BookingServiceAction {
 	public BookingService action(BookingService bookingService) {
 		
 		int answer = 0;
+		LanguageType language;
 		
 		QuestionDeleteBookingView view = new QuestionDeleteBookingView();
-		if(bookingService.getLanguage()==LanguageType.GERMAN) {
+		language=bookingService.getLanguage();
+		
+		if(language==LanguageType.GERMAN) {
 			answer = view.showViewGer();
 		} else {
 			answer = view.showViewEng();
@@ -27,7 +30,7 @@ public class DeleteBookingAction implements BookingServiceAction {
 			break;
 		case 3:	
 			BookingServiceController bsc = new BookingServiceController();
-			bookingService.setBooking(bsc.bookingCommand().getBooking());
+			bookingService.setBooking(bsc.bookingCommand(language).getBooking());
 			break;
 		default: break;
 		}

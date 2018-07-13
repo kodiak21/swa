@@ -28,7 +28,7 @@ public abstract class Payment {
 		
 		//TODO muss noch variabel gestaltet werden, Einbindung von Authentification Subject bzw PersonService-PErson
 		UserFactory userfactory = new UserFactory();
-		Person person = userfactory.createPerson(PersonType.NATURALPERSON,"Hans");
+		Person person = userfactory.createPerson(PersonType.NATURALPERSON,"Hans", LanguageType.GERMAN);
 		
 		AuthenficationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
 		authentificated = authenficationMethod.authenficateSubject();

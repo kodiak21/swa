@@ -3,6 +3,7 @@ package de.leuphana.swa.organisationService.commandpattern.realisations;
 import java.io.IOException;
 
 import de.leuphana.swa.organisationService.commandpattern.OrganisationCommand;
+import model.LanguageType;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
@@ -12,17 +13,20 @@ public class CreatePersonCommand implements OrganisationCommand {
 	private UserFactory userFactory;
 	private PersonType personType;
 	private String name;
+	LanguageType language;
 	
 	public CreatePersonCommand(final UserFactory userFactory, PersonType personType, String name) {
 		this.userFactory = userFactory;
 		this.personType = personType;
 		this.name = name;
+		//Achtung Hard Code
+		this.language = LanguageType.GERMAN;
 	}
 	
 
 	@Override
 	public Person createPerson(){
-		Person p = userFactory.createPerson(personType, name);
+		Person p = userFactory.createPerson(personType, name, language);
 		return p;
 	}
 

@@ -4,9 +4,30 @@ public abstract class Person {
 	
 	String name;
 	PersonType personType;
+	LanguageType language;
 	
-	abstract public String getName();
+	public LanguageType getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(LanguageType language) {
+		this.language = language;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPersonType(PersonType personType) {
+		this.personType = personType;
+	}
+
+	public String getName() {
+		return name;
+	}
 	
-	abstract public PersonType getPersonType();
+	public PersonType getPersonType (){
+		return this.personType;
+	}
 	
 }

@@ -1,5 +1,7 @@
 package controller;
 
+import model.LanguageType;
+import model.Person;
 import model.PersonService;
 import views.QuestionDeletePersonView;
 
@@ -10,8 +12,19 @@ public class DeletePersonAction implements PersonServiceAction {
 		
 		QuestionDeletePersonView questionDeletePersonView = new QuestionDeletePersonView();
 		int answer;
+		Person person;
+		LanguageType language;
 		
-		answer = questionDeletePersonView.showViewGer();
+		person = personService.getPerson();
+		language = person.getLanguage();
+		
+		if (language == LanguageType.GERMAN) {
+			answer = questionDeletePersonView.showViewGer();
+		} else {
+			answer = questionDeletePersonView.showViewEng();
+		}
+		
+		
 		switch (answer) {
 		case 1:	
 			break;
