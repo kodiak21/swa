@@ -10,7 +10,7 @@ public class BookingServiceController {
 		
 //		TODO HardCoded--------------
 		Car car = new Car();
-		car.setCarPrice(500);
+		car.setCarPrice(5000);
 //		----------------------------
 		
 		CreateBookingAction createBookingAction = new CreateBookingAction(car);

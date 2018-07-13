@@ -2,7 +2,7 @@ package de.leuphana.swa.organisationService;
 
 import de.leuphana.swa.personService.Person;
 
-abstract class User {
+abstract public class User {
 	
 	static int nextUserId = 1;
 	int userId;
