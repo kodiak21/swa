@@ -1,4 +1,4 @@
-package de.leuphana.swa.authentificationService;
+package model;
 
 import model.Person;
 import model.PersonType;
@@ -21,7 +21,7 @@ public class Client {
 
 		//Ab hier beginnt Controller
 		//createAuthentification (credentialType, person)
-		AuthenficationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
+		AuthentificationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
 
 		//printAuthentification(authenficationMethod);
 		authenficationMethod.authenficateSubject();

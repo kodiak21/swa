@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
 import de.leuphana.swa.organisationService.commandpattern.realisations.CreatePersonCommand;
+import model.AuthentificationStrategy;
 import model.Person;
 import model.PersonType;
 
@@ -24,9 +24,9 @@ public class CreateAuthentification {
 		return i;
 	}
 	
-	public AuthenficationStrategy returnStrategy(final AuthentificationCommand cmd) {
+	public AuthentificationStrategy returnStrategy(final AuthentificationCommand cmd) {
 		this.history.add(cmd); // optional
-		AuthenficationStrategy method = cmd.createStrategy();
+		AuthentificationStrategy method = cmd.createStrategy();
 		return method;	
 	}
 	

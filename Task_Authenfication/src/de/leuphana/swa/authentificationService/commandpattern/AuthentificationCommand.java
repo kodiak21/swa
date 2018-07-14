@@ -2,7 +2,7 @@ package de.leuphana.swa.authentificationService.commandpattern;
 
 import java.io.IOException;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
+import model.AuthentificationStrategy;
 import model.Person;
 
 public interface AuthentificationCommand {
@@ -10,7 +10,7 @@ public interface AuthentificationCommand {
 
 	int printAuthentificationChoice() throws IOException;
 	
-	AuthenficationStrategy createStrategy();
+	AuthentificationStrategy createStrategy();
 	
 	void printAuthenficationStrategy();
 

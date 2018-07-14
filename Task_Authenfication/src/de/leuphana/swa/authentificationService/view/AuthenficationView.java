@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
+import model.AuthentificationStrategy;
 import model.PersonType;
 
 public class AuthenficationView {
@@ -29,7 +29,7 @@ public class AuthenficationView {
 		return answer;
 	}
 	
-	public void printAuthentificationStrategy(AuthenficationStrategy method) {
+	public void printAuthentificationStrategy(AuthentificationStrategy method) {
 		method.authenficateSubject();
 	}
 

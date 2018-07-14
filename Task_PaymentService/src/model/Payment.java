@@ -1,8 +1,5 @@
 package model;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
-import de.leuphana.swa.authentificationService.AuthentificationStrategyFactory;
-import de.leuphana.swa.authentificationService.CredentialType;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
@@ -24,14 +21,18 @@ public abstract class Payment {
 	}
 	
 	private boolean authentificateUser(CredentialType credentialType, Account senderAccount) {
-		boolean authentificated;
+		boolean authentificated = false;
 		
 		//TODO muss noch variabel gestaltet werden, Einbindung von Authentification Subject bzw PersonService-PErson
 		UserFactory userfactory = new UserFactory();
 		Person person = userfactory.createPerson(PersonType.NATURALPERSON,"Hans", LanguageType.GERMAN);
 		
-		AuthenficationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
-		authentificated = authenficationMethod.authenficateSubject();
+		AuthentificationStrategy authenficationMethod = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
+		if(person.getLanguage()==LanguageType.GERMAN) {
+			authentificated = authenficationMethod.authenficateSubjectGer();
+		}else if(person.getLanguage()==LanguageType.ENGLISH) {
+			authentificated = authenficationMethod.authenficateSubjectEng();
+		}
 		
 		return authentificated;
 	};

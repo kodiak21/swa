@@ -1,7 +1,5 @@
 package model;
 
-import de.leuphana.swa.authentificationService.CredentialType;
-
 public class PayPalPayment extends Payment {
 	
 	public PayPalPayment(Account senderAccount, Account receiverAccount, float currencyAmount,

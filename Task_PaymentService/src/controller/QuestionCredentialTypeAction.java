@@ -1,6 +1,6 @@
 package controller;
 
-import de.leuphana.swa.authentificationService.CredentialType;
+import model.CredentialType;
 import model.PaymentService;
 import view.QuestionCredentialTypeView;
 

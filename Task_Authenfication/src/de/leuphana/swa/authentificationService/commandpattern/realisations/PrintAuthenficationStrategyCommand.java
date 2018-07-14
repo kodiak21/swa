@@ -2,17 +2,17 @@ package de.leuphana.swa.authentificationService.commandpattern.realisations;
 
 import java.io.IOException;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
 import de.leuphana.swa.authentificationService.commandpattern.AuthentificationCommand;
 import de.leuphana.swa.authentificationService.view.AuthenficationView;
+import model.AuthentificationStrategy;
 import model.Person;
 
 public class PrintAuthenficationStrategyCommand implements AuthentificationCommand {
 
-	private AuthenficationStrategy authMethod;
+	private AuthentificationStrategy authMethod;
 	private AuthenficationView authView;
 
-	public PrintAuthenficationStrategyCommand(final AuthenficationView av, AuthenficationStrategy method) {
+	public PrintAuthenficationStrategyCommand(final AuthenficationView av, AuthentificationStrategy method) {
 		this.authView = av;
 		this.authMethod = method;
 	}
@@ -30,7 +30,7 @@ public class PrintAuthenficationStrategyCommand implements AuthentificationComma
 	}
 
 	@Override
-	public AuthenficationStrategy createStrategy() {
+	public AuthentificationStrategy createStrategy() {
 		// TODO Auto-generated method stub
 		return null;
 	}
