@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.AuthentificationServiceController;
 import controller.BookingServiceController;
 import controller.PaymentServiceController;
 import controller.PersonServiceController;
@@ -11,6 +12,7 @@ import de.leuphana.swa.authentificationService.commandpattern.AuthentificationCo
 import de.leuphana.swa.organisationService.commandpattern.OrganisationCommandController;
 import de.leuphana.swa.resourceService.commandpattern.ResourceCommandController;
 import de.leuphana.swa.resourceService.resource.Resource;
+import model.AuthentificationService;
 import model.BookingService;
 import model.LanguageType;
 import model.PaymentService;
@@ -28,17 +30,18 @@ public class CarReservationController {
 		List<User> users = new ArrayList<User>();
 		Resource car;
 		boolean authentificated;
+		AuthentificationService authentificationService;
 		BookingService bookingService;
 		PaymentService paymentService;
-		LanguageType language;
+		LanguageType languageType;
 		
 //Person erstellen		
 		PersonServiceController personServiceController = new PersonServiceController();
 		personService = personServiceController.personCommand();
-//Hier müsste ein PersonService übergeben werden (Sprache inklusive)
+//Hier mï¿½sste ein PersonService ï¿½bergeben werden (Sprache inklusive)
 		
 		
-////Organisation erstellen (Vielleicht nur als Admin verfügbar, Organisationstruktur vorher Hard coden???)
+////Organisation erstellen (Vielleicht nur als Admin verfï¿½gbar, Organisationstruktur vorher Hard coden???)
 //
 //		try {
 //			OrganisationCommandController.main(args);
@@ -49,12 +52,12 @@ public class CarReservationController {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-////Hier müsste eine List<User> übergeben werden
+////Hier mï¿½sste eine List<User> ï¿½bergeben werden
 //		
 //		
-////Person und Organisation verknüpfen
-//		//Müsste schon bei organisation passieren.
-////Hier müsste ein User übergeben werden
+////Person und Organisation verknï¿½pfen
+//		//Mï¿½sste schon bei organisation passieren.
+////Hier mï¿½sste ein User ï¿½bergeben werden
 //		
 //		
 ////resource erstellen
@@ -67,10 +70,12 @@ public class CarReservationController {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-////resource müsste übergeben werden (Preis, Bestandteile)
+////resource mï¿½sste ï¿½bergeben werden (Preis, Bestandteile)
 //
 //		
-////Authentification erstellen <-bekommt User
+//Authentification erstellen <-bekommt User
+		AuthentificationServiceController authentificationServiceController = new AuthentificationServiceController();
+		authentificationService = authentificationServiceController.authentificationCommand();
 //		try {
 //			AuthentificationCommandController.main(args);
 //		} catch (IllegalArgumentException e) {
@@ -80,23 +85,23 @@ public class CarReservationController {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-////Authentification wird übergeben
+//Authentification wird ï¿½bergeben
 //
 //		
-////Authentification durchführen <-bekommt Authentification, User
-////Übergibt boolean;
+////Authentification durchfï¿½hren <-bekommt Authentification, User
+////ï¿½bergibt boolean;
 
 		
 //Booking erstellen <- Bekommt Resource, User
-		language = personService.getPerson().getLanguage();
+		languageType = personService.getPerson().getLanguage();
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingService = bookingServiceController.bookingCommand(language);
-//Übergibt Booking;
+		bookingService = bookingServiceController.bookingCommand(languageType);
+//ï¿½bergibt Booking;
 		
-//Payment durchführen <. bekommt Booking
+//Payment durchfï¿½hren <. bekommt Booking
 		PaymentServiceController psc = new PaymentServiceController();
 		paymentService = psc.paymentCommand(bookingService);
-//Übergibt paymentService;
+//ï¿½bergibt paymentService;
 		
 //Statistic erstellen <- Sucht sich Daten
 //Print Statistics

@@ -2,14 +2,14 @@ package de.leuphana.swa.authentificationService.commandpattern;
 
 import java.io.IOException;
 
-import de.leuphana.swa.authentificationService.AuthenficationStrategy;
-import de.leuphana.swa.authentificationService.AuthentificationStrategyFactory;
-import de.leuphana.swa.authentificationService.CredentialType;
 import de.leuphana.swa.authentificationService.commandpattern.realisations.CreateAuthenficationStrategyCommand;
 import de.leuphana.swa.authentificationService.commandpattern.realisations.CreatePersonAuthentificateCommand;
 import de.leuphana.swa.authentificationService.commandpattern.realisations.PrintAuthenficationStrategyCommand;
 import de.leuphana.swa.authentificationService.commandpattern.realisations.PrintAuthentificationChoiceCommand;
 import de.leuphana.swa.authentificationService.view.AuthenficationView;
+import model.AuthentificationStrategy;
+import model.AuthentificationStrategyFactory;
+import model.CredentialType;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
@@ -41,7 +41,7 @@ public class AuthentificationCommandController {
 			CredentialType credentialType = CredentialType.USERNAME;
 			CreateAuthenficationStrategyCommand createStrategy = new CreateAuthenficationStrategyCommand(
 					strategyFactory, credentialType, p);
-			AuthenficationStrategy method = ca.returnStrategy(createStrategy);
+			AuthentificationStrategy method = ca.returnStrategy(createStrategy);
 			PrintAuthenficationStrategyCommand printStrategy = new PrintAuthenficationStrategyCommand(av, method);
 			ca.printStrategy(printStrategy);
 			break;
