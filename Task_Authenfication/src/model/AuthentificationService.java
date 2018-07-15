@@ -23,7 +23,6 @@ public class AuthentificationService {
 		credentialType = CredentialType.USERNAME;
 	}
 
-	//Ab hier beginnt Controller
 	public void createAuthentification(CredentialType credentialType, Person person) {
 		this.authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
 	}
@@ -34,13 +33,11 @@ public class AuthentificationService {
 
 	public boolean authentificateSubject() {
 		
-		
 		if(person.getLanguage()==LanguageType.GERMAN) {
 			return authentificationStrategy.authenficateSubjectGer();
 		}else if(person.getLanguage() == LanguageType.ENGLISH) {
 			return authentificationStrategy.authenficateSubjectEng();
 		}
-		
 		return true;
 	}
 	

@@ -1,39 +1,33 @@
 package swa;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import controller.AuthentificationServiceController;
 import controller.BookingServiceController;
 import controller.PaymentServiceController;
 import controller.PersonServiceController;
-import de.leuphana.swa.resourceService.resource.Resource;
 import model.AuthentificationService;
 import model.BookingService;
 import model.LanguageType;
 import model.PaymentService;
+import model.Person;
 import model.PersonService;
-import model.User;
 
 public class CarReservationController {
 	public void action() {
 		
-		String[] args = null;
+//		String[] args = null;
 		
-		PersonService personService = new PersonService();
-		User user;
-		List<User> users = new ArrayList<User>();
-		Resource car;
-		boolean authentificated;
+		PersonService 			personService;
 		AuthentificationService authentificationService;
-		BookingService bookingService;
-		PaymentService paymentService;
-		LanguageType languageType;
+		BookingService 			bookingService;
+		PaymentService 			paymentService;
+		
+		Person 					person;
+		LanguageType 			languageType;
 		
 //Person erstellen		
 		PersonServiceController personServiceController = new PersonServiceController();
 		personService = personServiceController.personCommand();
-//Hier m�sste ein PersonService �bergeben werden (Sprache inklusive)
+//Uebergibt 											-> personService
 		
 		
 ////Organisation erstellen (Vielleicht nur als Admin verf�gbar, Organisationstruktur vorher Hard coden???)
@@ -68,35 +62,22 @@ public class CarReservationController {
 ////resource m�sste �bergeben werden (Preis, Bestandteile)
 //
 //		
-//Authentification erstellen <-bekommt User
+//Authentification erstellen udn durchfuehren bekommt 	<- User
+		person = personService.getPerson();
 		AuthentificationServiceController authentificationServiceController = new AuthentificationServiceController();
-		authentificationService = authentificationServiceController.authentificationCommand();
-//		try {
-//			AuthentificationCommandController.main(args);
-//		} catch (IllegalArgumentException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//Authentification wird �bergeben
-//
-//		
-////Authentification durchf�hren <-bekommt Authentification, User
-////�bergibt boolean;
-
+		authentificationService = authentificationServiceController.authentificationCommand(person);
+//Uebergibt 											-> authentificationService;
 		
-//Booking erstellen <- Bekommt Resource, User
+//Booking erstellen <- Bekommt Resource, LanguageType
 		languageType = personService.getPerson().getLanguage();
 		BookingServiceController bookingServiceController = new BookingServiceController();
 		bookingService = bookingServiceController.bookingCommand(languageType);
-//�bergibt Booking;
+//Uebergibt 											-> BookingService;
 		
-//Payment durchf�hren <. bekommt Booking
+//Payment durchfuehren <- bekommt BookingService
 		PaymentServiceController psc = new PaymentServiceController();
 		paymentService = psc.paymentCommand(bookingService);
-//�bergibt paymentService;
+//Ubergibt 												-> paymentService;
 		
 //Statistic erstellen <- Sucht sich Daten
 //Print Statistics

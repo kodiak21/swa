@@ -9,17 +9,18 @@ import model.UserFactory;
 
 public class AuthentificationServiceController {
 
-	public AuthentificationService authentificationCommand() {
+	public AuthentificationService authentificationCommand(Person person) {
 
 		AuthentificationService authentificationService = new AuthentificationService();
 		AuthentificationServiceAction action;
 
 		CredentialType credentialType = CredentialType.USERNAME;
-		String name = "John Moeller";
-		PersonType personType = PersonType.LEGALPERSON;
-		UserFactory userfactory = new UserFactory();
-		LanguageType languageType = LanguageType.GERMAN;
-		Person person = userfactory.createPerson(personType, name, languageType);
+		
+//		String name = "John Moeller";
+//		PersonType personType = PersonType.LEGALPERSON;
+//		UserFactory userfactory = new UserFactory();
+//		LanguageType languageType = LanguageType.GERMAN;
+//		Person person = userfactory.createPerson(personType, name, languageType);
 		
 		action = new CreateAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
