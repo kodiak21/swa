@@ -1,11 +1,11 @@
-package de.leuphana.swa.authentificationService;
+package model;
 
 import model.Person;
 import model.PersonType;
 
 public class AuthentificationStrategyFactory {
 
-	public static AuthenficationStrategy getAuthenticationMethod(CredentialType credentialType, Person person) {
+	public static AuthentificationStrategy getAuthenticationMethod(CredentialType credentialType, Person person) {
 		if (person.getPersonType() == PersonType.NATURALPERSON) {
 			switch (credentialType) {
 			case USERNAME:
@@ -22,15 +22,15 @@ public class AuthentificationStrategyFactory {
 		}
 	}
 
-	private static AuthenficationStrategy createEyeScan() {
+	private static AuthentificationStrategy createEyeScan() {
 		return new EyeScanStrategy();
 	}
 
-	private static AuthenficationStrategy createFingerPrint() {
+	private static AuthentificationStrategy createFingerPrint() {
 		return new FingerPrintStrategy();
 	}
 
-	private static AuthenficationStrategy createUserName() {
+	private static AuthentificationStrategy createUserName() {
 		return new UserNameStrategy();
 	}
 

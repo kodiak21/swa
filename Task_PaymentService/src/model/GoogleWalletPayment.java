@@ -1,7 +1,5 @@
 package model;
 
-import de.leuphana.swa.authentificationService.CredentialType;
-
 public class GoogleWalletPayment extends Payment {
 
 	PaymentType paymentType;
