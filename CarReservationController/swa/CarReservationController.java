@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.AuthentificationServiceController;
+import controller.BookingServiceController;
 import controller.ResourceServiceController;
 import controller.PaymentServiceController;
 import controller.PersonServiceController;
@@ -61,9 +62,9 @@ public class CarReservationController {
 //		//M�sste schon bei organisation passieren.
 ////Hier m�sste ein User �bergeben werden
 //		
+////resource erstellen
 		ResourceServiceController resourceServiceController = new ResourceServiceController();
 		resourceService = resourceServiceController.resourcePlanning(languageType);
-////resource erstellen
 //		try {
 //			ResourceCommandController.main(args);
 //		} catch (IllegalArgumentException e) {
@@ -97,8 +98,8 @@ public class CarReservationController {
 		
 //Booking erstellen <- Bekommt Resource, User
 		languageType = personService.getPerson().getLanguage();
-		resourceServiceController = new ResourceServiceController();
-		bookingService = resourceServiceController.bookingCommand(languageType);
+		BookingServiceController bookingServiceController = new BookingServiceController();
+		bookingService = bookingServiceController.bookingCommand(languageType);
 //�bergibt Booking;
 		
 //Payment durchf�hren <. bekommt Booking

@@ -57,13 +57,8 @@ public class ResourceServiceController {
 		
 		SetResourcePriceAction SetResourcePriceAction  = new SetResourcePriceAction(resource, topBox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
 		resourceService = SetResourcePriceAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		return resourceService;
-	}
 
-	public BookingService bookingCommand(LanguageType languageType) {
-		// TODO Auto-generated method stub
-		return bookingService;
+		return resourceService;
 	}
 
 }
