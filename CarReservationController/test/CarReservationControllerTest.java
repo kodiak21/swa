@@ -1,5 +1,7 @@
 package test;
 
+import java.io.IOException;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +19,7 @@ class CarReservationControllerTest {
 	}
 
 	@Test
-	void test() {
+	void test() throws IllegalArgumentException, IOException {
 		CarReservationController carReservationController = new CarReservationController();
 		carReservationController.action();
 	}

@@ -1,18 +1,25 @@
 package swa;
 
+import java.io.IOException;
+
 import controller.AuthentificationServiceController;
 import controller.BookingServiceController;
 import controller.OrganisationServiceController;
 import controller.PaymentServiceController;
 import controller.PersonServiceController;
+import controller.ResourceServiceController;
 import model.AuthentificationService;
 import model.BookingService;
+import model.LanguageType;
 import model.OrganisationService;
 import model.PaymentService;
 import model.PersonService;
+import model.ResourceService;
 
 public class CarReservationController {
-	public void action() {
+	private LanguageType languageType;
+
+	public void action() throws IllegalArgumentException, IOException {
 		
 //		String[] args = null;
 		
@@ -21,18 +28,21 @@ public class CarReservationController {
 		AuthentificationService authentificationService;
 		BookingService 			bookingService;
 		PaymentService 			paymentService;
+		ResourceService 		resourceService;
 		
 //Person erstellen		
 		PersonServiceController personServiceController = new PersonServiceController();
 		personService = personServiceController.personCommand();
 //Uebergibt 											-> personService
 				
-//Organisation erstellen (Als User nur einteilung in gruppe. Als Admin erstellung/veränderung der Gruppenstruktur)
+//Organisation erstellen (Als User nur einteilung in gruppe. Als Admin erstellung/verï¿½nderung der Gruppenstruktur)
 		OrganisationServiceController organisationServiceController = new OrganisationServiceController();
 		organisationService = organisationServiceController.organisationCommand(personService.getPerson());
 //Uebergibt												-organisationService
 				
 ////resource erstellen
+		ResourceServiceController resourceServiceController = new ResourceServiceController();
+		resourceService = resourceServiceController.resourcePlanning(languageType);
 //		try {
 //			ResourceCommandController.main(args);
 //		} catch (IllegalArgumentException e) {
