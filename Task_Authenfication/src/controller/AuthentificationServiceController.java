@@ -30,6 +30,8 @@ public class AuthentificationServiceController {
 		
 		action = new DeleteAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
+		
+		
 
 
 		return authentificationService;
