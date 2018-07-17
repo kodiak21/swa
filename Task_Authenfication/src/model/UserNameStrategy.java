@@ -5,9 +5,6 @@ import java.io.InputStreamReader;
 
 public class UserNameStrategy implements AuthentificationStrategy{
 	
-	String textGer = "Idenfiziert ueber Username";
-	String textEng = "Identified by Username";
-	
 	private static String password = "1234";
 	
 	@Override
@@ -22,7 +19,6 @@ public class UserNameStrategy implements AuthentificationStrategy{
             BufferedReader br = new BufferedReader(in);
             inputPassword = br.readLine();
     		if (inputPassword.equals(password)) {
-    			System.out.println(textGer);
     			isAuthenficated = true;
     		} else {
     			System.out.println("Falsches Passwort");
@@ -47,7 +43,6 @@ public class UserNameStrategy implements AuthentificationStrategy{
             BufferedReader br = new BufferedReader(in);
             inputPassword = br.readLine();
     		if (inputPassword.equals(password)) {
-    			System.out.println(textEng);
     			isAuthenficated = true;
     		} else {
     			System.out.println("Wrong password!");
