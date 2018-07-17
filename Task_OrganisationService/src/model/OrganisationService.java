@@ -1,21 +1,18 @@
 package model;
 
-import model.LanguageType;
-import model.Person;
-import model.PersonType;
-import model.UserFactory;
+import java.util.Stack;
 
 public class OrganisationService {
 	
-	String name;
-	PersonType personType;		
-	LanguageType language;
-	User user;
-	UserGroup userGroupIndividual;
-	UserGroup userGroupOrganisation;
-	UserOrganisationUnit userGroupUsers;
-	UserOrganisationUnit userGroupAdmins;
-	UserOrganisationUnit userGroupALL;
+	String 					name;
+	PersonType 				personType;		
+	LanguageType 			language;
+	User 					user;
+	UserGroup 				userGroupIndividual;
+	UserGroup 				userGroupOrganisation;
+	UserOrganisationUnit 	userGroupUsers;
+	UserOrganisationUnit 	userGroupAdmins;
+	UserOrganisationUnit 	userGroupALL;
 	
 	public OrganisationService() {
 		UserFactory userFactory = new UserFactory();
@@ -24,11 +21,11 @@ public class OrganisationService {
 		Person person3 = userFactory.createPerson(PersonType.NATURALPERSON,"Angestellte", LanguageType.GERMAN);
 		Person person4 = userFactory.createPerson(PersonType.NATURALPERSON,"Nutzer", LanguageType.GERMAN);
 		Person person5 = userFactory.createPerson(PersonType.NATURALPERSON,"Alle Nutzer", LanguageType.GERMAN);
-		userGroupIndividual = new UserGroup(person1);
-		userGroupOrganisation = new UserGroup(person2);
-		userGroupAdmins = new UserOrganisationUnit(person3);
-		userGroupUsers = new UserOrganisationUnit(person4);
-		userGroupALL = new UserOrganisationUnit(person5);
+		userGroupIndividual = 		new UserGroup(person1);
+		userGroupOrganisation = 	new UserGroup(person2);
+		userGroupAdmins = 			new UserOrganisationUnit(person3);
+		userGroupUsers = 			new UserOrganisationUnit(person4);
+		userGroupALL = 				new UserOrganisationUnit(person5);
 		userGroupUsers.add(userGroupIndividual);
 		userGroupUsers.add(userGroupOrganisation);
 		userGroupALL.add(userGroupUsers);
@@ -45,13 +42,24 @@ public class OrganisationService {
 		}
 	}
 
-	
 	public void deleteUser() {
+		if(this.user.getClass().getSimpleName().equals("UserIndividual")){
+			this.userGroupIndividual.remove(user);
+		} else {
+			this.userGroupOrganisation.remove(user);
+		}
 		this.user = null;
 	}
 	
+	public Stack<User> printUsers() {
+		
+		Stack<User> answer = new Stack<User>();
+		answer = userGroupALL.printUserInformation();
+
+		return answer;
+	}
+	
 	public User printUser() {
-		userGroupALL.printUserInformation();
 		return this.user;
 	}
 }

@@ -2,13 +2,13 @@ package swa;
 
 import controller.AuthentificationServiceController;
 import controller.BookingServiceController;
+import controller.OrganisationServiceController;
 import controller.PaymentServiceController;
 import controller.PersonServiceController;
 import model.AuthentificationService;
 import model.BookingService;
-import model.LanguageType;
+import model.OrganisationService;
 import model.PaymentService;
-import model.Person;
 import model.PersonService;
 
 public class CarReservationController {
@@ -17,38 +17,21 @@ public class CarReservationController {
 //		String[] args = null;
 		
 		PersonService 			personService;
+		OrganisationService		organisationService;
 		AuthentificationService authentificationService;
 		BookingService 			bookingService;
 		PaymentService 			paymentService;
-		
-		Person 					person;
-		LanguageType 			languageType;
 		
 //Person erstellen		
 		PersonServiceController personServiceController = new PersonServiceController();
 		personService = personServiceController.personCommand();
 //Uebergibt 											-> personService
-		
-		
-////Organisation erstellen (Vielleicht nur als Admin verfï¿½gbar, Organisationstruktur vorher Hard coden???)
-//
-//		try {
-//			OrganisationCommandController.main(args);
-//		} catch (IllegalArgumentException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-////Hier mï¿½sste eine List<User> ï¿½bergeben werden
-//		
-//		
-////Person und Organisation verknï¿½pfen
-//		//Mï¿½sste schon bei organisation passieren.
-////Hier mï¿½sste ein User ï¿½bergeben werden
-//		
-//		
+				
+//Organisation erstellen (Als User nur einteilung in gruppe. Als Admin erstellung/veränderung der Gruppenstruktur)
+		OrganisationServiceController organisationServiceController = new OrganisationServiceController();
+		organisationService = organisationServiceController.organisationCommand(personService.getPerson());
+//Uebergibt												-organisationService
+				
 ////resource erstellen
 //		try {
 //			ResourceCommandController.main(args);
@@ -60,24 +43,21 @@ public class CarReservationController {
 //			e.printStackTrace();
 //		}
 ////resource mï¿½sste ï¿½bergeben werden (Preis, Bestandteile)
-//
-//		
+	
 //Authentification erstellen udn durchfuehren bekommt 	<- User
-		person = personService.getPerson();
 		AuthentificationServiceController authentificationServiceController = new AuthentificationServiceController();
-		authentificationService = authentificationServiceController.authentificationCommand(person);
-//Uebergibt 											-> authentificationService;
+		authentificationService = authentificationServiceController.authentificationCommand(personService.getPerson());
+//Uebergibt 											-> authentificationService
 		
 //Booking erstellen <- Bekommt Resource, LanguageType
-		languageType = personService.getPerson().getLanguage();
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingService = bookingServiceController.bookingCommand(languageType);
-//Uebergibt 											-> BookingService;
+		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName());
+//Uebergibt 											-> BookingService
 		
 //Payment durchfuehren <- bekommt BookingService
 		PaymentServiceController psc = new PaymentServiceController();
 		paymentService = psc.paymentCommand(bookingService);
-//Ubergibt 												-> paymentService;
+//Ubergibt 												-> paymentService
 		
 //Statistic erstellen <- Sucht sich Daten
 //Print Statistics

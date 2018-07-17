@@ -1,6 +1,6 @@
 package model;
 
-import model.Person;
+import java.util.Stack;
 
 abstract public class User {
 	
@@ -8,20 +8,22 @@ abstract public class User {
 	int userId;
 	Person person;
 	
-	abstract void printUserInformation();
-	abstract int countUser();
+	abstract Stack<User> printUserInformation();
+	abstract public int countUser();
 	
 	protected User(Person person) {
 		this.userId = nextUserId++;
 		this.person = person;
 	}
 	
-	public String getName() {
-		return person.getName();
-	}
-	
 	public int getUserId() {
 		return userId;
+	}
+	public Person getPerson() {
+		return person;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 }

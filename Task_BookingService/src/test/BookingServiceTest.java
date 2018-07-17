@@ -7,10 +7,11 @@ import model.LanguageType;
 
 class BookingServiceTest {
 LanguageType language = LanguageType.GERMAN;
+String name = "Max Mustermann";
 	@Test
 	void test() {
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingServiceController.bookingCommand(language);
+		bookingServiceController.bookingCommand(language, name);
 	}
 
 }

@@ -1,6 +1,6 @@
 package model;
 
-import model.Person;
+import java.util.Stack;
 
 public class UserIndividual extends User{
 	
@@ -10,12 +10,14 @@ public class UserIndividual extends User{
 	}
 
 	@Override
-	void printUserInformation() {
-		System.out.println("Name= " + getName());
+	Stack<User> printUserInformation() {
+		Stack<User> answer = new Stack<User>();
+		answer.push(this);
+		return answer;
 	}
 
 	@Override
-	int countUser() {
+	public int countUser() {
 		// TODO Auto-generated method stub
 		return 1;
 	}

@@ -5,7 +5,7 @@ import model.BookingService;
 import model.LanguageType;
 
 public class BookingServiceController {
-	public BookingService bookingCommand(LanguageType language) {
+	public BookingService bookingCommand(LanguageType language, String name) {
 		
 		BookingService bookingService = new BookingService();
 		
@@ -14,7 +14,7 @@ public class BookingServiceController {
 		car.setCarPrice(5000);
 //		----------------------------
 		
-		CreateBookingAction createBookingAction = new CreateBookingAction(car, language);
+		CreateBookingAction createBookingAction = new CreateBookingAction(car, language, name);
 		bookingService = createBookingAction.action(bookingService);
 		
 		PrintBookingAction printBookingAction = new PrintBookingAction();

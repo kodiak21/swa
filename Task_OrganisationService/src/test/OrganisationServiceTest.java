@@ -4,7 +4,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import model.OrganisationService;
+import controller.OrganisationServiceController;
+import model.LanguageType;
+import model.Person;
+import model.PersonService;
+import model.PersonType;
 
 class OrganisationServiceTest {
 
@@ -18,8 +22,11 @@ class OrganisationServiceTest {
 
 	@Test
 	void test() {
-		OrganisationService organisationService = new OrganisationService();
-		organisationService.printUser();
+		PersonService personService = new PersonService();
+		personService.createPerson(PersonType.NATURALPERSON, "Meier", LanguageType.GERMAN);
+		Person person = personService.getPerson();
+		OrganisationServiceController organisationServiceController = new OrganisationServiceController();
+		organisationServiceController.organisationCommand(person);
 	}
 
 }

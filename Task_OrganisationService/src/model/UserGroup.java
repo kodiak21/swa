@@ -1,14 +1,12 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-
-import model.Person;
+import java.util.LinkedList;
+import java.util.Stack;
 
 public class UserGroup extends User {
 
-	List<User> users = new ArrayList<User>();
+	LinkedList<User> users = new LinkedList<User>();
 
 	public UserGroup(Person person) {
 		super(person);
@@ -16,21 +14,24 @@ public class UserGroup extends User {
 	}
 
 	@Override
-	void printUserInformation() {
-		System.out.println("-------------");
-		System.out.println("Groupname= " + getName());
-		System.out.println("Groupsize= " + countUser());
-		System.out.println("");
-
+	Stack<User> printUserInformation() {
+		Stack<User> answer = new Stack<User>();
+		answer.push(this);
+		
 		Iterator<User> userIterator = users.iterator();
 		while (userIterator.hasNext()) {
 			User user = userIterator.next();
-			user.printUserInformation();
-		}
+			Stack<User> userReturn = new Stack<User>();
+			userReturn = user.printUserInformation();
+			while (!userReturn.isEmpty()) {
+				answer.push(userReturn.pop());
+			}
+		}	
+		return answer;
 	}
 
 	@Override
-	int countUser() {
+	public int countUser() {
 		int count = 0;
 		for (User user : users) {
 			count += user.countUser();

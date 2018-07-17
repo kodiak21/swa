@@ -7,14 +7,13 @@ public class BookingService {
 	float cost;
 	LanguageType language;
 	Booking booking;
+	String name;
 	
-	//TODO Hard Coded
-	String name = "Mustermann";
-	
-	public void createBooking(Resource car, LanguageType language){
+	public void createBooking(Resource car, LanguageType language, String name){
 
 		this.cost = car.getPrice();
 		this.language = language;
+		this.name = name;
 		
 		if (language == LanguageType.GERMAN) {
 			BookingBuilderGerman builderG = new BookingBuilderGerman();
@@ -47,6 +46,14 @@ public class BookingService {
 		this.cost = cost;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public LanguageType getLanguage() {
 		return language;
 	}
@@ -61,14 +68,6 @@ public class BookingService {
 
 	public void setBooking(Booking booking) {
 		this.booking = booking;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	

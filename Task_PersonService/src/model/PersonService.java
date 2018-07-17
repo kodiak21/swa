@@ -2,8 +2,6 @@ package model;
 
 public class PersonService {
 	
-	String name;
-	PersonType personType;
 	Person person;
 		
 	public void createPerson (PersonType personType, String name, LanguageType language) {
@@ -17,22 +15,6 @@ public class PersonService {
 	
 	public Person printPerson() {
 		return this.person;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public PersonType getPersonType() {
-		return personType;
-	}
-
-	public void setPersonType(PersonType personType) {
-		this.personType = personType;
 	}
 
 	public Person getPerson() {

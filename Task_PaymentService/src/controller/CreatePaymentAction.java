@@ -22,9 +22,6 @@ public class CreatePaymentAction implements PaymentServiceAction {
 	@Override
 	public PaymentService action(PaymentService paymentService) {
 		
-		action = new QuestionCredentialTypeAction();
-		paymentService = action.action(paymentService);
-		
 		action = new QuestionPaymentAction();
 		paymentService = action.action(paymentService);
 		
