@@ -16,11 +16,12 @@ import model.BookingService;
 import model.LanguageType;
 import model.PaymentService;
 import model.PersonService;
+import model.ResourceService;
 import model.User;
 import model.resource.Resource;
 
 public class CarReservationController {
-	public void action() {
+	public void action() throws IllegalArgumentException, IOException {
 		
 		String[] args = null;
 		
@@ -33,7 +34,8 @@ public class CarReservationController {
 		AuthentificationService authentificationService;
 		BookingService bookingService;
 		PaymentService paymentService;
-		LanguageType languageType;
+		ResourceService resourceService;
+		LanguageType languageType = LanguageType.GERMAN;
 		
 //Person erstellen		
 		PersonServiceController personServiceController = new PersonServiceController();
@@ -59,7 +61,8 @@ public class CarReservationController {
 //		//M�sste schon bei organisation passieren.
 ////Hier m�sste ein User �bergeben werden
 //		
-//		
+		ResourceServiceController resourceServiceController = new ResourceServiceController();
+		resourceService = resourceServiceController.resourcePlanning(languageType);
 ////resource erstellen
 //		try {
 //			ResourceCommandController.main(args);
@@ -94,7 +97,7 @@ public class CarReservationController {
 		
 //Booking erstellen <- Bekommt Resource, User
 		languageType = personService.getPerson().getLanguage();
-		ResourceServiceController resourceServiceController = new ResourceServiceController();
+		resourceServiceController = new ResourceServiceController();
 		bookingService = resourceServiceController.bookingCommand(languageType);
 //�bergibt Booking;
 		

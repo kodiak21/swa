@@ -3,11 +3,11 @@ package controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 
+import model.BookingService;
 import model.LanguageType;
 import model.ResourceService;
 import model.equipment.ChildSeat;
 import model.equipment.TopBox;
-import model.resource.Car;
 import model.resource.Resource;
 
 public class ResourceServiceController {
@@ -22,6 +22,7 @@ public class ResourceServiceController {
 	BigDecimal topBoxPrice;
 	BigDecimal childSeatPrice;
 	BigDecimal resourcePrice;
+	BookingService bookingService;
 
 	public ResourceService resourcePlanning(LanguageType languageType) throws IllegalArgumentException, IOException {
 		
@@ -58,6 +59,11 @@ public class ResourceServiceController {
 		resourceService = SetResourcePriceAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
 		
 		return resourceService;
+	}
+
+	public BookingService bookingCommand(LanguageType languageType) {
+		// TODO Auto-generated method stub
+		return bookingService;
 	}
 
 }
