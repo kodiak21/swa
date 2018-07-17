@@ -1,6 +1,6 @@
 package model;
 
-import de.leuphana.swa.resourceService.resource.Resource;
+import model.resource.Resource;
 
 public class BookingService {
 	

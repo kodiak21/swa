@@ -29,7 +29,7 @@ public class DeleteBookingAction implements BookingServiceAction {
 			bookingService.deleteBooking();
 			break;
 		case 3:	
-			BookingServiceController bsc = new BookingServiceController();
+			ResourceServiceController bsc = new ResourceServiceController();
 			bookingService.setBooking(bsc.bookingCommand(language).getBooking());
 			break;
 		default: break;

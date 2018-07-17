@@ -10,12 +10,11 @@ import de.leuphana.swa.resourceService.commandpattern.realisations.AskTopBoxOrde
 import de.leuphana.swa.resourceService.commandpattern.realisations.PrintMenuCommand;
 import de.leuphana.swa.resourceService.commandpattern.realisations.PrintOrderCommand;
 import de.leuphana.swa.resourceService.commandpattern.realisations.SetPriceCommand;
-
-import de.leuphana.swa.resourceService.equipment.ChildSeat;
-import de.leuphana.swa.resourceService.equipment.TopBox;
-import de.leuphana.swa.resourceService.resource.Car;
-import de.leuphana.swa.resourceService.resource.Resource;
 import de.leuphana.swa.resourceService.view.ResourceView;
+import model.equipment.ChildSeat;
+import model.equipment.TopBox;
+import model.resource.Car;
+import model.resource.Resource;
 
 public class ResourceCommandController {
 

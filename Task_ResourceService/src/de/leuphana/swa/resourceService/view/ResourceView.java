@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import de.leuphana.swa.resourceService.equipment.ChildSeat;
-import de.leuphana.swa.resourceService.equipment.TopBox;
-import de.leuphana.swa.resourceService.resource.Resource;
+import model.equipment.ChildSeat;
+import model.equipment.TopBox;
+import model.resource.Resource;
 
 public class ResourceView {
 
@@ -79,7 +79,7 @@ public class ResourceView {
 	}
 
 	// Begrenzung auf einen Dachgepächträger pro Auto
-	// TODO geh�rt in den Controller, nicht view
+	// TODO geh�rt in den Controller, nicht view
 
 	public void askNumberTopBox() throws IOException {
 		System.out.println("How many TopBoxes needed ?");

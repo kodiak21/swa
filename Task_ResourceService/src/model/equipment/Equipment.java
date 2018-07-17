@@ -1,6 +1,6 @@
-package de.leuphana.swa.resourceService.equipment;
+package model.equipment;
 
-import de.leuphana.swa.resourceService.resource.Resource;
+import model.resource.Resource;
 
 public abstract class Equipment implements Resource{
 	protected Resource resource;

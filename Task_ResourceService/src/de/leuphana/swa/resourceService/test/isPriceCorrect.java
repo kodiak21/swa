@@ -7,9 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import de.leuphana.swa.resourceService.equipment.ChildSeat;
-import de.leuphana.swa.resourceService.equipment.TopBox;
-import de.leuphana.swa.resourceService.resource.Resource;
+import model.equipment.ChildSeat;
+import model.equipment.TopBox;
+import model.resource.Resource;
 
 class isPriceCorrect {
 	

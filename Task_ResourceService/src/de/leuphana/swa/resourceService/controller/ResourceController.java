@@ -3,10 +3,10 @@ package de.leuphana.swa.resourceService.controller;
 import java.io.IOException;
 
 import de.leuphana.swa.resourceService.view.ResourceView;
-import de.leuphana.swa.resourceService.equipment.ChildSeat;
-import de.leuphana.swa.resourceService.equipment.TopBox;
-import de.leuphana.swa.resourceService.resource.Car;
-import de.leuphana.swa.resourceService.resource.Resource;
+import model.equipment.ChildSeat;
+import model.equipment.TopBox;
+import model.resource.Car;
+import model.resource.Resource;
 
 public class ResourceController {
 

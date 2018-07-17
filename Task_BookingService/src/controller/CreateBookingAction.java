@@ -1,8 +1,8 @@
 package controller;
 
-import de.leuphana.swa.resourceService.resource.Car;
 import model.BookingService;
 import model.LanguageType;
+import model.resource.Car;
 import views.QuestionLanguageView;
 
 public class CreateBookingAction implements BookingServiceAction{
