@@ -1,8 +1,10 @@
 package controller;
 
-import de.leuphana.swa.resourceService.resource.Car;
+import java.math.BigDecimal;
+
 import model.BookingService;
 import model.LanguageType;
+import model.resource.Car;
 
 public class BookingServiceController {
 	public BookingService bookingCommand(LanguageType language, String name) {
@@ -11,7 +13,8 @@ public class BookingServiceController {
 		
 //		TODO HardCoded--------------
 		Car car = new Car();
-		car.setCarPrice(5000);
+		BigDecimal carPrice = BigDecimal.valueOf(5000);
+		car.setCarPrice(carPrice);
 //		----------------------------
 		
 		CreateBookingAction createBookingAction = new CreateBookingAction(car, language, name);

@@ -1,6 +1,6 @@
 package model;
 
-import de.leuphana.swa.resourceService.resource.Resource;
+import model.resource.Resource;
 
 public class BookingService {
 	
@@ -11,7 +11,7 @@ public class BookingService {
 	
 	public void createBooking(Resource car, LanguageType language, String name){
 
-		this.cost = car.getPrice();
+		this.cost = car.getPrice().floatValue();
 		this.language = language;
 		this.name = name;
 		
