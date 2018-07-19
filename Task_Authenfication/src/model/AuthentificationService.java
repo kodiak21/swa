@@ -20,14 +20,13 @@ public class AuthentificationService {
 		languageType = LanguageType.GERMAN;
 		userfactory = new UserFactory();
 		person = userfactory.createPerson(personType,name, languageType);
-		credentialType = CredentialType.USERNAME;
 	}
 
 	public void createAuthentification(CredentialType credentialType, Person person) {
 		this.authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
 	}
 	
-	public AuthentificationStrategy printAuthentification() {
+	public AuthentificationStrategy getAuthentificationStrategy() {
 		return this.authentificationStrategy;
 	}
 
@@ -44,6 +43,5 @@ public class AuthentificationService {
 	public void deleteAuthentification() {
 		this.authentificationStrategy = null;
 	}
-	
 	
 }
