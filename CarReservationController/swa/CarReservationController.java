@@ -10,14 +10,12 @@ import controller.PersonServiceController;
 import controller.ResourceServiceController;
 import model.AuthentificationService;
 import model.BookingService;
-import model.LanguageType;
 import model.OrganisationService;
 import model.PaymentService;
 import model.PersonService;
 import model.ResourceService;
 
 public class CarReservationController {
-	private LanguageType languageType;
 
 	public void action() throws IllegalArgumentException, IOException {
 		
@@ -35,24 +33,15 @@ public class CarReservationController {
 		personService = personServiceController.personCommand();
 //Uebergibt 											-> personService
 				
-//Organisation erstellen (Als User nur einteilung in gruppe. Als Admin erstellung/ver�nderung der Gruppenstruktur)
+//Organisation erstellen (Als User nur automatische Einteilung in Gruppe. Als Admin erstellung/veraenderung der Gruppenstruktur)
 		OrganisationServiceController organisationServiceController = new OrganisationServiceController();
 		organisationService = organisationServiceController.organisationCommand(personService.getPerson());
-//Uebergibt												-organisationService
+//Uebergibt												-> organisationService
 				
-////resource erstellen
+//Resource erstellen 									<- LanguageType
 		ResourceServiceController resourceServiceController = new ResourceServiceController();
-		resourceService = resourceServiceController.resourcePlanning(languageType);
-//		try {
-//			ResourceCommandController.main(args);
-//		} catch (IllegalArgumentException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-////resource m�sste �bergeben werden (Preis, Bestandteile)
+		resourceService = resourceServiceController.resourcePlanning(personService.getPerson().getLanguage());
+//Uebergibt												-> resource
 	
 //Authentification erstellen udn durchfuehren bekommt 	<- User
 		AuthentificationServiceController authentificationServiceController = new AuthentificationServiceController();
