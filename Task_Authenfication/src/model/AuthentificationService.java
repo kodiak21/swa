@@ -1,13 +1,7 @@
 package model;
-import model.Person;
-import model.PersonType;
-import model.UserFactory;
 
 public class AuthentificationService {
 	
-	String name;		
-	PersonType personType;	
-	UserFactory userfactory;
 	Person person;
 	AuthentificationStrategy authentificationStrategy;
 	
@@ -15,14 +9,10 @@ public class AuthentificationService {
 	LanguageType languageType;
 
 	public AuthentificationService() {
-		name = "John Moeller";		
-		personType = PersonType.LEGALPERSON;
-		languageType = LanguageType.GERMAN;
-		userfactory = new UserFactory();
-		person = userfactory.createPerson(personType,name, languageType);
 	}
 
 	public void createAuthentification(CredentialType credentialType, Person person) {
+		this.person = person;
 		this.authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
 	}
 	
