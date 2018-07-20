@@ -14,19 +14,20 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 
 	Person person;
 	PrintAuthentificationView printAuthentificationView;
-	CredentialType credentialType;
 
 	AuthentificationStrategy authentificationStrategy;
 
-	public PrintAuthentificationAction(CredentialType credentialType, Person person) {
-		this.credentialType = credentialType;
+	public PrintAuthentificationAction(Person person, AuthentificationStrategy authentificationStrategy) {
 		this.person = person;
+		this.authentificationStrategy = authentificationStrategy;
 		printAuthentificationView = new PrintAuthentificationView();
 	}
 
 	@Override
 	public AuthentificationService action(AuthentificationService authentificationService) {
 
+		CredentialType credentialType = authentificationStrategy.getCredentialType();
+		
 		if (person.getLanguage() == LanguageType.GERMAN) {
 			switch (credentialType) {
 			case FINGERPRINT:
