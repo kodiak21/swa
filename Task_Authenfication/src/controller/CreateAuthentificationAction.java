@@ -54,7 +54,9 @@ public class CreateAuthentificationAction implements AuthentificationServiceActi
 			default:
 				credentialType = null;	
 			}
+			authentificationService.createAuthentification(credentialType, person);
 		}
+		
 		return authentificationService;
 	}
 

@@ -12,57 +12,57 @@ import model.resource.Car;
 import model.resource.Resource;
 
 public class ResourceServiceController {
-	
-	//Hard coded
-	
-	Resource resource = new Car();
-	TopBox topBox = new TopBox(resource);
-	ChildSeat childSeat = new ChildSeat(resource);
-	
-	
-	int numberChildSeats;
-	int numberTopBox;
-	String carName;
-	
-	BigDecimal topBoxPrice;
-	BigDecimal childSeatPrice;
-	BigDecimal resourcePrice;
-	BookingService bookingService;
 
 	public ResourceService resourcePlanning(LanguageType languageType) throws IllegalArgumentException, IOException {
-		
-		ResourceService resourceService = new ResourceService();
-		
-		AskCarOrderAction  askCarOrderAction = new AskCarOrderAction();
-		resourceService = askCarOrderAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		AskCarBrandAction  askCarBrandAction = new AskCarBrandAction();
-		resourceService = askCarBrandAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		AskTopBoxOrderAction askTopBoxOrderAction = new AskTopBoxOrderAction();
-		resourceService = askTopBoxOrderAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		AskNumberTopBoxAction askNumberTopBoxAction = new AskNumberTopBoxAction();
-		resourceService = askNumberTopBoxAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		AskChildSeatOrderAction askChildSeatOrderAction = new AskChildSeatOrderAction();
-		resourceService = askChildSeatOrderAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		AskNumberChildSeatAction askNumberChildSeatAction = new AskNumberChildSeatAction();
-		resourceService = askNumberChildSeatAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		AskDeleteResourceAction askDeleteResourceAction = new AskDeleteResourceAction();
-		resourceService = askDeleteResourceAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		PrintMenuResourceAction printMenuResourceAction = new PrintMenuResourceAction();
-		resourceService = printMenuResourceAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		PrintOrderResourceAction printOrderResourceAction = new PrintOrderResourceAction(numberChildSeats, numberChildSeats, carName);
-		resourceService = printOrderResourceAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
-		
-		SetResourcePriceAction SetResourcePriceAction  = new SetResourcePriceAction(resource, topBox, childSeat, resourcePrice, topBoxPrice, childSeatPrice);
-		resourceService = SetResourcePriceAction.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox, numberChildSeats);
 
+		ResourceService resourceService = new ResourceService();
+
+		SetResourcePriceAction setResourcePriceAction = new SetResourcePriceAction();
+
+		PrintMenuResourceAction printMenuResourceAction = new PrintMenuResourceAction();
+		resourceService = setResourcePriceAction.action(resourceService, languageType);
+		resourceService = printMenuResourceAction.action(resourceService, languageType);
+
+		AskCarOrderAction askCarOrderAction = new AskCarOrderAction();
+		resourceService = askCarOrderAction.action(resourceService, languageType);
+		
+		if (resourceService.getCarResourceAnswer() == 1) {
+			AskCarBrandAction askCarBrandAction = new AskCarBrandAction();
+			resourceService = askCarBrandAction.action(resourceService, languageType);
+
+			AskTopBoxOrderAction askTopBoxOrderAction = new AskTopBoxOrderAction();
+			resourceService = askTopBoxOrderAction.action(resourceService, languageType);
+
+			if (resourceService.getTopBoxResourceAnswer() == 1) {
+				AskNumberTopBoxAction askNumberTopBoxAction = new AskNumberTopBoxAction();
+				resourceService = askNumberTopBoxAction.action(resourceService, languageType);
+			}
+
+			AskChildSeatOrderAction askChildSeatOrderAction = new AskChildSeatOrderAction();
+			resourceService = askChildSeatOrderAction.action(resourceService, languageType);
+
+			if (resourceService.getChildSeatResourceAnswer() == 1) {
+				AskNumberChildSeatAction askNumberChildSeatAction = new AskNumberChildSeatAction();
+				resourceService = askNumberChildSeatAction.action(resourceService, languageType);
+			}
+			
+			AskDeleteResourceAction askDeleteResourceAction = new AskDeleteResourceAction();
+			resourceService = askDeleteResourceAction.action(resourceService, languageType);
+			
+			PrintOrderResourceAction printOrderResourceAction = new PrintOrderResourceAction(
+					resourceService.getChildSeatQuantity(),
+					resourceService.getCarResource(),
+					resourceService.getTopBoxResource(),
+					resourceService.getChildSeatResource(),
+					resourceService.getCarName());
+			resourceService = setResourcePriceAction.action(resourceService, languageType);
+			resourceService = printOrderResourceAction.action(resourceService, languageType);
+		}else if(resourceService.getCarResourceAnswer()==2) {
+			
+			//Todo Ausstieg Programm
+			
+		}
+		
 		return resourceService;
 	}
 

@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-
 import model.LanguageType;
 import model.ResourceService;
 import model.equipment.ChildSeat;
@@ -14,25 +13,21 @@ public class AskCarOrderAction implements ResourceServiceAction {
 
 	AskCarOrderView askCarOrderView;
 	LanguageType languageType;
-	
+
 	public AskCarOrderAction() throws IllegalArgumentException, IOException {
 		this.askCarOrderView = new AskCarOrderView();
 	}
-	
+
 	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox,
-			ChildSeat childSeat, LanguageType languageType, int numberTopBox, int numberChildSeats) {
-		if(languageType == LanguageType.GERMAN) {
-			askCarOrderView.showViewGer();
-		}else if(languageType == LanguageType.ENGLISH) {
-			askCarOrderView.showViewEng();
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) {
+		if (languageType == LanguageType.GERMAN) {
+			resourceService.setCarResourceAnswer(askCarOrderView.showViewGer());
+		} else if (languageType == LanguageType.ENGLISH) {
+			resourceService.setCarResourceAnswer(askCarOrderView.showViewEng());
 		}
-		
+
+		resourceService.setCarResource(resourceService.createCarResource());
 		return resourceService;
-	}
-	
-	public AskCarOrderView returnView() {
-		return askCarOrderView;
 	}
 
 }

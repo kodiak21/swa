@@ -17,15 +17,17 @@ public class AskDeleteResourceAction implements ResourceServiceAction {
 	public AskDeleteResourceAction() {
 		this.askDeleteResourceView = new AskDeleteResourceView();
 	}
-	
+
 	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox,
-			ChildSeat childSeat, LanguageType languageType, int numberTopBox, int numberChildSeats) throws IOException {
-		if(languageType == LanguageType.GERMAN) {
-			askDeleteResourceView.showViewGer();
-		}else if(languageType == LanguageType.ENGLISH) {
-			askDeleteResourceView.showViewEng();
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException {
+		if (languageType == LanguageType.GERMAN) {
+			resourceService.setConfirmAnswer(askDeleteResourceView.showViewGer());
+			resourceService.deleteResource();
+		} else if (languageType == LanguageType.ENGLISH) {
+			resourceService.setConfirmAnswer(askDeleteResourceView.showViewEng());
+			resourceService.deleteResource();
 		}
-		return resourceService;	}
+		return resourceService;
+	}
 
 }

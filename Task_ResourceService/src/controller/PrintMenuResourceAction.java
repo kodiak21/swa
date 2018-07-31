@@ -11,23 +11,17 @@ import view.PrintMenuView;
 public class PrintMenuResourceAction implements ResourceServiceAction {
 
 	PrintMenuView printMenuView;
-	Resource resource;
-	TopBox topBox;
-	ChildSeat childSeat;
 	
 	public PrintMenuResourceAction() {
 		this.printMenuView = new PrintMenuView();
-		resource = new Car();
-		topBox = new TopBox(resource);
-		childSeat = new ChildSeat(resource);
 	}
 	
 	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox, ChildSeat childSeat, LanguageType languageType, int numberTopBox,int numberChildSeats) {
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) {
 		if(languageType == LanguageType.GERMAN) {
-			printMenuView.showGer(resource, topBox, childSeat);
+			printMenuView.showGer(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource());
 		}else if(languageType == LanguageType.ENGLISH) {
-			printMenuView.showEng(resource, topBox, childSeat);
+			printMenuView.showEng(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource());
 		}
 		
 		return resourceService;

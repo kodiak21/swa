@@ -13,26 +13,37 @@ public class AskTopBoxOrderAction implements ResourceServiceAction {
 
 	LanguageType languageType;
 	AskTopBoxView askTopBoxView;
-	
+
 	public AskTopBoxOrderAction() throws IllegalArgumentException, IOException {
 		this.askTopBoxView = new AskTopBoxView();
 	}
-	
-	
+
 	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox,
-			ChildSeat childSeat, LanguageType languageType, int numberTopBox, int numberChildSeats) throws IOException {
-		if(languageType == LanguageType.GERMAN) {
-			askTopBoxView.showViewGer();
-		}else if(languageType == LanguageType.ENGLISH) {
-			askTopBoxView.showViewEng();
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException {
+		if (languageType == LanguageType.GERMAN) {
+			resourceService.setTopBoxResourceAnswer(askTopBoxView.showViewGer());
+			if (resourceService.getTopBoxResourceAnswer() == 1) {
+				resourceService.setTopBoxResource(resourceService.createTopBoxResource());
+			} else if (resourceService.getTopBoxResourceAnswer() == 2) {
+				resourceService.setTopBoxResource(null);
+			}
+		} else if (languageType == LanguageType.ENGLISH) {
+			resourceService.setTopBoxResourceAnswer(askTopBoxView.showViewEng());
+			if (resourceService.getTopBoxResourceAnswer() == 1) {
+				resourceService.setTopBoxResource(resourceService.createTopBoxResource());
+			} else if (resourceService.getTopBoxResourceAnswer() == 2) {
+				resourceService.setTopBoxResource(null);
+			}
+
 		}
+
 		
+
 		return resourceService;
 	}
 
 	public AskTopBoxView returnView() {
 		return askTopBoxView;
 	}
-	
+
 }

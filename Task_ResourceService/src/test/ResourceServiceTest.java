@@ -46,10 +46,8 @@ class ResourceServiceTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		action = new SetResourcePriceAction(resource, topBox, childSeat, new BigDecimal("500.00"),
-				new BigDecimal("120.00"), new BigDecimal("40.00"));
-		resourceService = action.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox,
-				childSeats);
+		action = new SetResourcePriceAction();
+		resourceService = action.action(resourceService, languageType);
 
 	}
 
@@ -60,12 +58,10 @@ class ResourceServiceTest {
 	@Test
 	void test() throws IllegalArgumentException, IOException {
 
-		SetResourcePriceAction action = new SetResourcePriceAction(resource, topBox, childSeat, new BigDecimal("400"),
-				new BigDecimal("120"), new BigDecimal("40"));
+		SetResourcePriceAction action = new SetResourcePriceAction();
 
 		PrintMenuResourceAction action2 = new PrintMenuResourceAction();
-		resourceService = action2.action(resourceService, resource, topBox, childSeat, languageType, numberTopBox,
-				childSeats);
+		resourceService = action2.action(resourceService, languageType);
 
 		AskCarOrderView askCarOrderView = new AskCarOrderView();
 		AskCarBrandView askCarBrandView = new AskCarBrandView();
@@ -110,26 +106,20 @@ class ResourceServiceTest {
 
 						childSeat = new ChildSeat(new TopBox(resource));
 
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 						// Antwort Nein ChildSeat
 					} else if (answer4 == 2) {
 						childSeats = 0;
 
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 					}
 
 					// Antwort Nein TopBox
@@ -148,24 +138,18 @@ class ResourceServiceTest {
 						numberTopBox = 1;
 						childSeat = new ChildSeat(new TopBox(resource));
 
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 					} else if (answer4 == 2) {
 						childSeats = 0;
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 					}
 				}
 
@@ -177,12 +161,10 @@ class ResourceServiceTest {
 				childSeats = 0;
 				numberTopBox = 0;
 
-				PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, answer4, carName);
-				resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-						numberTopBox, childSeats);
+				PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+				resourceService = action3.action(resourceService, languageType);
 				AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-				resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-						numberTopBox, childSeats);
+				resourceService = action4.action(resourceService, languageType);
 			}
 		} else if (languageType == LanguageType.ENGLISH) {
 			// Bestellung Auto
@@ -219,27 +201,21 @@ class ResourceServiceTest {
 
 						childSeat = new ChildSeat(new TopBox(resource));
 
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 
 						// Antwort Nein ChildSeat
 					} else if (answer4 == 2) {
 						childSeats = 0;
 
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 					}
 
 					// Antwort Nein TopBox
@@ -258,24 +234,18 @@ class ResourceServiceTest {
 						numberTopBox = 1;
 						childSeat = new ChildSeat(new TopBox(resource));
 
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 					} else if (answer4 == 2) {
 						childSeats = 0;
-						resourceService = action.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
-						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, childSeats, carName);
-						resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action.action(resourceService, languageType);
+						PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+						resourceService = action3.action(resourceService, languageType);
 						AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-						resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-								numberTopBox, childSeats);
+						resourceService = action4.action(resourceService, languageType);
 					}
 				}
 
@@ -287,12 +257,10 @@ class ResourceServiceTest {
 				childSeats = 0;
 				numberTopBox = 0;
 
-				PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, answer4, carName);
-				resourceService = action3.action(resourceService, resource, topBox, childSeat, languageType,
-						numberTopBox, childSeats);
+				PrintOrderResourceAction action3 = new PrintOrderResourceAction(1, resource, topBox, childSeat, carName);
+				resourceService = action3.action(resourceService, languageType);
 				AskDeleteResourceAction action4 = new AskDeleteResourceAction();
-				resourceService = action4.action(resourceService, resource, topBox, childSeat, languageType,
-						numberTopBox, childSeats);
+				resourceService = action4.action(resourceService, languageType);
 			}
 		}
 

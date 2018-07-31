@@ -10,10 +10,6 @@ import model.resource.Resource;
 
 public interface ResourceServiceAction {
 
-	
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException;
 
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox, ChildSeat childSeat,
-			LanguageType languageType, int numberTopBox, int numberChildSeats) throws IOException;
-
-	
 }
