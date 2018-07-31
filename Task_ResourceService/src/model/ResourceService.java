@@ -1,5 +1,7 @@
 package model;
 
+import java.math.BigDecimal;
+
 import model.equipment.ChildSeat;
 import model.equipment.TopBox;
 import model.resource.Car;
@@ -19,6 +21,8 @@ public class ResourceService {
 	private int topBoxQuantity;
 	private int childSeatResourceAnswer;
 	private int childSeatQuantity;
+	
+	private BigDecimal orderPrice;
 
 	public Resource createCarResource() {
 		
@@ -148,5 +152,28 @@ public class ResourceService {
 		this.childSeatResource = childSeatResource;
 
 	}
+	
+	public BigDecimal calculateChildSeatPrice(BigDecimal childSeatPrice, BigDecimal amount) {
+
+		BigDecimal total = childSeatPrice.multiply(amount);
+
+		return total;
+
+	}
+
+	public BigDecimal calculateOrderPrice(Resource carResource, TopBox topBoxResource, BigDecimal total) {
+		BigDecimal totalPrice = carResource.getPrice().add(topBoxResource.getPrice()).add(total);
+		return totalPrice;
+	}
+
+	public void setOrderPrice(BigDecimal totalPrice) {
+		this.orderPrice = totalPrice;
+		
+	}
+	
+	public BigDecimal getOrderPrice() {
+		return orderPrice;
+	}
+
 
 }
