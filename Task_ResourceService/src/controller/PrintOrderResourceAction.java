@@ -17,57 +17,66 @@ import view.PrintOrderView;
 public class PrintOrderResourceAction implements ResourceServiceAction {
 
 	PrintOrderView printOrderView;
-	Resource resource;
-	TopBox topBox;
-	ChildSeat childSeat;
+	
 	LanguageType languageType;
+	
 	int numberChildSeats;
 	int numberTopBox;
 	String carName;
-	BigDecimal childSeatPrice = BigDecimal.ZERO;
 
-	public PrintOrderResourceAction(int numberTopBox, int numberChildSeats, String carName) {
+	private Resource resource;
+	private TopBox topBox;
+	private ChildSeat childSeat;
+
+	public PrintOrderResourceAction(int numberTopBox, Resource resource, TopBox topBox, ChildSeat childSeat, String carName) {
 		this.printOrderView = new PrintOrderView();
 		this.carName = carName;
-		this.numberChildSeats = numberChildSeats;
-		this.numberTopBox = numberTopBox;
+		this.resource = resource;
+		this.topBox = topBox;
+		this.childSeat = childSeat;
 	}
 
 	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox,
-			ChildSeat childSeat, LanguageType languageType, int numberTopBox, int numberChildSeats) throws IOException {
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException {
+		
 		if (languageType == LanguageType.GERMAN) {
 			
-			if (childSeat != null) {
-				BigDecimal childSeatPrice = childSeat.getPrice();
-
-				BigDecimal amount = new BigDecimal(numberChildSeats);
+			if (resourceService.getChildSeatResource() != null) {
+				
+				BigDecimal childSeatPrice = resourceService.getChildSeatResource().getPrice();
+				
+				BigDecimal amount = new BigDecimal(resourceService.getChildSeatQuantity());
 
 				BigDecimal total = getTotalChildSeatPrice(childSeatPrice, amount);
+				
+				numberChildSeats = resourceService.getChildSeatQuantity();
+				
+				printOrderView.showGer(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 
-				printOrderView.showGer(resource, topBox, childSeat, total, numberTopBox, numberChildSeats, carName);
-
-			} else if (childSeat == null) {
+			} else if (resourceService.getChildSeatResource() == null) {
 				BigDecimal total = BigDecimal.ZERO;
 
-				printOrderView.showGer(resource, topBox, childSeat, total, numberTopBox, numberChildSeats, carName);
+				printOrderView.showGer(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 
 			}
 	
 		} else if (languageType == LanguageType.ENGLISH) {
 
 			if (childSeat != null) {
-				BigDecimal childSeatPrice = childSeat.getPrice();
-
-				BigDecimal amount = new BigDecimal(numberChildSeats);
+				
+				BigDecimal childSeatPrice = resourceService.getChildSeatResource().getPrice();
+				
+				BigDecimal amount = new BigDecimal(resourceService.getChildSeatQuantity());
 
 				BigDecimal total = getTotalChildSeatPrice(childSeatPrice, amount);
+				
+				numberChildSeats = resourceService.getChildSeatQuantity();
 
-				printOrderView.showEng(resource, topBox, childSeat, total, numberTopBox, numberChildSeats, carName);
+				printOrderView.showEng(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 			}else if (childSeat == null) {
 				BigDecimal total = BigDecimal.ZERO;
 
-				printOrderView.showEng(resource, topBox, childSeat, total, numberTopBox, numberChildSeats, carName);
+				printOrderView.showEng(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 
 			}
 		}
@@ -77,9 +86,7 @@ public class PrintOrderResourceAction implements ResourceServiceAction {
 
 	private BigDecimal getTotalChildSeatPrice(BigDecimal childSeatPrice, BigDecimal amount) {
 
-		BigDecimal total = BigDecimal.ZERO;
-
-		total = childSeatPrice.multiply(amount);
+		BigDecimal total = childSeatPrice.multiply(amount);
 
 		return total;
 

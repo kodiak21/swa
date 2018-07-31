@@ -19,12 +19,11 @@ public class AskNumberChildSeatAction implements ResourceServiceAction {
 	}
 	
 	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox,
-			ChildSeat childSeat, LanguageType languageType, int numberTopBox, int numberChildSeats) throws IOException {
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException {
 		if(languageType == LanguageType.GERMAN) {
-			askNumberChildSeatView.showViewGer();
+			resourceService.setChildSeatQuantity(askNumberChildSeatView.showViewGer());
 		}else if(languageType == LanguageType.ENGLISH) {
-			askNumberChildSeatView.showViewEng();
+			resourceService.setChildSeatQuantity(askNumberChildSeatView.showViewEng());
 		}
 		
 		return resourceService;

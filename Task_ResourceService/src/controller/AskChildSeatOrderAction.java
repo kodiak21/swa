@@ -20,13 +20,24 @@ public class AskChildSeatOrderAction implements ResourceServiceAction {
 	}
 	
 	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox,
-			ChildSeat childSeat, LanguageType languageType, int numberTopBox,int numberChildSeats) throws IOException {
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException {
 		if(languageType == LanguageType.GERMAN) {
-			askChildSeatView.showViewGer();
+			resourceService.setChildSeatResourceAnswer(askChildSeatView.showViewGer());
+			if(resourceService.getChildSeatResourceAnswer()==1) {
+				resourceService.setChildSeatResource(resourceService.createChildSeatResource());
+			}else if(resourceService.getChildSeatResourceAnswer()==2) {
+				resourceService.setChildSeatResource(null);
+			}	
 		}else if(languageType == LanguageType.ENGLISH) {
-			askChildSeatView.showViewEng();
+			resourceService.setChildSeatResourceAnswer(askChildSeatView.showViewEng());
+			if(resourceService.getChildSeatResourceAnswer()==1) {
+				resourceService.setChildSeatResource(resourceService.createChildSeatResource());
+			}else if(resourceService.getChildSeatResourceAnswer()==2) {
+				resourceService.setChildSeatResource(null);
+			}	
 		}
+		
+		
 		
 		return resourceService;
 	}

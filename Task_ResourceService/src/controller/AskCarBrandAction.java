@@ -17,13 +17,11 @@ public class AskCarBrandAction implements ResourceServiceAction {
 		this.askCarBrandView = new AskCarBrandView();
 	}
 	
-	@Override
-	public ResourceService action(ResourceService resourceService, Resource resource, TopBox topBox,
-			ChildSeat childSeat, LanguageType languageType, int numberTopBox, int numberChildSeats) throws IOException {
+	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException {
 		if(languageType == LanguageType.GERMAN) {
-			askCarBrandView.showViewGer();
+			resourceService.setCarName(askCarBrandView.showViewGer());
 		}else if(languageType == LanguageType.ENGLISH) {
-			askCarBrandView.showViewEng();
+			resourceService.setCarName(askCarBrandView.showViewEng());
 		}
 		return resourceService;
 	}
