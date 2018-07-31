@@ -47,15 +47,23 @@ public class PrintOrderResourceAction implements ResourceServiceAction {
 				
 				BigDecimal amount = new BigDecimal(resourceService.getChildSeatQuantity());
 
-				BigDecimal total = getTotalChildSeatPrice(childSeatPrice, amount);
+				BigDecimal total = resourceService.calculateChildSeatPrice(childSeatPrice, amount);
 				
 				numberChildSeats = resourceService.getChildSeatQuantity();
+				
+				BigDecimal totalPrice = resourceService.calculateOrderPrice(resourceService.getCarResource(), resourceService.getTopBoxResource(), total);
+				
+				resourceService.setOrderPrice(totalPrice);
 				
 				printOrderView.showGer(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 
 			} else if (resourceService.getChildSeatResource() == null) {
 				BigDecimal total = BigDecimal.ZERO;
 
+				BigDecimal totalPrice = resourceService.calculateOrderPrice(resourceService.getCarResource(), resourceService.getTopBoxResource(), total);
+				
+				resourceService.setOrderPrice(totalPrice);
+				
 				printOrderView.showGer(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 
 			}
@@ -68,13 +76,21 @@ public class PrintOrderResourceAction implements ResourceServiceAction {
 				
 				BigDecimal amount = new BigDecimal(resourceService.getChildSeatQuantity());
 
-				BigDecimal total = getTotalChildSeatPrice(childSeatPrice, amount);
+				BigDecimal total = resourceService.calculateChildSeatPrice(childSeatPrice, amount);
 				
 				numberChildSeats = resourceService.getChildSeatQuantity();
+				
+				BigDecimal totalPrice = resourceService.calculateOrderPrice(resourceService.getCarResource(), resourceService.getTopBoxResource(),total);
 
+				resourceService.setOrderPrice(totalPrice);
+				
 				printOrderView.showEng(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 			}else if (childSeat == null) {
 				BigDecimal total = BigDecimal.ZERO;
+				
+				BigDecimal totalPrice = resourceService.calculateOrderPrice(resourceService.getCarResource(), resourceService.getTopBoxResource(),total);
+
+				resourceService.setOrderPrice(totalPrice);
 
 				printOrderView.showEng(resourceService.getCarResource(), resourceService.getTopBoxResource(), resourceService.getChildSeatResource(), total, numberTopBox, numberChildSeats, resourceService.getCarName());
 
@@ -84,12 +100,5 @@ public class PrintOrderResourceAction implements ResourceServiceAction {
 		return resourceService;
 	}
 
-	private BigDecimal getTotalChildSeatPrice(BigDecimal childSeatPrice, BigDecimal amount) {
-
-		BigDecimal total = childSeatPrice.multiply(amount);
-
-		return total;
-
-	}
-
+	
 }

@@ -37,13 +37,7 @@ public class AskTopBoxOrderAction implements ResourceServiceAction {
 
 		}
 
-		
-
 		return resourceService;
-	}
-
-	public AskTopBoxView returnView() {
-		return askTopBoxView;
 	}
 
 }
