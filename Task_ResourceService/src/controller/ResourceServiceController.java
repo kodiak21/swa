@@ -18,11 +18,13 @@ public class ResourceServiceController {
 		ResourceService resourceService = new ResourceService();
 
 		SetResourcePriceAction setResourcePriceAction = new SetResourcePriceAction();
-
+		
 		PrintMenuResourceAction printMenuResourceAction = new PrintMenuResourceAction();
 		resourceService = setResourcePriceAction.action(resourceService, languageType);
 		resourceService = printMenuResourceAction.action(resourceService, languageType);
 
+		resourceService = setResourcePriceAction.action(resourceService, languageType);
+		
 		AskCarOrderAction askCarOrderAction = new AskCarOrderAction();
 		resourceService = askCarOrderAction.action(resourceService, languageType);
 		
@@ -46,9 +48,6 @@ public class ResourceServiceController {
 				resourceService = askNumberChildSeatAction.action(resourceService, languageType);
 			}
 			
-			AskDeleteResourceAction askDeleteResourceAction = new AskDeleteResourceAction();
-			resourceService = askDeleteResourceAction.action(resourceService, languageType);
-			
 			PrintOrderResourceAction printOrderResourceAction = new PrintOrderResourceAction(
 					resourceService.getChildSeatQuantity(),
 					resourceService.getCarResource(),
@@ -57,6 +56,9 @@ public class ResourceServiceController {
 					resourceService.getCarName());
 			resourceService = setResourcePriceAction.action(resourceService, languageType);
 			resourceService = printOrderResourceAction.action(resourceService, languageType);
+			
+			AskDeleteResourceAction askDeleteResourceAction = new AskDeleteResourceAction();
+			resourceService = askDeleteResourceAction.action(resourceService, languageType);
 		}else if(resourceService.getCarResourceAnswer()==2) {
 			
 			//Todo Ausstieg Programm

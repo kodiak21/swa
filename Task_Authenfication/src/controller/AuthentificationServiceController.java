@@ -15,6 +15,8 @@ public class AuthentificationServiceController {
 		action = new CreateAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
 		
+		action = new ConfirmAuthentificationAction(person);
+		authentificationService = action.action(authentificationService);
 		
 		action = new DeleteAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
