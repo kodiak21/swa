@@ -24,6 +24,7 @@ public class ResourceService {
 	
 	private BigDecimal orderPrice;
 
+
 	public Resource createCarResource() {
 		
 		if(getCarResourceAnswer()==1) {
@@ -162,12 +163,17 @@ public class ResourceService {
 	}
 
 	public BigDecimal calculateOrderPrice(Resource carResource, TopBox topBoxResource, BigDecimal total) {
-		BigDecimal totalPrice = carResource.getPrice().add(topBoxResource.getPrice()).add(total);
-		return totalPrice;
+		
+		if(topBoxResource!=null) {
+			orderPrice = carResource.getPrice().add(topBoxResource.getPrice()).add(total);
+		}else if(topBoxResource==null){
+			orderPrice = carResource.getPrice().add(total);
+		}
+		return orderPrice;
 	}
 
-	public void setOrderPrice(BigDecimal totalPrice) {
-		this.orderPrice = totalPrice;
+	public void setOrderPrice(BigDecimal orderPrice) {
+		this.orderPrice = orderPrice;
 		
 	}
 	
