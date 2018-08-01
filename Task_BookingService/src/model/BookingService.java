@@ -8,9 +8,11 @@ public class BookingService {
 	LanguageType language;
 	Booking booking;
 	String name;
+	Resource car;
 	
 	public void createBooking(Resource car, LanguageType language, String name){
 
+		this.car = car;
 		this.cost = car.getPrice().floatValue();
 		this.language = language;
 		this.name = name;
@@ -68,6 +70,10 @@ public class BookingService {
 
 	public void setBooking(Booking booking) {
 		this.booking = booking;
+	}
+	
+	public Resource getCar() {
+		return this.car;
 	}
 
 	

@@ -41,16 +41,16 @@ public class CarReservationController {
 //Resource erstellen 									<- LanguageType
 		ResourceServiceController resourceServiceController = new ResourceServiceController();
 		resourceService = resourceServiceController.resourcePlanning(personService.getPerson().getLanguage());
-//Uebergibt												-> resource
+//Uebergibt												-> resourceService
 	
 //Authentification erstellen udn durchfuehren bekommt 	<- User
 		AuthentificationServiceController authentificationServiceController = new AuthentificationServiceController();
 		authentificationService = authentificationServiceController.authentificationCommand(personService.getPerson());
 //Uebergibt 											-> authentificationService
 		
-//Booking erstellen <- Bekommt Resource, LanguageType
+//Booking erstellen <- Bekommt Price, LanguageType, Name
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName());
+		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName(), resourceService.getCarResource());
 //Uebergibt 											-> BookingService
 		
 //Payment durchfuehren <- bekommt BookingService

@@ -14,7 +14,6 @@ public class PrintPaymentView {
 		System.out.println("Empfaengerkonto: "+payment.getReceiverAccount().getAccountNumber());
 		System.out.println("Summe: "+payment.getCurrencyAmount());
 		System.out.println("Zahlungsart: "+payment.getPaymentType());
-		System.out.println("Authentifizierungsart: "+payment.getCredentialType());
 		System.out.println("");
 	}
 }

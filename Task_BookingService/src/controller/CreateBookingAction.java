@@ -2,15 +2,15 @@ package controller;
 
 import model.BookingService;
 import model.LanguageType;
-import model.resource.Car;
+import model.resource.Resource;
 
 public class CreateBookingAction implements BookingServiceAction{
 	
-	Car car;
+	Resource car;
 	LanguageType language;
 	String name;
 	
-	public CreateBookingAction(Car car, LanguageType language, String name) {
+	public CreateBookingAction(Resource car, LanguageType language, String name) {
 		this.language = language;
 		this.car = car;
 		this.name = name;

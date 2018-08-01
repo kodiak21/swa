@@ -2,8 +2,6 @@ package model;
 
 public class GoogleWalletPayment extends Payment {
 
-	PaymentType paymentType;
-	
 	public GoogleWalletPayment(Account senderAccount, Account receiverAccount, float currencyAmount,
 			CredentialType credentialType, PaymentType paymentType) {
 		super(senderAccount, receiverAccount, currencyAmount, credentialType, paymentType);
