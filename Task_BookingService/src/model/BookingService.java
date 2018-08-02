@@ -1,32 +1,30 @@
 package model;
 
-import model.resource.Resource;
+import java.math.BigDecimal;
 
 public class BookingService {
 	
-	float cost;
+	BigDecimal cost;
 	LanguageType language;
 	Booking booking;
 	String name;
-	Resource car;
 	
-	public void createBooking(Resource car, LanguageType language, String name){
+	public void createBooking(BigDecimal cost, LanguageType language, String name){
 
-		this.car = car;
-		this.cost = car.getPrice().floatValue();
+		this.cost = cost;
 		this.language = language;
 		this.name = name;
 		
 		if (language == LanguageType.GERMAN) {
 			BookingBuilderGerman builderG = new BookingBuilderGerman();
 			booking = builderG	.setHeader(name)
-								.setBody(car)
+								.setBody()
 								.setFooter(cost)
 								.build();
 		} else {
 			BookingBuilderEnglish builderE = new BookingBuilderEnglish();
 			booking = builderE	.setHeader(name)
-								.setBody(car)
+								.setBody()
 								.setFooter(cost)
 								.build();
 		}
@@ -40,11 +38,11 @@ public class BookingService {
 		this.booking = null;
 	}
 
-	public float getCost() {
+	public BigDecimal getCost() {
 		return cost;
 	}
 
-	public void setCost(float cost) {
+	public void setCost(BigDecimal cost) {
 		this.cost = cost;
 	}
 
@@ -71,10 +69,5 @@ public class BookingService {
 	public void setBooking(Booking booking) {
 		this.booking = booking;
 	}
-	
-	public Resource getCar() {
-		return this.car;
-	}
-
 	
 }

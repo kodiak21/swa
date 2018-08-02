@@ -1,11 +1,13 @@
 package model;
 
+import java.math.BigDecimal;
+
 public class PaymentService {
 	
 	Payment payment;
 	Account senderAccount;
 	Account receiverAccount;
-	float currencyAmount;
+	BigDecimal currencyAmount;
 	CredentialType credentialType;
 	PaymentType paymentType;
 	
@@ -14,7 +16,7 @@ public class PaymentService {
 		this.receiverAccount.setAmount(0);
 	}
 	
-	public void createPayment(Account senderAccount, float currencyAmount, CredentialType credentialType, PaymentType paymentType){
+	public void createPayment(Account senderAccount, BigDecimal currencyAmount, CredentialType credentialType, PaymentType paymentType){
 		switch (paymentType) {
 		case PAYPAL: 		payment = new PayPalPayment(senderAccount, this.receiverAccount, currencyAmount, credentialType, paymentType);break;
 		case GOOGLEWALLET: 	payment = new GoogleWalletPayment(senderAccount, this.receiverAccount, currencyAmount, credentialType, paymentType);break;
@@ -57,10 +59,10 @@ public class PaymentService {
 	public void setReceiverAccount(Account receiverAccount) {
 		this.receiverAccount = receiverAccount;
 	}
-	public float getCurrencyAmount() {
+	public BigDecimal getCurrencyAmount() {
 		return currencyAmount;
 	}
-	public void setCurrencyAmount(float currencyAmount) {
+	public void setCurrencyAmount(BigDecimal currencyAmount) {
 		this.currencyAmount = currencyAmount;
 	}
 	public CredentialType getCredentialType() {

@@ -1,5 +1,7 @@
 package controller;
 
+import java.math.BigDecimal;
+
 import model.Account;
 import model.BookingService;
 import model.PaymentService;
@@ -12,7 +14,7 @@ public class PaymentServiceController {
 	public PaymentService paymentCommand () {
 		
 		//Hard coded
-		float currencyAmount = 500;
+		BigDecimal currencyAmount = new BigDecimal("500");
 		
 		Account senderAccount = new Account(2);
 		senderAccount.setAmount(0);

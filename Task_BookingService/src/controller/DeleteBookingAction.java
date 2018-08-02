@@ -1,8 +1,9 @@
 package controller;
 
+import java.math.BigDecimal;
+
 import model.BookingService;
 import model.LanguageType;
-import model.resource.Resource;
 import view.QuestionDeleteBookingView;
 
 public class DeleteBookingAction implements BookingServiceAction {
@@ -13,12 +14,12 @@ public class DeleteBookingAction implements BookingServiceAction {
 		int answer = 0;
 		LanguageType language;
 		String name;
-		Resource car;
+		BigDecimal cost;
 		
 		QuestionDeleteBookingView view = new QuestionDeleteBookingView();
 		language=bookingService.getLanguage();
 		name = bookingService.getName();
-		car = bookingService.getCar();
+		cost = bookingService.getCost();
 		
 		if(language==LanguageType.GERMAN) {
 			answer = view.showViewGer();
@@ -35,7 +36,7 @@ public class DeleteBookingAction implements BookingServiceAction {
 			break;
 		case 3:	
 			BookingServiceController bsc = new BookingServiceController();
-			bookingService.setBooking(bsc.bookingCommand(language, name, car).getBooking());
+			bookingService.setBooking(bsc.bookingCommand(language, name, cost).getBooking());
 			break;
 		default: break;
 		}

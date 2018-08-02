@@ -1,14 +1,16 @@
 package model;
 
+import java.math.BigDecimal;
+
 public abstract class Payment {
 	
 	Account senderAccount;
 	Account receiverAccount;
-	float currencyAmount;
+	BigDecimal currencyAmount;
 	CredentialType credentialType;
 	PaymentType paymentType;
 	
-	public Payment(Account senderAccount, Account receiverAccount, float currencyAmount, CredentialType credentialType, PaymentType paymentType){
+	public Payment(Account senderAccount, Account receiverAccount, BigDecimal currencyAmount, CredentialType credentialType, PaymentType paymentType){
 		this.senderAccount = senderAccount;
 		this.receiverAccount = receiverAccount;
 		this.currencyAmount = currencyAmount;
@@ -16,7 +18,7 @@ public abstract class Payment {
 		this.paymentType = paymentType;
 	}
 	
-	abstract void transferMoney(Account sender, Account receiver, float amount);
+	abstract void transferMoney(Account sender, Account receiver, BigDecimal amount);
 	private void confirmPayment() {
 		System.out.println("�NDERN: transaction completed !");
 	}
@@ -46,11 +48,11 @@ public abstract class Payment {
 		this.receiverAccount = receiverAccount;
 	}
 
-	public float getCurrencyAmount() {
+	public BigDecimal getCurrencyAmount() {
 		return currencyAmount;
 	}
 
-	public void setCurrencyAmount(float currencyAmount) {
+	public void setCurrencyAmount(BigDecimal currencyAmount) {
 		this.currencyAmount = currencyAmount;
 	}
 

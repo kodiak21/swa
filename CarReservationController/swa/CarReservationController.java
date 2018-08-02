@@ -50,7 +50,7 @@ public class CarReservationController {
 		
 //Booking erstellen <- Bekommt Price, LanguageType, Name
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName(), resourceService.getCarResource());
+		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName(), resourceService.getOrderPrice());
 //Uebergibt 											-> BookingService
 		
 //Payment durchfuehren <- bekommt BookingService

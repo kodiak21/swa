@@ -1,25 +1,26 @@
 package controller;
 
+import java.math.BigDecimal;
+
 import model.BookingService;
 import model.LanguageType;
-import model.resource.Resource;
 
 public class CreateBookingAction implements BookingServiceAction{
 	
-	Resource car;
+	BigDecimal price;
 	LanguageType language;
 	String name;
 	
-	public CreateBookingAction(Resource car, LanguageType language, String name) {
+	public CreateBookingAction(BigDecimal price, LanguageType language, String name) {
 		this.language = language;
-		this.car = car;
+		this.price = price;
 		this.name = name;
 	}
 	
 	@Override
 	public BookingService action(BookingService bookingService) {
 
-		bookingService.createBooking(car, language, name);
+		bookingService.createBooking(price, language, name);
 
 		return bookingService;
 	}

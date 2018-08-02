@@ -1,6 +1,6 @@
 package model;
 
-import model.resource.Resource;
+import java.math.BigDecimal;
 
 public class BookingBuilderGerman implements BookingBuilder{
 
@@ -12,8 +12,8 @@ public class BookingBuilderGerman implements BookingBuilder{
 	public BookingBuilderGerman() {
 		booking = new Booking();
 		setHeader("");
-		setBody(null);
-		setFooter(0);
+		setBody();
+		setFooter(new BigDecimal("0"));
     }
 
 	@Override
@@ -30,14 +30,14 @@ public class BookingBuilderGerman implements BookingBuilder{
 	}
 
 	@Override
-	public BookingBuilder setBody(Resource car) {
-			body = new BookingBodyGerman(car);
+	public BookingBuilder setBody() {
+			body = new BookingBodyGerman();
 			booking.setBody(body);
 			return this;
 	}
 
 	@Override
-	public BookingBuilder setFooter(float cost) {
+	public BookingBuilder setFooter(BigDecimal cost) {
 			footer = new BookingFooterGerman(cost);
 			booking.setFooter(footer);
 			return this;

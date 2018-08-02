@@ -1,5 +1,7 @@
 package model;
 
+import java.math.BigDecimal;
+
 import model.resource.Resource;
 
 public interface BookingBuilder {
@@ -7,7 +9,7 @@ public interface BookingBuilder {
 	Booking build();
 	
 	BookingBuilder setHeader(String name);
-	BookingBuilder setBody(Resource car);
-	BookingBuilder setFooter(float cost);
+	BookingBuilder setBody();
+	BookingBuilder setFooter(BigDecimal cost);
 	
 }

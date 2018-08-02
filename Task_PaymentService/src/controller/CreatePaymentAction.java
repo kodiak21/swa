@@ -1,5 +1,7 @@
 package controller;
 
+import java.math.BigDecimal;
+
 import model.Account;
 import model.BookingService;
 import model.PaymentService;
@@ -7,10 +9,10 @@ import model.PaymentService;
 public class CreatePaymentAction implements PaymentServiceAction {
 
 	Account senderAccount;
-	float currencyAmount;
+	BigDecimal currencyAmount;
 	PaymentServiceAction action;
 	
-	public CreatePaymentAction(float currencyAmount, Account senderAccount) {
+	public CreatePaymentAction(BigDecimal currencyAmount, Account senderAccount) {
 		this.currencyAmount = currencyAmount;
 		this.senderAccount = senderAccount;
 	}

@@ -1,15 +1,16 @@
 package controller;
 
+import java.math.BigDecimal;
+
 import model.BookingService;
 import model.LanguageType;
-import model.resource.Resource;
 
 public class BookingServiceController {
-	public BookingService bookingCommand(LanguageType language, String name, Resource car) {
+	public BookingService bookingCommand(LanguageType language, String name, BigDecimal price) {
 		
 		BookingService bookingService = new BookingService();
 				
-		CreateBookingAction createBookingAction = new CreateBookingAction(car, language, name);
+		CreateBookingAction createBookingAction = new CreateBookingAction(price, language, name);
 		bookingService = createBookingAction.action(bookingService);
 		
 		PrintBookingAction printBookingAction = new PrintBookingAction();

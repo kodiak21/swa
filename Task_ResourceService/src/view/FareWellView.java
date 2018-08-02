@@ -3,7 +3,7 @@ package view;
 public class FareWellView {
 
 	public void showViewGer() {
-		System.out.println("Vielen Dank für Ihren Besuch bei OlAnDa");
+		System.out.println("Vielen Dank fuer Ihren Besuch bei OlAnDa");
 		System.out.println("Auf Wiedersehen!");
 		
 	}

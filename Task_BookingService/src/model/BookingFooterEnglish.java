@@ -1,10 +1,12 @@
 package model;
 
+import java.math.BigDecimal;
+
 public class BookingFooterEnglish extends BookingFooter {
 	
-	float cost;
+	BigDecimal cost;
 
-	public BookingFooterEnglish(float cost) {
+	public BookingFooterEnglish(BigDecimal cost) {
 		this.cost = cost;
 	}
 	
