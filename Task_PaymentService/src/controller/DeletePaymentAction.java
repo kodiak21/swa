@@ -3,6 +3,7 @@ package controller;
 import java.math.BigDecimal;
 
 import model.Account;
+import model.LanguageType;
 import model.PaymentService;
 import view.QuestionDeletePaymentView;
 
@@ -25,8 +26,9 @@ public class DeletePaymentAction implements PaymentServiceAction {
 		case 3:
 			BigDecimal currencyAmount = paymentService.getCurrencyAmount();
 			Account senderAccount = paymentService.getSenderAccount();
+			LanguageType languageType = paymentService.getLanguageType();
 			PaymentServiceController paymentServiceController = new PaymentServiceController();
-			paymentService.setPayment(paymentServiceController.paymentCommand(currencyAmount, senderAccount).getPayment());
+			paymentService.setPayment(paymentServiceController.paymentCommand(currencyAmount, senderAccount, languageType).getPayment());
 			break;
 		default: break;
 		}

@@ -1,4 +1,4 @@
-package de.leuphana.swa.statisticService;
+package model;
 
 public interface Visitable {
 	public void accept(Visitor visitor);

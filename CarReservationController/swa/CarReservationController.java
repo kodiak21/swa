@@ -55,10 +55,11 @@ public class CarReservationController {
 		
 //Payment durchfuehren 									<- bekommt currencyAmount, senderAccount
 		PaymentServiceController psc = new PaymentServiceController();
-		paymentService = psc.paymentCommand(bookingService.getCost(), organisationService.getUser().getAccount());
+		paymentService = psc.paymentCommand(bookingService.getCost(), organisationService.getUser().getAccount(), personService.getPerson().getLanguage());
 //Ubergibt 												-> paymentService
 		
 //Statistic erstellen <- Sucht sich Daten
+
 //Print Statistics
 		
 	}

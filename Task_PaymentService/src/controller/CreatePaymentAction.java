@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import model.Account;
 import model.BookingService;
+import model.LanguageType;
 import model.PaymentService;
 
 public class CreatePaymentAction implements PaymentServiceAction {
@@ -11,14 +12,12 @@ public class CreatePaymentAction implements PaymentServiceAction {
 	Account senderAccount;
 	BigDecimal currencyAmount;
 	PaymentServiceAction action;
+	LanguageType languageType;
 	
-	public CreatePaymentAction(BigDecimal currencyAmount, Account senderAccount) {
+	public CreatePaymentAction(BigDecimal currencyAmount, Account senderAccount, LanguageType languageType) {
 		this.currencyAmount = currencyAmount;
 		this.senderAccount = senderAccount;
-	}
-	public CreatePaymentAction(BookingService bookingService, Account senderAccount) {
-		this.currencyAmount = bookingService.getCost();
-		this.senderAccount = senderAccount;
+		this.languageType = languageType;
 	}
 	
 	@Override
@@ -29,6 +28,7 @@ public class CreatePaymentAction implements PaymentServiceAction {
 		
 		paymentService.setCurrencyAmount(currencyAmount);
 		paymentService.setSenderAccount(senderAccount);
+		paymentService.setLanguageType(languageType);
 		paymentService.createPayment();
 		
 		return paymentService;

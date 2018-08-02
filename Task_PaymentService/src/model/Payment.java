@@ -2,20 +2,20 @@ package model;
 
 import java.math.BigDecimal;
 
-public abstract class Payment {
+public abstract class Payment implements Visitable{
 	
 	Account senderAccount;
 	Account receiverAccount;
 	BigDecimal currencyAmount;
-	CredentialType credentialType;
 	PaymentType paymentType;
+	LanguageType languageType;
 	
-	public Payment(Account senderAccount, Account receiverAccount, BigDecimal currencyAmount, CredentialType credentialType, PaymentType paymentType){
+	public Payment(Account senderAccount, Account receiverAccount, BigDecimal currencyAmount, PaymentType paymentType, LanguageType languageType){
 		this.senderAccount = senderAccount;
 		this.receiverAccount = receiverAccount;
 		this.currencyAmount = currencyAmount;
-		this.credentialType = credentialType;
 		this.paymentType = paymentType;
+		this.languageType = languageType;
 	}
 	
 	abstract void transferMoney(Account sender, Account receiver, BigDecimal amount);
@@ -56,13 +56,6 @@ public abstract class Payment {
 		this.currencyAmount = currencyAmount;
 	}
 
-	public CredentialType getCredentialType() {
-		return credentialType;
-	}
-
-	public void setCredentialType(CredentialType credentialType) {
-		this.credentialType = credentialType;
-	}
 
 	public PaymentType getPaymentType() {
 		return paymentType;
@@ -70,6 +63,14 @@ public abstract class Payment {
 
 	public void setPaymentType(PaymentType paymentType) {
 		this.paymentType = paymentType;
+	}
+
+	public LanguageType getLanguageType() {
+		return languageType;
+	}
+
+	public void setLanguageType(LanguageType languageType) {
+		this.languageType = languageType;
 	}
 	
 }

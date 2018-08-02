@@ -3,7 +3,7 @@ package controller;
 import java.math.BigDecimal;
 
 import model.Account;
-import model.BookingService;
+import model.LanguageType;
 import model.PaymentService;
 
 public class PaymentServiceController {
@@ -11,9 +11,9 @@ public class PaymentServiceController {
 	PaymentService paymentService = new PaymentService();
 	PaymentServiceAction action;
 	
-	public PaymentService paymentCommand (BigDecimal currencyAmount, Account senderAccount) {
+	public PaymentService paymentCommand (BigDecimal currencyAmount, Account senderAccount, LanguageType languageType) {
 				
-		action = new CreatePaymentAction(currencyAmount, senderAccount);
+		action = new CreatePaymentAction(currencyAmount, senderAccount, languageType);
 		paymentService = action.action(paymentService);
 		
 		action = new PrintPaymentAction();

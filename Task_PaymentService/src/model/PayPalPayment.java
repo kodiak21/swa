@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public class PayPalPayment extends Payment {
 	
 	public PayPalPayment(Account senderAccount, Account receiverAccount, BigDecimal currencyAmount,
-			CredentialType credentialType, PaymentType paymentType) {
-		super(senderAccount, receiverAccount, currencyAmount, credentialType, paymentType);
+			PaymentType paymentType, LanguageType languageType) {
+		super(senderAccount, receiverAccount, currencyAmount, paymentType, languageType);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -26,6 +26,11 @@ public class PayPalPayment extends Payment {
 
 	public void setPaymentType(PaymentType paymentType) {
 		this.paymentType = paymentType;
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);	
 	}
 
 	
