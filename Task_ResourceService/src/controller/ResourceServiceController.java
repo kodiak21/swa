@@ -57,7 +57,7 @@ public class ResourceServiceController {
 					resourceService.getCarResource(),
 					resourceService.getTopBoxResource(),
 					resourceService.getChildSeatResource(),
-					resourceService.getCarName());
+					resourceService.getCarBrand());
 			resourceService = setResourcePriceAction.action(resourceService, languageType);
 			resourceService = printOrderResourceAction.action(resourceService, languageType);
 			
