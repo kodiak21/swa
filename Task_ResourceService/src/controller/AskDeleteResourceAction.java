@@ -20,13 +20,43 @@ public class AskDeleteResourceAction implements ResourceServiceAction {
 
 	@Override
 	public ResourceService action(ResourceService resourceService, LanguageType languageType) throws IOException {
+
+		int answer = 0;
+
 		if (languageType == LanguageType.GERMAN) {
 			resourceService.setConfirmAnswer(askDeleteResourceView.showViewGer());
-			resourceService.deleteResource();
+			answer = resourceService.getConfirmAnswer();
+			switch (answer) {
+			case 1:
+				break;
+			case 2:
+				resourceService.deleteResource();
+				break;
+			case 3:
+				ResourceServiceController resourceServiceController = new ResourceServiceController();
+				resourceServiceController.resourcePlanning(languageType);
+				break;
+			default:
+				break;
+			}
 		} else if (languageType == LanguageType.ENGLISH) {
 			resourceService.setConfirmAnswer(askDeleteResourceView.showViewEng());
-			resourceService.deleteResource();
+			answer = resourceService.getConfirmAnswer();
+			switch (answer) {
+			case 1:
+				break;
+			case 2:
+				resourceService.deleteResource();
+				break;
+			case 3:
+				ResourceServiceController resourceServiceController = new ResourceServiceController();
+				resourceServiceController.resourcePlanning(languageType);
+				break;
+			default:
+				break;
+			}
 		}
+
 		return resourceService;
 	}
 
