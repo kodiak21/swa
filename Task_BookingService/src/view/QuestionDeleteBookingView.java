@@ -52,7 +52,7 @@ public class QuestionDeleteBookingView {
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("WrongInput");
+			System.out.println("Wrong Input");
 			return showViewEng();
 		}
 	}

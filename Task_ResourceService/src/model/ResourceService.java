@@ -13,8 +13,6 @@ public class ResourceService {
 	private TopBox topBoxResource = null;
 	private ChildSeat childSeatResource = null;
 
-	private String carName;
-
 	private int confirmAnswer;
 	private int carResourceAnswer;
 	private int topBoxResourceAnswer;
@@ -23,7 +21,8 @@ public class ResourceService {
 	private int childSeatQuantity;
 	
 	private BigDecimal orderPrice;
-	private LanguageType languageType;
+	private CarBrandType carBrandType;
+	private int carBrandAnswer;
 
 
 	public Resource createCarResource() {
@@ -120,36 +119,50 @@ public class ResourceService {
 		return childSeatQuantity;
 	}
 
-	public void setCarName(String carName) {
-		this.carName = carName;
-	}
-
-	public String getCarName() {
-		return carName;
-	}
-
 	public Resource getCarResource() {
 		return carResource;
+	}
+	
+	public void setCarResource(Resource carResource) {
+		this.carResource = carResource;
+
+	}
+	
+	public void setCarBrand(CarBrandType carBrandType) {
+		this.carBrandType = carBrandType;
+	}
+
+	public CarBrandType getCarBrand() {
+		return carBrandType;
+	}
+	
+	public void setCarBrandType(CarBrandType carBrandType) {
+		this.carBrandType = carBrandType;
+	}
+	
+	public void setCarBrandAnswer(int carBrandAnswer) {
+		this.carBrandAnswer = carBrandAnswer;
+		
+	}
+	
+	public int getCarBrandAnswer() {
+		return carBrandAnswer;
 	}
 
 	public TopBox getTopBoxResource() {
 		return topBoxResource;
+	}
+	
+	public void setTopBoxResource(TopBox topBoxResource) {
+		this.topBoxResource = topBoxResource;
+
 	}
 
 	public ChildSeat getChildSeatResource() {
 		return childSeatResource;
 	}
 
-	public void setCarResource(Resource carResource) {
-		this.carResource = carResource;
-
-	}
-
-	public void setTopBoxResource(TopBox topBoxResource) {
-		this.topBoxResource = topBoxResource;
-
-	}
-
+	
 	public void setChildSeatResource(ChildSeat childSeatResource) {
 		this.childSeatResource = childSeatResource;
 
@@ -181,4 +194,6 @@ public class ResourceService {
 	public BigDecimal getOrderPrice() {
 		return orderPrice;
 	}
+
+	
 }
