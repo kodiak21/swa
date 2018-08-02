@@ -48,14 +48,14 @@ public class CarReservationController {
 		authentificationService = authentificationServiceController.authentificationCommand(personService.getPerson());
 //Uebergibt 											-> authentificationService
 		
-//Booking erstellen <- Bekommt Price, LanguageType, Name
+//Booking erstellen 									<- Bekommt Price, LanguageType, Name
 		BookingServiceController bookingServiceController = new BookingServiceController();
 		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName(), resourceService.getOrderPrice());
 //Uebergibt 											-> BookingService
 		
-//Payment durchfuehren <- bekommt BookingService
+//Payment durchfuehren 									<- bekommt currencyAmount, senderAccount
 		PaymentServiceController psc = new PaymentServiceController();
-		paymentService = psc.paymentCommand(bookingService);
+		paymentService = psc.paymentCommand(bookingService.getCost(), organisationService.getUser().getAccount());
 //Ubergibt 												-> paymentService
 		
 //Statistic erstellen <- Sucht sich Daten

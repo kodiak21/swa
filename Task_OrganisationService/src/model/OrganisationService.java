@@ -51,7 +51,7 @@ public class OrganisationService {
 		this.user = null;
 	}
 	
-	public Stack<User> printUsers() {
+	public Stack<User> getUsers() {
 		
 		Stack<User> answer = new Stack<User>();
 		answer = userGroupALL.printUserInformation();
@@ -59,7 +59,7 @@ public class OrganisationService {
 		return answer;
 	}
 	
-	public User printUser() {
+	public User getUser() {
 		return this.user;
 	}
 }

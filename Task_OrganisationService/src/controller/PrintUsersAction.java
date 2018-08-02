@@ -11,7 +11,7 @@ public class PrintUsersAction implements OrganisationServiceAction {
 	@Override
 	public OrganisationService action(OrganisationService organisationService) {
 			Stack<User> answer;
-			answer = organisationService.printUsers();
+			answer = organisationService.getUsers();
 			PrintUsersView printUsersView = new PrintUsersView();
 			printUsersView.showView(answer);
 		return organisationService;

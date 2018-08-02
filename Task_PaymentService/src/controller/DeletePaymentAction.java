@@ -1,5 +1,8 @@
 package controller;
 
+import java.math.BigDecimal;
+
+import model.Account;
 import model.PaymentService;
 import view.QuestionDeletePaymentView;
 
@@ -19,9 +22,11 @@ public class DeletePaymentAction implements PaymentServiceAction {
 		case 2:	
 			paymentService.deletePayment(); 
 			break;
-		case 3:	
+		case 3:
+			BigDecimal currencyAmount = paymentService.getCurrencyAmount();
+			Account senderAccount = paymentService.getSenderAccount();
 			PaymentServiceController paymentServiceController = new PaymentServiceController();
-			paymentService.setPayment(paymentServiceController.paymentCommand().getPayment());
+			paymentService.setPayment(paymentServiceController.paymentCommand(currencyAmount, senderAccount).getPayment());
 			break;
 		default: break;
 		}
