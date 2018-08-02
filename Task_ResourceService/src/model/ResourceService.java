@@ -23,6 +23,7 @@ public class ResourceService {
 	private int childSeatQuantity;
 	
 	private BigDecimal orderPrice;
+	private LanguageType languageType;
 
 
 	public Resource createCarResource() {
@@ -180,6 +181,4 @@ public class ResourceService {
 	public BigDecimal getOrderPrice() {
 		return orderPrice;
 	}
-
-
 }
