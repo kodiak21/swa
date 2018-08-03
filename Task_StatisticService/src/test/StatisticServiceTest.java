@@ -8,12 +8,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import controller.DeleteStatisticAction;
+import controller.PrintStatisticAction;
 import model.Account;
-import model.StatisticService;
 import model.LanguageType;
 import model.Payment;
 import model.PaymentService;
 import model.PaymentType;
+import model.PersonService;
+import model.PersonType;
+import model.StatisticService;
 
 class StatisticServiceTest {
 	
@@ -30,7 +34,7 @@ class StatisticServiceTest {
 		LanguageType languageType;
 		
 		senderAccount = new Account(5);
-		currencyAmount = new BigDecimal("500");
+		currencyAmount = new BigDecimal("444");
 		paymentType = PaymentType.MONEYWALLET;
 		languageType = LanguageType.ENGLISH;
 		
@@ -39,30 +43,39 @@ class StatisticServiceTest {
 		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
 		Payment b2 = paymentService.getPayment();
 		
-//		Payment b3 = new EnglishBooking2(200, PaymentType.MONEYWALLET);	
-//		Payment b4 = new EnglishBooking2(250, PaymentType.MONEYWALLET);	
-//		Payment b5 = new EnglishBooking2(100, PaymentType.MONEYWALLET);	
-//		Payment b6 = new EnglishBooking2(100, PaymentType.GOOGLEWALLET);	
-//		Payment b7 = new EnglishBooking2(100, PaymentType.GOOGLEWALLET);
-//		
-//		Payment b8 = new GermanBooking2(100, PaymentType.PAYPAL);
-//		Payment b9 = new GermanBooking2(100, PaymentType.PAYPAL);
-//		Payment b10 = new GermanBooking2(100, PaymentType.MONEYWALLET);
-//		Payment b11 = new GermanBooking2(100, PaymentType.GOOGLEWALLET);
-//		Payment b12 = new GermanBooking2(100, PaymentType.GOOGLEWALLET);
+		paymentType = PaymentType.GOOGLEWALLET;
+		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
+		Payment b3 = paymentService.getPayment();
+		
+		paymentType = PaymentType.PAYPAL;
+		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
+		Payment b4 = paymentService.getPayment();
+		
+		languageType = LanguageType.GERMAN;
+		currencyAmount = new BigDecimal("555");
+		
+		paymentType = PaymentType.MONEYWALLET;
+		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
+		Payment b5 = paymentService.getPayment();	
+		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
+		Payment b6 = paymentService.getPayment();
+		
+		paymentType = PaymentType.GOOGLEWALLET;
+		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
+		Payment b7 = paymentService.getPayment();
+		
+		paymentType = PaymentType.PAYPAL;
+		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
+		Payment b8 = paymentService.getPayment();
 		
 		payments.add(b1);
 		payments.add(b2);
-//		bookings.add(b3);
-//		bookings.add(b4);
-//		bookings.add(b5);
-//		bookings.add(b6);
-//		bookings.add(b7);
-//		bookings.add(b8);
-//		bookings.add(b9);
-//		bookings.add(b10);
-//		bookings.add(b11);
-//		bookings.add(b12);
+		payments.add(b3);
+		payments.add(b4);
+		payments.add(b5);
+		payments.add(b6);
+		payments.add(b7);
+		payments.add(b8);
 	}
 
 	@AfterEach
@@ -71,13 +84,29 @@ class StatisticServiceTest {
 
 	@Test
 	void test() {
-		StatisticService bv = new StatisticService();
-//		bv.getEnglishBookingsPaidByGoogleWallet(bookings);
-		bv.getEnglishBookingsPaidByMoneyWallet(payments);
-//		bv.getEnglishBookingsPaidByPayPal(bookings);
-//		bv.getGermanBookingsPaidByGoogleWallet(bookings);
-//		bv.getGermanBookingsPaidByMoneyWallet(bookings);
-//		bv.getGermanBookingsPaidByPayPal(bookings);
+		StatisticService statisticService = new StatisticService();
+		
+		PersonService personService = new PersonService();
+		personService.createPerson(PersonType.NATURALPERSON, "Max Mustermann", LanguageType.GERMAN);
+		
+		PrintStatisticAction printStatisticAction = new PrintStatisticAction();
+		statisticService.setEnglishBookingsPaidByMoneyWallet(payments);
+		printStatisticAction.action(statisticService, personService);
+		statisticService.setEnglishBookingsPaidByGoogleWallet(payments);
+		printStatisticAction.action(statisticService, personService);
+		statisticService.setEnglishBookingsPaidByPayPal(payments);
+		printStatisticAction.action(statisticService, personService);
+		statisticService.setGermanBookingsPaidByMoneyWallet(payments);
+		printStatisticAction.action(statisticService, personService);
+		statisticService.setGermanBookingsPaidByGoogleWallet(payments);
+		printStatisticAction.action(statisticService, personService);
+		statisticService.setGermanBookingsPaidByPayPal(payments);
+		printStatisticAction.action(statisticService, personService);
+		
+		DeleteStatisticAction deleteStatisticAction = new DeleteStatisticAction();
+		deleteStatisticAction.action(statisticService, personService);
+		
+
 	}
 
 }

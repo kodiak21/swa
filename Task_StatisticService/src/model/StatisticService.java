@@ -8,114 +8,143 @@ public class StatisticService extends Visitor {
 	BigDecimal payAmountTotal;
 	LanguageType languageType;
 	int bookingCount;
+	PaymentType paymentType;
+	List<Payment> payments;
 	
 	public StatisticService() {
+
 		this.bookingCount = 0;
 		this.payAmountTotal = new BigDecimal("0");
 		this.languageType = null;
+		this.paymentType = null;
+		this.payments = null;
 	}
 	
-//	public void getGermanBookingsPaidByPayPal (List<Booking> bookings) {
-//		this.languageType = Langu.PAYPAL;
-//		for(Booking booking : bookings) {
-//			if (booking.paymentType == Langu.PAYPAL && booking instanceof GermanBooking2) {
-//				booking.accept(this);
-//			}
-//		}
-//		System.out.println("Es gab " + bookingCount + " Deutsche PayPal-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
-//		this.bookingCount = 0;
-//		this.payAmountTotal = 0;
-//		this.currency ="";
-//		this.languageType = null;
-//	}
-//	public void getGermanBookingsPaidByGoogleWallet (List<Booking> bookings) {
-//		this.languageType = Langu.GOOGLEWALLET;
-//		for(Booking booking : bookings) {
-//			if (booking.paymentType == Langu.GOOGLEWALLET && booking instanceof GermanBooking2) {
-//				booking.accept(this);
-//			}
-//		}
-//		System.out.println("Es gab " + bookingCount + " Deutsche GoogleWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
-//		this.bookingCount = 0;
-//		this.payAmountTotal = 0;
-//		this.currency ="";
-//		this.languageType = null;
-//	}
-//	public void getGermanBookingsPaidByMoneyWallet (List<Booking> bookings) {
-//		this.languageType = Langu.MONEYWALLET;
-//		for(Booking booking : bookings) {
-//			if (booking.paymentType == Langu.MONEYWALLET && booking instanceof GermanBooking2) {
-//				booking.accept(this);
-//			}
-//		}
-//		System.out.println("Es gab " + bookingCount + " Deutsche MoneyWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + this.currency );
-//		this.bookingCount = 0;
-//		this.payAmountTotal = 0;
-//		this.currency ="";
-//		this.languageType = null;
-//	}
-//	public void getEnglishBookingsPaidByPayPal (List<Booking> bookings) {
-//		this.languageType = Langu.PAYPAL;
-//		for(Booking booking : bookings) {
-//			if (booking.paymentType == Langu.PAYPAL && booking instanceof EnglishBooking2) {
-//				booking.accept(this);
-//			}
-//		}
-//		System.out.println("Es gab " + bookingCount + " Englische PayPal-Buchungen im Gesamtwert von " + this.payAmountTotalDollar + this.currency );
-//		System.out.println("Das sind " + payAmountTotal + "Euro");
-//		this.bookingCount = 0;
-//		this.payAmountTotal = 0;
-//		this.currency ="";
-//		this.languageType = null;
-//		this.payAmountTotalDollar = 0;
-//	}
-//	public void getEnglishBookingsPaidByGoogleWallet (List<Booking> bookings) {
-//		this.languageType = Langu.GOOGLEWALLET;
-//		for(Booking booking : bookings) {
-//			if (booking.paymentType == Langu.GOOGLEWALLET && booking instanceof EnglishBooking2) {
-//				booking.accept(this);
-//			}
-//		}
-//		System.out.println("Es gab " + bookingCount + " Englische GoogleWallet-Buchungen im Gesamtwert von " + this.payAmountTotalDollar + this.currency );
-//		System.out.println("Das sind " + payAmountTotal + "Euro");
-//		this.bookingCount = 0;
-//		this.payAmountTotal = 0;
-//		this.currency ="";
-//		this.languageType = null;
-//		this.payAmountTotalDollar = 0;
-//	}
-	public void getEnglishBookingsPaidByMoneyWallet (List<Payment> payments) {
+	public void setGermanBookingsPaidByPayPal (List<Payment> payments) {
+		this.bookingCount = 0;
+		this.payAmountTotal =  new BigDecimal("0");
+		this.languageType = null;
+		this.languageType = LanguageType.GERMAN;
+		this.paymentType = PaymentType.PAYPAL;
+		this.payments = payments;
+		
+		for(Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.GERMAN && payment instanceof PayPalPayment) {
+				payment.accept(this);
+			}
+		}
+	}
+	public void setGermanBookingsPaidByGoogleWallet (List<Payment> payments) {
+		this.bookingCount = 0;
+		this.payAmountTotal =  new BigDecimal("0");
+		this.languageType = null;
+		this.languageType = LanguageType.GERMAN;
+		this.paymentType = PaymentType.GOOGLEWALLET;
+		this.payments = payments;
+		
+		for(Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.GERMAN && payment instanceof GoogleWalletPayment) {
+				payment.accept(this);
+			}
+		}
+	}
+	public void setGermanBookingsPaidByMoneyWallet (List<Payment> payments) {
+		this.bookingCount = 0;
+		this.payAmountTotal =  new BigDecimal("0");
+		this.languageType = null;
+		this.languageType = LanguageType.GERMAN;
+		this.paymentType = PaymentType.MONEYWALLET;
+		this.payments = payments;
+		
+		for(Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.GERMAN && payment instanceof MoneyWalletPayment) {
+				payment.accept(this);
+			}
+		}
+	}
+	public void setEnglishBookingsPaidByPayPal (List<Payment> payments) {
+		this.bookingCount = 0;
+		this.payAmountTotal =  new BigDecimal("0");
+		this.languageType = null;
 		this.languageType = LanguageType.ENGLISH;
+		this.paymentType = PaymentType.PAYPAL;
+		this.payments = payments;
+		
+		for(Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.ENGLISH && payment instanceof PayPalPayment) {
+				payment.accept(this);
+			}
+		}
+	}
+	public void setEnglishBookingsPaidByGoogleWallet (List<Payment> payments) {
+		this.bookingCount = 0;
+		this.payAmountTotal =  new BigDecimal("0");
+		this.languageType = null;
+		this.languageType = LanguageType.ENGLISH;
+		this.paymentType = PaymentType.GOOGLEWALLET;
+		this.payments = payments;
+		
+		for(Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.ENGLISH && payment instanceof GoogleWalletPayment) {
+				payment.accept(this);
+			}
+		}
+	}
+	public void setEnglishBookingsPaidByMoneyWallet (List<Payment> payments) {
+		this.bookingCount = 0;
+		this.payAmountTotal =  new BigDecimal("0");
+		this.languageType = null;
+		this.languageType = LanguageType.ENGLISH;
+		this.paymentType = PaymentType.MONEYWALLET;
+		this.payments = payments;
+		
 		for(Payment payment : payments) {
 			if (payment.getLanguageType() == LanguageType.ENGLISH && payment instanceof MoneyWalletPayment) {
 				payment.accept(this);
 			}
 		}
-		System.out.println("Es gab " + bookingCount + " Englische MoneyWallet-Buchungen im Gesamtwert von " + this.payAmountTotal + " Euro");
-		System.out.println("Das sind " + payAmountTotal + "Euro");
-		this.bookingCount = 0;
-		this.payAmountTotal =  new BigDecimal("0");
-		this.languageType = null;
 	}
 	
+	public BigDecimal getPayAmountTotal() {
+		return payAmountTotal;
+	}
+	public LanguageType getLanguageType() {
+		return languageType;
+	}
+	public int getBookingCount() {
+		return bookingCount;
+	}
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
+	public List<Payment> getPayments() {
+		return payments;
+	}
+	
+
 	@Override
 	void visit(PayPalPayment payPalPayment) {
 		this.payAmountTotal = payPalPayment.getCurrencyAmount().add(payAmountTotal);
 		bookingCount++;
 	}
-
 	@Override
 	void visit(MoneyWalletPayment moneyWalletPayment) {
 		this.payAmountTotal = moneyWalletPayment.getCurrencyAmount().add(payAmountTotal);
 		bookingCount++;	
 	}
-
 	@Override
 	void visit(GoogleWalletPayment googleWalletPayment) {
 		this.payAmountTotal = googleWalletPayment.getCurrencyAmount().add(payAmountTotal);
 		bookingCount++;
 	}
 
+	public void deleteStatistic() {
+		this.bookingCount = 0;
+		this.payAmountTotal = new BigDecimal("0");
+		this.languageType = null;
+		this.paymentType = null;
+		this.payments = null;
 		
+	}
 
 }
