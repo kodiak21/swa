@@ -22,9 +22,9 @@ public class ConfirmAuthentificationAction implements AuthentificationServiceAct
 
 		AuthentificationStrategy authentificationStrategy = authentificationService.getAuthentificationStrategy();
 
-		if (person.getLanguage() == LanguageType.GERMAN) {
+		if (person.getLanguageType() == LanguageType.GERMAN) {
 			confirmAuthentificationView.showViewGer(authentificationStrategy);
-		} else if (person.getLanguage() == LanguageType.ENGLISH) {
+		} else if (person.getLanguageType() == LanguageType.ENGLISH) {
 			confirmAuthentificationView.showViewEng(authentificationStrategy);
 		}
 

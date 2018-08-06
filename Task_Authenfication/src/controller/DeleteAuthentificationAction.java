@@ -20,7 +20,7 @@ public class DeleteAuthentificationAction implements AuthentificationServiceActi
 
 		QuestionConfirmView questionConfirmView = new QuestionConfirmView();
 
-		if (person.getLanguage() == LanguageType.GERMAN) {
+		if (person.getLanguageType() == LanguageType.GERMAN) {
 			int answer = questionConfirmView.showViewGer();
 
 			switch (answer) {
@@ -32,7 +32,7 @@ public class DeleteAuthentificationAction implements AuthentificationServiceActi
 			default:
 				break;
 			}
-		}else if(person.getLanguage() == LanguageType.ENGLISH) {
+		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
 			int answer = questionConfirmView.showViewEng();
 
 			switch (answer) {

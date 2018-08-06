@@ -13,14 +13,14 @@ public class DeleteStatisticAction implements StatisticServiceAction {
 	@Override
 	public StatisticService action(StatisticService statisticService, PersonService personService) {
 		List<Payment> payments;
-		LanguageType language;
+		LanguageType languageType;
 		int answer;
 		
 		QuestionDeleteBookingView view = new QuestionDeleteBookingView();
 		payments = statisticService.getPayments();
-		language = personService.getPerson().getLanguage();
+		languageType = personService.getPerson().getLanguageType();
 		
-		if(language==LanguageType.GERMAN) {
+		if(languageType==LanguageType.GERMAN) {
 			answer = view.showViewGer();
 		} else {
 			answer = view.showViewEng();

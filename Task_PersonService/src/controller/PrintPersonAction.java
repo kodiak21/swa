@@ -9,15 +9,11 @@ public class PrintPersonAction implements PersonServiceAction {
 
 	@Override
 	public PersonService action(PersonService personService) {
-		Person person;
-		PrintPersonView printPersonView;
-		LanguageType language;
+		Person person = personService.getPerson();
+		PrintPersonView printPersonView = new PrintPersonView();
+		LanguageType languageType = person.getLanguageType();
 		
-		person = personService.getPerson();
-		printPersonView = new PrintPersonView();
-		language = person.getLanguage();
-		
-		if (language == LanguageType.GERMAN) {
+		if (languageType == LanguageType.GERMAN) {
 			printPersonView.showViewGer(person);
 		} else {
 			printPersonView.showViewEng(person);
