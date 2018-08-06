@@ -22,9 +22,9 @@ public class AuthentificationService {
 
 	public boolean authentificateSubject() {
 		
-		if(person.getLanguage()==LanguageType.GERMAN) {
+		if(person.getLanguageType()==LanguageType.GERMAN) {
 			return authentificationStrategy.authenficateSubjectGer();
-		}else if(person.getLanguage() == LanguageType.ENGLISH) {
+		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
 			return authentificationStrategy.authenficateSubjectEng();
 		}
 		return true;

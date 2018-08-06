@@ -49,7 +49,7 @@ public class AuthentificationServiceTest {
 	@Test
 	@DisplayName("person.getLanguage(): is language german")
 	void testPerson3() {	
-		assertEquals(LanguageType.ENGLISH, person.getLanguage());
+		assertEquals(LanguageType.ENGLISH, person.getLanguageType());
 	}
 	
 	@Test

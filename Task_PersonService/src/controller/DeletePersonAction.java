@@ -16,7 +16,7 @@ public class DeletePersonAction implements PersonServiceAction {
 		LanguageType language;
 		
 		person = personService.getPerson();
-		language = person.getLanguage();
+		language = person.getLanguageType();
 		
 		if (language == LanguageType.GERMAN) {
 			answer = questionDeletePersonView.showViewGer();

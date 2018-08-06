@@ -6,7 +6,7 @@ public abstract class Person {
 	PersonType personType;
 	LanguageType language;
 	
-	public LanguageType getLanguage() {
+	public LanguageType getLanguageType() {
 		return language;
 	}
 

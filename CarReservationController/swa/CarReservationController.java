@@ -40,7 +40,7 @@ public class CarReservationController {
 				
 //Resource erstellen 									<- LanguageType
 		ResourceServiceController resourceServiceController = new ResourceServiceController();
-		resourceService = resourceServiceController.resourcePlanning(personService.getPerson().getLanguage());
+		resourceService = resourceServiceController.resourcePlanning(personService.getPerson().getLanguageType());
 //Uebergibt												-> resourceService
 	
 //Authentification erstellen udn durchfuehren bekommt 	<- User
@@ -50,12 +50,12 @@ public class CarReservationController {
 		
 //Booking erstellen 									<- Bekommt Price, LanguageType, Name
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName(), resourceService.getOrderPrice());
+		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguageType(), personService.getPerson().getName(), resourceService.getOrderPrice());
 //Uebergibt 											-> BookingService
 		
 //Payment durchfuehren 									<- bekommt currencyAmount, senderAccount
 		PaymentServiceController psc = new PaymentServiceController();
-		paymentService = psc.paymentCommand(bookingService.getCost(), organisationService.getUser().getAccount(), personService.getPerson().getLanguage());
+		paymentService = psc.paymentCommand(bookingService.getCost(), organisationService.getUser().getAccount(), personService.getPerson().getLanguageType());
 //Ubergibt 												-> paymentService
 		
 //Statistic erstellen <- Sucht sich Daten
