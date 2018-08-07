@@ -14,9 +14,10 @@ public class PaymentService {
 	LanguageType languageType;
 	List<Payment> payments = new ArrayList<Payment>();
 	
-	public PaymentService() {
+	public PaymentService(LanguageType languageType) {
 		this.receiverAccount = new Account(1);
 		this.receiverAccount.setAmount(0);
+		this.languageType = languageType;
 	}
 	
 	public void createPayment(Account senderAccount, BigDecimal currencyAmount,PaymentType paymentType, LanguageType languageType){
