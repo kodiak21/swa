@@ -2,6 +2,8 @@ package model;
 
 import java.math.BigDecimal;
 
+import view.ConfirmPaymentView;
+
 public abstract class Payment implements Visitable{
 	
 	Account senderAccount;
@@ -18,15 +20,23 @@ public abstract class Payment implements Visitable{
 		this.languageType = languageType;
 	}
 	
-	abstract void transferMoney(Account sender, Account receiver, BigDecimal amount);
+	abstract void transferMoney(Account sender, Account receiver, BigDecimal amount, LanguageType languageType);
+	
 	private void confirmPayment() {
-		System.out.println("�NDERN: transaction completed !");
+		
+		ConfirmPaymentView confirmPaymentView = new ConfirmPaymentView();
+		
+		if(languageType == LanguageType.GERMAN) {
+			confirmPaymentView.showViewGer();
+		}else if(languageType == LanguageType.ENGLISH) {
+			confirmPaymentView.showViewEng();
+		}
 	}
 	
 	public final void payAmount() {
 		
 			//transfer money
-			transferMoney(senderAccount, receiverAccount, currencyAmount);
+			transferMoney(senderAccount, receiverAccount, currencyAmount, languageType);
 			
 			//confirm payment
 			confirmPayment();

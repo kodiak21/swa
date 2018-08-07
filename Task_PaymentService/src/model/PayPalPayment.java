@@ -2,6 +2,8 @@ package model;
 
 import java.math.BigDecimal;
 
+import view.TransferPaymentView;
+
 public class PayPalPayment extends Payment {
 	
 	public PayPalPayment(Account senderAccount, Account receiverAccount, BigDecimal currencyAmount,
@@ -11,12 +13,15 @@ public class PayPalPayment extends Payment {
 	}
 
 	@Override
-	void transferMoney(Account sender, Account receiver, BigDecimal amount) {
-		System.out.println("PayPal is choosen !");
-		System.out.println(amount + " will be transfered from " 
-				+ sender.getAccountNumber() 
-				+ " to "
-				+ receiver.getAccountNumber());
+	void transferMoney(Account sender, Account receiver, BigDecimal amount, LanguageType languageType) {
+		
+		TransferPaymentView transferPaymentView = new TransferPaymentView();
+		
+		if(languageType == LanguageType.GERMAN) {
+			transferPaymentView.showViewGer(sender, receiver, amount, paymentType);
+		}else if(languageType == LanguageType.ENGLISH) {
+			transferPaymentView.showViewEng(sender, receiver, amount, paymentType);
+		}
 		
 	}
 
