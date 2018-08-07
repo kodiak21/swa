@@ -2,8 +2,9 @@ package model;
 
 import java.math.BigDecimal;
 
-public class MoneyWalletPayment extends Payment {
+import view.TransferPaymentView;
 
+public class MoneyWalletPayment extends Payment {
 
 	public MoneyWalletPayment(Account senderAccount, Account receiverAccount, BigDecimal currencyAmount,
 			PaymentType paymentType, LanguageType languageType) {
@@ -12,13 +13,15 @@ public class MoneyWalletPayment extends Payment {
 	}
 
 	@Override
-	void transferMoney(Account sender, Account receiver, BigDecimal amount) {
-		System.out.println("MoneyWallet is choosen !");
-		System.out.println(amount + " will be transferred from " 
-				+ sender.getAccountNumber() 
-				+ " to "
-				+ receiver.getAccountNumber());
-		
+	void transferMoney(Account sender, Account receiver, BigDecimal amount, LanguageType languageType) {
+		TransferPaymentView transferPaymentView = new TransferPaymentView();
+
+		if (languageType == LanguageType.GERMAN) {
+			transferPaymentView.showViewGer(sender, receiver, amount, paymentType);
+		} else if (languageType == LanguageType.ENGLISH) {
+			transferPaymentView.showViewEng(sender, receiver, amount, paymentType);
+		}
+
 	}
 
 	public PaymentType getPaymentType() {
@@ -28,8 +31,9 @@ public class MoneyWalletPayment extends Payment {
 	public void setPaymentType(PaymentType paymentType) {
 		this.paymentType = paymentType;
 	}
+
 	@Override
 	public void accept(Visitor visitor) {
-		visitor.visit(this);	
+		visitor.visit(this);
 	}
 }
