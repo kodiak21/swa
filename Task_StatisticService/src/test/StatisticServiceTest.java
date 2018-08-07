@@ -26,7 +26,6 @@ class StatisticServiceTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		PaymentService paymentService = new PaymentService();
 		
 		Account senderAccount;
 		BigDecimal currencyAmount;
@@ -37,6 +36,7 @@ class StatisticServiceTest {
 		currencyAmount = new BigDecimal("444");
 		paymentType = PaymentType.MONEYWALLET;
 		languageType = LanguageType.ENGLISH;
+		PaymentService paymentService = new PaymentService(languageType);
 		
 		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
 		Payment b1 = paymentService.getPayment();	

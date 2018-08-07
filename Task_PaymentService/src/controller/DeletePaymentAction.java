@@ -14,8 +14,12 @@ public class DeletePaymentAction implements PaymentServiceAction {
 		
 		int answer=0;
 		
-		QuestionDeletePaymentView view = new QuestionDeletePaymentView();
-		answer = view.showView();
+		QuestionDeletePaymentView questionDeletePaymentView = new QuestionDeletePaymentView();
+		if(paymentService.getLanguageType()==LanguageType.GERMAN) {
+			answer = questionDeletePaymentView.showViewGer();
+		}else if(paymentService.getLanguageType()==LanguageType.ENGLISH) {
+			answer = questionDeletePaymentView.showViewEng();
+		}
 		
 		switch (answer) {
 		case 1:	
