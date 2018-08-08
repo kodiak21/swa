@@ -2,11 +2,13 @@ package model;
 
 public class BookingBodyEnglish extends BookingBody {
 	
-	public BookingBodyEnglish ( ) {
-		
+	CarBrandType carBrandType;
+
+	public BookingBodyEnglish (CarBrandType carBrandType ) {
+		this.carBrandType = carBrandType;
 	}
 	
-	public String printBody () {
-		return "";
+	public CarBrandType printBody () {
+		return carBrandType;
 	}
 }

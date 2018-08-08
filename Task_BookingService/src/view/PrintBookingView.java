@@ -28,7 +28,7 @@ public class PrintBookingView {
 			System.out.println("");
 			System.out.println(header.printHeader()+",");
 			System.out.println("danke, dass Sie sich fuer eines unserer Autos entschieden haben.");
-			System.out.println("Wir hoffen sie geniessen den Wagen"+body.printBody());
+			System.out.println("Wir hoffen sie geniessen den Wagen der Marke "+body.printBody());
 			System.out.println("Er wird Sie nur "+footer.printFooter()+" im Monat kosten.");
 			System.out.println("");
 	}
@@ -47,7 +47,7 @@ public class PrintBookingView {
 		System.out.println("");
 		System.out.println(header.printHeader()+",");
 		System.out.println("thank you for booking one of our cars.");
-		System.out.println("We hope you enjoy your car"+body.printBody());
+		System.out.println("We hope you enjoy your car of the brand "+body.printBody());
 		System.out.println("It will cost you "+footer.printFooter()+" a month.");
 		System.out.println("");
 		

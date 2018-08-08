@@ -1,5 +1,5 @@
 package model;
 
 abstract class BookingBody {
-	abstract String printBody ();
+	abstract CarBrandType printBody ();
 }
