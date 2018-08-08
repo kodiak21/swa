@@ -3,14 +3,15 @@ package controller;
 import java.math.BigDecimal;
 
 import model.BookingService;
+import model.CarBrandType;
 import model.LanguageType;
 
 public class BookingServiceController {
-	public BookingService bookingCommand(LanguageType language, String name, BigDecimal price) {
+	public BookingService bookingCommand(LanguageType language, String name, BigDecimal price, CarBrandType carBrandType) {
 		
 		BookingService bookingService = new BookingService();
 				
-		CreateBookingAction createBookingAction = new CreateBookingAction(price, language, name);
+		CreateBookingAction createBookingAction = new CreateBookingAction(price, language, name, carBrandType);
 		bookingService = createBookingAction.action(bookingService);
 		
 		PrintBookingAction printBookingAction = new PrintBookingAction();

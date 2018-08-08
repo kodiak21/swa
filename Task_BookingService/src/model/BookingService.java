@@ -8,23 +8,25 @@ public class BookingService {
 	LanguageType language;
 	Booking booking;
 	String name;
+	CarBrandType carBrandType;
 	
-	public void createBooking(BigDecimal cost, LanguageType language, String name){
+	public void createBooking(BigDecimal cost, LanguageType language, String name, CarBrandType carBrandType){
 
 		this.cost = cost;
 		this.language = language;
 		this.name = name;
+		this.carBrandType = carBrandType;
 		
 		if (language == LanguageType.GERMAN) {
 			BookingBuilderGerman builderG = new BookingBuilderGerman();
 			booking = builderG	.setHeader(name)
-								.setBody()
+								.setBody(carBrandType)
 								.setFooter(cost)
 								.build();
 		} else {
 			BookingBuilderEnglish builderE = new BookingBuilderEnglish();
 			booking = builderE	.setHeader(name)
-								.setBody()
+								.setBody(carBrandType)
 								.setFooter(cost)
 								.build();
 		}
@@ -68,6 +70,14 @@ public class BookingService {
 
 	public void setBooking(Booking booking) {
 		this.booking = booking;
+	}
+	
+	public CarBrandType getCarBrandType() {
+		return carBrandType;
+	}
+	
+	public void setCarBrandType(CarBrandType carBrandType) {
+		this.carBrandType = carBrandType;
 	}
 	
 }
