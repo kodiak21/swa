@@ -20,6 +20,11 @@ public class BookingServiceController {
 		DeleteBookingAction deleteBookingAction = new DeleteBookingAction();
 		bookingService = deleteBookingAction.action(bookingService);
 		
+		if(bookingService.getDeleteAnswer()==2) {
+			FareWellBookingAction fareWellBookingAction = new FareWellBookingAction();
+			bookingService = fareWellBookingAction.action(bookingService);
+		}
+		
 		return bookingService;
 	}
 

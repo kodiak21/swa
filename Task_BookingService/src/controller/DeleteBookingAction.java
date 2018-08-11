@@ -19,17 +19,18 @@ public class DeleteBookingAction implements BookingServiceAction {
 		CarBrandType carBrandType = null;
 		
 		QuestionDeleteBookingView questionDeleteBookingView = new QuestionDeleteBookingView();
-		language=bookingService.getLanguage();
+		language=bookingService.getLanguageType();
 		name = bookingService.getName();
 		cost = bookingService.getCost();
 		carBrandType = bookingService.getCarBrandType();
 		
 		if(language==LanguageType.GERMAN) {
-			answer = questionDeleteBookingView.showViewGer();
+			bookingService.setDeleteAnswer(questionDeleteBookingView.showViewGer());
 		} else {
-			answer = questionDeleteBookingView.showViewEng();
+			bookingService.setDeleteAnswer(questionDeleteBookingView.showViewEng());
 		}
 		
+		answer = bookingService.getDeleteAnswer();
 		
 		switch (answer) {
 		case 1:	

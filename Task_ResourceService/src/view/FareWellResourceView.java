@@ -1,6 +1,6 @@
 package view;
 
-public class FareWellView {
+public class FareWellResourceView {
 
 	public void showViewGer() {
 		System.out.println("Vielen Dank fuer Ihren Besuch bei OlAnDa");
