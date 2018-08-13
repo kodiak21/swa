@@ -23,7 +23,7 @@ public int showViewGer(){
 		}
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if ( answer.equals("2")){
-				System.out.println("Ihre Angaben wurden gelöscht");
+				System.out.println("Ihre Angaben wurden geloescht");
 			}
 			return Integer.parseInt(answer);
 		} else {
