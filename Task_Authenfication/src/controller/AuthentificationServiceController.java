@@ -21,6 +21,11 @@ public class AuthentificationServiceController {
 		action = new DeleteAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
 		
+		if(authentificationService.getDeleteAnswer()==2) {
+			action = new FareWellAuthentificationAction(person);
+			authentificationService = action.action(authentificationService);
+		}
+		
 		action = new PrintAuthentificationAction(person, authentificationService.getAuthentificationStrategy());
 		authentificationService = action.action(authentificationService);
 		

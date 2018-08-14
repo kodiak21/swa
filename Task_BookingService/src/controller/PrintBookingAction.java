@@ -12,13 +12,13 @@ public class PrintBookingAction implements BookingServiceAction {
 	public BookingService action(BookingService bookingService) {
 		printBookingView = new PrintBookingView();
 		if (bookingService.getBooking()==null) {
-			if(bookingService.getLanguage()==LanguageType.GERMAN) {
+			if(bookingService.getLanguageType()==LanguageType.GERMAN) {
 				printBookingView.showViewGerDel(bookingService);
 			}else {
 				printBookingView.showViewEngDel(bookingService);
 			}
 		} else {
-			if(bookingService.getLanguage()==LanguageType.GERMAN) {
+			if(bookingService.getLanguageType()==LanguageType.GERMAN) {
 				printBookingView.showViewGer(bookingService);
 			}else {
 				printBookingView.showViewEng(bookingService);

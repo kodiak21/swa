@@ -8,11 +8,12 @@ public class BookingBuilderGerman implements BookingBuilder{
 	BookingHeader header;
 	BookingBody body;
 	BookingFooter footer;
+	CarBrandType carBrandType;
 	
 	public BookingBuilderGerman() {
 		booking = new Booking();
 		setHeader("");
-		setBody();
+		setBody(carBrandType);
 		setFooter(new BigDecimal("0"));
     }
 
@@ -30,8 +31,8 @@ public class BookingBuilderGerman implements BookingBuilder{
 	}
 
 	@Override
-	public BookingBuilder setBody() {
-			body = new BookingBodyGerman();
+	public BookingBuilder setBody(CarBrandType carBrandType) {
+			body = new BookingBodyGerman(carBrandType);
 			booking.setBody(body);
 			return this;
 	}

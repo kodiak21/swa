@@ -8,12 +8,14 @@ import controller.OrganisationServiceController;
 import controller.PaymentServiceController;
 import controller.PersonServiceController;
 import controller.ResourceServiceController;
+import controller.StatisticServiceController;
 import model.AuthentificationService;
 import model.BookingService;
 import model.OrganisationService;
 import model.PaymentService;
 import model.PersonService;
 import model.ResourceService;
+import model.StatisticService;
 
 public class CarReservationController {
 
@@ -27,6 +29,7 @@ public class CarReservationController {
 		BookingService 			bookingService;
 		PaymentService 			paymentService;
 		ResourceService 		resourceService;
+		StatisticService		statisticService;
 		
 //Person erstellen		
 		PersonServiceController personServiceController = new PersonServiceController();
@@ -40,7 +43,7 @@ public class CarReservationController {
 				
 //Resource erstellen 									<- LanguageType
 		ResourceServiceController resourceServiceController = new ResourceServiceController();
-		resourceService = resourceServiceController.resourcePlanning(personService.getPerson().getLanguage());
+		resourceService = resourceServiceController.resourcePlanning(personService.getPerson().getLanguageType());
 //Uebergibt												-> resourceService
 	
 //Authentification erstellen udn durchfuehren bekommt 	<- User
@@ -50,16 +53,17 @@ public class CarReservationController {
 		
 //Booking erstellen 									<- Bekommt Price, LanguageType, Name
 		BookingServiceController bookingServiceController = new BookingServiceController();
-		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguage(), personService.getPerson().getName(), resourceService.getOrderPrice());
+		bookingService = bookingServiceController.bookingCommand(personService.getPerson().getLanguageType(), personService.getPerson().getName(), resourceService.getOrderPrice(), resourceService.getCarBrand());
 //Uebergibt 											-> BookingService
 		
 //Payment durchfuehren 									<- bekommt currencyAmount, senderAccount
 		PaymentServiceController psc = new PaymentServiceController();
-		paymentService = psc.paymentCommand(bookingService.getCost(), organisationService.getUser().getAccount(), personService.getPerson().getLanguage());
+		paymentService = psc.paymentCommand(bookingService.getCost(), organisationService.getUser().getAccount(), personService.getPerson().getLanguageType());
 //Ubergibt 												-> paymentService
 		
 //Statistic erstellen <- Sucht sich Daten
-
+		StatisticServiceController statisticServiceController = new StatisticServiceController();
+		statisticService = statisticServiceController.statisticCommand(paymentService.getPayments(), personService.getPerson().getLanguageType());
 //Print Statistics
 		
 	}

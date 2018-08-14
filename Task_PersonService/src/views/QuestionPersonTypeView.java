@@ -10,7 +10,7 @@ public class QuestionPersonTypeView {
 		String answer = null;
 		
 		System.out.println("Wo sollen wir dich einteilen?");
-		System.out.println("1: Natürliche Person");
+		System.out.println("1: Natuerliche Person");
 		System.out.println("2: Juristische Person");
 		try {
 			answer = br.readLine();

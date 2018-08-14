@@ -20,7 +20,7 @@ public class CreateAuthentificationAction implements AuthentificationServiceActi
 	public AuthentificationService action(AuthentificationService authentificationService) {
 		CredentialType credentialType;
 		
-		if(person.getLanguage() == LanguageType.GERMAN) {
+		if(person.getLanguageType() == LanguageType.GERMAN) {
 			int answer = questionCredentialView.showViewGer();
 		
 			switch(answer) {
@@ -38,7 +38,7 @@ public class CreateAuthentificationAction implements AuthentificationServiceActi
 			}
 		
 		authentificationService.createAuthentification(credentialType, person);
-		}else if(person.getLanguage() == LanguageType.ENGLISH) {
+		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
 			int answer = questionCredentialView.showViewEng();
 			
 			switch(answer) {

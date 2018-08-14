@@ -14,11 +14,12 @@ public class StatisticServiceController {
 		CreateStatisticAction createStatisticAction = new CreateStatisticAction(payments);
 		statisticService = createStatisticAction.action(statisticService, language);
 		
-		DeleteStatisticAction deleteStatisticAction = new DeleteStatisticAction();
-		statisticService = deleteStatisticAction.action(statisticService, language);
-		
 		PrintStatisticAction printStatisticAction = new PrintStatisticAction();
 		statisticService = printStatisticAction.action(statisticService, language);
+		
+		DeleteStatisticAction deleteStatisticAction = new DeleteStatisticAction();
+		statisticService = deleteStatisticAction.action(statisticService, language);
+
 		return statisticService;
 	}
 }

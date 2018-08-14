@@ -5,26 +5,29 @@ import java.math.BigDecimal;
 public class BookingService {
 	
 	BigDecimal cost;
-	LanguageType language;
+	LanguageType languageType;
 	Booking booking;
 	String name;
+	CarBrandType carBrandType;
+	int deleteAnswer;
 	
-	public void createBooking(BigDecimal cost, LanguageType language, String name){
+	public void createBooking(BigDecimal cost, LanguageType languageType, String name, CarBrandType carBrandType){
 
 		this.cost = cost;
-		this.language = language;
+		this.languageType = languageType;
 		this.name = name;
+		this.carBrandType = carBrandType;
 		
-		if (language == LanguageType.GERMAN) {
+		if (languageType == LanguageType.GERMAN) {
 			BookingBuilderGerman builderG = new BookingBuilderGerman();
 			booking = builderG	.setHeader(name)
-								.setBody()
+								.setBody(carBrandType)
 								.setFooter(cost)
 								.build();
 		} else {
 			BookingBuilderEnglish builderE = new BookingBuilderEnglish();
 			booking = builderE	.setHeader(name)
-								.setBody()
+								.setBody(carBrandType)
 								.setFooter(cost)
 								.build();
 		}
@@ -54,12 +57,12 @@ public class BookingService {
 		this.name = name;
 	}
 
-	public LanguageType getLanguage() {
-		return language;
+	public LanguageType getLanguageType() {
+		return languageType;
 	}
 
 	public void setLanguage(LanguageType language) {
-		this.language = language;
+		this.languageType = language;
 	}
 
 	public Booking getBooking() {
@@ -68,6 +71,22 @@ public class BookingService {
 
 	public void setBooking(Booking booking) {
 		this.booking = booking;
+	}
+	
+	public CarBrandType getCarBrandType() {
+		return carBrandType;
+	}
+	
+	public void setCarBrandType(CarBrandType carBrandType) {
+		this.carBrandType = carBrandType;
+	}
+
+	public int getDeleteAnswer() {
+		return deleteAnswer;
+	}
+	
+	public void setDeleteAnswer(int deleteAnswer) {
+		this.deleteAnswer = deleteAnswer;
 	}
 	
 }

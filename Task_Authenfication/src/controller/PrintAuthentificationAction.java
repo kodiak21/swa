@@ -28,7 +28,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 
 		CredentialType credentialType = authentificationStrategy.getCredentialType();
 		
-		if (person.getLanguage() == LanguageType.GERMAN) {
+		if (person.getLanguageType() == LanguageType.GERMAN) {
 			switch (credentialType) {
 			case FINGERPRINT:
 				authentificationStrategy = new FingerPrintStrategy();
@@ -45,7 +45,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 			default:
 				authentificationStrategy = null;
 			}
-		}else if(person.getLanguage() == LanguageType.ENGLISH) {
+		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
 			switch (credentialType) {
 			case FINGERPRINT:
 				authentificationStrategy = new FingerPrintStrategy();

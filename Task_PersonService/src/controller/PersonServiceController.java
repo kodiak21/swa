@@ -15,6 +15,12 @@ public class PersonServiceController {
 		DeletePersonAction deletePersonAction = new DeletePersonAction();
 		personService = deletePersonAction.action(personService);
 		
+		if(personService.getDeleteAnswer()==2) {
+			FareWellPersonAction fareWellPersonAction = new FareWellPersonAction();
+			personService = fareWellPersonAction.action(personService);
+			personService.deletePerson();
+		}
+		
 		return personService;
 	}
 }

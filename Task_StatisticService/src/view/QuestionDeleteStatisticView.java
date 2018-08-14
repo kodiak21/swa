@@ -10,10 +10,9 @@ public int showViewGer(){
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Stimmen diese Angaben mit Ihren ueberein?");
-		System.out.println("1: Angaben stimmen ueberein");
-		System.out.println("2: Angaben wieder verwerfen");
-		System.out.println("3: Angaben aendern");
+		System.out.println("Wählen Sie weitere anzuzeigenden Statistiken?");
+		System.out.println("1: Statistiken anzeigen");
+		System.out.println("2: Programm beenden");
 
 		try {
 			answer = br.readLine();
@@ -21,7 +20,7 @@ public int showViewGer(){
 			e = new IOException("Deine Eingabe war ungueltig");
 			e.getMessage();
 		}
-		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
+		if (answer.equals("1") || answer.equals("2")) {
 			if ( answer.equals("2")){
 				System.out.println("Es wird keine Statistik erstellt");
 			}
@@ -36,17 +35,16 @@ public int showViewGer(){
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Are the positions correct?");
-		System.out.println("1: Yes continue");
-		System.out.println("2: No delete");
-		System.out.println("3: No change");
+		System.out.println("Please choose another statistic?");
+		System.out.println("1: Show statistics");
+		System.out.println("2: End programm");
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
+		if (answer.equals("1") || answer.equals("2")) {
 			if ( answer.equals("2")){
 				System.out.println("No statistics will be created");
 			}

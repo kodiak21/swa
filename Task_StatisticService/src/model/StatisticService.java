@@ -96,6 +96,7 @@ public class StatisticService extends Visitor {
 		this.languageType = null;
 		this.languageType = LanguageType.ENGLISH;
 		this.paymentType = PaymentType.MONEYWALLET;
+		this.payments = payments;
 		
 		for(Payment payment : payments) {
 			if (payment.getLanguageType() == LanguageType.ENGLISH && payment instanceof MoneyWalletPayment) {

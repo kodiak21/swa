@@ -7,6 +7,7 @@ public class AuthentificationService {
 	
 	CredentialType credentialType;
 	LanguageType languageType;
+	int deleteAnswer;
 
 	public AuthentificationService() {
 	}
@@ -22,9 +23,9 @@ public class AuthentificationService {
 
 	public boolean authentificateSubject() {
 		
-		if(person.getLanguage()==LanguageType.GERMAN) {
+		if(person.getLanguageType()==LanguageType.GERMAN) {
 			return authentificationStrategy.authenficateSubjectGer();
-		}else if(person.getLanguage() == LanguageType.ENGLISH) {
+		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
 			return authentificationStrategy.authenficateSubjectEng();
 		}
 		return true;
@@ -32,6 +33,15 @@ public class AuthentificationService {
 	
 	public void deleteAuthentification() {
 		this.authentificationStrategy = null;
+	}
+
+	public void setDeleteAnswer(int deleteAnswer) {
+		this.deleteAnswer = deleteAnswer;
+		
+	}
+	
+	public int getDeleteAnswer() {
+		return deleteAnswer;
 	}
 	
 }

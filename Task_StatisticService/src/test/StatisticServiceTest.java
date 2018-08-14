@@ -8,16 +8,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import controller.CreateStatisticAction;
-import controller.DeleteStatisticAction;
-import controller.PrintStatisticAction;
+import controller.StatisticServiceController;
 import model.Account;
 import model.LanguageType;
 import model.Payment;
 import model.PaymentService;
 import model.PaymentType;
-import model.PersonService;
-import model.PersonType;
 import model.StatisticService;
 
 class StatisticServiceTest {
@@ -27,7 +23,6 @@ class StatisticServiceTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		PaymentService paymentService = new PaymentService();
 		
 		Account senderAccount;
 		BigDecimal currencyAmount;
@@ -38,6 +33,7 @@ class StatisticServiceTest {
 		currencyAmount = new BigDecimal("444");
 		paymentType = PaymentType.MONEYWALLET;
 		languageType = LanguageType.ENGLISH;
+		PaymentService paymentService = new PaymentService(languageType);
 		
 		paymentService.createPayment(senderAccount, currencyAmount, paymentType, languageType);
 		Payment b1 = paymentService.getPayment();	
@@ -86,20 +82,20 @@ class StatisticServiceTest {
 	@Test
 	void test() {
 		LanguageType languageType = LanguageType.GERMAN;
-		StatisticService statisticService = new StatisticService();
-		
-		PersonService personService = new PersonService();
-		personService.createPerson(PersonType.NATURALPERSON, "Max Mustermann", LanguageType.GERMAN);
-		
+		StatisticService statisticService;
 
-		CreateStatisticAction createStatisticAction = new CreateStatisticAction(payments);
-		statisticService = createStatisticAction.action(statisticService, languageType);
 		
-		DeleteStatisticAction deleteStatisticAction = new DeleteStatisticAction();
-		statisticService = deleteStatisticAction.action(statisticService, languageType);
+		StatisticServiceController ssc = new StatisticServiceController();
+		statisticService = ssc.statisticCommand(payments, languageType);
 		
-		PrintStatisticAction printStatisticAction = new PrintStatisticAction();
-		statisticService = printStatisticAction.action(statisticService, languageType);
+//		CreateStatisticAction createStatisticAction = new CreateStatisticAction(payments);
+//		statisticService = createStatisticAction.action(statisticService, languageType);
+//		
+//		DeleteStatisticAction deleteStatisticAction = new DeleteStatisticAction();
+//		statisticService = deleteStatisticAction.action(statisticService, languageType);
+//		
+//		PrintStatisticAction printStatisticAction = new PrintStatisticAction();
+//		statisticService = printStatisticAction.action(statisticService, languageType);
 	}
 
 }

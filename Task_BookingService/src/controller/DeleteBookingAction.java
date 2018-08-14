@@ -3,6 +3,7 @@ package controller;
 import java.math.BigDecimal;
 
 import model.BookingService;
+import model.CarBrandType;
 import model.LanguageType;
 import view.QuestionDeleteBookingView;
 
@@ -15,18 +16,21 @@ public class DeleteBookingAction implements BookingServiceAction {
 		LanguageType language;
 		String name;
 		BigDecimal cost;
+		CarBrandType carBrandType = null;
 		
-		QuestionDeleteBookingView view = new QuestionDeleteBookingView();
-		language=bookingService.getLanguage();
+		QuestionDeleteBookingView questionDeleteBookingView = new QuestionDeleteBookingView();
+		language=bookingService.getLanguageType();
 		name = bookingService.getName();
 		cost = bookingService.getCost();
+		carBrandType = bookingService.getCarBrandType();
 		
 		if(language==LanguageType.GERMAN) {
-			answer = view.showViewGer();
+			bookingService.setDeleteAnswer(questionDeleteBookingView.showViewGer());
 		} else {
-			answer = view.showViewEng();
+			bookingService.setDeleteAnswer(questionDeleteBookingView.showViewEng());
 		}
 		
+		answer = bookingService.getDeleteAnswer();
 		
 		switch (answer) {
 		case 1:	
@@ -35,8 +39,8 @@ public class DeleteBookingAction implements BookingServiceAction {
 			bookingService.deleteBooking();
 			break;
 		case 3:	
-			BookingServiceController bsc = new BookingServiceController();
-			bookingService.setBooking(bsc.bookingCommand(language, name, cost).getBooking());
+			BookingServiceController bookingServiceController = new BookingServiceController();
+			bookingService.setBooking(bookingServiceController.bookingCommand(language, name, cost, carBrandType).getBooking());
 			break;
 		default: break;
 		}

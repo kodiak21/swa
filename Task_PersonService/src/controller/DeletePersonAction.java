@@ -9,36 +9,36 @@ public class DeletePersonAction implements PersonServiceAction {
 
 	@Override
 	public PersonService action(PersonService personService) {
-		
+
 		QuestionDeletePersonView questionDeletePersonView = new QuestionDeletePersonView();
 		int answer;
 		Person person;
 		LanguageType language;
-		
+
 		person = personService.getPerson();
-		language = person.getLanguage();
-		
+		language = person.getLanguageType();
+
 		if (language == LanguageType.GERMAN) {
-			answer = questionDeletePersonView.showViewGer();
+			personService.setDeleteAnswer(questionDeletePersonView.showViewGer());
 		} else {
-			answer = questionDeletePersonView.showViewEng();
+			personService.setDeleteAnswer(questionDeletePersonView.showViewEng());
 		}
-		
-		
+
+		answer = personService.getDeleteAnswer();
+
 		switch (answer) {
-		case 1:	
+		case 1:
 			break;
-		case 2:	
-			personService.deletePerson();
+		case 2:
 			break;
-		case 3:	
+		case 3:
 			PersonServiceController personServiceController = new PersonServiceController();
 			personService.setPerson(personServiceController.personCommand().getPerson());
 			break;
-		default: break;
+		default:
+			break;
 		}
-		
-	
+
 		return personService;
 	}
 }
