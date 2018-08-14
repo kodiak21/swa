@@ -21,6 +21,11 @@ public class PaymentServiceController {
 		action = new DeletePaymentAction();
 		paymentService = action.action(paymentService);
 		
+		if(paymentService.getDeleteAnswer()==2) {
+			action = new FareWellPaymentAction();
+			paymentService = action.action(paymentService);
+		}
+		
 		action = new TransferPaymentAction();
 		paymentService = action.action(paymentService);
 
