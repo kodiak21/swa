@@ -14,6 +14,8 @@ public class PaymentService {
 	LanguageType languageType;
 	List<Payment> payments = new ArrayList<Payment>();
 	
+	int deleteAnswer;
+	
 	public PaymentService(LanguageType languageType) {
 		this.receiverAccount = new Account(1);
 		this.receiverAccount.setAmount(0);
@@ -88,6 +90,15 @@ public class PaymentService {
 
 	public List<Payment> getPayments() {
 		return payments;
+	}
+
+	public void setDeleteAnswer(int deleteAnswer) {
+		this.deleteAnswer = deleteAnswer;
+		
+	}
+	
+	public int getDeleteAnswer() {
+		return deleteAnswer;
 	}
 	
 }
