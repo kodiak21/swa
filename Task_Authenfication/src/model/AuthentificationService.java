@@ -7,6 +7,7 @@ public class AuthentificationService {
 	
 	CredentialType credentialType;
 	LanguageType languageType;
+	int deleteAnswer;
 
 	public AuthentificationService() {
 	}
@@ -32,6 +33,15 @@ public class AuthentificationService {
 	
 	public void deleteAuthentification() {
 		this.authentificationStrategy = null;
+	}
+
+	public void setDeleteAnswer(int deleteAnswer) {
+		this.deleteAnswer = deleteAnswer;
+		
+	}
+	
+	public int getDeleteAnswer() {
+		return deleteAnswer;
 	}
 	
 }

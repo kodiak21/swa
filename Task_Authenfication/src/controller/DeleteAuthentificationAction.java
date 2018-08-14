@@ -21,30 +21,23 @@ public class DeleteAuthentificationAction implements AuthentificationServiceActi
 		QuestionConfirmView questionConfirmView = new QuestionConfirmView();
 
 		if (person.getLanguageType() == LanguageType.GERMAN) {
-			int answer = questionConfirmView.showViewGer();
-
-			switch (answer) {
-			case 1:
-				break;
-			case 2:
-				authentificationService.deleteAuthentification();
-				break;
-			default:
-				break;
-			}
+			authentificationService.setDeleteAnswer(questionConfirmView.showViewGer());
 		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
-			int answer = questionConfirmView.showViewEng();
-
-			switch (answer) {
-			case 1:
-				break;
-			case 2:
-				authentificationService.deleteAuthentification();
-				break;
-			default:
-				break;
-			}
+			authentificationService.setDeleteAnswer(questionConfirmView.showViewEng());
 		}
+		
+		int answer = authentificationService.getDeleteAnswer();
+		
+		switch (answer) {
+		case 1:
+			break;
+		case 2:
+			authentificationService.deleteAuthentification();
+			break;
+		default:
+			break;
+		}
+		
 		return authentificationService;
 	}
 
