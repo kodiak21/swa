@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import controller.CreateStatisticAction;
 import controller.DeleteStatisticAction;
 import controller.PrintStatisticAction;
 import model.Account;
@@ -84,29 +85,21 @@ class StatisticServiceTest {
 
 	@Test
 	void test() {
+		LanguageType languageType = LanguageType.GERMAN;
 		StatisticService statisticService = new StatisticService();
 		
 		PersonService personService = new PersonService();
 		personService.createPerson(PersonType.NATURALPERSON, "Max Mustermann", LanguageType.GERMAN);
 		
-		PrintStatisticAction printStatisticAction = new PrintStatisticAction();
-		statisticService.setEnglishBookingsPaidByMoneyWallet(payments);
-		printStatisticAction.action(statisticService, personService);
-		statisticService.setEnglishBookingsPaidByGoogleWallet(payments);
-		printStatisticAction.action(statisticService, personService);
-		statisticService.setEnglishBookingsPaidByPayPal(payments);
-		printStatisticAction.action(statisticService, personService);
-		statisticService.setGermanBookingsPaidByMoneyWallet(payments);
-		printStatisticAction.action(statisticService, personService);
-		statisticService.setGermanBookingsPaidByGoogleWallet(payments);
-		printStatisticAction.action(statisticService, personService);
-		statisticService.setGermanBookingsPaidByPayPal(payments);
-		printStatisticAction.action(statisticService, personService);
+
+		CreateStatisticAction createStatisticAction = new CreateStatisticAction(payments);
+		statisticService = createStatisticAction.action(statisticService, languageType);
 		
 		DeleteStatisticAction deleteStatisticAction = new DeleteStatisticAction();
-		deleteStatisticAction.action(statisticService, personService);
+		statisticService = deleteStatisticAction.action(statisticService, languageType);
 		
-
+		PrintStatisticAction printStatisticAction = new PrintStatisticAction();
+		statisticService = printStatisticAction.action(statisticService, languageType);
 	}
 
 }

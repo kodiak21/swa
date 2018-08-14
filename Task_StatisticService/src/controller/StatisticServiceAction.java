@@ -1,8 +1,8 @@
 package controller;
 
-import model.PersonService;
+import model.LanguageType;
 import model.StatisticService;
 
 public interface StatisticServiceAction {
-	public StatisticService action(StatisticService statisticService, PersonService personService);
+	public StatisticService action(StatisticService statisticService, LanguageType language);
 }

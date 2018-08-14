@@ -4,21 +4,18 @@ import java.util.List;
 
 import model.LanguageType;
 import model.Payment;
-import model.PersonService;
 import model.StatisticService;
 import view.QuestionDeleteBookingView;
 
 public class DeleteStatisticAction implements StatisticServiceAction {
 
 	@Override
-	public StatisticService action(StatisticService statisticService, PersonService personService) {
+	public StatisticService action(StatisticService statisticService, LanguageType language) {
 		List<Payment> payments;
-		LanguageType language;
 		int answer;
 		
 		QuestionDeleteBookingView view = new QuestionDeleteBookingView();
 		payments = statisticService.getPayments();
-		language = personService.getPerson().getLanguage();
 		
 		if(language==LanguageType.GERMAN) {
 			answer = view.showViewGer();
@@ -34,9 +31,9 @@ public class DeleteStatisticAction implements StatisticServiceAction {
 			statisticService.deleteStatistic();
 			break;
 		case 3:	
-//			StatisticServiceController ssc = new StatisticServiceController();
-//			statisticService = ssc.bookingCommand();
-			System.out.println("NOCH NICHT IMPLEMENTIERT");
+			statisticService.deleteStatistic();
+			StatisticServiceController ssc = new StatisticServiceController();
+			statisticService = ssc.statisticCommand(payments, language);
 			break;
 		default: break;
 		}
