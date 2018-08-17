@@ -21,8 +21,10 @@ public class CreateAuthentificationAction implements AuthentificationServiceActi
 		CredentialType credentialType;
 		
 		if(person.getLanguageType() == LanguageType.GERMAN) {
-			int answer = questionCredentialView.showViewGer();
+			authentificationService.setCreateAnswer(questionCredentialView.showViewGer());
 		
+			int answer = authentificationService.getCreateAnswer();
+			
 			switch(answer) {
 			case 1:
 				credentialType = CredentialType.FINGERPRINT;
@@ -39,7 +41,9 @@ public class CreateAuthentificationAction implements AuthentificationServiceActi
 		
 		authentificationService.createAuthentification(credentialType, person);
 		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
-			int answer = questionCredentialView.showViewEng();
+			authentificationService.setCreateAnswer(questionCredentialView.showViewEng());
+			
+			int answer = authentificationService.getCreateAnswer();
 			
 			switch(answer) {
 			case 1:

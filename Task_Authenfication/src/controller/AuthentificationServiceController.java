@@ -15,6 +15,15 @@ public class AuthentificationServiceController {
 		action = new CreateAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
 		
+		if(authentificationService.getCreateAnswer()==2) {
+			action = new AskPasswordAuthentificationAction(person);
+			authentificationService = action.action(authentificationService);
+			if(authentificationService.getPasswordAnswer()==1) {
+				action = new ChangePasswordAuthentificationAction(person);
+				authentificationService = action.action(authentificationService);
+			}
+		}
+		
 		action = new ConfirmAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
 		
