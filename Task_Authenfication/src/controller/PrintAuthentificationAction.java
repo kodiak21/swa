@@ -28,6 +28,8 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 
 		CredentialType credentialType = authentificationStrategy.getCredentialType();
 		
+		String password = authentificationService.getPassword();
+			
 		if (person.getLanguageType() == LanguageType.GERMAN) {
 			switch (credentialType) {
 			case FINGERPRINT:
@@ -35,7 +37,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 				printAuthentificationView.showViewGer(authentificationStrategy);
 				break;
 			case USERNAME:
-				authentificationStrategy = new UserNameStrategy();
+				authentificationStrategy = new UserNameStrategy(password);
 				printAuthentificationView.showViewGer(authentificationStrategy);
 				break;
 			case EYESCAN:
@@ -52,7 +54,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 				printAuthentificationView.showViewEng(authentificationStrategy);
 				break;
 			case USERNAME:
-				authentificationStrategy = new UserNameStrategy();
+				authentificationStrategy = new UserNameStrategy(password);
 				printAuthentificationView.showViewEng(authentificationStrategy);
 				break;
 			case EYESCAN:

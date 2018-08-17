@@ -5,11 +5,14 @@ import model.PersonType;
 
 public class AuthentificationStrategyFactory {
 
-	public static AuthentificationStrategy getAuthenticationMethod(CredentialType credentialType, Person person) {
+	public static AuthentificationStrategy getAuthenticationMethod(CredentialType credentialType, Person person, AuthentificationService authentificationService) {
+		
+		String password = authentificationService.getPassword();
+		
 		if (person.getPersonType() == PersonType.NATURALPERSON) {
 			switch (credentialType) {
 			case USERNAME:
-				return createUserName();
+				return createUserName(password);
 			case FINGERPRINT:
 				return createFingerPrint();
 			case EYESCAN:
@@ -18,7 +21,7 @@ public class AuthentificationStrategyFactory {
 				return null;
 			}
 		} else {
-			return createUserName();
+			return createUserName(password);
 		}
 	}
 
@@ -30,8 +33,8 @@ public class AuthentificationStrategyFactory {
 		return new FingerPrintStrategy();
 	}
 
-	private static AuthentificationStrategy createUserName() {
-		return new UserNameStrategy();
+	private static AuthentificationStrategy createUserName(String password) {
+		return new UserNameStrategy(password);
 	}
 
 }

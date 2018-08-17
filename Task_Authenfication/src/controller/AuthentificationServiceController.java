@@ -5,7 +5,7 @@ import model.Person;
 
 public class AuthentificationServiceController {
 
-	
+	private String normalword ="1234";
 
 	public AuthentificationService authentificationCommand(Person person) {
 
@@ -15,6 +15,16 @@ public class AuthentificationServiceController {
 		action = new CreateAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
 		
+		authentificationService.setPassword(normalword);
+		
+		if(authentificationService.getCreateAnswer()==2) {
+			action = new AskPasswordAuthentificationAction(person);
+			authentificationService = action.action(authentificationService);
+			if(authentificationService.getPasswordAnswer()==1) {
+				action = new SetPasswordAuthentificationAction(person);
+				authentificationService = action.action(authentificationService);
+			}
+		}
 		action = new ConfirmAuthentificationAction(person);
 		authentificationService = action.action(authentificationService);
 		

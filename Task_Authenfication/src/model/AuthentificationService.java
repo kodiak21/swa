@@ -8,13 +8,13 @@ public class AuthentificationService {
 	CredentialType credentialType;
 	LanguageType languageType;
 	int deleteAnswer;
+	int passwordAnswer;
+	int createAnswer;
+	String password;
 
-	public AuthentificationService() {
-	}
-
-	public void createAuthentification(CredentialType credentialType, Person person) {
+	public void createAuthentification(CredentialType credentialType, Person person, AuthentificationService authentificationService) {
 		this.person = person;
-		this.authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person);
+		this.authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person, authentificationService);
 	}
 	
 	public AuthentificationStrategy getAuthentificationStrategy() {
@@ -42,6 +42,33 @@ public class AuthentificationService {
 	
 	public int getDeleteAnswer() {
 		return deleteAnswer;
+	}
+
+	public void setPasswordAnswer(int passwordAnswer) {
+		this.passwordAnswer= passwordAnswer;
+		
+	}
+	
+	public int getPasswordAnswer() {
+		return passwordAnswer;
+	}
+
+	public void setCreateAnswer(int createAnswer) {
+		this.createAnswer = createAnswer;
+		
+	}
+	
+	public int getCreateAnswer() {
+		return createAnswer;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+		
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 	
 }

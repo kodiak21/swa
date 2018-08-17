@@ -27,7 +27,7 @@ public class AuthentificationServiceTest {
 		UserFactory userfactory = new UserFactory();
 		LanguageType languageType = LanguageType.ENGLISH;
 		person = userfactory.createPerson(personType,name, languageType);
-		authentificationStrategy = new UserNameStrategy();
+		authentificationStrategy = new UserNameStrategy("1234");
 	}
 
 	@AfterEach
@@ -47,7 +47,7 @@ public class AuthentificationServiceTest {
 	}
 	
 	@Test
-	@DisplayName("person.getLanguage(): is language german")
+	@DisplayName("person.getLanguage(): is language english")
 	void testPerson3() {	
 		assertEquals(LanguageType.ENGLISH, person.getLanguageType());
 	}

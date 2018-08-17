@@ -5,8 +5,12 @@ import java.io.InputStreamReader;
 
 public class UserNameStrategy implements AuthentificationStrategy{
 	
-	private static String password = "1234";
+	private String password;
 	
+	public UserNameStrategy(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public boolean authenficateSubjectGer() {
 		String inputPassword;
@@ -46,7 +50,7 @@ public class UserNameStrategy implements AuthentificationStrategy{
     			isAuthenficated = true;
     		} else {
     			System.out.println("Wrong password!");
-    			authenficateSubjectGer();
+    			authenficateSubjectEng();
     			}
         }
         catch(Exception e){

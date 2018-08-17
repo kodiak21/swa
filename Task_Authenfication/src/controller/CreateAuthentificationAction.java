@@ -21,25 +21,9 @@ public class CreateAuthentificationAction implements AuthentificationServiceActi
 		CredentialType credentialType;
 		
 		if(person.getLanguageType() == LanguageType.GERMAN) {
-			int answer = questionCredentialView.showViewGer();
+			authentificationService.setCreateAnswer(questionCredentialView.showViewGer());
 		
-			switch(answer) {
-			case 1:
-				credentialType = CredentialType.FINGERPRINT;
-				break;
-			case 2:
-				credentialType = CredentialType.USERNAME;
-				break;
-			case 3:
-				credentialType = CredentialType.EYESCAN;
-				break;
-			default:
-				credentialType = null;	
-			}
-		
-		authentificationService.createAuthentification(credentialType, person);
-		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
-			int answer = questionCredentialView.showViewEng();
+			int answer = authentificationService.getCreateAnswer();
 			
 			switch(answer) {
 			case 1:
@@ -54,7 +38,27 @@ public class CreateAuthentificationAction implements AuthentificationServiceActi
 			default:
 				credentialType = null;	
 			}
-			authentificationService.createAuthentification(credentialType, person);
+		
+		authentificationService.createAuthentification(credentialType, person, authentificationService);
+		}else if(person.getLanguageType() == LanguageType.ENGLISH) {
+			authentificationService.setCreateAnswer(questionCredentialView.showViewEng());
+			
+			int answer = authentificationService.getCreateAnswer();
+			
+			switch(answer) {
+			case 1:
+				credentialType = CredentialType.FINGERPRINT;
+				break;
+			case 2:
+				credentialType = CredentialType.USERNAME;
+				break;
+			case 3:
+				credentialType = CredentialType.EYESCAN;
+				break;
+			default:
+				credentialType = null;	
+			}
+			authentificationService.createAuthentification(credentialType, person, authentificationService);
 		}
 		
 		return authentificationService;
