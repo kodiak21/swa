@@ -3,7 +3,7 @@ package controller;
 import model.LanguageType;
 import model.Person;
 import model.PersonService;
-import views.PrintPersonView;
+import view.PrintPersonView;
 
 public class PrintPersonAction implements PersonServiceAction {
 

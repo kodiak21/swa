@@ -3,7 +3,7 @@ package controller;
 import model.LanguageType;
 import model.Person;
 import model.PersonService;
-import views.QuestionDeletePersonView;
+import view.QuestionDeletePersonView;
 
 public class DeletePersonAction implements PersonServiceAction {
 

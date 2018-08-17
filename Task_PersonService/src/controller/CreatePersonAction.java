@@ -3,9 +3,9 @@ package controller;
 import model.LanguageType;
 import model.PersonService;
 import model.PersonType;
-import views.QuestionLanguageView;
-import views.QuestionNameView;
-import views.QuestionPersonTypeView;
+import view.QuestionLanguageView;
+import view.QuestionNameView;
+import view.QuestionPersonTypeView;
 
 public class CreatePersonAction implements PersonServiceAction{
 

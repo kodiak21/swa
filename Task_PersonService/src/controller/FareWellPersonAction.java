@@ -2,7 +2,7 @@ package controller;
 
 import model.LanguageType;
 import model.PersonService;
-import views.FareWellPersonView;
+import view.FareWellPersonView;
 
 public class FareWellPersonAction implements PersonServiceAction {
 
@@ -15,9 +15,11 @@ public class FareWellPersonAction implements PersonServiceAction {
 	@Override
 	public PersonService action(PersonService personService) {
 		if(personService.getPerson().getLanguageType()==LanguageType.GERMAN) {
+			personService.deletePerson();
 			fareWellPersonView.showViewGer();
 			System.exit(0);
 		}else if(personService.getPerson().getLanguageType()==LanguageType.ENGLISH) {
+			personService.deletePerson();
 			fareWellPersonView.showViewEng();
 			System.exit(0);
 		}
