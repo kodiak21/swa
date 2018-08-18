@@ -11,6 +11,8 @@ public class StatisticService extends Visitor {
 	PaymentType paymentType;
 	List<Payment> payments;
 	
+	int deleteAnswer;
+	
 	public StatisticService() {
 
 		this.bookingCount = 0;
@@ -145,6 +147,15 @@ public class StatisticService extends Visitor {
 		this.paymentType = null;
 		this.payments = null;
 		
+	}
+
+	public void setDeleteAnswer(int deleteAnswer) {
+		this.deleteAnswer = deleteAnswer;
+		
+	}
+	
+	public int getDeleteAnswer() {
+		return deleteAnswer;
 	}
 
 }

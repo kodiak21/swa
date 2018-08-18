@@ -20,6 +20,11 @@ public class StatisticServiceController {
 		DeleteStatisticAction deleteStatisticAction = new DeleteStatisticAction();
 		statisticService = deleteStatisticAction.action(statisticService, language);
 
+		if(statisticService.getDeleteAnswer()==2) {
+			FareWellStatisticAction fareWellStatisticAction = new FareWellStatisticAction();
+			statisticService = fareWellStatisticAction.action(statisticService, language);
+		}
+		
 		return statisticService;
 	}
 }
