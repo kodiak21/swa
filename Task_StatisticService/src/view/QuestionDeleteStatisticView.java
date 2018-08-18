@@ -10,7 +10,7 @@ public int showViewGer(){
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Wählen Sie weitere anzuzeigenden Statistiken?");
+		System.out.println("Waehlen Sie weitere anzuzeigenden Statistiken?");
 		System.out.println("1: Statistiken anzeigen");
 		System.out.println("2: Programm beenden");
 
@@ -21,12 +21,9 @@ public int showViewGer(){
 			e.getMessage();
 		}
 		if (answer.equals("1") || answer.equals("2")) {
-			if ( answer.equals("2")){
-				System.out.println("Es wird keine Statistik erstellt");
-			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungueltig");
+			System.out.println("Ihre Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -35,7 +32,7 @@ public int showViewGer(){
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Please choose another statistic?");
+		System.out.println("Please choose another statistics?");
 		System.out.println("1: Show statistics");
 		System.out.println("2: End programm");
 		try {
@@ -45,9 +42,6 @@ public int showViewGer(){
 			e.printStackTrace();
 		}
 		if (answer.equals("1") || answer.equals("2")) {
-			if ( answer.equals("2")){
-				System.out.println("No statistics will be created");
-			}
 			return Integer.parseInt(answer);
 		} else {
 			System.out.println("Wrong Input");

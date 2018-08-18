@@ -15,16 +15,17 @@ public class DeleteStatisticAction implements StatisticServiceAction {
 
 		int answer;
 		
-		QuestionDeleteStatisticView view = new QuestionDeleteStatisticView();
+		QuestionDeleteStatisticView questionDeleteStatisticView = new QuestionDeleteStatisticView();
 		payments = statisticService.getPayments();
 
 		
 		if(language==LanguageType.GERMAN) {
-			answer = view.showViewGer();
+			statisticService.setDeleteAnswer(questionDeleteStatisticView.showViewGer());
 		} else {
-			answer = view.showViewEng();
+			statisticService.setDeleteAnswer(questionDeleteStatisticView.showViewEng());
 		}
 		
+		answer = statisticService.getDeleteAnswer();
 		
 		switch (answer) {
 		case 1:	
