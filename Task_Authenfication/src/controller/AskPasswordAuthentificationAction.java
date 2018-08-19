@@ -3,24 +3,24 @@ package controller;
 import model.AuthentificationService;
 import model.LanguageType;
 import model.Person;
-import view.AskPasswordView;
+import view.AskPasswordAuthentificationView;
 
 public class AskPasswordAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;
-	private AskPasswordView askPasswordView;
+	private AskPasswordAuthentificationView askPasswordAuthentificationView;
 	
 	public AskPasswordAuthentificationAction(Person person) {
 		this.person = person;
-		this.askPasswordView = new AskPasswordView();
+		this.askPasswordAuthentificationView = new AskPasswordAuthentificationView();
 	}
 
 	@Override
 	public AuthentificationService action(AuthentificationService authentificationService) {
 		if(person.getLanguageType()==LanguageType.GERMAN) {
-			authentificationService.setPasswordAnswer(askPasswordView.showViewGer());
+			authentificationService.setPasswordAnswer(askPasswordAuthentificationView.showViewGer());
 		}else if(person.getLanguageType()==LanguageType.ENGLISH) {
-			authentificationService.setPasswordAnswer(askPasswordView.showViewEng());
+			authentificationService.setPasswordAnswer(askPasswordAuthentificationView.showViewEng());
 		}
 		return authentificationService;
 	}

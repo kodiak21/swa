@@ -10,7 +10,9 @@ public class AuthentificationService {
 	int deleteAnswer;
 	int passwordAnswer;
 	int createAnswer;
+	
 	String password;
+	int failedTries;
 
 	public void createAuthentification(CredentialType credentialType, Person person, AuthentificationService authentificationService) {
 		this.person = person;
@@ -69,6 +71,14 @@ public class AuthentificationService {
 	
 	public String getPassword() {
 		return password;
+	}
+
+	public void setFailedTries(int failedTries) {
+		this.failedTries = failedTries;
+	}
+	
+	public int getFailedTries() {
+		return failedTries;
 	}
 	
 }

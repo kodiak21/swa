@@ -6,6 +6,7 @@ import model.Person;
 public class AuthentificationServiceController {
 
 	private String normalword ="1234";
+	private int failedTries = 3;
 
 	public AuthentificationService authentificationCommand(Person person) {
 
@@ -16,6 +17,7 @@ public class AuthentificationServiceController {
 		authentificationService = action.action(authentificationService);
 		
 		authentificationService.setPassword(normalword);
+		authentificationService.setFailedTries(failedTries);
 		
 		if(authentificationService.getCreateAnswer()==2) {
 			action = new AskPasswordAuthentificationAction(person);
