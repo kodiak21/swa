@@ -3,13 +3,13 @@ package model;
 public class EyeScanStrategy implements AuthentificationStrategy {
 	
 	public boolean authenficateSubjectGer() {
-		boolean isAuthenficated = true;
-		return isAuthenficated;
+		boolean isAuthentificated = true;
+		return isAuthentificated;
 	}
 	
 	public boolean authenficateSubjectEng() {
-		boolean isAuthenficated = true;
-		return isAuthenficated;
+		boolean isAuthentificated = true;
+		return isAuthentificated;
 	}
 
 	@Override

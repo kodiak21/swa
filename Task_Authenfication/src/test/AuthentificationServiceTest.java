@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import model.AuthentificationService;
 import model.AuthentificationStrategy;
 import model.CredentialType;
 import model.LanguageType;
@@ -27,7 +28,7 @@ public class AuthentificationServiceTest {
 		UserFactory userfactory = new UserFactory();
 		LanguageType languageType = LanguageType.ENGLISH;
 		person = userfactory.createPerson(personType,name, languageType);
-		authentificationStrategy = new UserNameStrategy("1234");
+		authentificationStrategy = new UserNameStrategy("1234", 3, new AuthentificationService());
 	}
 
 	@AfterEach
