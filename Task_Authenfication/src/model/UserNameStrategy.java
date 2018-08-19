@@ -10,16 +10,14 @@ public class UserNameStrategy implements AuthentificationStrategy {
 	private String password;
 	private boolean isAuthentificated;
 	private int failedTries;
-	private AuthentificationService authentificationService;
 	private UserStrategyView userStrategyView;
 
-	private int count = 1;
+	private int count = 0;
 
-	public UserNameStrategy(String password, int failedTries, AuthentificationService authentificationService) {
+	public UserNameStrategy(String password, int failedTries) {
 		this.password = password;
-		this.isAuthentificated = false;
 		this.failedTries = failedTries;
-		this.authentificationService = authentificationService;
+		this.isAuthentificated = false;
 		this.userStrategyView = new UserStrategyView();
 	}
 
@@ -34,19 +32,17 @@ public class UserNameStrategy implements AuthentificationStrategy {
 			BufferedReader br = new BufferedReader(in);
 			inputPassword = br.readLine();
 
-			authentificationService.setFailedTries(count);
-
 			if (inputPassword.equals(password)) {
 				isAuthentificated = true;
 			} else {
 
 				userStrategyView.falsePasswordGer();
 
-				authentificationService.setFailedTries(count++);
+				count++;
 
-				if (authentificationService.getFailedTries() < failedTries) {
+				if (count < failedTries) {
 					authenficateSubjectGer();
-				} else if (authentificationService.getFailedTries() == failedTries) {
+				} else if (count == failedTries) {
 
 					userStrategyView.closedAccountGer();
 
@@ -72,18 +68,16 @@ public class UserNameStrategy implements AuthentificationStrategy {
 			BufferedReader br = new BufferedReader(in);
 			inputPassword = br.readLine();
 
-			authentificationService.setFailedTries(count);
-
 			if (inputPassword.equals(password)) {
 				isAuthentificated = true;
 			} else {
 
 				userStrategyView.falsePassWordEng();
 
-				authentificationService.setFailedTries(count++);
-				if (authentificationService.getFailedTries() < failedTries) {
+				count++;
+				if (count < failedTries) {
 					authenficateSubjectEng();
-				} else if (authentificationService.getFailedTries() == failedTries) {
+				} else if (count == failedTries) {
 
 					userStrategyView.closedAccountEng();
 

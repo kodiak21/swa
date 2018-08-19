@@ -6,7 +6,7 @@ import model.Person;
 public class AuthentificationServiceController {
 
 	private String normalword ="1234";
-	private int failedTries = 3;
+	private int failedTries = 5;
 
 	public AuthentificationService authentificationCommand(Person person) {
 

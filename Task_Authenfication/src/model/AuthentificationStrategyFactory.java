@@ -13,7 +13,7 @@ public class AuthentificationStrategyFactory {
 		if (person.getPersonType() == PersonType.NATURALPERSON) {
 			switch (credentialType) {
 			case USERNAME:
-				return createUserName(password, failedTries, authentificationService);
+				return createUserName(password, failedTries);
 			case FINGERPRINT:
 				return createFingerPrint();
 			case EYESCAN:
@@ -22,7 +22,7 @@ public class AuthentificationStrategyFactory {
 				return null;
 			}
 		} else {
-			return createUserName(password, failedTries, authentificationService);
+			return createUserName(password, failedTries);
 		}
 	}
 
@@ -34,8 +34,8 @@ public class AuthentificationStrategyFactory {
 		return new FingerPrintStrategy();
 	}
 
-	private static AuthentificationStrategy createUserName(String password, int failedTries, AuthentificationService authentificationService) {
-		return new UserNameStrategy(password, failedTries, authentificationService);
+	private static AuthentificationStrategy createUserName(String password, int failedTries) {
+		return new UserNameStrategy(password, failedTries);
 	}
 
 }

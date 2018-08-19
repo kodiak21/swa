@@ -38,7 +38,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 				printAuthentificationView.showViewGer(authentificationStrategy);
 				break;
 			case USERNAME:
-				authentificationStrategy = new UserNameStrategy(password, failedTries, authentificationService);
+				authentificationStrategy = new UserNameStrategy(password, failedTries);
 				printAuthentificationView.showViewGer(authentificationStrategy);
 				break;
 			case EYESCAN:
@@ -55,7 +55,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 				printAuthentificationView.showViewEng(authentificationStrategy);
 				break;
 			case USERNAME:
-				authentificationStrategy = new UserNameStrategy(password, failedTries, authentificationService);
+				authentificationStrategy = new UserNameStrategy(password, failedTries);
 				printAuthentificationView.showViewEng(authentificationStrategy);
 				break;
 			case EYESCAN:

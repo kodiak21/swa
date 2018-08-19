@@ -28,7 +28,7 @@ public class AuthentificationServiceTest {
 		UserFactory userfactory = new UserFactory();
 		LanguageType languageType = LanguageType.ENGLISH;
 		person = userfactory.createPerson(personType,name, languageType);
-		authentificationStrategy = new UserNameStrategy("1234", 3, new AuthentificationService());
+		authentificationStrategy = new UserNameStrategy("1234", 3);
 	}
 
 	@AfterEach
