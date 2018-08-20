@@ -43,37 +43,37 @@ class PersonServiceTest {
 	@DisplayName("createPerson(): is PersonType LEGALPERSON")
 	void createTest1() {
 
-		Assert.assertEquals(person.getPersonType(), PersonType.LEGALPERSON);
+		Assert.assertEquals(PersonType.LEGALPERSON, person.getPersonType());
 	}
 
 	@Test
 	@DisplayName("createPerson(): is LanguageType GERMAN")
 	void createTest2() {
 
-		Assert.assertEquals(person.getLanguageType(), LanguageType.GERMAN);
+		Assert.assertEquals(LanguageType.GERMAN,person.getLanguageType());
 	}
 
 	@Test
 	@DisplayName("createPerson(): is Name of Person John Miller")
 	void createTest3() {
 
-		Assert.assertEquals(person.getName(), "John Miller");
+		Assert.assertEquals("John Miller",person.getName());
 	}
 
 	@Test
 	@DisplayName("deletePerson(): is PersonObject null after delete operation")
 	void deleteTest() {
 		personService.deletePerson();
-		Assert.assertEquals(personService.getPerson(), null);
+		Assert.assertEquals(null,personService.getPerson());
 	}
 	
 	@Test
-	@DisplayName("printPerson: if Person is legal, then company")
+	@DisplayName("printPerson(): if Person is legal, then company")
 	void printPerson() {
 		person = personService.getPerson();
 		if(person.getPersonType()==PersonType.LEGALPERSON)
-		Assert.assertEquals("Sie vertreten ein Unternehmen. Dessen Name ist " + person.getName(),
-				"Sie vertreten ein Unternehmen. Dessen Name ist " + personService.printPerson().getName());
+		Assert.assertEquals("Sie vertreten ein Unternehmen. Dessen Name ist " + personService.printPerson().getName(),
+				"Sie vertreten ein Unternehmen. Dessen Name ist " + person.getName());
 
 	}
 }
