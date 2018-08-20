@@ -10,9 +10,10 @@ public class QuestionLanguageView{
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
-		
-		System.out.println("Aus welchem Land bist du?");
-		System.out.println("Where are you from?");
+		System.out.println("Herzlich Willkommen beim AutoService OlAnDa");
+		System.out.println("Bitte waehlen Sie die Sprache aus");
+		System.out.println("Welcome to our CarService OlAnDa");
+		System.out.println("Please choose language");
 		System.out.println("1: GER");
 		System.out.println("2: USA");
 		try {
@@ -25,7 +26,8 @@ public class QuestionLanguageView{
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungueltig");
+			System.out.println("Ihre Eingabe war ungueltig");
+			System.out.println("Your Entry is not valid");
 			return showView();
 		}
 	}
