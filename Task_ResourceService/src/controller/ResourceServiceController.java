@@ -39,11 +39,6 @@ public class ResourceServiceController {
 			AskTopBoxOrderAction askTopBoxOrderAction = new AskTopBoxOrderAction();
 			resourceService = askTopBoxOrderAction.action(resourceService, languageType);
 
-			if (resourceService.getTopBoxResourceAnswer() == 1) {
-				AskNumberTopBoxAction askNumberTopBoxAction = new AskNumberTopBoxAction();
-				resourceService = askNumberTopBoxAction.action(resourceService, languageType);
-			}
-
 			AskChildSeatOrderAction askChildSeatOrderAction = new AskChildSeatOrderAction();
 			resourceService = askChildSeatOrderAction.action(resourceService, languageType);
 
