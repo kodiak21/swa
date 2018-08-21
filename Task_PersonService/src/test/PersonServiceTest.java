@@ -14,6 +14,7 @@ import model.Person;
 import model.PersonService;
 import model.PersonType;
 import model.UserFactory;
+import view.QuestionDeletePersonView;
 
 class PersonServiceTest {
 
@@ -25,7 +26,7 @@ class PersonServiceTest {
 
 	private PersonService personService;
 	private UserFactory userFactory;
-	
+
 	private PersonServiceController personServiceController;
 
 	@BeforeEach
@@ -38,7 +39,7 @@ class PersonServiceTest {
 		userFactory = new UserFactory();
 		person = userFactory.createPerson(personType, name, languageType);
 		personService.setPerson(person);
-		
+
 		personServiceController = new PersonServiceController();
 	}
 
@@ -50,46 +51,35 @@ class PersonServiceTest {
 	}
 
 	@Test
-	@DisplayName("createPerson(): is PersonType LEGALPERSON")
-	void createTest1() {
-
-		assertEquals(PersonType.LEGALPERSON, personService.getPerson().getPersonType());
-	}
-
-	@Test
-	@DisplayName("createPerson(): is LanguageType GERMAN")
-	void createTest2() {
-
-		assertEquals(LanguageType.GERMAN,personService.getPerson().getLanguageType());
-	}
-
-	@Test
-	@DisplayName("createPerson(): is Name of Person John Miller")
-	void createTest3() {
-
-		assertEquals("John Miller",personService.getPerson().getName());
+	@DisplayName("createPerson(): is PersonType of created Person LEGALPERSON")
+	void createTest() {
+		assertEquals(PersonType.LEGALPERSON, person.getPersonType());
 	}
 
 	@Test
 	@DisplayName("deletePerson(): is PersonObject null after delete operation")
 	void deleteTest() {
+
 		personService.deletePerson();
-		assertEquals(null,personService.getPerson());
+
+		assertEquals(null, personService.getPerson());
+
 	}
-	
+
 	@Test
 	@DisplayName("printPerson(): if Person is legal, then company")
 	void printPerson() {
 		person = personService.getPerson();
-		if(person.getPersonType()==PersonType.LEGALPERSON)
-		assertEquals("Sie vertreten ein Unternehmen. Dessen Name ist " + personService.printPerson().getName(),
-				"Sie vertreten ein Unternehmen. Dessen Name ist " + person.getName());
+		if (person.getPersonType() == PersonType.LEGALPERSON)
+			assertEquals("Sie vertreten ein Unternehmen. Dessen Name ist " + personService.printPerson().getName(),
+					"Sie vertreten ein Unternehmen. Dessen Name ist " + person.getName());
 
 	}
-	
+
 	@Test
-	@DisplayName("personCommand(): test of PersonServiceController")
+	@DisplayName("personCommand(): test of PersonServiceController (Choice 1 and 3)")
 	void testController() {
 		personServiceController.personCommand();
 	}
+
 }
