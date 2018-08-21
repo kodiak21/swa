@@ -1,11 +1,14 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import controller.PersonServiceController;
 import model.LanguageType;
 import model.Person;
 import model.PersonService;
@@ -22,6 +25,8 @@ class PersonServiceTest {
 
 	private PersonService personService;
 	private UserFactory userFactory;
+	
+	private PersonServiceController personServiceController;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -33,38 +38,43 @@ class PersonServiceTest {
 		userFactory = new UserFactory();
 		person = userFactory.createPerson(personType, name, languageType);
 		personService.setPerson(person);
+		
+		personServiceController = new PersonServiceController();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
+		personService = null;
+		userFactory = null;
+		personServiceController = null;
 	}
 
 	@Test
 	@DisplayName("createPerson(): is PersonType LEGALPERSON")
 	void createTest1() {
 
-		Assert.assertEquals(PersonType.LEGALPERSON, person.getPersonType());
+		assertEquals(PersonType.LEGALPERSON, personService.getPerson().getPersonType());
 	}
 
 	@Test
 	@DisplayName("createPerson(): is LanguageType GERMAN")
 	void createTest2() {
 
-		Assert.assertEquals(LanguageType.GERMAN,person.getLanguageType());
+		assertEquals(LanguageType.GERMAN,personService.getPerson().getLanguageType());
 	}
 
 	@Test
 	@DisplayName("createPerson(): is Name of Person John Miller")
 	void createTest3() {
 
-		Assert.assertEquals("John Miller",person.getName());
+		assertEquals("John Miller",personService.getPerson().getName());
 	}
 
 	@Test
 	@DisplayName("deletePerson(): is PersonObject null after delete operation")
 	void deleteTest() {
 		personService.deletePerson();
-		Assert.assertEquals(null,personService.getPerson());
+		assertEquals(null,personService.getPerson());
 	}
 	
 	@Test
@@ -72,8 +82,14 @@ class PersonServiceTest {
 	void printPerson() {
 		person = personService.getPerson();
 		if(person.getPersonType()==PersonType.LEGALPERSON)
-		Assert.assertEquals("Sie vertreten ein Unternehmen. Dessen Name ist " + personService.printPerson().getName(),
+		assertEquals("Sie vertreten ein Unternehmen. Dessen Name ist " + personService.printPerson().getName(),
 				"Sie vertreten ein Unternehmen. Dessen Name ist " + person.getName());
 
+	}
+	
+	@Test
+	@DisplayName("personCommand(): test of PersonServiceController")
+	void testController() {
+		personServiceController.personCommand();
 	}
 }
