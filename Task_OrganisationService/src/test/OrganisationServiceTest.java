@@ -18,6 +18,7 @@ import model.PersonType;
 import model.User;
 import model.UserGroup;
 import model.UserIndividual;
+import model.UserOrganisationUnit;
 
 class OrganisationServiceTest {
 
@@ -29,6 +30,7 @@ class OrganisationServiceTest {
 	private UserGroup userGroup;
 	private OrganisationServiceController organisationServiceController;
 	
+	Stack<User> usersForward;
 	Stack<User> usersReverse; 
 
 	@BeforeEach
@@ -45,6 +47,7 @@ class OrganisationServiceTest {
 		organisationServiceController = new OrganisationServiceController();
 
 		organisationService.createUser(person);
+		usersForward = new Stack<User>();
 		usersReverse = new Stack<User>();
 		usersReverse.add(user);
 	}
@@ -79,10 +82,22 @@ class OrganisationServiceTest {
 	}
 	
 	@Test
-	@DisplayName("printUser(): is listed person named Meier")
-	void printUser() {
-		user = usersReverse.pop();
-		assertEquals("Meier", organisationService.getUser().getPerson().getName());
+	@DisplayName("getUsers(): is name of person in List usersReverse Meier")
+	void getUsers() {
+		usersForward = organisationService.getUsers();
+		
+		usersReverse = new Stack<User>();
+		while (!usersForward.isEmpty()) {
+			usersReverse.push(usersForward.pop());
+		}
+		
+		while (!usersReverse.isEmpty()) {
+			user = usersReverse.pop();
+			if (user.getClass().getSimpleName().equals("UserIndividual")) {
+				assertEquals("-Name: Meier", "-Name: "+ user.getPerson().getName());
+			} 
+		}
+		
 	}
 	
 	@Test

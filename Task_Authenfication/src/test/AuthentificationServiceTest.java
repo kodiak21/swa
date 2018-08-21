@@ -7,57 +7,80 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import controller.AuthentificationServiceController;
 import model.AuthentificationService;
 import model.AuthentificationStrategy;
+import model.AuthentificationStrategyFactory;
 import model.CredentialType;
 import model.LanguageType;
 import model.Person;
 import model.PersonType;
 import model.UserFactory;
-import model.UserNameStrategy;
 
 public class AuthentificationServiceTest {
 
 	private Person person;
+	private CredentialType credentialType;
+	private UserFactory userFactory;
+	private AuthentificationService authentificationService;
 	private AuthentificationStrategy authentificationStrategy;
+	
+	private AuthentificationServiceController authentificationServiceController;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		String name = "John Moeller";		
-		PersonType personType = PersonType.LEGALPERSON;	
-		UserFactory userfactory = new UserFactory();
+		PersonType personType = PersonType.NATURALPERSON;	
 		LanguageType languageType = LanguageType.ENGLISH;
-		person = userfactory.createPerson(personType,name, languageType);
-		authentificationStrategy = new UserNameStrategy("1234", 3);
+		
+		
+		userFactory = new UserFactory();	
+		
+		person = userFactory.createPerson(personType,name, languageType);
+		credentialType = CredentialType.FINGERPRINT;
+		authentificationService = new AuthentificationService();
+		
+		authentificationServiceController = new AuthentificationServiceController();
+		
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
+		userFactory = null;
+		person = null;
+		authentificationStrategy = null;
+		
+		authentificationServiceController = null;
+		
 	}
 
 	@Test
-	@DisplayName("person.getName(): is person Name John Moeller")
-	void testPerson1() {	
-		assertEquals("John Moeller", person.getName());
+	@DisplayName("createAuthentification: is created Authentification of Type FINGERPRINT")
+	void createAuthentificationStrategy() {
+		authentificationService.createAuthentification(CredentialType.FINGERPRINT, person, authentificationService);
+		authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person, authentificationService);
+		assertEquals(CredentialType.FINGERPRINT,authentificationStrategy.getCredentialType());
 	}
 	
 	@Test
-	@DisplayName("person.getPersonType(): is person a legal person")
-	void testPerson2() {	
-		assertEquals(PersonType.LEGALPERSON, person.getPersonType());
+	@DisplayName("deleteAuthentification: is AuthentificationStrategy null after delete operation")
+	void deleteAuthentificationStrategy() {
+		authentificationService.deleteAuthentification();
+		assertEquals(null, authentificationService.getAuthentificationStrategy());
 	}
 	
 	@Test
-	@DisplayName("person.getLanguage(): is language english")
-	void testPerson3() {	
-		assertEquals(LanguageType.ENGLISH, person.getLanguageType());
+	@DisplayName("authentificateSubject(): is Person authentificated by AuthentificationStrategy")
+	void authentificateSubject() {
+		if(person.getLanguageType()==LanguageType.GERMAN) {
+			assertEquals(true,authentificationService.authentificateSubject());
+		}
 	}
 	
 	@Test
-	@DisplayName("authentificationStrategy.getCredentialType(): is identification by USERNAME")
-	void testAuthentificationStrategy1() {	
-		assertEquals(CredentialType.USERNAME, authentificationStrategy.getCredentialType());
+	@DisplayName("authentificationCommand(): test of AuthentificationServiceController")
+	void testController() {
+		authentificationServiceController.authentificationCommand(person);
 	}
-
 
 }
