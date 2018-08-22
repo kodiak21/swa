@@ -55,7 +55,7 @@ public class AuthentificationServiceTest {
 	}
 
 	@Test
-	@DisplayName("createAuthentification: is created Authentification of Type FINGERPRINT")
+	@DisplayName("createAuthentification(CredentialType credentialType, Person person, AuthentificationService authentificationService): is created Authentification of Type FINGERPRINT")
 	void createAuthentificationStrategy() {
 		authentificationService.createAuthentification(CredentialType.FINGERPRINT, person, authentificationService);
 		authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person, authentificationService);
@@ -63,7 +63,7 @@ public class AuthentificationServiceTest {
 	}
 	
 	@Test
-	@DisplayName("deleteAuthentification: is AuthentificationStrategy null after delete operation")
+	@DisplayName("deleteAuthentification(): is AuthentificationStrategy null after delete operation")
 	void deleteAuthentificationStrategy() {
 		authentificationService.deleteAuthentification();
 		assertEquals(null, authentificationService.getAuthentificationStrategy());
@@ -78,8 +78,8 @@ public class AuthentificationServiceTest {
 	}
 	
 	@Test
-	@DisplayName("authentificationCommand(): test of AuthentificationServiceController")
-	void testController() {
+	@DisplayName("authentificationCommand(Person person): test of AuthentificationServiceController (confirmAnswer 1 or 3)")
+	void testAuthentificationServiceController() {
 		authentificationServiceController.authentificationCommand(person);
 	}
 
