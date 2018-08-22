@@ -51,7 +51,7 @@ class PersonServiceTest {
 	}
 
 	@Test
-	@DisplayName("createPerson(): is PersonType of created Person LEGALPERSON")
+	@DisplayName("createPerson(PersonType personType, String name, LanguageType languageType): is PersonType of created Person LEGALPERSON")
 	void createTest() {
 		assertEquals(PersonType.LEGALPERSON, person.getPersonType());
 	}
@@ -77,8 +77,8 @@ class PersonServiceTest {
 	}
 
 	@Test
-	@DisplayName("personCommand(): test of PersonServiceController (Choice 1 and 3)")
-	void testController() {
+	@DisplayName("personCommand(): test of PersonServiceController (confirmAnswer 1 or 3)")
+	void testPersonServiceController() {
 		personServiceController.personCommand();
 	}
 
