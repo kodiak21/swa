@@ -53,7 +53,12 @@ class ResourceServiceTest {
 		
 		resourceService.setConfirmAnswer(2);
 		
-		carResource = new Car();
+		carResource = resourceService.createCarResource();
+		topBoxResource = resourceService.createTopBoxResource();
+		childSeatResource = resourceService.createChildSeatResource();
+		
+		resourceService.setCarResource(carResource);
+		carResource.setPrice(carPrice);
 		
 	}
 
@@ -70,29 +75,28 @@ class ResourceServiceTest {
 	@Test
 	@DisplayName("createCarResource(): is Car Object created")
 	void createCarResource() {
-		carResource = resourceService.createCarResource();
+		
 		assertEquals(true, carResource.getClass().getSimpleName().equals("Car"));
 	}
 	
 	@Test
 	@DisplayName("createTopBoxResource(): is Car with TopBox Object created")
 	void createTopBoxResource() {
-		topBoxResource = resourceService.createTopBoxResource();
+		
 		assertEquals(true, topBoxResource.getClass().getSimpleName().equals("TopBox"));
 	}
 	
 	@Test
 	@DisplayName("createChildSeatResource(): is Car with TopBox and ChildSeat created")
 	void createChildSeatResource() {
-		childSeatResource = resourceService.createChildSeatResource();
+		
 		assertEquals(true, childSeatResource.getClass().getSimpleName().equals("ChildSeat"));
 	}
 	
 	@Test
 	@DisplayName("deleteResource(): is Car object null after delete operation")
 	void deleteResource() {
-		carResource = resourceService.createCarResource();
-		resourceService.setCarResource(carResource);
+		
 		resourceService.deleteResource();
 		assertEquals(null,resourceService.getCarResource());
 	}
@@ -106,8 +110,7 @@ class ResourceServiceTest {
 	@Test
 	@DisplayName("calculateOrderPrice(Resource carResource, TopBox topBoxResource, BigDecimal totalChildSeatPrice): is Price of Car with 3 childSeats 550")
 	void calculateOrderPrice() {
-		carResource = resourceService.createCarResource();
-		carResource.setPrice(carPrice);
+		
 		topBoxResource = null;
 		assertEquals(new BigDecimal("550"),resourceService.calculateOrderPrice(carResource, topBoxResource, totalChildSeatPrice));
 	}

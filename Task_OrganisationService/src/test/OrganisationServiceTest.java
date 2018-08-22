@@ -45,11 +45,14 @@ class OrganisationServiceTest {
 		userGroup.add(user);
 
 		organisationServiceController = new OrganisationServiceController();
-
+		
 		
 		usersForward = new Stack<User>();
 		usersReverse = new Stack<User>();
 		usersReverse.add(user);
+		
+		organisationService.createUser(person);
+		usersForward = organisationService.getUsers();
 	}
 
 	@AfterEach
@@ -61,13 +64,14 @@ class OrganisationServiceTest {
 		user = null;
 		organisationServiceController = null;
 		usersReverse = null;
+		usersForward = null;
 		
 	}
 
 	@Test
 	@DisplayName("createUser(Person person): is person named Meier part of organisation")
 	void createUser() {
-		organisationService.createUser(person);
+		
 		assertEquals("Meier", organisationService.getUser().getPerson().getName());
 	}
 
@@ -76,7 +80,6 @@ class OrganisationServiceTest {
 	@Test
 	@DisplayName("deleteUser(): is PersonObject after delete operation null")
 	void deleteUser() {
-		organisationService.createUser(person);
 		organisationService.deleteUser();
 		assertEquals(null, organisationService.getUser());
 	}
@@ -84,9 +87,8 @@ class OrganisationServiceTest {
 	@Test
 	@DisplayName("getUsers(): is name of person in List usersReverse Meier")
 	void getUsers() {
-		usersForward = organisationService.getUsers();
 		
-		usersReverse = new Stack<User>();
+		
 		while (!usersForward.isEmpty()) {
 			usersReverse.push(usersForward.pop());
 		}

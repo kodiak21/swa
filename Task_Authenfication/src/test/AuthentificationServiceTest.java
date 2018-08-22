@@ -32,22 +32,27 @@ public class AuthentificationServiceTest {
 		String name = "John Moeller";		
 		PersonType personType = PersonType.NATURALPERSON;	
 		LanguageType languageType = LanguageType.ENGLISH;
-		
+		credentialType = CredentialType.FINGERPRINT;
 		
 		userFactory = new UserFactory();	
 		
-		person = userFactory.createPerson(personType,name, languageType);
-		credentialType = CredentialType.FINGERPRINT;
+		
+		
 		authentificationService = new AuthentificationService();
 		
 		authentificationServiceController = new AuthentificationServiceController();
 		
+		person = userFactory.createPerson(personType,name, languageType);
+		authentificationService.createAuthentification(CredentialType.FINGERPRINT, person, authentificationService);
+		authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person, authentificationService);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		userFactory = null;
 		person = null;
+		
+		authentificationService = null;
 		authentificationStrategy = null;
 		
 		authentificationServiceController = null;
@@ -57,8 +62,7 @@ public class AuthentificationServiceTest {
 	@Test
 	@DisplayName("createAuthentification(CredentialType credentialType, Person person, AuthentificationService authentificationService): is created Authentification of Type FINGERPRINT")
 	void createAuthentificationStrategy() {
-		authentificationService.createAuthentification(CredentialType.FINGERPRINT, person, authentificationService);
-		authentificationStrategy = AuthentificationStrategyFactory.getAuthenticationMethod(credentialType, person, authentificationService);
+		
 		assertEquals(CredentialType.FINGERPRINT,authentificationStrategy.getCredentialType());
 	}
 	
