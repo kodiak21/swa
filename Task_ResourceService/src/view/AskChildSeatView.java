@@ -11,7 +11,7 @@ public class AskChildSeatView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Möchten Sie Kindersitze bestellen ?");
+		System.out.println("Moechten Sie Kindersitze bestellen ?");
 		System.out.println("1: Ja");
 		System.out.println("2: Nein");
 		try {

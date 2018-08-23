@@ -10,15 +10,15 @@ public class ConfirmAuthentificationView {
 
 		switch (credentialType) {
 		case EYESCAN:
-			System.out.println("Sie haben die Option Eyescan gewählt");
+			System.out.println("Sie haben die Option Eyescan gewaehlt");
 
 			break;
 		case FINGERPRINT:
-			System.out.println("Sie haben die Option Fingerprint gewählt");
+			System.out.println("Sie haben die Option Fingerprint gewaehlt");
 
 			break;
 		case USERNAME:
-			System.out.println("Sie haben die Option Passwort gewählt");
+			System.out.println("Sie haben die Option Passwort gewaehlt");
 
 			break;
 		default:

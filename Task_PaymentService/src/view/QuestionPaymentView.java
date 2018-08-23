@@ -21,7 +21,6 @@ public class QuestionPaymentView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(answer);
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {
@@ -45,7 +44,6 @@ public class QuestionPaymentView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(answer);
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {

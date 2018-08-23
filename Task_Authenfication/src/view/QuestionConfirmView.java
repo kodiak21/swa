@@ -22,7 +22,7 @@ public class QuestionConfirmView {
 		}
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if (answer.equals("2")) {
-				System.out.println("Deine Authentifizierungsdaten wurden gelöscht.");
+				System.out.println("Deine Authentifizierungsdaten wurden geloescht.");
 			}
 			return Integer.parseInt(answer);
 		} else {

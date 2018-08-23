@@ -13,7 +13,7 @@ public class AskCarOrderView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Möchten Sie ein Auto bestellen ?");
+		System.out.println("Moechten Sie ein Auto bestellen ?");
 		System.out.println("1: Ja");
 		System.out.println("2: Nein");
 		try {

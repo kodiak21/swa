@@ -11,7 +11,7 @@ public class AskCarBrandView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int answer = 0;
 
-		System.out.println("Wählen Sie die gewünschte Automarke");
+		System.out.println("Waehlen Sie die gewünschte Automarke");
 		System.out.println("1: BMW");
 		System.out.println("2: Mercedes");
 		System.out.println("3: Audi");

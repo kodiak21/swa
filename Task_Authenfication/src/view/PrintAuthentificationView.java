@@ -5,8 +5,6 @@ import model.CredentialType;
 
 public class PrintAuthentificationView {
 
-	private AuthentificationStrategy authentificationStrategy;
-
 	public void showViewGer(AuthentificationStrategy authentificationStrategy) {
 
 		System.out.println(authentificationStrategy.authenficateSubjectGer());

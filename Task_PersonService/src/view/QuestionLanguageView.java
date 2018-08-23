@@ -22,7 +22,6 @@ public class QuestionLanguageView{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(answer);
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
