@@ -76,10 +76,4 @@ class PersonServiceTest {
 
 	}
 
-	@Test
-	@DisplayName("personCommand(): test of PersonServiceController (confirmAnswer 1 or 3)")
-	void testPersonServiceController() {
-		personServiceController.personCommand();
-	}
-
 }

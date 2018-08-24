@@ -101,10 +101,4 @@ class OrganisationServiceTest {
 		}
 		
 	}
-	
-	@Test
-	@DisplayName("organisationCommand(Person person): test of OrganisationServiceController")
-	void testOrganisationServiceController() {
-		organisationService = organisationServiceController.organisationCommand(personService.getPerson());
-	}
 }
