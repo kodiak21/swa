@@ -80,11 +80,5 @@ public class AuthentificationServiceTest {
 			assertEquals(true,authentificationService.authentificateSubject());
 		}
 	}
-	
-	@Test
-	@DisplayName("authentificationCommand(Person person): test of AuthentificationServiceController (confirmAnswer 1 or 3)")
-	void testAuthentificationServiceController() {
-		authentificationServiceController.authentificationCommand(person);
-	}
 
 }

@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,10 @@ import org.junit.jupiter.api.Test;
 
 import controller.StatisticServiceController;
 import model.Account;
+import model.GoogleWalletPayment;
 import model.LanguageType;
+import model.MoneyWalletPayment;
+import model.PayPalPayment;
 import model.Payment;
 import model.PaymentService;
 import model.PaymentType;
@@ -24,6 +29,9 @@ public class StatisticServiceTest {
 	private StatisticServiceController statisticServiceController;
 	private StatisticService statisticService;
 
+	private int count;
+	private BigDecimal payAmountTotal;
+
 	@BeforeEach
 	void setUp() throws Exception {
 
@@ -31,6 +39,8 @@ public class StatisticServiceTest {
 		BigDecimal currencyAmount;
 		PaymentType paymentType;
 		LanguageType languageType;
+		count = 0;
+		payAmountTotal = BigDecimal.ZERO;
 
 		senderAccount = new Account(5);
 		currencyAmount = new BigDecimal("444");
@@ -85,15 +95,129 @@ public class StatisticServiceTest {
 	void tearDown() throws Exception {
 		statisticServiceController = null;
 		statisticService = null;
+		payments = null;
+		count = 0;
+		payAmountTotal = BigDecimal.ZERO;
 	}
 
 	@Test
-	@DisplayName("statisticCommand(List<Payments> payments, LanguageType languageType): test of StatisticServiceController (confirmAnswer 1 or 3)")
-	void testStatisticServiceController() {
-		LanguageType languageType = LanguageType.GERMAN;
+	@DisplayName("setGermanBookingsPaidByPayPal (List<Payment> payments): is number of German Paypal payments 1")
+	void setGermanBookingsPaidByPayPal() {
+		for (Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.GERMAN && payment instanceof PayPalPayment) {
+				count++;
+			}
+		}
 
-		statisticService = statisticServiceController.statisticCommand(payments, languageType);
+		assertEquals(1, count);
 
+	}
+
+	@Test
+	@DisplayName("setGermanBookingsPaidByGoogleWallet (List<Payment> payments): is number of German GoogleWallet payments 1")
+	void setGermanBookingsPaidByGoogleWallet() {
+
+		for (Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.GERMAN && payment instanceof GoogleWalletPayment) {
+				count++;
+			}
+		}
+
+		assertEquals(1, count);
+	}
+
+	@Test
+	@DisplayName("setGermanBookingsPaidByMoneyWallet (List<Payment> payments): is number of German MoneyWallet payments 2")
+	void setGermanBookingsPaidByMoneyWallet() {
+		for (Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.GERMAN && payment instanceof MoneyWalletPayment) {
+				count++;
+			}
+		}
+
+		assertEquals(2, count);
+	}
+
+	@Test
+	@DisplayName("setEnglishBookingsPaidByPayPal (List<Payment> payments): is number of English PayPal payments 1")
+	void setEnglishBookingsPaidByPayPal() {
+		for (Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.ENGLISH && payment instanceof PayPalPayment) {
+				count++;
+			}
+		}
+
+		assertEquals(1, count);
+	}
+
+	@Test
+	@DisplayName("setEnglishBookingsPaidByGoogleWallet (List<Payment> payments): is number of English GoogleWallet payments 1")
+	void setEnglishBookingsPaidByGoogleWallet() {
+		for (Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.ENGLISH && payment instanceof GoogleWalletPayment) {
+				count++;
+			}
+		}
+
+		assertEquals(1, count);
+	}
+
+	@Test
+	@DisplayName("setEnglishBookingsPaidByMoneyWallet (List<Payment> payments): is number of English MoneyWallet payments 2")
+	void setEnglishBookingsPaidByMoneyWallet() {
+		for (Payment payment : payments) {
+			if (payment.getLanguageType() == LanguageType.ENGLISH && payment instanceof MoneyWalletPayment) {
+				count++;
+			}
+		}
+
+		assertEquals(2, count);
+	}
+
+	@Test
+	@DisplayName("getPayAmountTotal(): is total amount of PayPal payments 999")
+	void getPayAmountTotal1() {
+		for (Payment payment : payments) {
+			if (payment instanceof PayPalPayment)
+				this.payAmountTotal = payment.getCurrencyAmount().add(payAmountTotal);
+		}
+
+		assertEquals(new BigDecimal("999"), payAmountTotal);
+	}
+
+	@Test
+	@DisplayName("getPayAmountTotal(): is total amount of GoogleWallet payments 999")
+	void getPayAmountTotal2() {
+		for (Payment payment : payments) {
+			if (payment instanceof GoogleWalletPayment)
+				this.payAmountTotal = payment.getCurrencyAmount().add(payAmountTotal);
+		}
+
+		assertEquals(new BigDecimal("999"), payAmountTotal);
+	}
+
+	@Test
+	@DisplayName("getPayAmountTotal(): is total amount of MoneyWallet payments 1998")
+	void getPayAmountTotal3() {
+		for (Payment payment : payments) {
+			if (payment instanceof MoneyWalletPayment)
+				this.payAmountTotal = payment.getCurrencyAmount().add(payAmountTotal);
+		}
+
+		assertEquals(new BigDecimal("1998"), payAmountTotal);
+	}
+
+	@Test
+	@DisplayName("deleteStatistic(): is payAmountTotal 0 after delete operation")
+	void deleteStatistic() {
+		for (Payment payment : payments) {
+
+			this.payAmountTotal = payment.getCurrencyAmount().add(payAmountTotal);
+		}
+		
+		statisticService.deleteStatistic();
+		
+		assertEquals(BigDecimal.ZERO, statisticService.getPayAmountTotal());
 	}
 
 }

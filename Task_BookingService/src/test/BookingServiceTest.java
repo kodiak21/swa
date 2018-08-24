@@ -9,18 +9,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import controller.AuthentificationServiceController;
 import controller.BookingServiceController;
-import model.AuthentificationService;
 import model.Booking;
 import model.BookingBuilderGerman;
 import model.BookingHeaderGerman;
 import model.BookingService;
 import model.CarBrandType;
-import model.CredentialType;
 import model.LanguageType;
-import model.PersonType;
-import model.UserFactory;
 
 public class BookingServiceTest {
 	
@@ -33,8 +28,6 @@ public class BookingServiceTest {
 	
 	private BookingService bookingService;
 	private BookingBuilderGerman bookingBuilderGerman;
-	
-	private BookingHeaderGerman bookingHeaderGerman;
 	
 	private BookingServiceController bookingServiceController;
 	
@@ -81,11 +74,4 @@ public class BookingServiceTest {
 		
 		assertEquals(true, booking.getClass().getSimpleName().equals("Booking"));
 	}
-	
-	@Test
-	@DisplayName("bookingCommand(LanguageType languageType, String name, BigDecimal cost, CarBrandType carbrandType): test of BookingServiceController (confirmAnswer 1 or 3)")
-	void testBookingServiceController() {
-		bookingServiceController.bookingCommand(languageType, name, cost, carBrandType);
-	}
-
 }

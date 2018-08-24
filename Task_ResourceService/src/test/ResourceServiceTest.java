@@ -115,9 +115,4 @@ class ResourceServiceTest {
 		assertEquals(new BigDecimal("550"),resourceService.calculateOrderPrice(carResource, topBoxResource, totalChildSeatPrice));
 	}
 	
-	@Test
-	@DisplayName("personCommand(LanguageType languageType): test of ResourceServiceController (car ordered and confirmAnswer 1 or 3)")
-	void testResourceServiceController() throws IllegalArgumentException, IOException {
-		resourceServiceController.resourcePlanning(languageType);
-	}
 }

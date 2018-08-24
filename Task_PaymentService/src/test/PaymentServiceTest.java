@@ -81,11 +81,4 @@ public class PaymentServiceTest {
 			paymentService.payMoneyWithPayment();	 
 		}
 	}
-
-	@Test
-	@DisplayName("paymentCommand(BigDecimal currencyAmount, Account senderAccount, LanguageType languageType): test of PaymentServiceController (confirmAnswer 1 or 3)")
-	void testPaymentServiceController() {
-		paymentServiceController.paymentCommand(currencyAmount, senderAccount, languageType);
-	}
-
 }
