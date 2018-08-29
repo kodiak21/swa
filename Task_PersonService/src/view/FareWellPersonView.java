@@ -3,15 +3,15 @@ package view;
 public class FareWellPersonView {
 
 	public void showViewGer() {
-		System.out.println("Vielen Dank fuer Ihren Besuch bei OlAnDa");
-		System.out.println("Auf Wiedersehen!");
-		
+		System.out.println("\tVielen Dank fuer Ihren Besuch bei OlAnDa");
+		System.out.println("\tAuf Wiedersehen!");
+		System.out.println("");
 	}
 
 	public void showViewEng() {
-		System.out.println("Thanks for visiting OlAnDa");
-		System.out.println("See you next time !");
-		
+		System.out.println("\tThanks for visiting OlAnDa");
+		System.out.println("\tSee you next time !");
+		System.out.println("");
 	}
 	
 }

@@ -11,52 +11,57 @@ public class PrintOrderView {
 
 	public void showGer(Resource resource, TopBox topBox, ChildSeat childSeat, BigDecimal childSeatPrice,
 			int numberTopBox, int numberChildSeats, CarBrandType carBrandType) {
-		
-		System.out.println("Ihre Bestellung:");
+		System.out.println("\t**********************************");
+		System.out.println("\tIhre Bestellung:");
 		if (resource != null) {
-			System.out.println("Auto der Marke: " + carBrandType);
+			System.out.println("\tAuto der Marke: " + carBrandType);
 			if (topBox != null) {
 				topBox.getSelectedResourceGer(resource, numberChildSeats);
 				if (childSeat != null) {
 					childSeat.getSelectedResourceGer(resource, numberChildSeats);
-					System.out.println("Zu zahlender Betrag: " + (resource.getPrice().add(topBox.getPrice()).add(childSeatPrice)));
+					System.out.println("\tZu zahlender Betrag: " + (resource.getPrice().add(topBox.getPrice()).add(childSeatPrice)));
 				} else if (childSeat == null) {
-					System.out.println("Zu zahlender Betrag: " + (resource.getPrice().add(topBox.getPrice())));
+					System.out.println("\tZu zahlender Betrag: " + (resource.getPrice().add(topBox.getPrice())));
 				}
 			} else if (topBox == null) {
 				if (childSeat != null) {
 					childSeat.getSelectedResourceGer(resource, numberChildSeats);
-					System.out.println("Zu zahlender Betrag: " + (resource.getPrice().add(childSeatPrice)));
+					System.out.println("\tZu zahlender Betrag: " + (resource.getPrice().add(childSeatPrice)));
 				} else if (childSeat == null) {
-					System.out.println("Zu zahlender Betrag: " + (resource.getPrice()));
+					System.out.println("\tZu zahlender Betrag: " + (resource.getPrice()));
 				}
 			}
 		} 
+		System.out.println("\t**********************************");
+		System.out.println("");
 		
 	}
 
 	public void showEng(Resource resource, TopBox topBox, ChildSeat childSeat, BigDecimal childSeatPrice,
 			int numberTopBox, int numberChildSeats, CarBrandType carBrandType) {
-		System.out.println("Your Order:");
+		System.out.println("\t**********************************");
+		System.out.println("\tYour Order:");
 		if (resource != null) {
-			System.out.println("Car with CarBrand: " + carBrandType);
+			System.out.println("\tCar with CarBrand: " + carBrandType);
 			if (topBox != null) {
 				topBox.getSelectedResourceGer(resource, numberChildSeats);
 				if (childSeat != null) {
 					childSeat.getSelectedResourceGer(resource, numberChildSeats);
-					System.out.println("Total costs: " + (resource.getPrice().add(topBox.getPrice()).add(childSeatPrice)));
+					System.out.println("\tTotal costs: " + (resource.getPrice().add(topBox.getPrice()).add(childSeatPrice)));
 				} else if (childSeat == null) {
-					System.out.println("Total costs: " + (resource.getPrice().add(topBox.getPrice())));
+					System.out.println("\tTotal costs: " + (resource.getPrice().add(topBox.getPrice())));
 				}
 			} else if (topBox == null) {
 				if (childSeat != null) {
 					childSeat.getSelectedResourceGer(resource, numberChildSeats);
-					System.out.println("Total costs: " + (resource.getPrice().add(childSeatPrice)));
+					System.out.println("\tTotal costs: " + (resource.getPrice().add(childSeatPrice)));
 				} else if (childSeat == null) {
-					System.out.println("Total costs: " + (resource.getPrice()));
+					System.out.println("\tTotal costs: " + (resource.getPrice()));
 				}
 			}
 		} 
+		System.out.println("\t**********************************");
+		System.out.println("");
 	}
 
 }

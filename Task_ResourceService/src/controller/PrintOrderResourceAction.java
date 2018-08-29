@@ -2,17 +2,13 @@ package controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import model.CarBrandType;
 import model.LanguageType;
 import model.ResourceService;
 import model.equipment.ChildSeat;
 import model.equipment.TopBox;
-import model.resource.Car;
 import model.resource.Resource;
-import view.PrintMenuView;
 import view.PrintOrderView;
 
 public class PrintOrderResourceAction implements ResourceServiceAction {

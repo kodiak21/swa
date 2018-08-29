@@ -10,7 +10,7 @@ public class QuestionDeleteBookingView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Stimmen diese Angaben mit Ihren ueberein?");
+		System.out.println("\tStimmen diese Angaben mit Ihren ueberein?");
 		System.out.println("1: Angaben stimmen ueberein");
 		System.out.println("2: Angaben wieder verwerfen");
 		System.out.println("3: Angaben aendern");
@@ -18,16 +18,17 @@ public class QuestionDeleteBookingView {
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("Deine Eingabe war ungueltig");
+			e = new IOException("\tDeine Eingabe war ungueltig");
 			e.getMessage();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if ( answer.equals("2")){
-				System.out.println("Ihre Buchung wird storniert.");
+				System.out.println("\tIhre Buchung wird storniert.");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungueltig");
+			System.out.println("\tDeine Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -36,7 +37,7 @@ public class QuestionDeleteBookingView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Are the positions correct?");
+		System.out.println("\tAre the positions correct?");
 		System.out.println("1: Yes continue");
 		System.out.println("2: No delete");
 		System.out.println("3: No change");
@@ -46,13 +47,14 @@ public class QuestionDeleteBookingView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if ( answer.equals("2")){
-				System.out.println("Your booking was cancelled");
+				System.out.println("\tYour booking was cancelled");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Wrong Input");
+			System.out.println("\tWrong Input");
 			return showViewEng();
 		}
 	}

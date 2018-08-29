@@ -10,16 +10,25 @@ public class ConfirmAuthentificationView {
 
 		switch (credentialType) {
 		case EYESCAN:
-			System.out.println("Sie haben die Option Eyescan gewaehlt");
-
+			System.out.println("\t**********************************");
+			System.out.println("\tSie haben die Option");
+			System.out.println("\tEyescan gewaehlt");
+			System.out.println("\t**********************************");
+			System.out.println("");
 			break;
 		case FINGERPRINT:
-			System.out.println("Sie haben die Option Fingerprint gewaehlt");
-
+			System.out.println("\t**********************************");
+			System.out.println("\tSie haben die Option");
+			System.out.println("\tFingerprint gewaehlt");
+			System.out.println("\t**********************************");
+			System.out.println("");
 			break;
 		case USERNAME:
-			System.out.println("Sie haben die Option Passwort gewaehlt");
-
+			System.out.println("\t**********************************");
+			System.out.println("\tSie haben die Option");
+			System.out.println("\tPasswort gewaehlt");
+			System.out.println("\t**********************************");
+			System.out.println("");
 			break;
 		default:
 			break;
@@ -32,16 +41,22 @@ public class ConfirmAuthentificationView {
 
 		switch (credentialType) {
 		case EYESCAN:
-			System.out.println("You have chosen EyeScan");
-
+			System.out.println("\t**********************************");
+			System.out.println("\tYou have chosen EyeScan");
+			System.out.println("\t**********************************");
+			System.out.println("");
 			break;
 		case FINGERPRINT:
-			System.out.println("You have chosen Fingerprint");
-
+			System.out.println("\t**********************************");
+			System.out.println("\tYou have chosen Fingerprint");
+			System.out.println("\t**********************************");
+			System.out.println("");
 			break;
 		case USERNAME:
-			System.out.println("You have chosen Username");
-
+			System.out.println("\t**********************************");
+			System.out.println("\tYou have chosen Username");
+			System.out.println("\t**********************************");
+			System.out.println("");
 			break;
 		default:
 			break;

@@ -10,14 +10,14 @@ public class SetPasswordView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String password = null;
 
-		System.out.println("Geben Sie Ihr neues Passwort ein");
+		System.out.println("\tGeben Sie Ihr neues Passwort ein");
 		try {
 			password = br.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("");
 		return password;
 	}
 
@@ -25,14 +25,14 @@ public class SetPasswordView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String password = null;
 
-		System.out.println("Please enter the new password");
+		System.out.println("\tPlease enter the new password");
 		try {
 			password = br.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("");
 		return password;
 		
 	}

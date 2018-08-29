@@ -11,7 +11,7 @@ public class AskCarBrandView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int answer = 0;
 
-		System.out.println("Waehlen Sie die gewünschte Automarke");
+		System.out.println("\tWaehlen Sie die gewuenschte Automarke");
 		System.out.println("1: BMW");
 		System.out.println("2: Mercedes");
 		System.out.println("3: Audi");
@@ -23,11 +23,14 @@ public class AskCarBrandView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		System.out.println("");
+		
 		if (answer == 1 || answer == 2 || answer == 3 || answer == 4) {
 			return answer;
 		} else {
-			System.out.println("Ihre Eingabe war ungueltig ");
+			System.out.println("\tIhre Eingabe war ungueltig ");
+			System.out.println("");
 			return showViewGer();
 		}
 
@@ -38,7 +41,7 @@ public class AskCarBrandView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int answer = 0;
 
-		System.out.println("Please choose your favorite CarBrand");
+		System.out.println("\tPlease choose your favorite CarBrand");
 		System.out.println("1: BMW");
 		System.out.println("2: Mercedes");
 		System.out.println("3: Audi");
@@ -51,10 +54,13 @@ public class AskCarBrandView {
 			e.printStackTrace();
 		}
 		
+		System.out.println("");
+		
 		if (answer == 1 || answer == 2 || answer == 3 || answer == 4) {
 			return answer;
 		} else {
-			System.out.println("Wrong Entry ");
+			System.out.println("\tWrong Entry ");
+			System.out.println("");
 			return showViewEng();
 		}
 

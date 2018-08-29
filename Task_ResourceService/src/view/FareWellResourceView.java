@@ -3,16 +3,16 @@ package view;
 public class FareWellResourceView {
 
 	public void showViewGer() {
-		System.out.println("Keine Bestellung aufgenommen !");
-		System.out.println("Vielen Dank fuer Ihren Besuch bei OlAnDa");
-		System.out.println("Auf Wiedersehen!");
+		System.out.println("\tKeine Bestellung aufgenommen !");
+		System.out.println("\tVielen Dank fuer Ihren Besuch bei OlAnDa");
+		System.out.println("\tAuf Wiedersehen!");
 		
 	}
 
 	public void showViewEng() {
-		System.out.println("No order received !");
-		System.out.println("Thanks for visiting OlAnDa");
-		System.out.println("See you next time !");
+		System.out.println("\tNo order received !");
+		System.out.println("\tThanks for visiting OlAnDa");
+		System.out.println("\tSee you next time !");
 		
 	}
 

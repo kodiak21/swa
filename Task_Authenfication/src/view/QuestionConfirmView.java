@@ -10,7 +10,7 @@ public class QuestionConfirmView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Bist du mit deinen Angaben zufrieden?");
+		System.out.println("\tBist du mit deinen Angaben zufrieden?");
 		System.out.println("1: Angaben stimmen ueberein");
 		System.out.println("2: Angaben verwerfen");
 		System.out.println("3: Angaben aendern");
@@ -20,13 +20,14 @@ public class QuestionConfirmView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if (answer.equals("2")) {
-				System.out.println("Deine Authentifizierungsdaten wurden geloescht.");
+				System.out.println("\tDeine Authentifizierungsdaten wurden geloescht.");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungueltig");
+			System.out.println("\tDeine Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -36,7 +37,7 @@ public class QuestionConfirmView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Are you satisfied with your choice ?");
+		System.out.println("\tAre you satisfied with your choice ?");
 		System.out.println("1: Confirm Choice");
 		System.out.println("2: Delete Choice");
 		System.out.println("3: Change Choice");
@@ -46,13 +47,14 @@ public class QuestionConfirmView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if (answer.equals("2")) {
-				System.out.println("Your authentification data have been deleted !");
+				System.out.println("\tYour authentification data have been deleted !");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Wrong Entry !");
+			System.out.println("\tWrong Entry !");
 			return showViewEng();
 		}
 	}

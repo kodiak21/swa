@@ -9,7 +9,7 @@ public class QuestionPersonTypeView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Wo sollen wir dich einteilen?");
+		System.out.println("\tWo sollen wir dich einteilen?");
 		System.out.println("1: Natuerliche Person");
 		System.out.println("2: Juristische Person");
 		try {
@@ -18,10 +18,11 @@ public class QuestionPersonTypeView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungueltig");
+			System.out.println("\tDeine Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -29,7 +30,7 @@ public class QuestionPersonTypeView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("What is your status?");
+		System.out.println("\tWhat is your status?");
 		System.out.println("1: Natural person");
 		System.out.println("2: Legal person");
 		try {
@@ -38,10 +39,11 @@ public class QuestionPersonTypeView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Invalid input");
+			System.out.println("\tInvalid input");
 			return showViewEng();
 		}
 	}

@@ -8,12 +8,13 @@ public class PrintPaymentView {
 		
 		Payment payment = paymentService.getPayment();
 		
-		System.out.println("");
-		System.out.println("Deine Zahlungsangaben:");
-		System.out.println("Account ID: "+payment.getSenderAccount().getAccountNumber());
-		System.out.println("Empfaengerkonto: "+payment.getReceiverAccount().getAccountNumber());
-		System.out.println("Summe: "+payment.getCurrencyAmount());
-		System.out.println("Zahlungsart: "+payment.getPaymentType());
+		System.out.println("\t**********************************");
+		System.out.println("\tDeine Zahlungsangaben:");
+		System.out.println("\tAccount ID: "+payment.getSenderAccount().getAccountNumber());
+		System.out.println("\tEmpfaengerkonto: "+payment.getReceiverAccount().getAccountNumber());
+		System.out.println("\tSumme: "+payment.getCurrencyAmount());
+		System.out.println("\tZahlungsart: "+payment.getPaymentType());
+		System.out.println("\t**********************************");
 		System.out.println("");
 	}
 	
@@ -21,12 +22,13 @@ public class PrintPaymentView {
 		
 		Payment payment = paymentService.getPayment();
 		
-		System.out.println("");
-		System.out.println("Your payment details: ");
-		System.out.println("Account ID: "+payment.getSenderAccount().getAccountNumber());
-		System.out.println("Receiver Account: "+payment.getReceiverAccount().getAccountNumber());
-		System.out.println("Total sum: "+payment.getCurrencyAmount());
-		System.out.println("Choice of payment: "+payment.getPaymentType());
+		System.out.println("\t**********************************");
+		System.out.println("\tYour payment details: ");
+		System.out.println("\tAccount ID: "+payment.getSenderAccount().getAccountNumber());
+		System.out.println("\tReceiver Account: "+payment.getReceiverAccount().getAccountNumber());
+		System.out.println("\tTotal sum: "+payment.getCurrencyAmount());
+		System.out.println("\tChoice of payment: "+payment.getPaymentType());
+		System.out.println("\t**********************************");
 		System.out.println("");
 	}
 }

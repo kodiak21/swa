@@ -21,8 +21,6 @@ public class CarReservationController {
 
 	public void action() throws IllegalArgumentException, IOException {
 		
-//		String[] args = null;
-		
 		PersonService 			personService;
 		OrganisationService		organisationService;
 		AuthentificationService authentificationService;
@@ -46,7 +44,7 @@ public class CarReservationController {
 		resourceService = resourceServiceController.resourcePlanning(personService.getPerson().getLanguageType());
 //Uebergibt												-> resourceService
 	
-//Authentification erstellen udn durchfuehren bekommt 	<- User
+//Authentification erstellen und durchfuehren bekommt 	<- User
 		AuthentificationServiceController authentificationServiceController = new AuthentificationServiceController();
 		authentificationService = authentificationServiceController.authentificationCommand(personService.getPerson());
 //Uebergibt 											-> authentificationService

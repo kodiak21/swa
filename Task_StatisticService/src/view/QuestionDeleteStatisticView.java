@@ -10,20 +10,21 @@ public int showViewGer(){
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Waehlen Sie weitere anzuzeigenden Statistiken?");
+		System.out.println("\tWaehlen Sie weitere anzuzeigenden Statistiken?");
 		System.out.println("1: Statistiken anzeigen");
 		System.out.println("2: Programm beenden");
 
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("Deine Eingabe war ungueltig");
+			e = new IOException("\tDeine Eingabe war ungueltig");
 			e.getMessage();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Ihre Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -32,7 +33,7 @@ public int showViewGer(){
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Please choose another statistics?");
+		System.out.println("\tPlease choose another statistics?");
 		System.out.println("1: Show statistics");
 		System.out.println("2: End programm");
 		try {
@@ -41,10 +42,11 @@ public int showViewGer(){
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Wrong Input");
+			System.out.println("\tWrong Input");
 			return showViewEng();
 		}
 	}

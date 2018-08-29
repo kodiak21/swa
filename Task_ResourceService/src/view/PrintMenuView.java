@@ -7,18 +7,22 @@ import model.resource.Resource;
 public class PrintMenuView {
 
 	public void showGer(Resource resource, TopBox topBox, ChildSeat childSeat) {
-
-		System.out.println("Unsere Auswahl:");
-		System.out.println("Auto : " + resource.getPrice());
-		System.out.println("Dachgepaecktraeger : " + topBox.getPrice());
-		System.out.println("Kindersitz : " + childSeat.getPrice());
+		System.out.println("\t**********************************");
+		System.out.println("\tUnsere Auswahl:");
+		System.out.println("\tAuto : " + resource.getPrice());
+		System.out.println("\tDachgepaecktraeger : " + topBox.getPrice());
+		System.out.println("\tKindersitz : " + childSeat.getPrice());
+		System.out.println("\t**********************************");
+		System.out.println("");
 	}
 	
 	public void showEng(Resource resource, TopBox topBox, ChildSeat childSeat) {
-
-		System.out.println("Your choices: ");
-		System.out.println("Car : " + resource.getPrice());
-		System.out.println("TopBox : " + topBox.getPrice());
-		System.out.println("ChildSeat : " + childSeat.getPrice());
+		System.out.println("\t**********************************");
+		System.out.println("\tYour choices: ");
+		System.out.println("\tCar : " + resource.getPrice());
+		System.out.println("\tTopBox : " + topBox.getPrice());
+		System.out.println("\tChildSeat : " + childSeat.getPrice());
+		System.out.println("\t**********************************");
+		System.out.println("");
 	}
 }

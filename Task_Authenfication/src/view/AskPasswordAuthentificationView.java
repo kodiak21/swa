@@ -10,7 +10,7 @@ public class AskPasswordAuthentificationView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Moechten Sie Ihr Passwort aendern ?");
+		System.out.println("\tMoechten Sie Ihr Passwort aendern ?");
 		System.out.println("1: Ja");
 		System.out.println("2: Nein");
 		
@@ -24,7 +24,7 @@ public class AskPasswordAuthentificationView {
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Ihre Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewGer();
 		}
 		
@@ -34,7 +34,7 @@ public class AskPasswordAuthentificationView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Would you like to change your password?");
+		System.out.println("\tWould you like to change your password?");
 		System.out.println("1: Yes");
 		System.out.println("2: No");
 		
@@ -48,7 +48,7 @@ public class AskPasswordAuthentificationView {
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Invalid Input");
+			System.out.println("\tInvalid Input");
 			return showViewEng();
 		}
 		

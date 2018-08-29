@@ -25,6 +25,9 @@ public class DeletePaymentAction implements PaymentServiceAction {
 		
 		switch (answer) {
 		case 1:	
+			PaymentServiceAction action;
+			action = new TransferPaymentAction();
+			paymentService = action.action(paymentService);
 			break;
 		case 2:	
 			paymentService.deletePayment(); 
@@ -34,7 +37,9 @@ public class DeletePaymentAction implements PaymentServiceAction {
 			Account senderAccount = paymentService.getSenderAccount();
 			LanguageType languageType = paymentService.getLanguageType();
 			PaymentServiceController paymentServiceController = new PaymentServiceController();
-			paymentService.setPayment(paymentServiceController.paymentCommand(currencyAmount, senderAccount, languageType).getPayment());
+			paymentService.deletePayment();
+			
+			paymentService = paymentServiceController.paymentCommand(currencyAmount, senderAccount, languageType);
 			break;
 		default: break;
 		}

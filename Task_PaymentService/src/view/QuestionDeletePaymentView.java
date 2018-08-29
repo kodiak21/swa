@@ -10,7 +10,7 @@ public class QuestionDeletePaymentView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Bist du mit deinen Angaben zufrieden?");
+		System.out.println("\tBist du mit deinen Angaben zufrieden?");
 		System.out.println("1: Angaben stimmen ueberein");
 		System.out.println("2: Angaben verwerfen");
 		System.out.println("3: Angaben aendern");
@@ -20,13 +20,14 @@ public class QuestionDeletePaymentView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if (answer.equals("2")) {
-				System.out.println("Deine Zahlungsangaben werden geloescht.");
+				System.out.println("\tDeine Zahlungsangaben werden geloescht.");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("Deine Eingabe war ungueltig");
+			System.out.println("\tDeine Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -36,7 +37,7 @@ public class QuestionDeletePaymentView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("Are the provided information correct ?");
+		System.out.println("\tAre the provided information correct ?");
 		System.out.println("1: Yes continue");
 		System.out.println("2: No delete");
 		System.out.println("3: No change");
@@ -46,13 +47,14 @@ public class QuestionDeletePaymentView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if (answer.equals("2")) {
-				System.out.println("Your payment details have been deleted");
+				System.out.println("\tYour payment details have been deleted");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("No valid input");
+			System.out.println("\tNo valid input");
 			return showViewEng();
 		}
 	}

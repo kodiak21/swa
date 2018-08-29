@@ -9,26 +9,30 @@ public class QuestionNameView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("Wie ist dein Name?");
+		System.out.println("\tWie ist dein Name?");
+		System.out.print("Name: ");
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		return answer;
 	}
 	public String showViewEng(){
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("What is your name?");
+		System.out.println("\tWhat is your name?");
+		System.out.print("Name:");
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("");
 		return answer;
 	}
 

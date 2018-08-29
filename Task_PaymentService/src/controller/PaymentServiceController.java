@@ -25,9 +25,6 @@ public class PaymentServiceController {
 			action = new FareWellPaymentAction();
 			paymentService = action.action(paymentService);
 		}
-		
-		action = new TransferPaymentAction();
-		paymentService = action.action(paymentService);
 
 		return paymentService;
 	};
