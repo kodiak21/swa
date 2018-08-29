@@ -31,6 +31,17 @@ public class PaymentService {
 		}
 		payments.add(payment);
 	}
+	
+	public void createPayment(Account senderAccount, BigDecimal currencyAmount, PaymentType paymentType, LanguageType languageType){
+		switch (paymentType) {
+		case PAYPAL: 		payment = new PayPalPayment(senderAccount, this.receiverAccount, currencyAmount, paymentType, languageType);break;
+		case GOOGLEWALLET: 	payment = new GoogleWalletPayment(senderAccount, this.receiverAccount, currencyAmount, paymentType, languageType);break;
+		case MONEYWALLET: 	payment = new MoneyWalletPayment(senderAccount, this.receiverAccount, currencyAmount, paymentType, languageType);break;
+		default: 			payment = null;break;
+		}
+		payments.add(payment);
+	}
+	
 	public void deletePayment(){
 		payments.remove(payment);
 		payment = null;
