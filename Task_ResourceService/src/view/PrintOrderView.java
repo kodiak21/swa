@@ -16,8 +16,10 @@ public class PrintOrderView {
 		if (resource != null) {
 			System.out.println("\tAuto der Marke: " + carBrandType);
 			if (topBox != null) {
+				System.out.print("\t");
 				topBox.getSelectedResourceGer(resource, numberChildSeats);
 				if (childSeat != null) {
+					System.out.print("\t");
 					childSeat.getSelectedResourceGer(resource, numberChildSeats);
 					System.out.println("\tZu zahlender Betrag: " + (resource.getPrice().add(topBox.getPrice()).add(childSeatPrice)));
 				} else if (childSeat == null) {
@@ -25,6 +27,7 @@ public class PrintOrderView {
 				}
 			} else if (topBox == null) {
 				if (childSeat != null) {
+					System.out.print("\t");
 					childSeat.getSelectedResourceGer(resource, numberChildSeats);
 					System.out.println("\tZu zahlender Betrag: " + (resource.getPrice().add(childSeatPrice)));
 				} else if (childSeat == null) {
@@ -44,16 +47,19 @@ public class PrintOrderView {
 		if (resource != null) {
 			System.out.println("\tCar with CarBrand: " + carBrandType);
 			if (topBox != null) {
-				topBox.getSelectedResourceGer(resource, numberChildSeats);
+				System.out.print("\t");
+				topBox.getSelectedResourceEng(resource, numberChildSeats);
 				if (childSeat != null) {
-					childSeat.getSelectedResourceGer(resource, numberChildSeats);
+					System.out.print("\t");
+					childSeat.getSelectedResourceEng(resource, numberChildSeats);
 					System.out.println("\tTotal costs: " + (resource.getPrice().add(topBox.getPrice()).add(childSeatPrice)));
 				} else if (childSeat == null) {
 					System.out.println("\tTotal costs: " + (resource.getPrice().add(topBox.getPrice())));
 				}
 			} else if (topBox == null) {
 				if (childSeat != null) {
-					childSeat.getSelectedResourceGer(resource, numberChildSeats);
+					System.out.print("\t");
+					childSeat.getSelectedResourceEng(resource, numberChildSeats);
 					System.out.println("\tTotal costs: " + (resource.getPrice().add(childSeatPrice)));
 				} else if (childSeat == null) {
 					System.out.println("\tTotal costs: " + (resource.getPrice()));
