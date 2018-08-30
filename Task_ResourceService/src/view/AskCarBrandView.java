@@ -59,7 +59,7 @@ public class AskCarBrandView {
 		if (answer == 1 || answer == 2 || answer == 3 || answer == 4) {
 			return answer;
 		} else {
-			System.out.println("\tWrong Entry ");
+			System.out.println("\tInvalid Input ");
 			System.out.println("");
 			return showViewEng();
 		}

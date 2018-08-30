@@ -25,7 +25,7 @@ public class SetPasswordView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String password = null;
 
-		System.out.println("\tPlease enter the new password");
+		System.out.println("\tPlease enter your new password");
 		try {
 			password = br.readLine();
 		} catch (IOException e) {

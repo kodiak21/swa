@@ -48,7 +48,7 @@ public class AskTopBoxView {
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tWrong Entry");
+			System.out.println("\tInvalid Input");
 			System.out.println("");
 			return showViewGer();
 		}

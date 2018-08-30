@@ -9,7 +9,7 @@ public class QuestionNameView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("\tWie ist dein Name?");
+		System.out.println("\tWie ist Ihr Name?");
 		System.out.print("Name: ");
 		try {
 			answer = br.readLine();

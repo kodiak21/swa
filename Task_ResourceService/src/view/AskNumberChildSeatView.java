@@ -10,7 +10,7 @@ public class AskNumberChildSeatView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("\tWie viele Kindersitze ?");
+		System.out.println("\tWie viele Kindersitze wollen Sie bestellen ?");
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
@@ -32,7 +32,7 @@ public class AskNumberChildSeatView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("\tHow many ChildSeats needed ?");
+		System.out.println("\tHow many ChildSeats are needed ?");
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {

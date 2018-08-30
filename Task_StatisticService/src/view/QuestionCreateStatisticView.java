@@ -38,14 +38,14 @@ public class QuestionCreateStatisticView {
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("\tInvalid Entry");
+			e = new IOException("\tInvalid Input");
 			e.getMessage();
 		}
 		System.out.println("");
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tInvalid Entry");
+			System.out.println("\tInvalid Input");
 			return showViewLanguageEng();
 		}
 	}
@@ -61,14 +61,14 @@ public class QuestionCreateStatisticView {
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("\tDeine Eingabe war ungueltig");
+			e = new IOException("\tIhre Eingabe war ungueltig");
 			e.getMessage();
 		}
 		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tDeine Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewLanguageGer();
 		}
 	}
@@ -84,14 +84,14 @@ public class QuestionCreateStatisticView {
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("\tInvalid Entry");
+			e = new IOException("\tInvalid Input");
 			e.getMessage();
 		}
 		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tInvalid Entry");
+			System.out.println("\tInvalid Input");
 			return showViewLanguageEng();
 		}
 	}

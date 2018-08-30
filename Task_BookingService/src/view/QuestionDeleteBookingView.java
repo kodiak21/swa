@@ -18,7 +18,7 @@ public class QuestionDeleteBookingView {
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("\tDeine Eingabe war ungueltig");
+			e = new IOException("\tIhre Eingabe war ungueltig");
 			e.getMessage();
 		}
 		System.out.println("");
@@ -28,7 +28,7 @@ public class QuestionDeleteBookingView {
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tDeine Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -54,7 +54,7 @@ public class QuestionDeleteBookingView {
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tWrong Input");
+			System.out.println("\tInvalid Input");
 			return showViewEng();
 		}
 	}

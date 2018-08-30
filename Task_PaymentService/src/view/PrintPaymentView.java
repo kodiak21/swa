@@ -9,7 +9,7 @@ public class PrintPaymentView {
 		Payment payment = paymentService.getPayment();
 		
 		System.out.println("\t**********************************");
-		System.out.println("\tDeine Zahlungsangaben:");
+		System.out.println("\tIhre Zahlungsangaben:");
 		System.out.println("\tAccount ID: "+payment.getSenderAccount().getAccountNumber());
 		System.out.println("\tEmpfaengerkonto: "+payment.getReceiverAccount().getAccountNumber());
 		System.out.println("\tSumme: "+payment.getCurrencyAmount());

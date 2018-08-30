@@ -31,7 +31,7 @@ public class QuestionLanguageView{
 			return Integer.parseInt(answer);
 		} else {
 			System.out.println("\tIhre Eingabe war ungueltig");
-			System.out.println("\tYour Entry is not valid");
+			System.out.println("\tInvalid Input");
 			System.out.println("");
 			return showView();
 		}
