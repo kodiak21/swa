@@ -61,7 +61,7 @@ public int showViewGer(){
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tWrong Input");
+			System.out.println("\tInvalid Input");
 			System.out.println("");
 			return showViewEng();
 		}

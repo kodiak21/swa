@@ -11,7 +11,7 @@ public class QuestionPaymentView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("\tWie moechtest du zahlen?");
+		System.out.println("\tWie moechten Sie zahlen?");
 		System.out.println("1: PayPal");
 		System.out.println("2: GoogleWallet");
 		System.out.println("3: MoneyWallet");
@@ -25,7 +25,7 @@ public class QuestionPaymentView {
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tDeine Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -49,7 +49,7 @@ public class QuestionPaymentView {
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tno valid entry");
+			System.out.println("\tInvalid Input");
 			return showViewEng();
 		}
 	}

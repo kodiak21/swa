@@ -8,7 +8,7 @@ public class PrintMenuView {
 
 	public void showGer(Resource resource, TopBox topBox, ChildSeat childSeat) {
 		System.out.println("\t**********************************");
-		System.out.println("\tUnsere Auswahl:");
+		System.out.println("\tIhre Auswahl:");
 		System.out.println("\tAuto : " + resource.getPrice());
 		System.out.println("\tDachgepaecktraeger : " + topBox.getPrice());
 		System.out.println("\tKindersitz : " + childSeat.getPrice());

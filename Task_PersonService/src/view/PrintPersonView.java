@@ -10,8 +10,8 @@ public class PrintPersonView {
 			System.out.println("\tSie vertreten ein Unternehmen.");
 			System.out.println("\tDessen Name ist "+person.getName());
 		} else {
-			System.out.println("\tDu bist eine Privatperson");
-			System.out.println("\tDein Name ist "+person.getName());
+			System.out.println("\tSie sind eine Privatperson");
+			System.out.println("\tIhr Name ist "+person.getName());
 		}
 		System.out.println("\t**********************************");
 		System.out.println("");

@@ -10,7 +10,7 @@ public class QuestionConfirmView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("\tBist du mit deinen Angaben zufrieden?");
+		System.out.println("\tSind Sie mit Ihren Angaben zufrieden?");
 		System.out.println("1: Angaben stimmen ueberein");
 		System.out.println("2: Angaben verwerfen");
 		System.out.println("3: Angaben aendern");
@@ -23,11 +23,11 @@ public class QuestionConfirmView {
 		System.out.println("");
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			if (answer.equals("2")) {
-				System.out.println("\tDeine Authentifizierungsdaten wurden geloescht.");
+				System.out.println("\tIhre Authentifizierungsdaten wurden geloescht.");
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tDeine Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}
@@ -54,7 +54,7 @@ public class QuestionConfirmView {
 			}
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tWrong Entry !");
+			System.out.println("\tInvalid Input");
 			return showViewEng();
 		}
 	}

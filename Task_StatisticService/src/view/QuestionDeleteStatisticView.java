@@ -17,7 +17,7 @@ public int showViewGer(){
 		try {
 			answer = br.readLine();
 		} catch (IOException e) {
-			e = new IOException("\tDeine Eingabe war ungueltig");
+			e = new IOException("\tIhre Eingabe war ungueltig");
 			e.getMessage();
 		}
 		System.out.println("");
@@ -46,7 +46,7 @@ public int showViewGer(){
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tWrong Input");
+			System.out.println("\tInvalid Input");
 			return showViewEng();
 		}
 	}

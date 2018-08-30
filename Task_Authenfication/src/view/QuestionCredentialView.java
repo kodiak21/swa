@@ -10,7 +10,7 @@ public class QuestionCredentialView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 
-		System.out.println("\tWie moechtest du dich authentifizieren?");
+		System.out.println("\tWie moechten Sie sich authentifizieren?");
 		System.out.println("1: Fingerprint");
 		System.out.println("2: Passwort");
 		System.out.println("3: Eyescan");
@@ -24,7 +24,7 @@ public class QuestionCredentialView {
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tDeine Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewGer();
 		}
 
@@ -49,7 +49,7 @@ public class QuestionCredentialView {
 		if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tInvalid choice");
+			System.out.println("\tInvalid Input");
 			return showViewGer();
 		}
 

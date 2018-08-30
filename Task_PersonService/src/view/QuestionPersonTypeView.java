@@ -9,7 +9,7 @@ public class QuestionPersonTypeView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("\tWo sollen wir dich einteilen?");
+		System.out.println("\tWo sollen wir Sie ansprechen?");
 		System.out.println("1: Natuerliche Person");
 		System.out.println("2: Juristische Person");
 		try {
@@ -22,7 +22,7 @@ public class QuestionPersonTypeView {
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tDeine Eingabe war ungueltig");
+			System.out.println("\tIhre Eingabe war ungueltig");
 			return showViewGer();
 		}
 	}

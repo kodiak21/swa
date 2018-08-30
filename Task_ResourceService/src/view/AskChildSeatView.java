@@ -52,7 +52,7 @@ public class AskChildSeatView {
 		if (answer.equals("1") || answer.equals("2")) {
 			return Integer.parseInt(answer);
 		} else {
-			System.out.println("\tWrong Entry");
+			System.out.println("\tInvalid Input");
 			return showViewEng();
 		}
 	}
