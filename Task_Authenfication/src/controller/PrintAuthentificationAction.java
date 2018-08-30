@@ -29,7 +29,6 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 		CredentialType credentialType = authentificationStrategy.getCredentialType();
 		
 		String password = authentificationService.getPassword();
-		int failedTries = authentificationService.getFailedTries();
 			
 		if (person.getLanguageType() == LanguageType.GERMAN) {
 			switch (credentialType) {
@@ -38,7 +37,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 				printAuthentificationView.showViewGer(authentificationStrategy);
 				break;
 			case USERNAME:
-				authentificationStrategy = new UserNameStrategy(password, failedTries);
+				authentificationStrategy = new UserNameStrategy(password);
 				printAuthentificationView.showViewGer(authentificationStrategy);
 				break;
 			case EYESCAN:
@@ -55,7 +54,7 @@ public class PrintAuthentificationAction implements AuthentificationServiceActio
 				printAuthentificationView.showViewEng(authentificationStrategy);
 				break;
 			case USERNAME:
-				authentificationStrategy = new UserNameStrategy(password, failedTries);
+				authentificationStrategy = new UserNameStrategy(password);
 				printAuthentificationView.showViewEng(authentificationStrategy);
 				break;
 			case EYESCAN:
