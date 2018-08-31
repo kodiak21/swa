@@ -5,6 +5,14 @@ import model.Person;
 import model.PersonService;
 import view.QuestionDeletePersonView;
 
+/**<b> Übergeordneter Service</b>: PersonService<br>
+ * <b> verbundene Views</b>: QuestionDeletePersonView<br>
+ * <br><b>DeletePersonAction:</b> Ein Personenobjekt wird auf Anfrage gelöscht
+ * 
+ * @param answer - Kundenauswahl 
+ * 
+ *
+ */
 
 
 public class DeletePersonAction implements PersonServiceAction {
