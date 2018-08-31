@@ -1,11 +1,20 @@
 package controller;
 
 import model.LanguageType;
+
 import model.PersonService;
 import model.PersonType;
 import view.QuestionLanguageView;
 import view.QuestionNameView;
 import view.QuestionPersonTypeView;
+
+/**Übergeordneter Service: PersonService
+ * <br> 
+* CreateAction erzeugt ein PersonenObject
+* @param language - Sprachabfrage
+* @param personType - PersonTyp
+* @param name - Name des Objectes
+**/
 
 public class CreatePersonAction implements PersonServiceAction{
 

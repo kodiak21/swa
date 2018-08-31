@@ -5,6 +5,12 @@ import model.Person;
 import model.PersonService;
 import view.QuestionDeletePersonView;
 
+/**Übergeordneter Service: PersonService
+ * <br> 
+* DeleteAction loescht ein PersonObject
+* @param answer - Auswahl Kunden
+**/
+
 public class DeletePersonAction implements PersonServiceAction {
 
 	@Override

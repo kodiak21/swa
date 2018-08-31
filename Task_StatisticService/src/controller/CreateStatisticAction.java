@@ -26,7 +26,7 @@ public class CreateStatisticAction implements StatisticServiceAction {
 		} else {
 			answer = view.showViewLanguageEng();
 		}
-//		Englisch wurde ausgewählt
+//		Englisch wurde ausgewaehlt
 		if (answer == 1) {
 			if(language==LanguageType.GERMAN) {
 				answer = view.showViewPaytypeGer();
@@ -47,7 +47,7 @@ public class CreateStatisticAction implements StatisticServiceAction {
 				statisticService.setEnglishBookingsPaidByGoogleWallet(payments);
 				break;
 			}
-//		Deutsch wurde ausgewählt
+//		Deutsch wurde ausgewaehlt
 		}else {
 			if(language==LanguageType.GERMAN) {
 				answer = view.showViewPaytypeGer();
