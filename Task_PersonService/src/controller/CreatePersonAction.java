@@ -8,13 +8,6 @@ import view.QuestionLanguageView;
 import view.QuestionNameView;
 import view.QuestionPersonTypeView;
 
-/**Übergeordneter Service: PersonService
- * <br> 
-* CreateAction erzeugt ein PersonenObject
-* @param language - Sprachabfrage
-* @param personType - PersonTyp
-* @param name - Name des Objectes
-**/
 
 public class CreatePersonAction implements PersonServiceAction{
 

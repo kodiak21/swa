@@ -1,12 +1,6 @@
 package controller;
 import model.PersonService;
 
-/**Übergeordneter Service: PersonService
- * <br> 
-* PersonServiceController verwaltet alle Actions innerhalb PersonService
-**/
-
-
 public class PersonServiceController {
 	public PersonService personCommand() {
 		
