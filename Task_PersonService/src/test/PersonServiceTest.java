@@ -16,6 +16,22 @@ import model.PersonType;
 import model.UserFactory;
 import view.QuestionDeletePersonView;
 
+/**<b> Übergeordneter Service</b>: PersonService<br>
+ * 
+ * <br>
+ * <b>PersonServiceTest:</b> Testet alle wichtigen Funktionen von PersonService<br>
+ * 
+ *<br><b> getestete Methoden:</b><br>
+ *
+ *<br>- createPerson() - erzeugt PersonObject<br>
+ *- deletePerson() - löscht PersonObject <br>
+ *- printPerson() - gibt Informationen über Personenobject zurück
+ *
+ *
+ * 
+ *
+ */
+
 class PersonServiceTest {
 
 	private LanguageType languageType;

@@ -3,6 +3,15 @@ package controller;
 import model.OrganisationService;
 import model.Person;
 
+/**<b> Übergeordneter Service</b>: OrganisationService<br>
+ * 
+ * <br><b>OrganisationServiceController:</b> Controller, der alle OrganisationService bezogenen Actions verwaltet 
+ * 
+ * 
+ *
+ */
+
+
 public class OrganisationServiceController {
 	public OrganisationService organisationCommand(Person person) {		
 		
