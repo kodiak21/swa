@@ -4,10 +4,6 @@ import model.LanguageType;
 import model.PersonService;
 import view.FareWellPersonView;
 
-/**Übergeordneter Service: PersonService
- * <br> 
-* FareWellAction verabschiedet Kunden bei Abbruch der Tansaktion
-**/
 
 public class FareWellPersonAction implements PersonServiceAction {
 
