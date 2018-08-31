@@ -6,6 +6,14 @@ import model.Person;
 import model.PersonService;
 import view.PrintPersonView;
 
+/**<b> Übergeordneter Service</b>: PersonService<br>
+ * <b> verbundene Views</b>: PrintPersonView<br>
+ * <br>
+ * <b>PrintPersonAction:</b> Ausgabe der ermittelten Werte
+ * 
+ *
+ */
+
 
 public class PrintPersonAction implements PersonServiceAction {
 

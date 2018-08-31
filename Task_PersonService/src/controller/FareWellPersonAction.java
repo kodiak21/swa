@@ -4,6 +4,13 @@ import model.LanguageType;
 import model.PersonService;
 import view.FareWellPersonView;
 
+/**<b> Übergeordneter Service</b>: PersonService<br>
+ * <b> verbundene Views</b>: FareWellPersonView<br>
+ * <br><b>FareWellPersonAction:</b> Der Kunde wird verabschiedet bei Abbruch des PersonService
+ * 
+ * 
+ *
+ */
 
 public class FareWellPersonAction implements PersonServiceAction {
 

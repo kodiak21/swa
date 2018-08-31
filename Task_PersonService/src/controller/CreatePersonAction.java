@@ -8,6 +8,17 @@ import view.QuestionLanguageView;
 import view.QuestionNameView;
 import view.QuestionPersonTypeView;
 
+/**<b> Übergeordneter Service</b>: PersonService<br>
+ * <b> verbundene Views</b>: QuestionLanguageView, QuestionPersonView, QuestionNameView<br>
+ * <br>
+ * <b>CreatePersonAction:</b> Ein Personenobjekt wird erzeugt
+ * 
+ * @param language - Sprachauswahl
+ * @param personType - PersonenTyp
+ * @param name - Personenname
+ * 
+ *
+ */
 
 public class CreatePersonAction implements PersonServiceAction{
 
