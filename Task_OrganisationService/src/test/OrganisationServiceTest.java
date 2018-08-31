@@ -20,6 +20,22 @@ import model.UserGroup;
 import model.UserIndividual;
 import model.UserOrganisationUnit;
 
+/**<b> Übergeordneter Service</b>: OrganisationService<br>
+ * 
+ * <br>
+ * <b>OrganisationServiceTest:</b> Testet alle wichtigen Funktionen von OrganisationService<br>
+ * 
+ *<br><b> getestete Methoden:</b><br>
+ *
+ *<br>- createUser() - erzeugt UserObject<br>
+ *- deleteUser() - nimmt UserObject aus Organisation heraus<br>
+ *- getUsers() - gibt Liste von Usern zurück
+ *
+ *
+ * 
+ *
+ */
+
 class OrganisationServiceTest {
 
 	private PersonService personService;
