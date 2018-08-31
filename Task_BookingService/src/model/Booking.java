@@ -5,7 +5,7 @@ public class Booking {
 	private BookingBody body;
 	private BookingFooter footer;
 	
-//Liste implementieren für Statistics
+//Liste implementieren fuer Statistics
 //static List<Booking> bookingsDone = new ArrayList<>();
 
 	public BookingHeader getHeader() {

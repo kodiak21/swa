@@ -1,9 +1,15 @@
 package controller;
 
 import model.LanguageType;
+
 import model.Person;
 import model.PersonService;
 import view.PrintPersonView;
+
+/**Übergeordneter Service: PersonService
+ * <br> 
+* PrintPersonAction gibt die gegebenen Informationen aus
+**/
 
 public class PrintPersonAction implements PersonServiceAction {
 
