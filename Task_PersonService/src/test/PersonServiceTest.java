@@ -25,7 +25,7 @@ import view.QuestionDeletePersonView;
  *
  *<br>- createPerson() - erzeugt PersonObject<br>
  *- deletePerson() - löscht PersonObject <br>
- *- printPerson() - gibt Informationen über Personenobject zurück
+ *- printPerson() - gibt Informationen über Personenobjekt zurück
  *
  *
  * 

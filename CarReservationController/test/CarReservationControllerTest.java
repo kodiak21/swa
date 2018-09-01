@@ -9,6 +9,25 @@ import org.junit.jupiter.api.Test;
 
 import swa.CarReservationController;
 
+/**<b> Übergeordneter Controller</b>: CarReservationController<br>
+ * 
+ * <br>
+ * <b>CarReservationControllerTest:</b> Testet alle wichtigen Commands von CarReservationController<br>
+ * 
+ *<br><b> getestete Commands:</b><br>
+ *
+ *<br>- personCommand() - Command PersonService<br>
+ *- organisationCommand - Command OrganisationService <br>
+ *- resourcePlanning() - Command ResourceService <br>
+ *- authentificationCommand() - Command Authentification<br>
+ *- bookingCommand() - Command BookingService<br>
+ *- paymentCommand() - Command PaymentService<br>
+ *- statisticCommand() - Command StatisticService<br>
+ *
+ * 
+ *
+ */
+
 public class CarReservationControllerTest {
 
 	private CarReservationController carReservationController;

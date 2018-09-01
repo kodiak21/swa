@@ -8,6 +8,15 @@ import model.resource.Car;
 import model.resource.Resource;
 import view.PrintMenuView;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * <b> verbundene Views</b>: PrintMenuView<br>
+ * <br>
+ * <b>PrintMenuResourceAction:</b> Ausgabe des Auswahlmenüs für den Kunden<br> 
+ * 
+ * 
+ *
+ */
+
 public class PrintMenuResourceAction implements ResourceServiceAction {
 
 	PrintMenuView printMenuView;

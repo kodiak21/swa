@@ -9,6 +9,16 @@ import model.equipment.TopBox;
 import model.resource.Resource;
 import view.AskTopBoxView;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * <b> verbundene Views</b>: AskTopBoxView<br>
+ * <br>
+ * <b>AskTopBoxOrderAction:</b> Abfrage ob Kunde Dachgepäckträger bestellen möchte<br> 
+ * 
+ * 
+ *
+ */
+
+
 public class AskTopBoxOrderAction implements ResourceServiceAction {
 
 	LanguageType languageType;

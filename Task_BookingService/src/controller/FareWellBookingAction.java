@@ -4,6 +4,15 @@ import model.BookingService;
 import model.LanguageType;
 import view.FareWellBookingView;
 
+/**<b> Übergeordneter Service</b>: BookingService<br>
+ * <b> verbundene Views</b>: FareWellBookingView<br>
+ * <br><b>FareWellBookingAction:</b> Der Kunde wird verabschiedet bei Abbruch des BookingService
+ * 
+ * 
+ *
+ */
+
+
 public class FareWellBookingAction implements BookingServiceAction {
 
 	private FareWellBookingView fareWellBookingView;

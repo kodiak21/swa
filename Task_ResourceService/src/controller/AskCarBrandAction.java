@@ -10,6 +10,15 @@ import model.equipment.TopBox;
 import model.resource.Resource;
 import view.AskCarBrandView;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * <b> verbundene Views</b>: AskCarBrandView<br>
+ * <br>
+ * <b>AskCarBrandAction:</b> Abfrage der Automarke falls Auto bestellt<br> 
+ * 
+ * @param carBrandAnswer - Kundenauswahl
+ *
+ */
+
 public class AskCarBrandAction implements ResourceServiceAction {
 
 	AskCarBrandView askCarBrandView;

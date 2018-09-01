@@ -4,6 +4,14 @@ import model.BookingService;
 import model.LanguageType;
 import view.PrintBookingView;
 
+/**<b> Übergeordneter Service</b>: BookingService<br>
+ * <b> verbundene Views</b>: PrintBookingView<br>
+ * <br>
+ * <b>PrintBookingAction:</b> Ausgabe der ermittelten Werte
+ * 
+ *
+ */
+
 public class PrintBookingAction implements BookingServiceAction {
 
 	PrintBookingView printBookingView;

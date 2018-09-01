@@ -9,6 +9,15 @@ import model.equipment.TopBox;
 import model.resource.Car;
 import model.resource.Resource;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * 
+ * <br>
+ * <b>SetResourcePriceAction:</b> Setzen der jeweiligen Preise für die angebotenen Produkte<br> 
+ * 
+ * 
+ *
+ */
+
 public class SetResourcePriceAction implements ResourceServiceAction {
 
 	ResourceService resourceService = new ResourceService();

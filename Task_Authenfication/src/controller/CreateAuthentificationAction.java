@@ -6,6 +6,16 @@ import model.LanguageType;
 import model.Person;
 import view.QuestionCredentialView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: QuestionCredentialView<br>
+ * 
+ * <br><b>CreateAuthentificationAction:</b> Erzeugung einer Authentification<br>
+ * 
+ * 
+ * @param credentialType - Art der Authentification
+ *
+ */
+
 public class CreateAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;

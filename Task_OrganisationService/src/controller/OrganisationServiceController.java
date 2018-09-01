@@ -5,8 +5,12 @@ import model.Person;
 
 /**<b> Übergeordneter Service</b>: OrganisationService<br>
  * 
- * <br><b>OrganisationServiceController:</b> Controller, der alle OrganisationService bezogenen Actions verwaltet 
+ * <br><b>OrganisationServiceController:</b> Controller, der alle OrganisationService bezogenen Actions verwaltet<br> 
  * 
+ * <br><b>verwaltete Aktionen:</b> Funktionen werden in den einzelnen Klassen erläutert<br>
+ * 
+ * <br> - CreateUserAction
+ * <br> - PrintUserAction
  * 
  *
  */

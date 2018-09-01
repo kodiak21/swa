@@ -5,6 +5,14 @@ import model.LanguageType;
 import model.Person;
 import view.AskPasswordAuthentificationView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: AskPasswordAuthentificationView<br>
+ * <br>
+ * <b>AskPasswordAuthentificationAction:</b> Abfrage ob Passwort geändert werden soll<br> 
+ * 
+ *
+ */
+
 public class AskPasswordAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;

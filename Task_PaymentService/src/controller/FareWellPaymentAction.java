@@ -4,6 +4,14 @@ import model.LanguageType;
 import model.PaymentService;
 import view.FareWellPaymentView;
 
+/**<b> Übergeordneter Service</b>: PaymentService<br>
+ * <b> verbundene Views</b>: FareWellPaymentView<br>
+ * <br><b>FareWellPaymentAction:</b> Der Kunde wird verabschiedet bei Abbruch des PaymentService
+ * 
+ * 
+ *
+ */
+
 public class FareWellPaymentAction implements PaymentServiceAction {
 
 	private FareWellPaymentView fareWellPaymentView;

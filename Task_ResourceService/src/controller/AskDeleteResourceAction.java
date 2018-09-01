@@ -10,6 +10,15 @@ import model.resource.Resource;
 import view.AskCarBrandView;
 import view.AskDeleteResourceView;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * <b> verbundene Views</b>: AskDeleteResourceView<br>
+ * <br>
+ * <b>AskDeleteResourceAction:</b> Bestätigung der Eingaben<br> 
+ * 
+ * 
+ *
+ */
+
 public class AskDeleteResourceAction implements ResourceServiceAction {
 
 	AskDeleteResourceView askDeleteResourceView;

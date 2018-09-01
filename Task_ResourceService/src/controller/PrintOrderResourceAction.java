@@ -11,6 +11,15 @@ import model.equipment.TopBox;
 import model.resource.Resource;
 import view.PrintOrderView;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * <b> verbundene Views</b>: PrintOrderView<br>
+ * <br>
+ * <b>PrintOrderResourceAction:</b> Ausgabe der Auswahl des Kunden<br> 
+ * 
+ * 
+ *
+ */
+
 public class PrintOrderResourceAction implements ResourceServiceAction {
 
 	PrintOrderView printOrderView;

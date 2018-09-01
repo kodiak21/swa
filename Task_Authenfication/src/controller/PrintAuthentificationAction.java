@@ -10,6 +10,18 @@ import model.Person;
 import model.UserNameStrategy;
 import view.PrintAuthentificationView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: PrintAuthentificationView<br>
+ * <br>
+ * <b>PrintAuthentificationAction:</b> Bestätigung der jeweiligen Authentification<br>
+ * 
+ * 
+ * 
+ * 
+ * 
+ *
+ */
+
 public class PrintAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;
