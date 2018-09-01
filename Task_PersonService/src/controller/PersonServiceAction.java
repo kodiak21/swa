@@ -4,7 +4,7 @@ import model.PersonService;
 
 /**<b> Übergeordneter Service</b>: PersonService<br>
  * 
- * <br><b>PersonServiceAction:</b> Interface, wird in allen betreffenden Actions implementiert
+ * <br><b>PersonServiceAction:</b> Interface, wird in allen betreffenden Aktionen des PersonService implementiert
  * 
  * 
  *

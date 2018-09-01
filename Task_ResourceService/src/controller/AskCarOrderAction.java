@@ -9,6 +9,15 @@ import model.equipment.TopBox;
 import model.resource.Resource;
 import view.AskCarOrderView;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * <b> verbundene Views</b>: AskCarOrderView<br>
+ * <br>
+ * <b>AskCarOrderAction:</b> Abfrage ob Kunde Auto bestellen möchte<br> 
+ * 
+ * 
+ *
+ */
+
 public class AskCarOrderAction implements ResourceServiceAction {
 
 	AskCarOrderView askCarOrderView;

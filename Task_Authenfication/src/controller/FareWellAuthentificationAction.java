@@ -5,6 +5,14 @@ import model.LanguageType;
 import model.Person;
 import view.FareWellAuthentificationView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: FareWellAuthentificationView<br>
+ * <br><b>FareWellAuthentificationAction:</b> Der Kunde wird verabschiedet bei Abbruch des AuthentificationService
+ * 
+ * 
+ *
+ */
+
 public class FareWellAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;

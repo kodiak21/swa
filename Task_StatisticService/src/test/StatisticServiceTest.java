@@ -22,6 +22,24 @@ import model.PaymentService;
 import model.PaymentType;
 import model.StatisticService;
 
+/**<b> Übergeordneter Service</b>: StatisticService<br>
+ * 
+ * <br>
+ * <b>StatisticServiceTest:</b> Testet alle wichtigen Funktionen von StatisticService<br>
+ * 
+ *<br><b> getestete Methoden:</b><br>
+ *
+ *<br>- setGermanBookingsPaidByPayPal() - erfasst alle deutschen Bezahlungen mit PayPal<br>
+ *- setGermanBookingsPaidByGoogleWallet() - erfasst alle deutschen Bezahlungen mit GoogleWallet <br>
+ *- setGermanBookingsPaidByMoneyWallet() - erfasst alle deutschen Bezahlungen mit MoneyWallet <br>
+ *- setEnglishBookingsPaidByPayPal() - erfasst alle englischen Bezahlungen mit PayPal<br>
+ *- setEnglishBookingsPaidByGoogleWallet() - erfasst alle englischen Bezahlungen mit GoogleWallet<br>
+ *- setEnglishBookingsPaidByMoneyWallet() - erfasst alle englischen Bezahlungen mit MoneyWallet<br>
+ *- getPayAmountTotal() - berechnet Gesamtbetrag<br>
+ *- deleteStatistic() - löscht auf Anfrage Statistik
+ *
+ */
+
 public class StatisticServiceTest {
 
 	private List<Payment> payments = new ArrayList<Payment>();

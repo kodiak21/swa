@@ -2,6 +2,7 @@ package swa;
 
 import java.io.IOException;
 
+
 import controller.AuthentificationServiceController;
 import controller.BookingServiceController;
 import controller.OrganisationServiceController;
@@ -16,6 +17,25 @@ import model.PaymentService;
 import model.PersonService;
 import model.ResourceService;
 import model.StatisticService;
+
+/**<b> Service</b>: CarReservationService<br>
+ * 
+ * <br><b>CarReservationServiceController:</b> Controller, der alle ServiceController der einzelen TeilServices verwaltet.
+ *Jeder einzelne Service ist im MVC-Muster realisiert.<br>
+ *Es wurden für das MVC-Muster die Architekturmuster Observer und Command verwendet<br>
+ *
+ * <br><b>verwaltete Services:</b> Services werden in den einzelnen Klassen erläutert und seperat getestet, angegeben sind die jeweils realisierten Architekturmuster.<br>
+ *
+ *
+ * <br> - PersonService - Method Factory
+ * <br> - OrganisationService - Composite
+ * <br> - ResourceService - Decorator
+ * <br> - AuthentificationService - Strategy
+ * <br> - BookingService - Builder
+ * <br> - PaymentService - Template
+ * <br> - StatisticService - Visitor
+ *
+ */
 
 public class CarReservationController {
 

@@ -7,6 +7,16 @@ import model.Payment;
 import model.StatisticService;
 import view.QuestionCreateStatisticView;
 
+/**<b> Übergeordneter Service</b>: StatisticService<br>
+ * <b> verbundene Views</b>: QuestionCreateStatisticView<br>
+ * 
+ * <br><b>CreateStatisticAction:</b> Erzeugung einer Statistik nach Auswahl<br>
+ * 
+ * 
+ * @param languageType - Sprachauswahl
+ *
+ */
+
 public class CreateStatisticAction implements StatisticServiceAction {
 
 	List<Payment> payments;
@@ -19,19 +29,19 @@ public class CreateStatisticAction implements StatisticServiceAction {
 	public StatisticService action(StatisticService statisticService, LanguageType language) {
 		int answer;
 		
-		QuestionCreateStatisticView view = new QuestionCreateStatisticView();
+		QuestionCreateStatisticView questionCreateStatisticView = new QuestionCreateStatisticView();
 		
 		if(language==LanguageType.GERMAN) {
-			answer = view.showViewLanguageGer();
+			answer = questionCreateStatisticView.showViewLanguageGer();
 		} else {
-			answer = view.showViewLanguageEng();
+			answer = questionCreateStatisticView.showViewLanguageEng();
 		}
 //		Englisch wurde ausgewaehlt
 		if (answer == 1) {
 			if(language==LanguageType.GERMAN) {
-				answer = view.showViewPaytypeGer();
+				answer = questionCreateStatisticView.showViewPaytypeGer();
 			} else {
-				answer = view.showViewPaytypeEng();
+				answer = questionCreateStatisticView.showViewPaytypeEng();
 			}
 			switch (answer) {
 			case 1:	
@@ -50,9 +60,9 @@ public class CreateStatisticAction implements StatisticServiceAction {
 //		Deutsch wurde ausgewaehlt
 		}else {
 			if(language==LanguageType.GERMAN) {
-				answer = view.showViewPaytypeGer();
+				answer = questionCreateStatisticView.showViewPaytypeGer();
 			} else {
-				answer = view.showViewPaytypeEng();
+				answer = questionCreateStatisticView.showViewPaytypeEng();
 			}
 			switch (answer) {
 			case 1:	

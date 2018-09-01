@@ -7,6 +7,15 @@ import model.CarBrandType;
 import model.LanguageType;
 import view.QuestionDeleteBookingView;
 
+/**<b> Übergeordneter Service</b>: BookingService<br>
+ * <b> verbundene Views</b>: QuestionDeleteBookingView<br>
+ * <br><b>DeleteBookingAction:</b> Ein Bookingobjekt wird auf Anfrage gelöscht
+ * 
+ * @param answer - Kundenauswahl 
+ * 
+ *
+ */
+
 public class DeleteBookingAction implements BookingServiceAction {
 	
 	@Override

@@ -11,6 +11,26 @@ import model.equipment.TopBox;
 import model.resource.Car;
 import model.resource.Resource;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * 
+ * <br><b>ResourceServiceController:</b> Controller, der alle ResourceService bezogenen Aktionen verwaltet<br> 
+ * 
+ * <br><b>verwaltete Aktionen:</b> Funktionen werden in den einzelnen Klassen erläutert<br>
+ *
+ *
+ * <br> - SetResourcePriceAction
+ * <br> - PrintMenuResourceAction
+ * <br> - AskCarOrderAction
+ * <br> - AskCarBrandAction
+ * <br> - AskTopBoxOrderAction
+ * <br> - AskChildSeatOrderAction
+ * <br> - AskNumberChildSeatAction
+ * <br> - PrintOrderResourceAction
+ * <br> - AskDeleteResourceAction
+ * <br> - FareWellResourceAction
+ * 
+ *
+ */
 public class ResourceServiceController {
 
 	private LanguageType languageType;

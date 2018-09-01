@@ -5,6 +5,18 @@ import model.PaymentService;
 import model.PaymentType;
 import view.QuestionPaymentView;
 
+/**<b> Übergeordneter Service</b>: PaymentService<br>
+ * <b> verbundene Views</b>: QuestionPaymentView <br>
+ * <br>
+ * <b>QuestionPaymentAction:</b> Kundenabfrage Art des Payments<br>
+ * 
+ * @param answer - Kundenauswahl
+ * 
+ * 
+ * 
+ *
+ */
+
 public class QuestionPaymentAction implements PaymentServiceAction {
 	public PaymentService action(PaymentService paymentService) {
 

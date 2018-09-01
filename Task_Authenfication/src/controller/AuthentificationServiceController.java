@@ -3,6 +3,25 @@ package controller;
 import model.AuthentificationService;
 import model.Person;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * 
+ * <br><b>AuthentificationServiceController:</b> Controller, der alle AuthentificationService bezogenen Aktionen verwaltet<br> 
+ * 
+ * <br><b>verwaltete Aktionen:</b> Funktionen werden in den einzelnen Klassen erläutert<br>
+ *
+ *
+ * <br> - CreateAuthentificationAction
+ * <br> - ConfirmAuthentificationAction
+ * <br> - DeleteAuthentificationAction
+ * <br> - AskPasswordAuthentificationAction
+ * <br> - SetPasswordAuthentificationAction
+ * <br> - EnterPasswordAuthentificationAction
+ * <br> - PrintAuthentificationAction
+ * <br> - FareWellAuthentificationAction
+ * 
+ *
+ */
+
 public class AuthentificationServiceController {
 
 	private String normalword = "1234";

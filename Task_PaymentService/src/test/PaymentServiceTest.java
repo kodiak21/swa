@@ -17,6 +17,22 @@ import model.Payment;
 import model.PaymentService;
 import model.PaymentType;
 
+/**<b> Übergeordneter Service</b>: PaymentService<br>
+ * 
+ * <br>
+ * <b>PaymentServiceTest:</b> Testet alle wichtigen Funktionen von PaymentService<br>
+ * 
+ *<br><b> getestete Methoden:</b><br>
+ *
+ *<br>- createPayment() - erzeugt PaymentObject<br>
+ *- deletePayment() - löscht PaymentObject <br>
+ *- printPayment() - gibt Informationen über Paymentobjekt zurück<br>
+ *- payMoneyWithPayment() - gibt Informationen über den PaymentStatus zurück<br>
+ *
+ * 
+ *
+ */
+
 public class PaymentServiceTest {
 
 	private BigDecimal currencyAmount;

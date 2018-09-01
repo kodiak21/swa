@@ -5,6 +5,19 @@ import model.LanguageType;
 import model.Person;
 import view.SetPasswordView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: SetPasswordView<br>
+ * 
+ * <br>
+ * <b>SetPasswordAuthentificationAction:</b> Neues Passwort kann vom Kunden gesetzt werden<br>
+ * 
+ * 
+ * 
+ * 
+ * 
+ *
+ */
+
 public class SetPasswordAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;

@@ -6,6 +6,22 @@ import model.LanguageType;
 import model.Payment;
 import model.StatisticService;
 
+/**<b> Übergeordneter Service</b>: StatisticService<br>
+ * 
+ * <br><b>StatisticServiceController:</b> Controller, der alle StatisticService bezogenen Aktionen verwaltet<br> 
+ * 
+ * <br><b>verwaltete Aktionen:</b> Funktionen werden in den einzelnen Klassen erläutert<br>
+ *
+ *<br> - CreateStatisticAction
+ *<br> - PrintStatisticAction
+ *<br> - DeleteStatisticAction
+ *<br> - FareWellStatisticAction
+ * 
+ * 
+ *
+ */
+
+
 public class StatisticServiceController {
 	
 	public StatisticService statisticCommand (List<Payment> payments, LanguageType language) {

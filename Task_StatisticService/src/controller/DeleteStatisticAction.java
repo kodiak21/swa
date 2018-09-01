@@ -7,6 +7,16 @@ import model.Payment;
 import model.StatisticService;
 import view.QuestionDeleteStatisticView;
 
+/**<b> Übergeordneter Service</b>: StatisticService<br>
+ * <b> verbundene Views</b>: QuestionDeleteStatisticView<br>
+ * <br>
+ * <b>DeleteStatisticAction:</b> Abfrage ob Statistik gelöscht werden soll<br>
+ * 
+ * 
+ * 
+ *
+ */
+
 public class DeleteStatisticAction implements StatisticServiceAction {
 
 	@Override

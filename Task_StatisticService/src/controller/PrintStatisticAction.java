@@ -4,6 +4,19 @@ import model.LanguageType;
 import model.StatisticService;
 import view.PrintStatisticView;
 
+/**<b> Übergeordneter Service</b>: StatisticService<br>
+ * <b> verbundene Views</b>: PrintStatisticView<br>
+ * <br>
+ * <b>PrintStatisticAction:</b> Ausgabe der jeweiligen Statistik<br>
+ * 
+ * 
+ * 
+ * 
+ * 
+ *
+ */
+
+
 public class PrintStatisticAction implements StatisticServiceAction {
 
 	@Override

@@ -4,6 +4,14 @@ import model.LanguageType;
 import model.StatisticService;
 import view.FareWellStatisticView;
 
+/**<b> Übergeordneter Service</b>: StatisticService<br>
+ * <b> verbundene Views</b>: FareWellStatisticView<br>
+ * <br><b>FareWellStatisticAction:</b> Der Kunde wird verabschiedet bei Abbruch und Beenden des StatisticService und Gesamtprogramm
+ * 
+ * 
+ *
+ */
+
 public class FareWellStatisticAction implements StatisticServiceAction {
 
 	private FareWellStatisticView fareWellStatisticView;

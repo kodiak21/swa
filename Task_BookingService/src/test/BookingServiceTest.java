@@ -17,6 +17,22 @@ import model.BookingService;
 import model.CarBrandType;
 import model.LanguageType;
 
+/**<b> Übergeordneter Service</b>: BookingService<br>
+ * 
+ * <br>
+ * <b>BookingServiceTest:</b> Testet alle wichtigen Funktionen von BookingService<br>
+ * 
+ *<br><b> getestete Methoden:</b><br>
+ *
+ *<br>- createBooking() - erzeugt BookingObject<br>
+ *- deleteBooking() - löscht BookingObject <br>
+ *- printBooking() - gibt Informationen über Bookingobjekt zurück
+ *
+ *
+ * 
+ *
+ */
+
 public class BookingServiceTest {
 	
 	private LanguageType languageType;

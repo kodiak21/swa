@@ -5,6 +5,19 @@ import model.LanguageType;
 import model.Person;
 import view.EnterPasswordAuthentificationView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: EnterPasswordAuthentificationView<br>
+ * 
+ * <br>
+ * <b>EnterPasswordAuthentificationAction:</b> Abfrage des Passworts bei Option USERNAME<br>
+ * 
+ * 
+ * 
+ * 
+ * 
+ *
+ */
+
 public class EnterPasswordAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;

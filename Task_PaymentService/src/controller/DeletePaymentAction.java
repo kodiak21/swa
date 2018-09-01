@@ -7,6 +7,17 @@ import model.LanguageType;
 import model.PaymentService;
 import view.QuestionDeletePaymentView;
 
+/**<b> Übergeordneter Service</b>: PaymentService<br>
+ * 
+ * <br>
+ * <b>DeletePaymentAction:</b> Ein Paymentobjekt wird nach Anfrage gelöscht
+ * 
+ * @param answer - Kundenauswahl
+ * 
+ * 
+ *
+ */
+
 public class DeletePaymentAction implements PaymentServiceAction {
 
 	@Override

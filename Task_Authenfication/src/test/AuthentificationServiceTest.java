@@ -17,6 +17,22 @@ import model.Person;
 import model.PersonType;
 import model.UserFactory;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * 
+ * <br>
+ * <b>AuthentificationServiceTest:</b> Testet alle wichtigen Funktionen von AuthentificationService<br>
+ * 
+ *<br><b> getestete Methoden:</b><br>
+ *
+ *<br>- createAuthentificationStrategy() - erzeugt AuthentificationStrategy<br>
+ *- deleteAuthentificationStrategy() - löscht AutehntificationStrategy <br>
+ *- authentificateSubject() - gibt Informationen über Authentificationstatus zurück
+ *
+ *
+ * 
+ *
+ */
+
 public class AuthentificationServiceTest {
 
 	private Person person;

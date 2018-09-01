@@ -6,6 +6,15 @@ import model.LanguageType;
 import model.Person;
 import view.ConfirmAuthentificationView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: ConfirmAuthentificationView<br>
+ * <br>
+ * <b>ConfirmAuthentificationAction:</b> Bestätigung der gewählten Authentification<br>
+ * 
+ * 
+ *
+ */
+
 public class ConfirmAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;

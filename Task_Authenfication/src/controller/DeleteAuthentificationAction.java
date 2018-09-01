@@ -5,6 +5,16 @@ import model.LanguageType;
 import model.Person;
 import view.QuestionConfirmView;
 
+/**<b> Übergeordneter Service</b>: AuthentificationService<br>
+ * <b> verbundene Views</b>: QuestionConfirmView<br>
+ * <br>
+ * <b>DeleteAuthentificationAction:</b> Abfrage ob Auswahl des Kunden korrekt ist<br>
+ * 
+ * 
+ * 
+ *
+ */
+
 public class DeleteAuthentificationAction implements AuthentificationServiceAction {
 
 	Person person;

@@ -9,6 +9,15 @@ import model.equipment.TopBox;
 import model.resource.Resource;
 import view.AskNumberChildSeatView;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * <b> verbundene Views</b>: AskNumberChildSeatView<br>
+ * <br>
+ * <b>AskNumberChildSeatAction:</b> Abfrage wie viele Kindersitze der Kunde bestellen möchte<br> 
+ * 
+ * 
+ *
+ */
+
 public class AskNumberChildSeatAction implements ResourceServiceAction {
 
 	LanguageType languageType;

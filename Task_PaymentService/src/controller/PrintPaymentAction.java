@@ -4,6 +4,18 @@ import model.LanguageType;
 import model.PaymentService;
 import view.PrintPaymentView;
 
+/**<b> Übergeordneter Service</b>: PaymentService<br>
+ * <b> verbundene Views</b>: PrintPaymentView<br>
+ * <br>
+ * <b>PrintPaymentAction:</b> Informationen des jeweiligen Payments<br>
+ * 
+ * 
+ * 
+ * 
+ * 
+ *
+ */
+
 public class PrintPaymentAction implements PaymentServiceAction {
 
 	@Override

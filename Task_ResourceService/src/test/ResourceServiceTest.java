@@ -18,6 +18,23 @@ import model.equipment.TopBox;
 import model.resource.Car;
 import model.resource.Resource;
 
+/**<b> Übergeordneter Service</b>: ResourceService<br>
+ * 
+ * <br>
+ * <b>ResourceServiceTest:</b> Testet alle wichtigen Funktionen von ResourceService<br>
+ * 
+ *<br><b> getestete Methoden:</b><br>
+ *
+ *<br>- createCarResource() - erzeugt Auto Objekt<br>
+ *- createTopBoxResource() - erzeugt Dachträger Objekt <br>
+ *- createChildSeatResource() - erzeugt Kindersitz Objekt<br>
+ *- deleteResource() - löscht Objekte<br>
+ *- calculateChildSeatPrice() - berechnet Preis für mehrere Kindersitz Objekte<br>
+ *- calculateOrderPrice() - berechnet Preis der Kundenbestellung
+ *
+ * 
+ *
+ */
 class ResourceServiceTest {
 
 	private Resource carResource;
