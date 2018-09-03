@@ -1,5 +1,14 @@
 package controller;
 
+import actions.AskPasswordAuthentificationAction;
+import actions.AuthentificationServiceAction;
+import actions.ConfirmAuthentificationAction;
+import actions.CreateAuthentificationAction;
+import actions.DeleteAuthentificationAction;
+import actions.EnterPasswordAuthentificationAction;
+import actions.FareWellAuthentificationAction;
+import actions.PrintAuthentificationAction;
+import actions.SetPasswordAuthentificationAction;
 import model.AuthentificationService;
 import model.Person;
 
