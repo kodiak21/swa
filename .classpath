@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="Task_Authenfication/src"/>
 	<classpathentry kind="src" path="Task_BookingService/src"/>
 	<classpathentry kind="src" path="Task_OrganisationService/src"/>
 	<classpathentry kind="src" path="Task_PaymentService/src"/>
@@ -9,6 +8,7 @@
 	<classpathentry kind="src" path="Task_ResourceService/src"/>
 	<classpathentry kind="src" path="Task_StatisticService/src"/>
 	<classpathentry kind="src" path="CarReservationController"/>
+	<classpathentry kind="src" path="Task_AuthentificationService/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="Task_Authenfication/bin"/>
 </classpath>
