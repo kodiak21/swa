@@ -9,7 +9,7 @@ public class QuestionPersonTypeView {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String answer = null;
 		
-		System.out.println("\tWo sollen wir Sie ansprechen?");
+		System.out.println("\tWo sollen wir Sie einteilen?");
 		System.out.println("1: Natuerliche Person");
 		System.out.println("2: Juristische Person");
 		try {

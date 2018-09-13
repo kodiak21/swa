@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import controller.BookingServiceController;
 import model.Booking;
 import model.BookingBuilderGerman;
-import model.BookingHeaderGerman;
 import model.BookingService;
 import model.CarBrandType;
 import model.LanguageType;

@@ -2,8 +2,6 @@ package model;
 
 import java.math.BigDecimal;
 
-import model.resource.Resource;
-
 public interface BookingBuilder {
 		
 	Booking build();
